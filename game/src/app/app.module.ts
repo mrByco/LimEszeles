@@ -7,20 +7,36 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { LoginWrapper } from './components/login-wrapper/login-wrapper.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuBackgroundComponent } from './menu-background/menu-background.component';
+import {AuthService} from "./services/auth.service";
+import {FormsModule} from "@angular/forms";
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuScreenComponent } from './screens/menu-screen/menu-screen.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LobbyScreenComponent } from './screens/lobby-screen/lobby-screen.component';
+import {MatRippleModule} from "@angular/material/core";
+import { BigButtonComponent } from './generic/big-button/big-button.component';
+import {LobbyService} from "./services/lobby.service";
+import { LobbyComponent } from './components/lobby/lobby.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginScreenComponent }, // This route maps '/login' to the LoginScreenComponent
-  { path: '**', component: LoginScreenComponent },
+  { path: 'lobby', component: LobbyScreenComponent },
+  { path: '**', component: MenuScreenComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginScreenComponent,
-    MenuBackgroundComponent
+    LoginWrapper,
+    MenuBackgroundComponent,
+    MenuComponent,
+    MenuScreenComponent,
+    LobbyScreenComponent,
+    BigButtonComponent,
+    LobbyComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +44,16 @@ const appRoutes: Routes = [
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    NgbModule
+    NgbModule,
+    FormsModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
+    MatRippleModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    LobbyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

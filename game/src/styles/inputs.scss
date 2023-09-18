@@ -1,0 +1,23 @@
+.input-field {
+  border: 2px solid #4f1596;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  color: #4f1596;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Add additional styles for focus/hover if desired */
+.input-field:focus {
+  outline: none;
+  border-color: #4f1596; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(79, 21, 150, 0.5); /* Add a subtle box shadow on focus */
+}
+
+/* Add styles for disabled input fields */
+.input-field:disabled {
+  background-color: rgba(255, 255, 255, 0.51);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
