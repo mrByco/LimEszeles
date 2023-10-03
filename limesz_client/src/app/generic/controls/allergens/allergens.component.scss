@@ -1,0 +1,11 @@
+.allergen {
+    width: 35px;
+    filter: invert(50%);
+}
+
+@media only screen and (max-width: 800px) {
+    .allergen {
+        width: 20px;
+    }
+
+}

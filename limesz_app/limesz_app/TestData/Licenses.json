@@ -1,0 +1,289 @@
+[{
+  "_id": {
+    "$oid": "6443aaef8916dd16d369c6d2"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682156271458"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679477871458"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711100271458"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443ac828916dd16d369c6d4"
+  },
+  "RestaurantId": "63cb264d271deb35051cabfa",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682156674350"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679478274350"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711100674350"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443b0720373fd9686335f10"
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682157682537"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679479282537"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711101682537"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443b07a0373fd9686335f11"
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682157690119"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679479290119"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711101690119"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443b07e0373fd9686335f12"
+  },
+  "RestaurantId": "641985644e0f5a5a973bd0ec",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682157694468"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679479294468"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711101694468"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443b0830373fd9686335f13"
+  },
+  "RestaurantId": "6438354e1534002629d9a998",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682157699347"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679479299347"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711101699347"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443b0860373fd9686335f14"
+  },
+  "RestaurantId": "643835dd1534002629d9a999",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682157702359"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679479302359"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711101702359"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6443b0880373fd9686335f15"
+  },
+  "RestaurantId": "6438367f1534002629d9a99a",
+  "LicenseType": {
+    "LicenseName": "LICENSES.TRIAL",
+    "LicensePermissions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "GalleryLimit": 20
+  },
+  "GrantedDate": {
+    "$date": {
+      "$numberLong": "1682157704486"
+    }
+  },
+  "ActivatedDate": {
+    "$date": {
+      "$numberLong": "1679479304486"
+    }
+  },
+  "ValidUntil": {
+    "$date": {
+      "$numberLong": "1711101704486"
+    }
+  }
+}]

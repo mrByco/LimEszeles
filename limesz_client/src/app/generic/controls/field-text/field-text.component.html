@@ -1,0 +1,6 @@
+<h5 *ngIf="HeaderText != ''">{{HeaderText}}</h5>
+<input (blur)="OnBlur()" style="width: 100%;" [placeholder]="Placeholder" [type]="IsPassword ? 'password' : 'text'"
+       [(ngModel)]="Value" (input)="OnTextChange($event)" type="text" />
+<ul *ngIf="Validator && ShowErrors" class="align-self-start pt-3" style="min-height: 40px;">
+    <li *ngFor="let error of Errors" style="color: rgb(255, 69, 69);">{{error}}</li>
+</ul>

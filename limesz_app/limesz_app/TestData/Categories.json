@@ -1,0 +1,603 @@
+[{
+  "_id": {
+    "$oid": "63b31d1e4459205ae641dc1c"
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "ImageId": "af1e1430-76b1-45cb-9d61-6871be4fa1bc.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Tészták"
+      },
+      {
+        "Code": "us",
+        "Value": "Pastas"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "tesztak"
+      },
+      {
+        "Code": "us",
+        "Value": "pastas"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63b33f786358ab518aea5827"
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "ImageId": "38cceb3f-c5bb-4697-bb9e-a24dec75fe3d.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Levesek"
+      },
+      {
+        "Code": "us",
+        "Value": "Soups"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "levesek"
+      },
+      {
+        "Code": "us",
+        "Value": "soups"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63b3805a073e58cd4667189b"
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "ImageId": "2635d804-87d5-4231-ac2b-2860af6b82b2.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Pizzák"
+      },
+      {
+        "Code": "us",
+        "Value": "pizzas"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "pizzak"
+      },
+      {
+        "Code": "us",
+        "Value": "pizzas"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63b38238073e58cd4667189c"
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "ImageId": "970fd27d-17e5-4ad1-a99f-0d5c323abf25.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Frissen sűltek"
+      },
+      {
+        "Code": "us",
+        "Value": "gg"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "frissen-sultek"
+      },
+      {
+        "Code": "us",
+        "Value": "gg"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63cb27b3bd69c834f37fe597"
+  },
+  "RestaurantId": "63cb264d271deb35051cabfa",
+  "ImageId": "6b2c7b44-f93e-4f2f-96da-fed3877752a5.",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Kategória"
+      },
+      {
+        "Code": "us",
+        "Value": "Category"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "kategoria"
+      },
+      {
+        "Code": "us",
+        "Value": "category"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63cd95aab170bf3c20004ecd"
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "ImageId": "360af3e3-b5c8-4652-b369-4a3a7d92d16b.",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Halételek"
+      },
+      {
+        "Code": "us",
+        "Value": "Fish"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "haletelek"
+      },
+      {
+        "Code": "us",
+        "Value": "fish"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63cdc480034a7bb94242147f"
+  },
+  "RestaurantId": "63cb264d271deb35051cabfa",
+  "ImageId": "29eb7a7b-4b2a-4f81-92a9-74e1c3b04974.",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Halételek"
+      },
+      {
+        "Code": "us",
+        "Value": "Fishes"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "haletelek"
+      },
+      {
+        "Code": "us",
+        "Value": "fishes"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63cdc4dbb170bf3c20004ece"
+  },
+  "RestaurantId": "63cb264d271deb35051cabfa",
+  "ImageId": "f9c02220-0850-411f-8b92-d96c95e116d0.",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Sushi"
+      },
+      {
+        "Code": "us",
+        "Value": "Sushi"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "sushi"
+      },
+      {
+        "Code": "us",
+        "Value": "sushi"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "63cdc503034a7bb942421480"
+  },
+  "RestaurantId": "63cb264d271deb35051cabfa",
+  "ImageId": "f46297e9-be2a-415b-9816-a56458fafb4d.",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Desszert"
+      },
+      {
+        "Code": "us",
+        "Value": "Dessert"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "desszert"
+      },
+      {
+        "Code": "us",
+        "Value": "dessert"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64195a1f537325284b61933e"
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "ImageId": "fd0f1219-1540-4c53-8042-ae97d1adc7fc.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Hosszú italok"
+      },
+      {
+        "Code": "us",
+        "Value": "Long drinks"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "longs"
+      },
+      {
+        "Code": "us",
+        "Value": "longs"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64195a2d537325284b61933f"
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "ImageId": "c845ca00-dd8d-40eb-b98d-6336957692e8.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Shotok"
+      },
+      {
+        "Code": "us",
+        "Value": "Shots"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "shots"
+      },
+      {
+        "Code": "us",
+        "Value": "shots"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "641987a1537325284b619348"
+  },
+  "RestaurantId": "641985644e0f5a5a973bd0ec",
+  "ImageId": "default.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Vodkák"
+      },
+      {
+        "Code": "us",
+        "Value": "Vodkas"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "vodkak"
+      },
+      {
+        "Code": "us",
+        "Value": "vodka"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "6420531a215a8cf29f0443fd"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "66fd9b6c-f72a-4fd6-a50c-e6978a64c789.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Vodka"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "vodka"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64205321215a8cf29f0443fe"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "10c90ca8-0dda-4695-a852-fa2a1f2d24ef.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Tequila"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "tequila"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64205331215a8cf29f0443ff"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "36aa7f43-67c0-4030-ba44-4595ce74fd3f.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Rum"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "rum"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64205348215a8cf29f044400"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "2d2e37d2-2af4-4bc5-b1b4-9eef27cf6b61.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Prémium"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "premium"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "6420535b215a8cf29f044401"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "52ee042e-ce62-4692-8f1c-78272ffca45d.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Alkohol mentes"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "alkohol-mentes"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64205368215a8cf29f044402"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "e7a0a11e-8043-4d50-ba9a-c8e4ca05ab38.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Wermhutok"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "wermhutok"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "64205381215a8cf29f044403"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "64a0dc70-b0dd-4b7c-903f-bed4bf10510d.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "5db"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "5db"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "642053a4215a8cf29f044404"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "8a06ed8c-066c-4d9e-903d-7087f5790480.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Borok"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "borok"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "642053b8215a8cf29f044405"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "bdf02e7e-e9a8-4d1c-9077-b68305a44aa2.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Pezsgők"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "perzsgok"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "642053d0215a8cf29f044406"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "9584f37a-bc40-4390-9ee3-378e0101019e.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Üdítők"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "uditok"
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "642053e6215a8cf29f044407"
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "ImageId": "f633e5e7-6985-4037-9ae6-0bdbeb98163b.jpeg",
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Nasi"
+      }
+    ]
+  },
+  "Url": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "nasi"
+      }
+    ]
+  }
+}]

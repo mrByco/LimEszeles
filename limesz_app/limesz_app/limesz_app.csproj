@@ -1,0 +1,403 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>6d68d835-3f14-4432-a977-95bef4f0e7a4</UserSecretsId>
+    <Configurations>Debug;Release;Test</Configurations>
+    <RootNamespace>margarita_app</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.14.1" />
+    <PackageReference Include="Geocoding.Core" Version="4.0.1" />
+    <PackageReference Include="Geocoding.Google" Version="4.0.1" />
+    <PackageReference Include="Google.Apis" Version="1.60.0" />
+    <PackageReference Include="Google.Apis.Core" Version="1.60.0" />
+    <PackageReference Include="Google.Cloud.Vision.V1" Version="3.3.0" />
+    <PackageReference Include="GuigleCore" Version="1.1.8" />
+    <PackageReference Include="Lifti.Core" Version="4.0.1" />
+    <PackageReference Include="Mongo2Go" Version="3.1.3" />
+    <PackageReference Include="SendGrid" Version="9.28.1" />
+    <PackageReference Include="SixLabors.Fonts" Version="1.0.0-beta19" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
+    <PackageReference Include="ZXing.Net" Version="0.16.9" />
+    <PackageReference Include="QRCoder" Version="1.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Swashbuckle.AspNetCore" />
+    <None Remove="Services\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Misc\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Microsoft.AspNet.WebApi.Core" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Services\ImageService\" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\celery.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\crustaceans.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\eggs.png" />
+    <None Remove="ClientApp\dist\favicon.ico" />
+    <None Remove="ClientApp\dist\index.html" />
+    <None Remove="ClientApp\dist\runtime.c9ad425530336c6e.js" />
+    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
+    <None Remove="ClientApp\dist\styles.78196cf69b200878.css" />
+    <None Remove="ClientApp\dist\polyfills.d0b8b247fad34cc3.js" />
+    <None Remove="ClientApp\dist\assets\logo-white.png" />
+    <None Remove="ClientApp\dist\assets\test.jpg" />
+    <None Remove="ClientApp\dist\assets\thermalp.png" />
+    <None Remove="ClientApp\dist\assets\languages\languages.csv" />
+    <None Remove="ClientApp\dist\assets\languages\icons\hn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\dm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\fr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\dz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ga.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ph.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ss.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\rw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sd.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\se.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\eh.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\jp.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\hm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\je.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gb.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ru.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\do.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\il.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gp.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\dk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sb.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\py.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\st.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\dj.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gq.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\im.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ke.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gb-nir.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\hk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kp.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\io.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gd.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gs.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sa.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\re.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sv.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\rs.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ge.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\in.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mv.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ma.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\nz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\au.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\by.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ug.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\es-ct.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ye.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ac.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ck.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bo.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\at.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ls.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\nl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ci.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\us.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ta.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\vi.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tv.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\aw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ch.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\no.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mp.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ad.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\as.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bh.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ua.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\yt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\td.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bi.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ar.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ae.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mq.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lb.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\md.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ms.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ag.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cx.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\co.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\vn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\zm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gb-sct.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bj.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\aq.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cy.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\af.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lv.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\om.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ni.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\la.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\me.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mh.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gb-wls.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tj.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\un.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\vu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\wf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\uy.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\za.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\zw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\vc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bq.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ne.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\nr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\np.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ng.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bs.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bd.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\um.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\va.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\uz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\xk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ws.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\th.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ca.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\be.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cv.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ai.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\br.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ly.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\nf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\my.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\nu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\az.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ba.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bv.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\am.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\xx.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ve.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\al.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cd.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\lk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mo.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mx.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\nc.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\na.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\li.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\mm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cefta.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bb.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\vg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\to.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\tn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ao.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\bt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cp.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ax.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\cg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ml.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\jo.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\it.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ic.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gh.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pa.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gb-eng.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\es-ga.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pw.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\de.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ea.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gi.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\fm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kh.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\et.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\fo.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\dg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ec.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sy.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sx.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pt.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\so.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\eu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\jm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\hr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ki.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kz.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ie.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\km.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ir.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gy.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\fj.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ro.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sj.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pf.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\fk.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\eg.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\is.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\id.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ky.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\iq.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\kn.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\hu.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ee.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\er.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\fi.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gm.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\sh.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ps.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pr.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\si.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\pe.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\qa.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\gl.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\es.svg" />
+    <None Remove="ClientApp\dist\assets\languages\icons\ht.svg" />
+    <None Remove="ClientApp\dist\assets\allergens\Erudus Food Allergy Icon Guidelines.pdf" />
+    <None Remove="ClientApp\dist\assets\allergens\allergens.csv" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\molluscs.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\wheat.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\celery.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\crustaceans.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\milk.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\eggs.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\peanut.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\treenut.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\sesame.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\su%3Bphurdioxide.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\soya.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\mustard.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\lupin.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\fish.png" />
+    <None Remove="ClientApp\src\app\api\api-configuration.ts" />
+    <None Remove="ClientApp\src\app\api\api.module.ts" />
+    <None Remove="ClientApp\src\app\api\strict-http-response.ts" />
+    <None Remove="ClientApp\src\app\api\base-service.ts" />
+    <None Remove="ClientApp\src\app\api\request-builder.ts" />
+    <None Remove="ClientApp\src\app\api\models.ts" />
+    <None Remove="ClientApp\src\app\api\services.ts" />
+    <None Remove="ClientApp\src\app\api\models\category.ts" />
+    <None Remove="ClientApp\src\app\api\models\order-state.ts" />
+    <None Remove="ClientApp\src\app\api\models\food.ts" />
+    <None Remove="ClientApp\src\app\api\models\language-string.ts" />
+    <None Remove="ClientApp\src\app\api\models\allergen.ts" />
+    <None Remove="ClientApp\src\app\api\models\registration-data.ts" />
+    <None Remove="ClientApp\src\app\api\models\login-credentials.ts" />
+    <None Remove="ClientApp\src\app\api\models\food-extra.ts" />
+    <None Remove="ClientApp\src\app\api\models\order-item.ts" />
+    <None Remove="ClientApp\src\app\api\models\enabled-restaurant-language.ts" />
+    <None Remove="ClientApp\src\app\api\models\food-size.ts" />
+    <None Remove="ClientApp\src\app\api\models\order-dto.ts" />
+    <None Remove="ClientApp\src\app\api\models\restaurant.ts" />
+    <None Remove="ClientApp\src\app\api\models\food-variation-item.ts" />
+    <None Remove="ClientApp\src\app\api\models\weather-forecast.ts" />
+    <None Remove="ClientApp\src\app\api\models\language-string-item.ts" />
+    <None Remove="ClientApp\src\app\api\models\food-dto.ts" />
+    <None Remove="ClientApp\src\app\api\models\category-dto.ts" />
+    <None Remove="ClientApp\src\app\api\models\food-variation-group.ts" />
+    <None Remove="ClientApp\src\app\api\models\restaurant-dto.ts" />
+    <None Remove="ClientApp\src\app\api\models\order-state-change.ts" />
+    <None Remove="ClientApp\src\app\api\services\category.service.ts" />
+    <None Remove="ClientApp\src\app\api\services\auth.service.ts" />
+    <None Remove="ClientApp\src\app\api\services\order.service.ts" />
+    <None Remove="ClientApp\src\app\api\services\restaurant.service.ts" />
+    <None Remove="ClientApp\src\app\api\services\images.service.ts" />
+    <None Remove="ClientApp\src\app\api\services\foods.service.ts" />
+    <None Remove="ClientApp\src\app\api\services\weather-forecast.service.ts" />
+    <None Remove="ClientApp\dist\polyfills.ade01bc6d83cf9d5.js" />
+    <None Remove="ClientApp\dist\styles.758543ec6fd0abb6.css" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\su%3Bphurdioxide.png" />
+    <None Remove="Microsoft.AspNet.WebApi.WebHost" />
+    <None Remove="ClientApp\dist\styles.5c10164645346532.css" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\su%3Bphurdioxide.png" />
+    <None Remove="ClientApp\dist\assets\allergens\icons\su%3Bphurdioxide.png" />
+    <None Remove="Microsoft.Extensions.Logging.Abstractions" />
+    <None Remove="Misc\Metrics\" />
+    <None Remove="Models\Metrics\" />
+    <None Remove="SixLabors.ImageSharp" />
+    <None Remove="Services\LicenseService\" />
+    <None Remove="Services\ImageGenerationService\" />
+    <None Remove="Services\DiscountService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\limesz_data\limesz_data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestData\" />
+    <Folder Include="Services\ImageService\" />
+    <Folder Include="Models\Metrics\" />
+    <Folder Include="Services\LicenseService\" />
+  </ItemGroup>
+</Project>

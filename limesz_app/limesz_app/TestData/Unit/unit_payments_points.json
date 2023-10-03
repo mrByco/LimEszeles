@@ -1,0 +1,151 @@
+[{
+  "_id": {
+    "$oid": "647783fd5b3df62d747518e0"
+  },
+  "Payment": 9180,
+  "UserId": "63b2f1867629ebecfdb19e6f",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-05-31T17:29:33.459Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "646ca348cf5b390846ebd9cf",
+  "OrderItems": [
+    "dcf7669c-18ba-4e6f-818e-6c3e8fead1b7",
+    "dc14ba8d-7a3b-4fba-942b-8b921bff1c25",
+    "5f8eaf6a-c2eb-463f-8d98-90322c3309c7"
+  ],
+  "PointsGranted": 0,
+  "TotalPointsAfterPayment": 0
+},
+{
+  "_id": {
+    "$oid": "647a2a3bc31a7df35fbaf093"
+  },
+  "Payment": 8810,
+  "UserId": null,
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-02T17:43:23.978Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "646ca348cf5b390846ebd9cf",
+  "OrderItems": [
+    "5b74bb8b-ddc7-4349-bef4-2d7aed5d914d",
+    "e8365b00-f047-47e0-abfc-15f13f905c77",
+    "fc2c3444-62c3-458d-8ccb-4a8e92d535aa"
+  ],
+  "PointsGranted": 0,
+  "TotalPointsAfterPayment": 0
+},
+{
+  "_id": {
+    "$oid": "647a2a77c31a7df35fbaf094"
+  },
+  "Payment": 21110,
+  "UserId": null,
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-02T17:44:23.291Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "646ca31ccf5b390846ebd9ce",
+  "OrderItems": [
+    "3320c847-f087-400f-ae48-9301bde78675",
+    "a7227fa2-d650-40f2-8864-71b54c38737e",
+    "903cd716-4845-440a-bf9e-837025dbbed5",
+    "1d2a5b6f-0d9d-4d1f-b05f-7b948fda4a13"
+  ],
+  "PointsGranted": 0,
+  "TotalPointsAfterPayment": 0
+},
+{
+  "_id": {
+    "$oid": "647a45a2af6384040dd438a9"
+  },
+  "Payment": 2500,
+  "UserId": "63b2f1867629ebecfdb19e6f",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-02T19:40:18.539Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "646ca31ccf5b390846ebd9ce",
+  "OrderItems": [
+    "eb93e48a-6395-4383-ba37-f7031692338b"
+  ],
+  "PointsGranted": 5,
+  "TotalPointsAfterPayment": 5
+},
+{
+  "_id": {
+    "$oid": "6485b259a75e4b9758296ca3"
+  },
+  "Payment": 2630,
+  "UserId": "63b2f1867629ebecfdb19e6f",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-11T11:39:05.734Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "6485b1d5a75e4b9758296ca2",
+  "OrderItems": [
+    "4a8b64a4-29fc-4aaf-b4a9-186265ba264c"
+  ],
+  "PointsGranted": 0,
+  "TotalPointsAfterPayment": 0
+},
+{
+  "_id": {
+    "$oid": "6485b5364b5fd0cb6401ab70"
+  },
+  "Payment": 2500,
+  "UserId": "63b2f1867629ebecfdb19e6f",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-11T11:51:18.529Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "6485b1d5a75e4b9758296ca2",
+  "OrderItems": [
+    "865a2c42-1241-42da-ada8-f9da8fa642e1"
+  ],
+  "PointsGranted": 5,
+  "TotalPointsAfterPayment": 10
+},
+{
+  "_id": {
+    "$oid": "6485b55a4b5fd0cb6401ab71"
+  },
+  "Payment": 5000,
+  "UserId": "63b2f1867629ebecfdb19e6f",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-11T11:51:54.768Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "6485b1d5a75e4b9758296ca2",
+  "OrderItems": [
+    "26344105-4cac-4819-b780-ddfc44396325"
+  ],
+  "PointsGranted": 10,
+  "TotalPointsAfterPayment": 20
+},
+{
+  "_id": {
+    "$oid": "6485b5af4b5fd0cb6401ab72"
+  },
+  "Payment": 2500,
+  "UserId": "63b2f1867629ebecfdb19e6f",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "PaymentCompleted": {
+    "$date": "2023-06-11T11:53:19.339Z"
+  },
+  "PaymentType": "unknown",
+  "TableSession": "6485b1d5a75e4b9758296ca2",
+  "OrderItems": [
+    "f9bbdfc7-96f5-466c-b0e6-afdb1b94e93a"
+  ],
+  "PointsGranted": 5,
+  "TotalPointsAfterPayment": 25
+}]

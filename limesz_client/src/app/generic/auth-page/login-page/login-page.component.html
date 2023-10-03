@@ -1,0 +1,35 @@
+<app-auth-page-layout>
+  <div class="d-flex flex-column">
+    <h3>Login</h3>
+    <hr>
+    <form [formGroup]="loginForm" (keydown.enter)="login()">
+      <div class="d-flex flex-column" style="width: 300px;">
+        <mat-form-field class="m-1" appearance="fill">
+          <mat-label>Email address</mat-label>
+          <input type="email" matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="m-1" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </form>
+    <div>
+      Forget your password? <a class="link"
+         (click)="authPageLayout.navigateWithKeepQueryParams(['request-password-reset'])">Password reset</a>
+    </div>
+    <div>
+      Does not have an account? <a class="link"
+         (click)="authPageLayout.navigateWithKeepQueryParams(['registration'])">Create one</a>
+    </div>
+    <hr>
+    <app-generic-button id="login-button" [class]="'w-100 h-4 font-weight-bold'" [Action]="login">
+      Login
+    </app-generic-button>
+  </div>
+</app-auth-page-layout>

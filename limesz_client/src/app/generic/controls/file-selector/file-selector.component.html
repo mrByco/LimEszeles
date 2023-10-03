@@ -1,0 +1,7 @@
+<input type="file" id="drop" style="display: none;" (change)="onFileChoosen($event)" />
+<label class="drop-area d-flex flex-column justify-content-around" for="drop" (drop)="onFileDropped($event)"
+       (dragover)="onDragOver($event)">
+    <h3>{{"IMG_SELECTOR.DROP_TEXT" | multiLang}}</h3>
+    <hr>
+    <p>{{"IMG_SELECTOR.SELECT_TEXT" | multiLang}}</p>
+</label>

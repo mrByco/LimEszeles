@@ -1,0 +1,7 @@
+{
+  "name": "margarita_app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

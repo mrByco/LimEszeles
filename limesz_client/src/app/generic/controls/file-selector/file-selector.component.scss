@@ -1,0 +1,17 @@
+.drop-area {
+    border: 3px dashed #84b0b5;
+    border-radius: 30px;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    min-height: 200px;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.drop-area h3,
+p {
+    color: rgba(128, 128, 128, 0.661);
+}

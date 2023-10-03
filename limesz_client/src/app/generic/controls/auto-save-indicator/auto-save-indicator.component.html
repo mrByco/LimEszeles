@@ -1,0 +1,13 @@
+<div *ngIf="!autoSaveService.saving; else autoSaveProgress" class="d-flex align-items-center">
+    <div style="height: 20px; margin-right: 5px;">
+        <fa-icon class="save-text" [icon]="faCheck"></fa-icon>
+    </div>
+    <span class="save-text font-italic pl-2 ml-2">Mentve</span>
+</div>
+
+<ng-template #autoSaveProgress>
+    <div class="d-flex align-items-center">
+        <mat-spinner [diameter]="20" [strokeWidth]="3"></mat-spinner>
+        <span class="save-text  ml-2">Mentés...</span>
+    </div>
+</ng-template>

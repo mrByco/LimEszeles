@@ -1,0 +1,7 @@
+<button [ngClass]="class" (click)="CallClick()" [disabled]="isLoading" mat-raised-button [color]="color"
+        [disabled]="disabled">
+  <div class="loader-container"><span *ngIf="isLoading" class="loader"></span></div>
+  <div [ngStyle]="{'opacity': isLoading ? 0 : 1}" class="button-content">
+    <ng-content></ng-content>
+  </div>
+</button>

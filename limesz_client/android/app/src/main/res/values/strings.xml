@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Margareta</string>
+    <string name="title_activity_main">Margareta</string>
+    <string name="package_name">com.margarita_app</string>
+    <string name="custom_url_scheme">com.margarita_app</string>
+</resources>

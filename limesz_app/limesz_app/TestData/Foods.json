@@ -1,0 +1,4118 @@
+[{
+  "_id": {
+    "$oid": "63b325f1124e5593d78f04e0"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Juhtúrós Sztrapacska"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Juhtúrós Sztrapacska\n"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2630
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "nagy"
+          },
+          {
+            "Code": "us",
+            "Value": "big"
+          }
+        ]
+      },
+      "Price": 3460
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Extra juhtúró"
+          }
+        ]
+      },
+      "Price": 250
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Sok szalonna"
+          }
+        ]
+      },
+      "Price": 100
+    }
+  ],
+  "Allergens": [
+    "celery",
+    "eggs",
+    "fish",
+    "lupin",
+    "milk",
+    "su;phurdioxide",
+    "wheat"
+  ],
+  "Image": "1d90e52c-d925-491b-aa06-bb5c8a113263.jpeg",
+  "CategoryIds": [
+    "63b31d1e4459205ae641dc1c"
+  ]
+},{
+  "_id": {
+    "$oid": "63b32616124e5593d78f04e1"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Milánói spagetti"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Milánói spagetti\n"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2630
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "nagy"
+          },
+          {
+            "Code": "us",
+            "Value": "big"
+          }
+        ]
+      },
+      "Price": 3560
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [
+    "wheat",
+    "eggs",
+    "milk"
+  ],
+  "Image": "c88764e9-25e0-4b48-82df-ce9e06cab9a0.jpeg",
+  "CategoryIds": [
+    "63b31d1e4459205ae641dc1c"
+  ]
+},{
+  "_id": {
+    "$oid": "63b3264b124e5593d78f04e2"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Túróscsusza"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Túróscsusza"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2370
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "nagy"
+          },
+          {
+            "Code": "us",
+            "Value": "big"
+          }
+        ]
+      },
+      "Price": 2870
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [
+    "wheat",
+    "eggs",
+    "milk"
+  ],
+  "Image": "c938790f-ea12-40f7-b3af-c1a6bc068d01.jpeg",
+  "CategoryIds": [
+    "63b31d1e4459205ae641dc1c"
+  ]
+},{
+  "_id": {
+    "$oid": "63b382a8073e58cd4667189d"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Natúr csirkemell"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Natúr csirkemell\n"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2550
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "nagy"
+          },
+          {
+            "Code": "us",
+            "Value": "big"
+          }
+        ]
+      },
+      "Price": 3120
+    }
+  ],
+  "FoodVariationGroups": [
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "zöldsaláta"
+              },
+              {
+                "Code": "us",
+                "Value": "zoldsalata"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "rizs"
+              },
+              {
+                "Code": "us",
+                "Value": "rice"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        }
+      ]
+    },
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "tzatzviki öntet"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "fokhagyma öntet"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        }
+      ]
+    }
+  ],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "0427d461-7336-4c6b-ac12-34d075ce300b.jpeg",
+  "CategoryIds": [
+    "63b38238073e58cd4667189c"
+  ]
+},{
+  "_id": {
+    "$oid": "63b38318073e58cd4667189e"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Rántott csirkemell"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Rántott csirkemell\n"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 3140
+    }
+  ],
+  "FoodVariationGroups": [
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "zöldsaláta"
+              },
+              {
+                "Code": "us",
+                "Value": "zoldsaliangol"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "rizs"
+              },
+              {
+                "Code": "us",
+                "Value": "rice"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        }
+      ]
+    }
+  ],
+  "FoodExtras": [],
+  "Allergens": [
+    "wheat",
+    "eggs"
+  ],
+  "Image": "208b25f3-098d-4bec-a9dc-64865f33c285.jpeg",
+  "CategoryIds": [
+    "63b38238073e58cd4667189c"
+  ]
+},{
+  "_id": {
+    "$oid": "63b38371073e58cd4667189f"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Rántott karfiol"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Rántott karfiol\n"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 3140
+    }
+  ],
+  "FoodVariationGroups": [
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "rizzsel és tartárral"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        }
+      ]
+    }
+  ],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "5be503ee-7eb6-44b8-ae14-54f60febd88d.jpeg",
+  "CategoryIds": [
+    "63b38238073e58cd4667189c"
+  ]
+},{
+  "_id": {
+    "$oid": "63b86825ac1893b4cbc51d43"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Magyaros spagetti"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Magyaros spagetti"
+      }
+    ]
+  },
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2500
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "nagy"
+          },
+          {
+            "Code": "us",
+            "Value": "big"
+          }
+        ]
+      },
+      "Price": 0
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [
+    "milk",
+    "fish",
+    "eggs",
+    "su;phurdioxide"
+  ],
+  "Image": "836a43c6-eb85-4888-b5c7-bcabe209ad14.jpeg",
+  "CategoryIds": [
+    "63b31d1e4459205ae641dc1c"
+  ]
+},{
+  "_id": {
+    "$oid": "63ea140b291c6866f8f03594"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Harcsa halászlé"
+      },
+      {
+        "Code": "us",
+        "Value": "Catfish fish soup"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "us",
+        "Value": "Catfish fish soup"
+      },
+      {
+        "Code": "hu",
+        "Value": "Harcsa halászlé"
+      }
+    ]
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "Normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "Közepes"
+          }
+        ]
+      },
+      "Price": 3260
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "Big"
+          },
+          {
+            "Code": "hu",
+            "Value": "Nagy"
+          }
+        ]
+      },
+      "Price": 4300
+    }
+  ],
+  "FoodVariationGroups": [
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "1 szelet kenyér"
+              },
+              {
+                "Code": "us",
+                "Value": "1 slice of bread"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "2 szelet kenyér"
+              },
+              {
+                "Code": "us",
+                "Value": "2 slices of bread"
+              }
+            ]
+          },
+          "PriceModifier": "50"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "3 szeled kenyér"
+              },
+              {
+                "Code": "us",
+                "Value": "3 slices of bread"
+              }
+            ]
+          },
+          "PriceModifier": "100"
+        }
+      ]
+    }
+  ],
+  "FoodExtras": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Csípős"
+          },
+          {
+            "Code": "us",
+            "Value": "Hot"
+          }
+        ]
+      },
+      "Price": 80
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Tejföl"
+          },
+          {
+            "Code": "us",
+            "Value": "Sour cream"
+          }
+        ]
+      },
+      "Price": 0
+    }
+  ],
+  "Allergens": [
+    "fish"
+  ],
+  "Image": "3c110e75-a730-4021-935d-008fc61fd0e3.jpeg",
+  "CategoryIds": [
+    "63cd95aab170bf3c20004ecd",
+    "63cd94bb034a7bb94242147d"
+  ]
+},{
+  "_id": {
+    "$oid": "63ea1565291c6866f8f03595"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Sült hekk"
+      },
+      {
+        "Code": "us",
+        "Value": "Fried fish"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "us",
+        "Value": "Fried fish"
+      },
+      {
+        "Code": "hu",
+        "Value": "Sült hekk"
+      }
+    ]
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "20dkg"
+          },
+          {
+            "Code": "hu",
+            "Value": "20dkg"
+          }
+        ]
+      },
+      "Price": 2990
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "30dkg"
+          },
+          {
+            "Code": "hu",
+            "Value": "30dkg"
+          }
+        ]
+      },
+      "Price": 3250
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "40dkg"
+          },
+          {
+            "Code": "us",
+            "Value": "40dkg"
+          }
+        ]
+      },
+      "Price": 3670
+    }
+  ],
+  "FoodVariationGroups": [
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "Sült krumpli"
+              },
+              {
+                "Code": "us",
+                "Value": "Chips"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "Rízs"
+              },
+              {
+                "Code": "us",
+                "Value": "Rice"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "Kenyér"
+              },
+              {
+                "Code": "us",
+                "Value": "Bread"
+              }
+            ]
+          },
+          "PriceModifier": "0"
+        }
+      ]
+    }
+  ],
+  "FoodExtras": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Uborkasaláta"
+          },
+          {
+            "Code": "us",
+            "Value": "Cucumber salad"
+          }
+        ]
+      },
+      "Price": 540
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "Cabbage salad"
+          },
+          {
+            "Code": "hu",
+            "Value": "Káposzta saláta"
+          }
+        ]
+      },
+      "Price": 570
+    }
+  ],
+  "Allergens": [
+    "fish"
+  ],
+  "Image": "25737d1c-f833-4891-bc04-b1703ca6015d.jpeg",
+  "CategoryIds": [
+    "63cd95aab170bf3c20004ecd",
+    "63cd94feb170bf3c20004ecb"
+  ]
+},{
+  "_id": {
+    "$oid": "63ea1696291c6866f8f03596"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Sült pisztráng"
+      },
+      {
+        "Code": "us",
+        "Value": "Fried river fish"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "us",
+        "Value": "Fried river fish"
+      },
+      {
+        "Code": "hu",
+        "Value": "Sült pisztráng"
+      }
+    ]
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Közepes adag"
+          },
+          {
+            "Code": "us",
+            "Value": "Normal"
+          }
+        ]
+      },
+      "Price": 3150
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Nagy adag"
+          },
+          {
+            "Code": "us",
+            "Value": "Big"
+          }
+        ]
+      },
+      "Price": 3550
+    }
+  ],
+  "FoodVariationGroups": [
+    {
+      "Items": [
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "Rízs"
+              },
+              {
+                "Code": "us",
+                "Value": "Rice"
+              }
+            ]
+          },
+          "PriceModifier": "3150"
+        },
+        {
+          "Name": {
+            "Items": [
+              {
+                "Code": "hu",
+                "Value": "Sült krumpli"
+              },
+              {
+                "Code": "us",
+                "Value": "Chips"
+              }
+            ]
+          },
+          "PriceModifier": "3690"
+        }
+      ]
+    }
+  ],
+  "FoodExtras": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Uborka saláta"
+          },
+          {
+            "Code": "us",
+            "Value": "Cucumber salad"
+          }
+        ]
+      },
+      "Price": 300
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "Káposztasaláta"
+          },
+          {
+            "Code": "us",
+            "Value": "Cabbage salad"
+          }
+        ]
+      },
+      "Price": 400
+    }
+  ],
+  "Allergens": [
+    "fish"
+  ],
+  "Image": "47b91460-0ee9-4cb9-be47-b7839bf04267.jpeg",
+  "CategoryIds": [
+    "63cd95aab170bf3c20004ecd"
+  ]
+},{
+  "_id": {
+    "$oid": "64195b20537325284b619341"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Csapolt sör (Bordosi)"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "3dl"
+          },
+          {
+            "Code": "hu",
+            "Value": "3dl"
+          }
+        ]
+      },
+      "Price": 350
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "5dl"
+          },
+          {
+            "Code": "us",
+            "Value": "5dl"
+          }
+        ]
+      },
+      "Price": 450
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "84296c6d-4727-4460-9328-657d5545c41a.jpeg",
+  "CategoryIds": [
+    "64195a1f537325284b61933e"
+  ]
+},{
+  "_id": {
+    "$oid": "642058a6215a8cf29f04440a"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "BLOODY MARY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "642058c2215a8cf29f04440b"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "SEX ON THE BEACH"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, narancslé, afonyalé, peach tree"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "642058ce215a8cf29f04440c"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "COSMOPOLITAN"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, afonyalé, Triple Sec, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "64205a2d215a8cf29f04440d"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CAIPIROSKA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, barna cukor, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "64205a60215a8cf29f04440e"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CAIPIROSKA KIWI"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, barna cukor, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "64205a83215a8cf29f04440f"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "LAZY AFTERNOON"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, eperszirup, erdei gyiimolcs, lime, szoda"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "64205a9b215a8cf29f044410"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VANILIA OCEAN"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Absolut Vanilia, Kinley Mojito Blue Curacao, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420531a215a8cf29f0443fd"
+  ]
+},{
+  "_id": {
+    "$oid": "64205ab7215a8cf29f044411"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MARGARITA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "El Jimador Blanco, Triple Sec, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205321215a8cf29f0443fe"
+  ]
+},{
+  "_id": {
+    "$oid": "64205acf215a8cf29f044412"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "TEQUILA SUNRISE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "El Jimador Blanco, grenadine szirup, narancslé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205321215a8cf29f0443fe"
+  ]
+},{
+  "_id": {
+    "$oid": "64205be5215a8cf29f044413"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "PURPLE ENERGY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "El Jimador Blanco, Red Bull Cactus, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2400
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205321215a8cf29f0443fe"
+  ]
+},{
+  "_id": {
+    "$oid": "64205c08215a8cf29f044414"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CUBA LIBRE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, Coca Cola, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205c22215a8cf29f044415"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MOJITO"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, menta, lime, cukorszirup, széda"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205c99215a8cf29f044416"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "PINA COLADA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, ananaszlé, kokusz, tejszin"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205cbc215a8cf29f044417"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "DAIQUIRI"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, lime cukorszirup"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2500
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205cc8215a8cf29f044418"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "FROZEN STRAWBERRY DAIQUIRI\t"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, lime, cukor szirup, eper"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205cfd215a8cf29f044419"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CAIPIRINHA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Pitu, barna cukor, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205d14215a8cf29f04441a"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "STRAWBERRY SPRITZ"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Beefeater Pink, eper, citromlé, szoda"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205331215a8cf29f0443ff"
+  ]
+},{
+  "_id": {
+    "$oid": "64205d3c215a8cf29f04441b"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "APEROL SPRITZ"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Aperol, Prosecco, széda"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2950
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205348215a8cf29f044400"
+  ]
+},{
+  "_id": {
+    "$oid": "64205d4f215a8cf29f04441c"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "B52"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Bailey’s, Kahlua Cointreau"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2000
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205348215a8cf29f044400"
+  ]
+},{
+  "_id": {
+    "$oid": "64205d60215a8cf29f04441d"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "LONG ISLAND ICED TEA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, Beefeather El Jimador Blanco Havanna, Triple Sec, lime, Coca Cola"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2950
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205348215a8cf29f044400"
+  ]
+},{
+  "_id": {
+    "$oid": "64205d79215a8cf29f04441e"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MAI THAI"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, Captain Morgan Dark, overproof rum, apricot brandy, mandula szirup, lime, narancslé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2800
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205348215a8cf29f044400"
+  ]
+},{
+  "_id": {
+    "$oid": "64205d8f215a8cf29f04441f"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "HURRICANE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, Captain Morgan Dark, Angostura, passion fruit szirup, grenadine, lime, ananaszlé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "normál"
+          }
+        ]
+      },
+      "Price": 2800
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205348215a8cf29f044400"
+  ]
+},{
+  "_id": {
+    "$oid": "64205e25215a8cf29f044420"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "ZOMBIE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, Captain Morgan Dark, Angostura, passion fruit szirup, grenadine, lime, ananaszlé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2800
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205348215a8cf29f044400"
+  ]
+},{
+  "_id": {
+    "$oid": "6420607c215a8cf29f044421"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VIRGIN MOJITO"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "menta, lime, cukor szirup, széda"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 880
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420535b215a8cf29f044401"
+  ]
+},{
+  "_id": {
+    "$oid": "642060d4215a8cf29f044422"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VIRGIN COLADA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "kokusz szirup, tejszin ananaszlé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1090
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420535b215a8cf29f044401"
+  ]
+},{
+  "_id": {
+    "$oid": "642060f1215a8cf29f044423"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "SAFE SEX ON THE BEACH"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "passion fruit szirup, lime narancslé, ananaszlé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1090
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420535b215a8cf29f044401"
+  ]
+},{
+  "_id": {
+    "$oid": "64206104215a8cf29f044424"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "GYUMOLCS TURMIX"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1090
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420535b215a8cf29f044401"
+  ]
+},{
+  "_id": {
+    "$oid": "64206115215a8cf29f044425"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "IZESITETT LIMONADE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 1090
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "6420535b215a8cf29f044401"
+  ]
+},{
+  "_id": {
+    "$oid": "64206165215a8cf29f044426"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MARTINI BIANCO"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 880
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205368215a8cf29f044402"
+  ]
+},{
+  "_id": {
+    "$oid": "64206192215a8cf29f044427"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MARTINI DRY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 880
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205368215a8cf29f044402"
+  ]
+},{
+  "_id": {
+    "$oid": "642061a9215a8cf29f044428"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "RED BULL SHOT"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, Red Bull"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2180
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205381215a8cf29f044403"
+  ]
+},{
+  "_id": {
+    "$oid": "642061ca215a8cf29f044429"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "BLUE BALL"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, ananaszlé kokusz szirup, Blue Curacao"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2750
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205381215a8cf29f044403"
+  ]
+},{
+  "_id": {
+    "$oid": "642061d9215a8cf29f04442a"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "ORANGE BALL"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Havana, passion fruit szirup narancslé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2290
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205381215a8cf29f044403"
+  ]
+},{
+  "_id": {
+    "$oid": "642061ea215a8cf29f04442b"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "SUNRISE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "El Jimador Blanco, narancslé grenadine szirup"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2290
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205381215a8cf29f044403"
+  ]
+},{
+  "_id": {
+    "$oid": "64206203215a8cf29f04442c"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "KAMIKAZE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, Triple Sec, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2400
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205381215a8cf29f044403"
+  ]
+},{
+  "_id": {
+    "$oid": "64206212215a8cf29f04442d"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "WOO-WOO"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Finlandia, afonyalé, Peach Tree, lime"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          }
+        ]
+      },
+      "Price": 2650
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "64205381215a8cf29f044403"
+  ]
+},{
+  "_id": {
+    "$oid": "6420623c215a8cf29f04442e"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "BODRI SZEKSZARDI ROSE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "rosé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 520
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "64206271215a8cf29f044430"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "PÁTZAY ROSÉ"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "rosé"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 580
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 4350
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "642062a9215a8cf29f044431"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "GYÖRGY VILLA IRSAI OLIVÉR"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "fehérbor"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 520
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3897
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "6420635b215a8cf29f044435"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "FIGULA BALATONSZÖLLŐSI OLASZRIZLING"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 580
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 4350
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "6420637e215a8cf29f044436"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "SZŐKE MUSCAT OTTONEL"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 580
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 4350
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "642063aa215a8cf29f044437"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VYLYAN VILLANYI"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "vörös"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 520
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "642063e3215a8cf29f044438"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "BODRI SZEKSZARDI BIKAVÉR"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 520
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "64206475215a8cf29f044439"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "THUMMERER EGRI TRÉFLI CUVÉE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "vörös"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 750
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 5620
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "642064b2215a8cf29f04443a"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VARGA OLASZRIZLING"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "a ház bora"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 380
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "642064de215a8cf29f04443b"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VARGA MERLOT"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "a ház bora"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 380
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "642064f9215a8cf29f04443c"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VARGA MUSKOTÁLY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "a ház bora"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 380
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "64206511215a8cf29f04443d"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VARGA ROSE SZÁRAZ"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "a ház bora"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 380
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "64206528215a8cf29f04443e"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VARGA CABERNET SAUVIGNON"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "a ház bora"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 380
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "64206538215a8cf29f04443f"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "VARGA ROSE ÉDES"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "a ház bora"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 380
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+},{
+  "_id": {
+    "$oid": "64206574215a8cf29f044440"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "TORLEY ÉDES"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3100
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053b8215a8cf29f044405"
+  ]
+},{
+  "_id": {
+    "$oid": "6420658c215a8cf29f044441"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "TORLEY SZARAZ"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3100
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053b8215a8cf29f044405"
+  ]
+},{
+  "_id": {
+    "$oid": "642065a8215a8cf29f044442"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "GANCIA BRUT"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 5500
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053b8215a8cf29f044405"
+  ]
+},{
+  "_id": {
+    "$oid": "642065b5215a8cf29f044443"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "BOTTEGA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 7700
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053b8215a8cf29f044405"
+  ]
+},{
+  "_id": {
+    "$oid": "642065c7215a8cf29f044444"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CINZANO"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 4400
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053b8215a8cf29f044405"
+  ]
+},{
+  "_id": {
+    "$oid": "642065eb215a8cf29f044445"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MARTINI"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053b8215a8cf29f044405"
+  ]
+},{
+  "_id": {
+    "$oid": "6420660d215a8cf29f044446"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "RED BULL"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "darab"
+          }
+        ]
+      },
+      "Price": 800
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "6420661c215a8cf29f044447"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "COCA COLA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 390
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "64206637215a8cf29f044448"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "COLA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "ZERO"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "doboz"
+          }
+        ]
+      },
+      "Price": 390
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "64206651215a8cf29f044449"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "FANTA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Narancs, bodza-citrom"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "doboz"
+          }
+        ]
+      },
+      "Price": 390
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "6420668a215a8cf29f04444a"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "KINLEY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "Gyömbér, mojito, tonic"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "doboz"
+          }
+        ]
+      },
+      "Price": 390
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "642066b2215a8cf29f04444b"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "SPRITE"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 390
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "642066c3215a8cf29f04444c"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "FUZETEA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 390
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "642066d3215a8cf29f04444d"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CAPPY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "alma, eper, feketeribizli, korte, őszibarack, narancs, meggy"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 420
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "642066ee215a8cf29f04444e"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "NATUR AQUA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "szénsavas/szénsavmentes"
+      }
+    ]
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 270
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "64206735215a8cf29f04444f"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "SZÓDA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 70
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "64206743215a8cf29f044450"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "COCA COLA"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 100
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053d0215a8cf29f044406"
+  ]
+},{
+  "_id": {
+    "$oid": "6420676a215a8cf29f044451"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "ROPI"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "adag"
+          }
+        ]
+      },
+      "Price": 350
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053e6215a8cf29f044407"
+  ]
+},{
+  "_id": {
+    "$oid": "6420677f215a8cf29f044452"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "CHIPS"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "adag"
+          }
+        ]
+      },
+      "Price": 550
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053e6215a8cf29f044407"
+  ]
+},{
+  "_id": {
+    "$oid": "6420678f215a8cf29f044453"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "MOGYORO"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "adag"
+          }
+        ]
+      },
+      "Price": 450
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053e6215a8cf29f044407"
+  ]
+},{
+  "_id": {
+    "$oid": "642069b6215a8cf29f044455"
+  },
+  "Name": {
+    "Items": [
+      {
+        "Code": "hu",
+        "Value": "GYÖRGY VILLA CHARDANNAY"
+      }
+    ]
+  },
+  "Description": {
+    "Items": []
+  },
+  "RestaurantId": "642034feded4f6eb8191fe8a",
+  "Sizes": [
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "us",
+            "Value": "normal"
+          },
+          {
+            "Code": "hu",
+            "Value": "dl"
+          }
+        ]
+      },
+      "Price": 520
+    },
+    {
+      "Name": {
+        "Items": [
+          {
+            "Code": "hu",
+            "Value": "üveg"
+          }
+        ]
+      },
+      "Price": 3900
+    }
+  ],
+  "FoodVariationGroups": [],
+  "FoodExtras": [],
+  "Allergens": [],
+  "Image": "default.jpeg",
+  "CategoryIds": [
+    "642053a4215a8cf29f044404"
+  ]
+}]

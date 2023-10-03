@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "63c0575a007e034382604498"
+  },
+  "InviteGuid": "0b2a7bee-4036-4b58-b272-c6ba65f3fbf2",
+  "UserEmail": "matesszka@gmail.com",
+  "RestaurantId": "63b2f404d332b8744d104a3f",
+  "RolesToAddOnInvite": [
+    "OWNER",
+    "ADMIN"
+  ],
+  "Created": {
+    "$date": {
+      "$numberLong": "1673549658593"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63cb28e238375faa4179564d"
+  },
+  "InviteGuid": "cb052a03-f69f-42c0-9209-559b0f549906",
+  "UserEmail": "berkiviktor10@gmail.com",
+  "RestaurantId": "63cb264d271deb35051cabfa",
+  "RolesToAddOnInvite": [
+    "OWNER",
+    "ADMIN",
+    "DELIVERY"
+  ],
+  "Created": {
+    "$date": {
+      "$numberLong": "1674258658631"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63d169670829c5e933d6d498"
+  },
+  "InviteGuid": "f7f7df00-455a-44db-9657-7fdb630673ef",
+  "UserEmail": "matesszka@gmail.com",
+  "RestaurantId": "63cc45370cd7b13589c5300c",
+  "RolesToAddOnInvite": [
+    "OWNER"
+  ],
+  "Created": {
+    "$date": {
+      "$numberLong": "1674668391701"
+    }
+  }
+}]

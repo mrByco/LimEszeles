@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  margarita_app:
+    image: ${DOCKER_REGISTRY-}margaritaapp
+    build:
+      context: .
+      dockerfile: Dockerfile

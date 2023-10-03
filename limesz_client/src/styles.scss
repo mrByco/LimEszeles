@@ -1,0 +1,205 @@
+@use '@angular/material' as mat;
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/theming';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+
+
+
+@import './app/styles/var.scss';
+
+
+//@include mat-core();
+@include mat.all-component-themes($my-theme);
+
+@import 'ngx-toastr/toastr';
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+:root {
+  --margareta-green: #094804;
+  --margareta-red: #b4291c;
+  --theme-primary-contrast-500: white;
+
+  --theme-primary-contrast-50: white;
+  --theme-primary-contrast-100: white;
+  --theme-primary-contrast-200: white;
+  --theme-primary-contrast-300: white;
+  --theme-primary-contrast-400: white;
+  --theme-primary-contrast-500: white;
+  --theme-primary-contrast-600: white;
+  --theme-primary-contrast-700: white;
+  --theme-primary-contrast-800: white;
+  --theme-primary-contrast-900: white;
+  --theme-primary-contrast-A100: white;
+  --theme-primary-contrast-A200: white;
+  --theme-primary-contrast-A400: white;
+  --theme-primary-contrast-A700: white;
+
+  --ripple-color: rgba(255, 255, 255, 1);
+
+  --phone-bottom-nav-height: 75px;
+}
+
+
+//ANGULAR MATERIAL PRIMARY COLOR BUG WORKOROUND https://github.com/angular/components/issues/26056
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-label-text-color: var(--theme-primary-contrast-500);
+}
+
+.mat-mdc-unelevated-button.mat-accent {
+  --mdc-filled-button-label-text-color: var(--theme-primary-contrast-5000);
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-label-text-color: var(--theme-primary-contrast-500);
+}
+
+.mat-mdc-raised-button.mat-accent {
+  --mdc-protected-button-label-text-color: var(--theme-primary-contrast-500);
+}
+
+.mat-mdc-checkbox.mat-primary {
+  --mdc-checkbox-selected-checkmark-color: var(--theme-primary-contrast-500);
+}
+
+//ANGULAR MATERIAL PRIMARY COLOR BUG WORKOROUND
+
+.mat-ripple-element {
+  background-color: var(--ripple-color) !important; //var(--ripple-color) !important;
+  opacity: 0.2;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.popup-in-anim {
+  opacity: 0;
+  animation: popin 0.5s forwards;
+}
+
+@keyframes popin {
+  0% {
+    transform: scale(0.8) translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+
+
+
+.solid-input-field {
+  margin-left: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 15px;
+  background: #00000015;
+}
+
+.solid-input-field:focus {
+  border: none;
+  outline: none;
+  background: #00000025;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgb(94, 94, 94);
+}
+
+.rounded-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+  display: flex;
+}
+
+.clickable {
+  transition: background 250ms ease-in-out;
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background-color: #00000015;
+}
+
+.image-button {
+  cursor: pointer;
+  transition: opacity 250ms ease-in-out;
+}
+
+.image-button:hover {
+  opacity: 0.65;
+}
+
+.food-img {
+  max-width: 190px;
+  border-radius: 25px;
+}
+
+.action-button {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  border-radius: 25px;
+  background: #FFC107;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s ease-out;
+}
+
+.contrast-text-color {
+  color: var(--theme-primary-contrast-500);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: env(safe-area-inset-top);
+}
+
+ion-tab-bar {
+  margin-bottom: calc(4px + env(safe-area-inset-top));
+}

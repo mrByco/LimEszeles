@@ -1,0 +1,32 @@
+<div class="container d-flex flex-column" style="height: 400px; overflow: auto;">
+
+  <div *ngIf="!imageSourceFile" class="file-input">
+    <mat-tab-group>
+      <mat-tab label="Feltöltés">
+        <div>
+          <p style="color: rgb(172, 172, 172);">A feltöltött tartalom szerzői és személyi jogainak betartásáért, a
+            feltöltő
+            felel.
+          </p>
+          <app-file-selector (onFileSelected)="onFileChanged($event)"></app-file-selector>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div [ngStyle]="{ 'min-height': '200px' }" class="text-center" *ngIf="imageSourceFile">
+    <image-cropper class="fade-in-image" *ngIf="isCropping; else crop" [imageFile]="imageSourceFile"
+                   [maintainAspectRatio]="maintainAspectRatio" [aspectRatio]="imgTargetRatio"
+                   [resizeToWidth]="imgTargetWidth" alignImage="center" [format]="format"
+                   (imageCropped)="cropImg($event)" (loadImageFailed)="imgFailed()">
+    </image-cropper>
+    <ng-template #crop>
+      <div><img class="fade-in-image w-100" [src]="cropImgPreviewBase64" alt="" /></div>
+    </ng-template>
+  </div>
+  <div *ngIf="imageSourceFile" class="my-4 d-flex justify-content-around">
+    <app-generic-button (click)="isCropping = !isCropping">{{ "IMG_SELECTOR.CROP" |
+      multiLang }}</app-generic-button>
+    <app-generic-button [Action]="doUpload" *ngIf="!isCropping">{{ "IMG_SELECTOR.SAVE" |
+      multiLang}}</app-generic-button>
+  </div>
+</div>

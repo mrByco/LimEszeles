@@ -1,0 +1,3 @@
+<img *ngFor="let allergen of allergens" triggers="mouseenter:mouseleave"
+     matTooltip="{{('ALLERGENS.' + allergen) | translate}}" class="allergen"
+     [src]="'../../../assets/allergens/icons/' + allergen +'.png'" [alt]="" />

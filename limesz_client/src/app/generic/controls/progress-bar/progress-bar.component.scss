@@ -1,0 +1,17 @@
+.progress-bar-root {
+  position: relative;
+  background: rgba(0, 200, 83, 0.35);
+  height: 8px;
+  border-radius: 5px;
+  width: 100%;
+}
+.progress-bar-root .progress-indicator {
+  background: rgba(0, 200, 83, 1);
+  position: absolute;
+  left: 0;
+  border-radius: inherit;
+  top: 0;
+  bottom: 0;
+  transition: width 0.8s ease-in-out;
+}
+

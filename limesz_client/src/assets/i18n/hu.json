@@ -1,0 +1,145 @@
+{
+  "TEST": {
+    "HELLO": "szia",
+    "HELLOVALUE": "hello {{value}}"
+  },
+  "MENU": {
+    "LOGOUT": "Kijelentkezés",
+    "ORDER": "Rendelés",
+    "MENU": "Itallap",
+    "ABOUT_US": "Rólunk",
+    "CONTACTS": "Elérhetőségek",
+    "DASHBOARD": "Kezelőpult",
+    "INFO": "Információ",
+    "MORE": "Egyéb",
+    "CHAT": "Chat",
+    "GALLERY": "Galéria",
+    "PROFILE": "Profil"
+  },
+  "GALLERY": {
+    "UPLOAD_NEW": "Feltöltés",
+    "GALLERY_EDIT_TITLE": "Galéria szerkesztése",
+    "STORAGE": "Tárhely"
+  },
+  "IMG_SELECTOR": {
+    "DROP_TEXT": "Húzd ide a képet",
+    "SELECT_TEXT": "Vagy kattints ide feltöltéshez",
+    "CROP": "Kivágás",
+    "SAVE": "MENTÉS"
+  },
+  "ADD_TO_CART": "Kosárba",
+  "IMGUPLOAD_TITLE": "Kép feltöltés",
+  "EDIT_CATEGORIES": {
+    "TITLE": "Kategóriák"
+  },
+  "CART": {
+    "BUY": "Vásárlás",
+    "YOURCART": "Kosarad",
+    "FINALAMOUNT": "Végösszeg:",
+    "EMPTY": "A kosarad üres!",
+    "CART": "Kosár"
+  },
+  "CATEGORIES": {
+    "FOODS_WITHOUT_CATEGORY": ""
+  },
+  "ALLERGENS": {
+    "eggs": "tojás",
+    "celery": "zeller",
+    "crustaceans": "rákfélék",
+    "fish": "halféle",
+    "lupin": "csillagfürt",
+    "milk": "tej",
+    "molluscs": "puhatestű",
+    "mustard": "mustár",
+    "peanut": "földimogyoró",
+    "sesame": "szezám",
+    "soya": "szójabab",
+    "su;phurdioxide": "Kén-dioxid és SO2 -ben kifejezett szulfitok",
+    "treenut": "dió",
+    "wheat": "búza"
+  },
+  "ORDER_STATE": {
+    "RECORDED": "Rögzítve",
+    "ACCEPTED": "Sorban áll",
+    "COOK_IN_PROGRESS": "Készül",
+    "ASSIGNED_FOR_DELIVERY": "Futárhoz rendelve",
+    "DELIVERY_IN_PROGRESS": "Futárnál",
+    "DELIVERED": "Kézbesítve"
+  },
+  "MANAGE_ORDER": {
+    "TITLE": "Rendelés kezelése"
+  },
+  "MONDAY": "Hétfő",
+  "TUESDAY": "Kedd",
+  "WEDNESDAY": "Szerda",
+  "THURSDAY": "Csütörtök",
+  "FRIDAY": "Péntek",
+  "SATURDAY": "Szombat",
+  "SUNDAY": "Vasárnap",
+  "ALERT": {
+    "FOOD_ADDED_TO_CART": "Hozzáadva a kosárhoz"
+  },
+  "METRICS": {
+    "MONTHLY_VIEW": "Havi megtekintések",
+    "MONTHLY_ORDERS": "Havi rendelések",
+    "MONTLY_USERS": "Havi felhasználók",
+    "RETURNING_USERS": "Visszatérő felhasználók",
+    "AVERAGE_ORDER_PRICE": "Átlag rendelési ár",
+    "BEST_CATEGORY": "Legjobb kategória",
+    "DAILY_BEST_CATEGORY": "A nap kategóriája",
+    "DAILY_ORDERS": "Napi rendelések",
+    "DAILY_PAGE_VIEWS": "Napi megtekintések",
+    "AVERAGE_SESSION_TIME": "Átlag oldalon töltött idő",
+    "MONTLY_ORDERS": "Havi rendelések"
+  },
+  "UNKNOWN": "Ismeretlen",
+  "MINUTE": "Perc",
+  "UKNOWN": "Ismeretlen",
+  "INFORMATION": {
+    "OPENING_HOURS": "Nyitvatartási idő"
+  },
+  "PAGETYPE": {
+    "ABOUT_US": "Rólunk",
+    "CONTACTS": "Kapcsolat",
+    "DELIVERY_INFO": "Szállítási információk",
+    "MENU": "Menü",
+    "CUSTOM": "Egyéni"
+  },
+  "PROCESSOR_NAMES": {
+    "_orderCountProcessor": "Rendelések száma",
+    "_bestCategoryProcessor": "Legjobb kategória",
+    "_sessionCountProcessor": "Látogatók száma",
+    "_returningUserProcessor": "Visszatérő felhasználók",
+    "_avgOrderPriceProcessor": "Átlag rendelési ár",
+    "_avgSessionTimePocessor": "Átlag oldalon töltött idő (perc)"
+  },
+  "QR": {
+    "RESTAURANT_CODE": "Éttermi QR kód",
+    "RESTAURANT_CODE_DESCRIPTION": "Általános qr kód ami az étterem oldalára vezet",
+    "DOWNLOAD": "Letöltés",
+    "TABLE_QR_CODES": "Asztali QR kódok",
+    "TABLE_QR_CODES_DESCRIPTION": "Ezek a kódok az asztalokhoz tartoznak, ezekkel használható a rendelés és az asztalfoglalás",
+    "NO_TABLES_IN_SPACE": "Ezen a téren nincsenek asztalok"
+  },
+  "EDIT": {
+    "REORDER_ON": "Sorrend módosítása",
+    "REORDER_OFF": "Sorrend módosítás kikapcsolása",
+    "REORDER_DESCRIPTION": "Húzd odébb az elemeket a sorrend módosításához"
+  },
+  "TABLES": {
+    "TABLESPACES_TITLE": "Terek",
+    "TABLESPACES_DESCRIPTION": "Pl, terasz, belső tér, stb."
+  },
+  "DISCOUNTS": {
+    "TITLE": "Akciók",
+    "DESCRIPTION": "Itt hozhatsz létre, szerkeszthetsz és törölhetsz akciókat"
+  },
+  "PROFILE": {
+    "NO_POINTS": "Sajnos még nincsennek pontjaid ezen a helyen :("
+  },
+  "EDIT_PAGES": "Oldalak szerkesztése",
+  "DELETE": "Törlés",
+  "DESCRIPTION": "Leírás",
+  "CHANGE_PASSWORD": "Jelszóváltoztatás",
+  "DELECE_ACC": "Fiók törlése"
+}

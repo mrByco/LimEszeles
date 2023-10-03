@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "63b2f1867629ebecfdb19e6f"
+  },
+  "Username": "string",
+  "Email": "string",
+  "Password": "48vTzCtyw5I5QZZJYgoNEGIF5Ffu8wFbdT02UeFm///Jwy2Q",
+  "PasswordSalt": {
+    "$binary": {
+      "base64": "48vTzCtyw5I5QZZJYgoNEA==",
+      "subType": "00"
+    }
+  },
+  "LastLogin": {
+    "$date": {
+      "$numberLong": "1672671622811"
+    }
+  },
+  "RegistrationDate": {
+    "$date": {
+      "$numberLong": "1672671622811"
+    }
+  },
+  "EmailVerifyed": false,
+  "AppRoles": [
+    "ADMIN"
+  ]
+},{
+  "_id": {
+    "$oid": "63b4c92308039c3b13c787ab"
+  },
+  "Username": "string2",
+  "Email": "string2",
+  "Password": "mjgqoN4NLh59iSucwY7+QnT2gKuTrS2YnbIB/+0uJePOKfao",
+  "PasswordSalt": {
+    "$binary": {
+      "base64": "mjgqoN4NLh59iSucwY7+Qg==",
+      "subType": "00"
+    }
+  },
+  "LastLogin": {
+    "$date": {
+      "$numberLong": "1672792355385"
+    }
+  },
+  "RegistrationDate": {
+    "$date": {
+      "$numberLong": "1672792355385"
+    }
+  },
+  "EmailVerifyed": false
+},{
+  "_id": {
+    "$oid": "63b7342fe81eea1a33e256ce"
+  },
+  "Username": "test@gmail.com",
+  "Email": "mate",
+  "Password": "2soE2jJRYlF3DFv7f2tOmG/lBMjPGncvnSHYk2AmIWD0nhU/",
+  "PasswordSalt": {
+    "$binary": {
+      "base64": "2soE2jJRYlF3DFv7f2tOmA==",
+      "subType": "00"
+    }
+  },
+  "LastLogin": {
+    "$date": {
+      "$numberLong": "1672950831321"
+    }
+  },
+  "RegistrationDate": {
+    "$date": {
+      "$numberLong": "1672950831321"
+    }
+  },
+  "EmailVerifyed": false
+},{
+  "_id": {
+    "$oid": "63c04b30ce0e282ddecee356"
+  },
+  "Username": "Biszterszky Mátyás",
+  "Email": "matyi0918@gmail.com",
+  "Password": "9SUMMEeeut3qr9OQjhpVlIduFYCdyz20Jfw9Mt39Mktej46j",
+  "PasswordSalt": {
+    "$binary": {
+      "base64": "9SUMMEeeut3qr9OQjhpVlA==",
+      "subType": "00"
+    }
+  },
+  "LastLogin": {
+    "$date": {
+      "$numberLong": "1673546544418"
+    }
+  },
+  "RegistrationDate": {
+    "$date": {
+      "$numberLong": "1673546544418"
+    }
+  },
+  "EmailVerifyed": false,
+  "AppRoles": [
+    "ADMIN"
+  ],
+  "RolesPerRestaurant": [
+    {
+      "RestaurantId": "63cc45370cd7b13589c5300c",
+      "Roles": [
+        "OWNER"
+      ]
+    },
+    {
+      "RestaurantId": "63b2f404d332b8744d104a3f",
+      "Roles": [
+        "ADMIN"
+      ]
+    }
+  ]
+}]

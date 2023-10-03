@@ -1,0 +1,14 @@
+.auth-root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--theme-primary-500);
+    justify-content: center;
+}
+
+.auth-panel {
+    border-radius: 25px;
+    background-color: white;
+    border: solid 1px gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

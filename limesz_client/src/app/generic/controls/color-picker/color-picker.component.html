@@ -1,0 +1,6 @@
+<mat-form-field class="w-100">
+    <mat-label>{{header}}</mat-label>
+    <input matInput [ngxMatColorPicker]="picker" (colorChange)="setColor()" [(ngModel)]="colorObject">
+    <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+    <ngx-mat-color-picker #picker></ngx-mat-color-picker>
+</mat-form-field>

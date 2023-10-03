@@ -1,0 +1,26 @@
+<div [ngClass]="{'hidden': initializing}">
+    <div class="d-flex align-items-center justify-content-between w-100 p-1" style="width: 100%;">
+        <app-generic-button *ngIf="selectedDevice" class="p-1"
+                            (OnClick)="selectedDevice = undefined">{{selectedDevice.label}}</app-generic-button>
+        <div class="d-flex flex-column" *ngIf="!selectedDevice">
+            <button class="m-1" *ngFor="let device of inputDevices" mat-raised-button (click)="selectedDevice = device">
+                {{device.label}}</button>
+        </div>
+        <button mat-raised-button *ngIf="selectedDevice" (click)="startStopScanning()"> {{scannerControls ? "Stop" :
+            "Start"}}</button>
+    </div>
+    <div id="test-area-qr-code-webcam" class="d-flex" style="width: 100%; height: 100%; margin-top: 50px;">
+        <video *ngIf="!notAllowedError" style="max-width: 100%; max-height: 100%; margin: auto;"></video>
+        <h6 class=" text-center" style="margin: 5px; margin-top: 20%;" *ngIf="notAllowedError">Kamera hozzáférés
+            megtagadva!
+            Ellenőrizd a weboldal kamera
+            engedélyeid
+        </h6>
+    </div>
+</div>
+
+<ng-container *ngIf="initializing">
+    <div class="d-flex h-100">
+        <mat-spinner class="m-auto"></mat-spinner>
+    </div>
+</ng-container>

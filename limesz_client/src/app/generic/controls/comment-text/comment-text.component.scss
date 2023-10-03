@@ -1,0 +1,64 @@
+.textarea-container{
+  background: rgb(240, 240, 240);
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-left: 8px;
+    padding-bottom: 0px;
+    width: 100%;
+}
+textarea {
+    border: none;
+    background: none;
+    color: black;
+    font-size: 18px;
+    
+    resize: none;
+    padding-top: 5px;
+    padding-left: 8px;
+    transition: background 500ms;
+}
+
+textarea:focus {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(210, 210, 210);;
+  opacity: 1; /* Firefox */
+  }
+  
+  :-ms-textarea-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(210, 210, 210);;
+  }
+  
+  ::-ms-textarea-placeholder { /* Microsoft Edge */
+    color: rgb(210, 210, 210);;
+  }
+textarea::-webkit-scrollbar {
+    width: 0.5rem;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+emoji-mart{
+  position: absolute;
+  border-radius: 10px;
+  background-color: dark;
+  border: none;
+}
+button{
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+.emoji-button{
+  opacity: 0.5;
+}
+.emoji-button:hover{
+  opacity: 1;
+}

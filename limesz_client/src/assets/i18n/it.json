@@ -1,0 +1,65 @@
+{
+  "ADD_TO_CART": "Aggiungi al carrello",
+  "ALERT": {
+    "FOOD_ADDED_TO_CART": "Aggiunto al carrello"
+  },
+  "ALLERGENS": {
+    "celery": "sedano",
+    "crustaceans": "crostacei",
+    "eggs": "uova",
+    "fish": "pescare",
+    "lupin": "lupino",
+    "milk": "latte",
+    "molluscs": "molluschi",
+    "mustard": "mostarda",
+    "peanut": "arachidi",
+    "sesame": "sesamo",
+    "soya": "soia",
+    "su;phurdioxide": "su;furdiossido",
+    "treenut": "albero di noce",
+    "wheat": "grano"
+  },
+  "CART": {
+    "BUY": "Acquistare",
+    "EMPTY": "Il tuo carrello è vuoto!",
+    "FINALAMOUNT": "Importo finale:",
+    "YOURCART": "Il tuo carrello"
+  },
+  "CATEGORIES": {
+    "FOODS_WITHOUT_CATEGORY": ""
+  },
+  "EDIT_CATEGORIES": {
+    "TITLE": "Categorie"
+  },
+  "FRIDAY": "Venerdì",
+  "IMGUPLOAD_TITLE": "Caricamento immagini",
+  "MANAGE_ORDER": {
+    "TITLE": "Gestisci l'ordine"
+  },
+  "MENU": {
+    "ABOUT_US": "Chi siamo",
+    "CONTACTS": "Contatti",
+    "DASHBOARD": "Pannello di controllo",
+    "LOGOUT": "Disconnettersi",
+    "ORDER": "Ordine",
+    "INFO": "Informazioni sulla consegna"
+  },
+  "MONDAY": "Lunedi",
+  "ORDER_STATE": {
+    "ACCEPTED": "Accettato",
+    "ASSIGNED_FOR_DELIVERY": "Assegnato per la consegna",
+    "COOK_IN_PROGRESS": "Preparazione",
+    "DELIVERED": "Consegnato",
+    "DELIVERY_IN_PROGRESS": "Consegna in corso",
+    "RECORDED": "Registrato"
+  },
+  "SATURDAY": "Sabato",
+  "SUNDAY": "Domenica",
+  "TEST": {
+    "HELLO": "Ciao",
+    "HELLOVALUE": "ciao {{valore}}"
+  },
+  "THURSDAY": "Giovedì",
+  "TUESDAY": "martedì",
+  "WEDNESDAY": "Mercoledì"
+}

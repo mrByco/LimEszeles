@@ -1,0 +1,4 @@
+<div class="d-flex search-bar">
+    <input [(ngModel)]="searchValue" (keydown.enter)="search()" type="text">
+    <app-icon-button [icon]="faSearch" color="var(--theme-primary-800)" (click)="search()"></app-icon-button>
+</div>

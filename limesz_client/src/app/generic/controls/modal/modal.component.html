@@ -1,0 +1,18 @@
+<div *ngIf="isVisible" class="modal popup-in-anim" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" [ngClass]="{'fullscreen': options.fullscreen}">
+      <div *ngIf="options.title" class="modal-header" [ngStyle]="{'background': options.backgroundColor}">
+        <h5 class="modal-title">{{options.title | translate}}</h5>
+      </div>
+      <div style="position: absolute; top: 8px; right: 8px; z-index: 5">
+        <app-icon-button (click)=" this.Close()" [icon]="faXmark" [color]="options.defaultColor??'black'"
+                         [ngStyle]="{'color': options.defaultColor}">
+        </app-icon-button>
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+<app-fader [isVisible]="isVisible"></app-fader>

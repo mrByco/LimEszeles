@@ -1,0 +1,21 @@
+<div class="sidebar-root" [ngClass]="{'over': position == 'over', 'left': side == 'left', 'right': side == 'right'}"
+     [ngStyle]="{ width: isOpen ? width : '0', background: background, color: color }">
+  <div class="d-flex justify-content-between align-items-center p-2"
+       [ngStyle]="{ position: 'relative', background: headerBackground, color: headerColor | safe: 'style', height: headerHeight }">
+    <app-icon-button style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%)"
+                     *ngIf="side == 'right'" (click)="close()" size="lg" [icon]="faXmark"
+                     [color]="headerColor"></app-icon-button>
+    <div class="w-100">
+      <h4 class="mb-0" [ngStyle]="{ 'white-space': 'nowrap', 'text-align': 'center', color: headerColor }">{{ title |
+        multiLang }}</h4>
+    </div>
+    <app-icon-button style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%)"
+                     *ngIf="side == 'left'" (click)="close()" size="lg" [icon]="faXmark"
+                     [color]="headerColor"></app-icon-button>
+  </div>
+  <hr class="mt-0 mb-0" *ngIf="title != ''" />
+  <div class="content-root" [ngClass]="{ open: isOpen }" [ngStyle]="{ width: width }">
+    <ng-template appDynamic></ng-template>
+
+  </div>
+</div>

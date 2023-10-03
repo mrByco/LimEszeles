@@ -1,0 +1,65 @@
+{
+  "ADD_TO_CART": "Add to cart",
+  "ALERT": {
+    "FOOD_ADDED_TO_CART": "Added to cart"
+  },
+  "ALLERGENS": {
+    "celery": "celery",
+    "crustaceans": "crustaceans",
+    "eggs": "eggs",
+    "fish": "fish",
+    "lupin": "lupin",
+    "milk": "milk",
+    "molluscs": "molluscs",
+    "mustard": "mustard",
+    "peanut": "peanut",
+    "sesame": "sesame",
+    "soya": "soya",
+    "su;phurdioxide": "su;phurdioxide",
+    "treenut": "treenut",
+    "wheat": "wheat"
+  },
+  "CART": {
+    "BUY": "Buy",
+    "EMPTY": "Your cart is empty!",
+    "FINALAMOUNT": "Final amount:",
+    "YOURCART": "Your cart"
+  },
+  "CATEGORIES": {
+    "FOODS_WITHOUT_CATEGORY": ""
+  },
+  "EDIT_CATEGORIES": {
+    "TITLE": "Categories"
+  },
+  "FRIDAY": "Friday",
+  "IMGUPLOAD_TITLE": "Image upload",
+  "MANAGE_ORDER": {
+    "TITLE": "Manage order"
+  },
+  "MENU": {
+    "ABOUT_US": "About us",
+    "CONTACTS": "Contacts",
+    "DASHBOARD": "Dashboard",
+    "LOGOUT": "Logout",
+    "ORDER": "Order",
+    "INFO": "Delivery inforamtaion"
+  },
+  "MONDAY": "Monday",
+  "ORDER_STATE": {
+    "ACCEPTED": "Accepted",
+    "ASSIGNED_FOR_DELIVERY": "Assigned for delivery",
+    "COOK_IN_PROGRESS": "Preparing",
+    "DELIVERED": "Delivered",
+    "DELIVERY_IN_PROGRESS": "Delivery in progress",
+    "RECORDED": "Recorded"
+  },
+  "SATURDAY": "Saturday",
+  "SUNDAY": "Sunday",
+  "TEST": {
+    "HELLO": "hello",
+    "HELLOVALUE": "hello {{value}}"
+  },
+  "THURSDAY": "Thursday",
+  "TUESDAY": "Thuesday",
+  "WEDNESDAY": "Wednesday"
+}

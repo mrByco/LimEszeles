@@ -1,0 +1,130 @@
+{
+  "TEST": {
+    "HELLO": "hello",
+    "HELLOVALUE": "hello {{value}}"
+  },
+  "MENU": {
+    "LOGOUT": "Logout",
+    "ORDER": "Order",
+    "MENU": "Menu",
+    "ABOUT_US": "About us",
+    "CONTACTS": "Contacts",
+    "DASHBOARD": "Dashboard",
+    "INFO": "Inforamtaion",
+    "MORE": "More",
+    "CHAT": "Chat",
+    "GALLERY": "Gallery"
+  },
+  "ADD_TO_CART": "Add to cart",
+  "IMGUPLOAD_TITLE": "Image upload",
+  "EDIT_CATEGORIES": {
+    "TITLE": "Categories"
+  },
+  "INFORMATION": {
+    "OPENING_HOURS": "Opening hours"
+  },
+  "CART": {
+    "CART": "Cart",
+    "BUY": "Buy",
+    "YOURCART": "Your cart",
+    "FINALAMOUNT": "Final amount:",
+    "EMPTY": "Your cart is empty!"
+  },
+  "CATEGORIES": {
+    "FOODS_WITHOUT_CATEGORY": ""
+  },
+  "ALLERGENS": {
+    "eggs": "eggs",
+    "celery": "celery",
+    "crustaceans": "crustaceans",
+    "fish": "fish",
+    "lupin": "lupin",
+    "milk": "milk",
+    "molluscs": "molluscs",
+    "mustard": "mustard",
+    "peanut": "peanut",
+    "sesame": "sesame",
+    "soya": "soya",
+    "su;phurdioxide": "su;phurdioxide",
+    "treenut": "treenut",
+    "wheat": "wheat"
+  },
+  "ORDER_STATE": {
+    "RECORDED": "Recorded",
+    "ACCEPTED": "Accepted",
+    "COOK_IN_PROGRESS": "Preparing",
+    "ASSIGNED_FOR_DELIVERY": "Assigned for delivery",
+    "DELIVERY_IN_PROGRESS": "Delivery in progress",
+    "DELIVERED": "Delivered"
+  },
+  "MANAGE_ORDER": {
+    "TITLE": "Manage order"
+  },
+  "METRICS": {
+    "DAILY_ORDERS": "Daily orders",
+    "DAILY_BEST_CATEGORY": "Category of the day",
+    "DAILY_PAGE_VIEWS": "Daily views",
+    "RETURNING_USERS": "Returning users",
+    "MONTLY_USERS": "Monthly users",
+    "MONTLY_ORDERS": "Monthly orders",
+    "AVERAGE_ORDER_PRICE": "Average order price",
+    "MONTHLY_VIEW": "Monthly views",
+    "BEST_CATEGORY": "Best category",
+    "AVERAGE_SESSION_TIME": "Average time spent on site",
+    "MONTHLY_ORDERS": "Monthly orders"
+  },
+  "PAGETYPE": {
+    "MENU": "Menu",
+    "ABOUT_US": "About us",
+    "CONTACTS": "Contacts",
+    "DELIVERY_INFO": "Delivery info",
+    "CUSTOM": "Custom"
+  },
+  "EDIT_PAGES": "Edit pages",
+  "UKNOWN": "Uknown",
+  "MONDAY": "Monday",
+  "TUESDAY": "Thuesday",
+  "WEDNESDAY": "Wednesday",
+  "THURSDAY": "Thursday",
+  "FRIDAY": "Friday",
+  "SATURDAY": "Saturday",
+  "SUNDAY": "Sunday",
+  "ALERT": {
+    "FOOD_ADDED_TO_CART": "Added to cart"
+  },
+  "DELETE": "Delete",
+  "DESCRIPTION": "Description",
+  "EDIT": {
+    "REORDER_DESCRIPTION": "Drag the items apart to change the order",
+    "REORDER_OFF": "Turn off order modification",
+    "REORDER_ON": "Change order"
+  },
+  "GALLERY": {
+    "GALLERY_EDIT_TITLE": "Edit gallery",
+    "UPLOAD_NEW": "Upload",
+    "STORAGE": "Storage"
+  },
+  "IMG_SELECTOR": {
+    "CROP": "Crop",
+    "DROP_TEXT": "Drag the image here",
+    "SAVE": "Save",
+    "SELECT_TEXT": "Or click here to upload"
+  },
+  "MINUTE": "Minute",
+  "QR": {
+    "DOWNLOAD": "Download",
+    "RESTAURANT_CODE": "Restaurant qr code",
+    "RESTAURANT_CODE_DESCRIPTION": "General qr code that leads to the restaurant page",
+    "TABLE_QR_CODES": "Table qr codes",
+    "TABLE_QR_CODES_DESCRIPTION": "Qr codes that lead to the restaurant page and automatically select the table",
+    "NO_TABLES_IN_SPACE": "No tables in this space"
+  },
+  "PROFILE": {
+    "NO_POINTS": "You have no points in this restaurant"
+  },
+  "TABLES": {
+    "TABLESPACES_TITLE": "Table spaces",
+    "TABLESPACES_DESCRIPTION": "Table spaces are used to divide the restaurant into sections. For example, you can create a table space for the bar and another for the restaurant."
+  },
+  "UNKNOWN": "Unknown"
+}

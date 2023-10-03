@@ -1,0 +1,57 @@
+<app-auth-page-layout>
+    <form [formGroup]="registerFormGroup" (keydown.enter)="register()">
+        <div class="d-flex flex-column" style="width: 300px;">
+
+            <h3>Create accounts</h3>
+            <hr>
+
+            <mat-form-field class="m-1" appearance="fill" *ngIf="inviteCode">
+                <mat-label>Invite code</mat-label>
+                <input matInput formControlName="inviteCode">
+            </mat-form-field>
+
+            <mat-form-field class="m-1" appearance="fill">
+                <mat-label>E-mail address</mat-label>
+                <input type="email" matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="m-1" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input type="name" matInput formControlName="name">
+            </mat-form-field>
+            <ng-container formGroupName="passwords">
+                <mat-form-field class="m-1" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field class="m-1" appearance="fill">
+                    <mat-label>Confirm password</mat-label>
+                    <input [type]="hidePasswordAgain ? 'password' : 'text'" matInput formControlName="passwordAgain">
+                    <button mat-icon-button matSuffix (click)="hidePasswordAgain = !hidePasswordAgain"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordAgain">
+                        <mat-icon>{{hidePasswordAgain ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </ng-container>
+          <mat-checkbox formControlName="termsAccepted">
+            I agree to the <a class="link" href="https://about.margareta.app/assets/terms-of-use.html" target="_blank">Terms of Use</a>
+          </mat-checkbox>
+            <div>
+                Aleady have an account? <a class="link"
+                   (click)="authPageLayout.navigateWithKeepQueryParams(['login'])">Login</a>
+            </div>
+            <ul *ngIf="!this.passwordsMatch()">
+                <li style="color: darkred">
+                    {{'Passwords do not match'}}
+                </li>
+            </ul>
+            <hr>
+            <button mat-raised-button color="primary" [disabled]="!registerFormGroup.valid" (click)="register()">
+                Registration
+            </button>
+        </div>
+    </form>
+</app-auth-page-layout>

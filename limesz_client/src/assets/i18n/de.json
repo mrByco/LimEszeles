@@ -1,0 +1,65 @@
+{
+  "ADD_TO_CART": "In den Warenkorb legen",
+  "ALERT": {
+    "FOOD_ADDED_TO_CART": "Zum Warenkorb hinzugefügt"
+  },
+  "ALLERGENS": {
+    "celery": "Sellerie",
+    "crustaceans": "Krebstiere",
+    "eggs": "Eier",
+    "fish": "Fisch",
+    "lupin": "Lupine",
+    "milk": "Milch",
+    "molluscs": "Weichtiere",
+    "mustard": "Senf",
+    "peanut": "Erdnuss",
+    "sesame": "Sesam",
+    "soya": "Soja",
+    "su;phurdioxide": "Schwefeldioxid",
+    "treenut": "Baumnuss",
+    "wheat": "Weizen"
+  },
+  "CART": {
+    "BUY": "Besorgen",
+    "EMPTY": "Ihr Warenkorb ist leer!",
+    "FINALAMOUNT": "Endbetrag:",
+    "YOURCART": "Ihr Einkaufswagen"
+  },
+  "CATEGORIES": {
+    "FOODS_WITHOUT_CATEGORY": ""
+  },
+  "EDIT_CATEGORIES": {
+    "TITLE": "Kategorien"
+  },
+  "FRIDAY": "Freitag",
+  "IMGUPLOAD_TITLE": "Bild hochladen",
+  "MANAGE_ORDER": {
+    "TITLE": "Bestellung verwalten"
+  },
+  "MENU": {
+    "ABOUT_US": "Über uns",
+    "CONTACTS": "Kontakte",
+    "DASHBOARD": "Armaturenbrett",
+    "LOGOUT": "Ausloggen",
+    "ORDER": "Befehl",
+    "INFO": "Lieferinformationen"
+  },
+  "MONDAY": "Montag",
+  "ORDER_STATE": {
+    "ACCEPTED": "Akzeptiert",
+    "ASSIGNED_FOR_DELIVERY": "Zur Lieferung beauftragt",
+    "COOK_IN_PROGRESS": "Vorbereiten",
+    "DELIVERED": "Geliefert",
+    "DELIVERY_IN_PROGRESS": "Lieferung läuft",
+    "RECORDED": "Verzeichnet"
+  },
+  "SATURDAY": "Samstag",
+  "SUNDAY": "Sonntag",
+  "TEST": {
+    "HELLO": "Hallo",
+    "HELLOVALUE": "Hallo {{Wert}}"
+  },
+  "THURSDAY": "Donnerstag",
+  "TUESDAY": "Dienstag",
+  "WEDNESDAY": "Mittwoch"
+}
