@@ -34,6 +34,7 @@ import { BigButtonComponent } from './generic/big-button/big-button.component';
 import { LobbyService } from './services/lobby.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatRippleModule } from '@angular/material/core';
+import { LoginWrapper } from './components/login-wrapper/login-wrapper.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MenuScreenComponent,
     MenuBackgroundComponent,
     MenuComponent,
-    BigButtonComponent
+    BigButtonComponent,
+    LoginWrapper
   ],
   imports: [
     ImageCropperModule,

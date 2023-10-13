@@ -1,8 +1,9 @@
 import {inject, Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs";
-import {Lobby, Ride} from "../../../../game/src/models/game";
-import {AuthService} from "../../../../game/src/app/services/auth.service";
 import {Router} from "@angular/router";
+import { AuthService } from './auth.service';
+import { Ride } from '../ride';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,12 @@ export class RideService {
   private rideRef: any;
 
   private authService = inject(AuthService);
+  private userService = inject(UserService);
 
   private router = inject(Router);
 
   constructor() {
-    this.authService.user$.subscribe((user) => {
+    this.userService.currentUser$.subscribe((user) => {
       if (!user) {
         return;
       }
@@ -31,7 +33,7 @@ export class RideService {
 
   public async startListenToLobbyChanges(id: string) {
     let lobbyHasChanged = id != this.ride$.value?.id;
-    if (!this.authService.user$.value){
+    if (!this.userService.currentUser$.value){
       return;
     }
 
@@ -47,5 +49,4 @@ export class RideService {
     this.rideRef = undefined;
     this.router.navigate(['/']);
   }
-
 }

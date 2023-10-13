@@ -1,9 +1,8 @@
 // login-wrapper.component.ts
 import {Component, inject} from '@angular/core';
-import {AuthService} from "../../../../../game/src/app/services/auth.service";
-import {Auth} from "@angular/fire/auth";
-import firebase from "firebase/compat";
-import User = firebase.User;
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../api/models/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login-wrapper',
@@ -16,41 +15,24 @@ export class LoginWrapper {
   user: User | null = null;
   loading = true;
 
-  constructor(private authService: AuthService) {
-    this.authService.user$.subscribe(user => {
+  constructor(private authService: AuthService, private userService: UserService) {
+    this.userService.currentUser$.subscribe(user => {
       this.user = user;
       this.loading = false;
     });
   }
 
-  loginWithEmailPassword() {
-    this.authService.loginWithEmailPassword(this.email, this.password)
-      .then((userCredential: any) => {
-        // Handle successful login
-      })
-      .catch((error: any) => {
-        // Handle login error
-      });
+  async loginWithEmailPassword() {
+    await this.authService.Login(this.email, this.password);
   }
 
   loginWithGoogle() {
-    this.authService.loginWithGoogle()
-      .then((userCredential: any) => {
-        // Handle successful login
-      })
-      .catch((error: any) => {
-        // Handle login error
-      });
+    // not implemented
+
+    console.error('Not implemented');
   }
 
   loginAnonymously() {
-    this.authService.loginAnonymously()
-      .then((userCredential: any) => {
-        console.log(userCredential);
-        // Handle successful login
-      })
-      .catch((error: any) => {
-        // Handle login error
-      });
+    this.authService.Logout();
   }
 }

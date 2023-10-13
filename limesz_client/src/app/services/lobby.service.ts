@@ -1,23 +1,26 @@
 import {inject, Injectable} from '@angular/core';
-import {Game, Lobby, Ride} from "../../../../game/src/models/game";
-import {AuthService} from "../../../../game/src/app/services/auth.service";
 import {RideService} from "./ride.service";
+import { AuthService } from './auth.service';
+import { Lobby } from '../ride';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LobbyService {
 
+  private rideService = inject(RideService);
+  private userService = inject(UserService);
 
-  constructor(private authService: AuthService, private rideService: RideService) {
+  constructor(private authService: AuthService) {
   }
 
   public async createLobby() {
-    if (!this.authService.user$.value){
+    if (!this.userService.currentUser$.value){
       return;
     }
     await this.leaveLobby();
-    let player = this.authService.getMeAsPlayer();
+    let player = this.userService.getMeAsPlayer();
     let lobby: Lobby = {
       id: this.generateRandomId(5),
       state: "lobby",
@@ -30,12 +33,12 @@ export class LobbyService {
   }
 
   public async leaveLobby() {
-    if (!this.authService.user$.value || !this.rideService.ride$.value){
+    if (!this.userService.currentUser$.value || !this.rideService.ride$.value){
       return;
     }
 
     let players = this.rideService.ride$.value.players;
-    delete players[this.authService.user$.value.uid];
+    delete players[this.userService.currentUser$.value.id];
 
     this.rideService.setListenerNoRide();
   }

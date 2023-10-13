@@ -6,6 +6,7 @@ import { UserProfileDto } from "../api/models";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { UserService as UserApi } from "../api/services";
 import {LoadingService} from "./loading.service";
+import { Player } from '../ride';
 
 @Injectable()
 export class UserService {
@@ -44,5 +45,12 @@ export class UserService {
     this.authService.Logout();
 
 
+  }
+
+  getMeAsPlayer(): Player {
+    return {
+      id: this.currentUser$.value?.id ?? "",
+      name: this.currentUser$.value?.name ?? "",
+    }
   }
 }

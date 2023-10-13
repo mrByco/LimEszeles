@@ -13,6 +13,7 @@ using margarita_app.Services.LicenseService;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 Config.Instance = builder.Configuration.Get<Config>();
 
 // Add services to the container.
