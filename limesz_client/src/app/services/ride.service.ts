@@ -4,17 +4,23 @@ import {Router} from "@angular/router";
 import { AuthService } from './auth.service';
 import { Ride } from '../ride';
 import { UserService } from './user.service';
+import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
+import { environment } from '../../environments/environment';
+import { COMPILER_ERRORS_WITH_GUIDES } from '@angular/compiler-cli/src/ngtsc/diagnostics';
+import * as uuid from 'uuid';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RideService {
 
+  private connectionId = "";
   public ride$: BehaviorSubject<Ride | undefined> = new BehaviorSubject<Ride | undefined>(undefined);
-  private rideRef: any;
 
   private authService = inject(AuthService);
   private userService = inject(UserService);
+
+  private connection: HubConnection | undefined;
 
   private router = inject(Router);
 
@@ -24,11 +30,28 @@ export class RideService {
         return;
       }
 
-      this.initListener();
     });
+    this.initListener();
   }
 
-  initListener() {
+  async initListener() {
+    console.log("Init listener");
+    this.connectionId = uuid.v4();
+    this.connection = new HubConnectionBuilder()
+      .configureLogging(LogLevel.Information)
+      .withUrl(environment.backendUrl + "/ridehub")
+      .build();
+
+    await this.connection.start();
+
+    this.connection.on("rideChanged", (ride) => {
+      ride = ride??undefined;
+      console.log("Hey the ride has changed", ride);
+      this.ride$.next(ride);
+    });
+
+
+    this.connection.send("InitId", this.connectionId);
   }
 
   public async startListenToLobbyChanges(id: string) {
@@ -46,7 +69,7 @@ export class RideService {
 
   public setListenerNoRide() {
     this.ride$.next(undefined);
-    this.rideRef = undefined;
+
     this.router.navigate(['/']);
   }
 }

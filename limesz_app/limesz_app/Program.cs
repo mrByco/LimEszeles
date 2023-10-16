@@ -1,4 +1,5 @@
 using System.Text;
+using margarita_app.Hubs;
 using margarita_app.Misc;
 using margarita_app.Services;
 using margarita_app.Services.EmailService;
@@ -40,6 +41,7 @@ builder.Services.AddSingleton<DocumentFileService>();
 builder.Services.AddSingleton<ILicenseService, LicenseService>();
 builder.Services.AddSingleton<MargaretaStockImageService>();
 builder.Services.AddSingleton<DeletedUserAccountsService>();
+builder.Services.AddSingleton<GameService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
@@ -70,7 +72,6 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 
-builder.Services.AddCors();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -93,6 +94,8 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddAuthorization();
 
+builder.Services.AddSignalR();
+
 
 var app = builder.Build();
 
@@ -114,9 +117,10 @@ if (!app.Environment.IsDevelopment())
 app.UseRouting();
 app.UseCors(builder =>
 {
-    builder.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
+    builder.WithOrigins("http://localhost:7156", "http://localhost:4200")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
 });
 
 app.UseSwagger();
@@ -125,6 +129,13 @@ app.UseSwaggerUI();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseMiddleware<ErrorHandlerMiddleware>();
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<RideHub>("/ridehub");
+});
 
 
 app.MapControllerRoute(
