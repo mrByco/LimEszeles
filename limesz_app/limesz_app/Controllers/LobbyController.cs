@@ -24,10 +24,11 @@ public class LobbyController: ControllerBase
         _gameService.JoinLobby(userName, userId, lobbyId);
     }
     
-    [HttpGet("leave/{lobbyId}/{userId}", Name = nameof(LeaveLobby))]
-    public void LeaveLobby(string lobbyId, string userId)
+    [HttpGet("leave/{connectionToken}", Name = nameof(LeaveLobby))]
+    public void LeaveLobby(string connectionToken)
     {
-        _gameService.RemoveLobby(lobbyId);
+        var userId = _connectionService.GetUserIdByConnectionToken(connectionToken);
+        _gameService.LeaveLobby(userId);
     }
     
     [HttpGet("create/{userName}/{connectionToken}/{userId}", Name = nameof(CreateLobby))]

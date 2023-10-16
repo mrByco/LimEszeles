@@ -27,7 +27,7 @@ public class GameService
             Name = userName
         });
         ride.State = "lobby";
-        this._rides.Add(ride);
+        _rides.Add(ride);
         NotifyRide(ride);
         
         return ride;
@@ -43,13 +43,6 @@ public class GameService
                 .Select(s => s[random.Next(s.Length)])
                 .ToArray());
         return result;
-    }
-
-    public void RemoveLobby(string lobbyId)
-    {
-        var lobbyToRemove = this._rides.Find(l => l.Id == lobbyId);
-        _rides.Remove(lobbyToRemove);
-        NotifyRemoved(lobbyToRemove);
     }
 
     public void JoinLobby(string userName, string userId, string lobbyId)
@@ -69,6 +62,7 @@ public class GameService
     
     public void LeaveLobby(string userId)
     {
+        
         var ride = this._rides.Find(l => l.Players.ContainsKey(userId));
         if (ride == null)
         {
@@ -76,7 +70,12 @@ public class GameService
         }
         ride.Players.Remove(userId);
         NotifyRide(ride);
-        
+        var removedPlayerConnectionId = _connectionService.GetConnectionByUserId(userId);
+        _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
+        if (ride.Players.Count == 0)
+        {
+            _rides.Remove(ride);
+        }
     }
     
     private void NotifyRide(Ride ride)
@@ -86,7 +85,6 @@ public class GameService
         {
             return;
         }
-        
         _rideHub.Clients.Clients(connectionIds).SendAsync("rideChanged", ride);
     }
     

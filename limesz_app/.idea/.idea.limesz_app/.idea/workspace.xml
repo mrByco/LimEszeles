@@ -12,22 +12,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_app/Services/ConnectionService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/helper/get-random-player-name.ts" afterDir="false" />
+    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="Implementing join create leave lobby">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Hubs/RideHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Hubs/RideHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Services/ConnectionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/ConnectionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/api.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/api.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/lobby.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +40,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8fff635151dd30438f23da6aa86deb4cf9e3317aee607c41051513baf395be1/HubEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd11f65f54d252ef0e03e84ce37b5a7d31aeb44ae8c58dc5abd85ca6781c37/Hub.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ccf7d556f33f32855eda1a8557c3c54fe5e11ebec5c4b624ecba94ccc329874/BsonClassMapSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f24bd85261f660b389d4621581f5214327e2a882864d60caafd9a0f4826522/MongoCollectionImpl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f2aed9edefc1fc6ff7d681789ec47d926056a65ad8106e54a16c71fa53313998/ConnectionString.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/Misc/Config.cs" root0="FORCE_HIGHLIGHTING" />
@@ -227,8 +220,16 @@
       <workItem from="1697006770910" duration="1281000" />
       <workItem from="1697009174570" duration="1022000" />
       <workItem from="1697010428008" duration="1046000" />
-      <workItem from="1697013656341" duration="15197000" />
+      <workItem from="1697013656341" duration="16493000" />
     </task>
+    <task id="LOCAL-00001" summary="Implementing join create leave lobby">
+      <created>1697466769448</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697466769448</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +261,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Implementing join create leave lobby" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing join create leave lobby" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -275,6 +278,19 @@
           <line>71</line>
           <properties documentPath="D:\Repos\syce\syce_app\syce_app\Controllers\ItemController.cs" initialLine="71" containingFunctionPresentation="Method 'LinkWebWatchProductByUrl'" />
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs</url>
+          <line>76</line>
+          <properties documentPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" initialLine="75" containingFunctionPresentation="method 'LeaveLobby'">
+            <startOffsets>
+              <option value="2201" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2221" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

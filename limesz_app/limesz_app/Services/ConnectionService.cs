@@ -59,6 +59,16 @@ public class ConnectionService
     {
         return Connections.Find(c => c.UserId == userId)!.ConnectionId;
     }
+
+    public string GetUserIdByConnectionId(string contextConnectionId)
+    {
+        return Connections.Find(c => c.ConnectionId == contextConnectionId).UserId;
+    }
+
+    public string GetUserIdByConnectionToken(string connectionToken)
+    {
+        return Connections.Find(c => c.ConnectionToken == connectionToken)?.UserId;
+    }
 }
 
 
