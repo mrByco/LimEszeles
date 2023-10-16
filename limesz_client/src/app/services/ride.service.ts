@@ -14,7 +14,7 @@ import * as uuid from 'uuid';
 })
 export class RideService {
 
-  private connectionId = "";
+  public connectionToken = "";
   public ride$: BehaviorSubject<Ride | undefined> = new BehaviorSubject<Ride | undefined>(undefined);
 
   private authService = inject(AuthService);
@@ -36,7 +36,7 @@ export class RideService {
 
   async initListener() {
     console.log("Init listener");
-    this.connectionId = uuid.v4();
+    this.connectionToken = uuid.v4();
     this.connection = new HubConnectionBuilder()
       .configureLogging(LogLevel.Information)
       .withUrl(environment.backendUrl + "/ridehub")
@@ -51,7 +51,7 @@ export class RideService {
     });
 
 
-    this.connection.send("InitId", this.connectionId);
+    this.connection.send("InitToken", this.connectionToken);
   }
 
   public async startListenToLobbyChanges(id: string) {

@@ -7,6 +7,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { AuthService } from './services/auth.service';
 import { ImagesService } from './services/images.service';
 import { LicenseService } from './services/license.service';
+import { LobbyService } from './services/lobby.service';
 import { RideService } from './services/ride.service';
 import { UserService } from './services/user.service';
 import { WeatherForecastService } from './services/weather-forecast.service';
@@ -22,6 +23,7 @@ import { WeatherForecastService } from './services/weather-forecast.service';
     AuthService,
     ImagesService,
     LicenseService,
+    LobbyService,
     RideService,
     UserService,
     WeatherForecastService,

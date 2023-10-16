@@ -7,22 +7,47 @@ import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { UserService as UserApi } from "../api/services";
 import {LoadingService} from "./loading.service";
 import { Player } from '../ride';
+import { getRandomPlayerName } from '../helper/get-random-player-name';
 
 @Injectable()
 export class UserService {
 
     public currentUser$: BehaviorSubject<UserProfileDto | undefined> = new BehaviorSubject<UserProfileDto | undefined>(undefined);
     public currentUser: UserProfileDto | undefined = undefined;
+    public get userId(){
+        return this.currentUser?.id ?? localStorage.getItem("anonymous-user-id");
+    }
+
+    public get userName(){
+        return this.currentUser?.name ?? localStorage.getItem("anonymous-user-name");
+    }
 
     constructor(private authService: AuthService, private userApi: UserApi, private loadingService: LoadingService) {
         this.currentUser$.subscribe(user => this.currentUser = user);
         authService.Authenticated$.subscribe(auth => {
             if (!auth) {
                 this.currentUser$.next(undefined);
+                this.AuthenticateAnonymous();
                 return;
             }
             this.RefreshCurrentUser();
         });
+    }
+
+    private AuthenticateAnonymous() {
+      let userId = localStorage.getItem("anonymous-user-id")
+      if (!userId) {
+        userId = "Anonymous_" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        localStorage.setItem("anonymous-user-id", userId);
+      }
+      let userName = localStorage.getItem("anonymous-user-name")
+      if (!userName) {
+        userName = getRandomPlayerName();
+        localStorage.setItem("anonymous-user-name", userName);
+      }
+
+      console.log("Anonymous user id: ", userId);
+      console.log("Anonymous user name: ", userName);
     }
 
     public async RefreshCurrentUser() {
@@ -43,8 +68,6 @@ export class UserService {
   public async deleteUser() {
     await firstValueFrom(this.userApi.userDelete());
     this.authService.Logout();
-
-
   }
 
   getMeAsPlayer(): Player {

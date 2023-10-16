@@ -4,6 +4,7 @@ import { AlertService } from './services/alert.service';
 import { ThemeService } from './services/theme.service';
 import { LoadingService } from './services/loading.service';
 import { RideService } from './services/ride.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
 
   public loadingService = inject(LoadingService);
   public rideService: RideService = inject(RideService);
+  public userService: UserService = inject(UserService);
 
   constructor(themeService: ThemeService, alertService: AlertService, activatedRoute: ActivatedRoute) {
     this.loadingService.addTask(new Promise((resolve: any) => {

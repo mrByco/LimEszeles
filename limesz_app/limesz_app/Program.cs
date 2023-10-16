@@ -41,6 +41,7 @@ builder.Services.AddSingleton<DocumentFileService>();
 builder.Services.AddSingleton<ILicenseService, LicenseService>();
 builder.Services.AddSingleton<MargaretaStockImageService>();
 builder.Services.AddSingleton<DeletedUserAccountsService>();
+builder.Services.AddSingleton<ConnectionService>();
 builder.Services.AddSingleton<GameService>();
 
 builder.Services.AddEndpointsApiExplorer();

@@ -1,5 +1,9 @@
 import {Component, inject} from '@angular/core';
-import {LobbyService} from "../../services/lobby.service";
+import { LobbyService as LobbyApi } from '../../api/services';
+import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { RideService } from '../../services/ride.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +13,10 @@ import {LobbyService} from "../../services/lobby.service";
 export class MenuComponent {
 
   public joinCode: string = '';
-  private lobbyService = inject(LobbyService);
+  private lobbyApi = inject(LobbyApi);
+  private userService = inject(UserService);
+  private rideService: RideService = inject(RideService);
+
 
   forceKeyPressUppercase = (e: any) => {
 
@@ -37,11 +44,11 @@ export class MenuComponent {
     }
   };
 
-  createLobby() {
-    this.lobbyService.createLobby();
+  async createLobby() {
+    await firstValueFrom(this.lobbyApi.createLobby({ userName: this.userService.userName, userId: this.userService.userId, connectionToken: this.rideService.connectionToken }))
   }
 
-  joinLobby() {
-    this.lobbyService.joinLobby(this.joinCode)
+  async joinLobby() {
+    await firstValueFrom(this.lobbyApi.joinLobby({ userName: this.userService.userName, userId: this.userService.userId, connectionToken: this.rideService.connectionToken, lobbyId: this.joinCode }))
   }
 }

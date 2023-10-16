@@ -31,10 +31,11 @@ import { MenuScreenComponent } from './screens/menu-screen/menu-screen.component
 import { MenuBackgroundComponent } from './menu-background/menu-background.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BigButtonComponent } from './generic/big-button/big-button.component';
-import { LobbyService } from './services/lobby.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatRippleModule } from '@angular/material/core';
 import { LoginWrapper } from './components/login-wrapper/login-wrapper.component';
+import { LobbyComponent } from './components/lobby/lobby.component';
+import { LobbyScreenComponent } from './screens/lobby-screen/lobby-screen.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -50,7 +51,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MenuBackgroundComponent,
     MenuComponent,
     BigButtonComponent,
-    LoginWrapper
+    LoginWrapper,
+    LobbyComponent,
+    LobbyScreenComponent,
   ],
   imports: [
     ImageCropperModule,
@@ -98,7 +101,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoadingService,
     AutosaveService,
     UserService,
-    LobbyService
   ],
   bootstrap: [AppComponent]
 })
