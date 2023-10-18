@@ -42,7 +42,7 @@ jobs:
     - name: Deploy Stage
       uses: fjogeleit/http-request-action@v1
       with:
-        url: 'http://161.97.89.88:9000/api/stacks/webhooks/b'
+        url: 'http://161.97.89.88:9000/api/stacks/webhooks/8ca56b5e-76bb-45da-8b18-e0882db91c2c'
         method: 'POST'
         preventFailureOnNoResponse: 'true'
         customHeaders: '{"Content-Type": "application/json"}'
