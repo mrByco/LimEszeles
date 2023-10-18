@@ -8,8 +8,8 @@ EXPOSE 433
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["limesz_app/limesz_app.csproj", "margarita_app/"]
-COPY ["limesz_data/limesz_data.csproj", "margarita_data/"]
+COPY ["limesz_app/limesz_app.csproj", "limesz_app/"]
+COPY ["limesz_data/limesz_data.csproj", "limesz_data/"]
 
 RUN dotnet restore "limesz_app/limesz_app.csproj"
 COPY . .
