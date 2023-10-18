@@ -24,4 +24,3 @@ file_content="export const version = \"$version\";"
 
 echo "$file_content" > src/app/version.ts
 
-./update_ios_version.sh
