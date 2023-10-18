@@ -118,7 +118,7 @@ if (!app.Environment.IsDevelopment())
 app.UseRouting();
 app.UseCors(builder =>
 {
-    builder.WithOrigins("http://localhost:7156", "http://localhost:4200")
+    builder.WithOrigins("http://localhost:7156", "http://localhost:4200", "https://limesz.cookta.me")
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials();
