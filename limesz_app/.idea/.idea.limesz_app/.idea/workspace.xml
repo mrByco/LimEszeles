@@ -12,14 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="Implementing join create leave lobby">
+    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Hubs/RideHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Hubs/RideHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/ConnectionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/ConnectionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +215,7 @@
       <workItem from="1697006770910" duration="1281000" />
       <workItem from="1697009174570" duration="1022000" />
       <workItem from="1697010428008" duration="1046000" />
-      <workItem from="1697013656341" duration="16493000" />
+      <workItem from="1697013656341" duration="16789000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
@@ -278,19 +273,6 @@
           <line>71</line>
           <properties documentPath="D:\Repos\syce\syce_app\syce_app\Controllers\ItemController.cs" initialLine="71" containingFunctionPresentation="Method 'LinkWebWatchProductByUrl'" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs</url>
-          <line>76</line>
-          <properties documentPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" initialLine="75" containingFunctionPresentation="method 'LeaveLobby'">
-            <startOffsets>
-              <option value="2201" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2221" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
