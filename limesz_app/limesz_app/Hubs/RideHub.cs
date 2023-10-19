@@ -28,10 +28,10 @@ public class RideHub: Hub
         Clients.Caller.SendAsync("rideChanged", null);
     }
 
-    public override Task OnDisconnectedAsync(Exception? exception)
+    public override async Task OnDisconnectedAsync(Exception? exception)
     {
         var userId = _connectionService.GetUserIdByConnectionId(Context.ConnectionId);
-        _gameService.LeaveLobby(userId);
-        return base.OnDisconnectedAsync(exception);
+        await _gameService.LeaveLobby(userId);
+        await base.OnDisconnectedAsync(exception);
     }
 }

@@ -1,11 +1,26 @@
 namespace margarita_app.Models;
 
 
-public class Ride
+public abstract class Ride
 {
     public string Id { get; set; }
-    public string State { get; set; }
+    public abstract string State { get; }
     public Dictionary<string, Player> Players { get; set; }
+}
+
+public class Lobby : Ride
+{
+    public override string State => "lobby";
+}
+
+public class Game : Ride
+{
+    public override string State => "game";
+}
+
+public class ScoreScreen : Ride
+{
+    public override string State => "score";
 }
 
 public class Player

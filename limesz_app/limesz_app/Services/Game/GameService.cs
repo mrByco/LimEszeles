@@ -1,6 +1,7 @@
 using margarita_app.Hubs;
 using margarita_app.Models;
 using Microsoft.AspNetCore.SignalR;
+using margarita_app.Misc;
 
 namespace margarita_app.Services;
 
@@ -16,9 +17,9 @@ public class GameService
         _connectionService = connectionService;
     }
     
-    public Ride CrateRide(string userName, string userId)
+    public Ride CreateLobby(string userName, string userId)
     {
-        var ride = new Ride();
+        var ride = new Lobby();
         ride.Id = GenerateRideId();
         ride.Players = new Dictionary<string, Player>();
         ride.Players.Add(userId, new Player()
@@ -26,7 +27,6 @@ public class GameService
             Id = userId,
             Name = userName
         });
-        ride.State = "lobby";
         _rides.Add(ride);
         NotifyRide(ride);
         
@@ -60,7 +60,7 @@ public class GameService
         NotifyRide(ride);
     }
     
-    public void LeaveLobby(string userId)
+    public async Task LeaveLobby(string userId)
     {
         
         var ride = this._rides.Find(l => l.Players.ContainsKey(userId));
@@ -71,10 +71,10 @@ public class GameService
         ride.Players.Remove(userId);
         NotifyRide(ride);
         var removedPlayerConnectionId = _connectionService.GetConnectionByUserId(userId);
-        _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
+        await _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
         if (ride.Players.Count == 0)
         {
-            _rides.Remove(ride);
+            await _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
         }
     }
     
@@ -92,5 +92,26 @@ public class GameService
     {
         var connectionIds = _connectionService.GetConnectionIdsForRide(ride);
         _rideHub.Clients.Clients(connectionIds).SendAsync("rideChanged", null);
+    }
+
+    public async Task StartGame(string userId)
+    {
+        Ride rideToStart = _rides.Find(r => r.Players.ContainsKey(userId));
+        if (rideToStart == null)
+        {
+            throw new Exception("Ride not found");
+        }
+
+        if (rideToStart is Lobby lobby)
+        {
+            Game game = new Game
+            {
+                Players = lobby.Players,
+                Id = lobby.Id,
+            };
+            _rides.Replace(lobby, game);
+            NotifyRide(game);
+        }
+        
     }
 }

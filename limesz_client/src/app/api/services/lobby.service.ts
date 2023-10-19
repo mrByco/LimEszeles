@@ -189,4 +189,55 @@ export class LobbyService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation startGame
+   */
+  static readonly StartGamePath = '/Lobby/start-game/{connectionToken}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `startGame()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  startGame$Response(params: {
+    connectionToken: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, LobbyService.StartGamePath, 'get');
+    if (params) {
+      rb.path('connectionToken', params.connectionToken, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `startGame$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  startGame(params: {
+    connectionToken: string;
+    context?: HttpContext
+  }
+): Observable<void> {
+
+    return this.startGame$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
 }

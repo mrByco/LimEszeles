@@ -2,6 +2,8 @@ import {Component, inject} from '@angular/core';
 import {RideService} from "../../services/ride.service";
 import {LobbyService as LobbyApi} from "../../api/services";
 import { firstValueFrom } from 'rxjs';
+import { Player } from '../../api/models/player';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-lobby',
@@ -12,14 +14,17 @@ export class LobbyComponent {
 
   private rideService = inject(RideService);
   private lobbyApi = inject(LobbyApi);
-  public players: string[] = [];
+  public players: Player[] = [];
   public lobbyId: string = '';
+  public myId: string = inject(UserService).userId;
 
   constructor() {
     this.rideService.ride$.subscribe((ride) => {
-      this.players = Object.keys(ride?.players??[]);
+      this.players = Object.values(ride?.players??[]);
       this.lobbyId = ride?.id??'';
+      console.log(this.players, this.myId);
     });
+    console.log(this.players, this.myId);
   }
 
   public leave(){
@@ -27,4 +32,7 @@ export class LobbyComponent {
     firstValueFrom(this.lobbyApi.leaveLobby({connectionToken: this.rideService.connectionToken}))
   }
 
+  public start() {
+    firstValueFrom(this.lobbyApi.startGame({connectionToken: this.rideService.connectionToken}))
+  }
 }
