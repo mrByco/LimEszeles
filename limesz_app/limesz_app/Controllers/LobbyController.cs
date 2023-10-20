@@ -25,17 +25,23 @@ public class LobbyController: ControllerBase
     }
     
     [HttpGet("leave/{connectionToken}", Name = nameof(LeaveLobby))]
-    public void LeaveLobby(string connectionToken)
+    public async Task LeaveLobby(string connectionToken)
     {
         var userId = _connectionService.GetUserIdByConnectionToken(connectionToken);
-        _gameService.LeaveLobby(userId);
+        await _gameService.LeaveLobby(userId);
     }
     
     [HttpGet("create/{userName}/{connectionToken}/{userId}", Name = nameof(CreateLobby))]
     public void CreateLobby(string userName, string connectionToken, string userId)
     {
         _connectionService.AddUserId(connectionToken, userId);
-        _gameService.CrateRide(userName, userId);
+        _gameService.CreateLobby(userName, userId);
     }
     
+    [HttpGet("start-game/{connectionToken}", Name = nameof(StartGame))]
+    public async Task StartGame(string connectionToken)
+    {
+        var userId = _connectionService.GetUserIdByConnectionToken(connectionToken);
+        await _gameService.StartGame(userId);
+    }
 }

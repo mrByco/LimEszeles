@@ -36,6 +36,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { LoginWrapper } from './components/login-wrapper/login-wrapper.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { LobbyScreenComponent } from './screens/lobby-screen/lobby-screen.component';
+import { GameScreenComponent } from './screens/game-screen/game-screen.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginWrapper,
     LobbyComponent,
     LobbyScreenComponent,
+    GameScreenComponent,
   ],
   imports: [
     ImageCropperModule,

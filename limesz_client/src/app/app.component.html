@@ -5,6 +5,7 @@
         <app-side-bar style="z-index: 50;" side="left" #sidebar></app-side-bar>
         <div class="d-flex flex-column" style="width: 100%; min-height: 100vh">
           <app-lobby-screen *ngIf='rideService.ride$.value && rideService.ride$.value.state == "lobby"'></app-lobby-screen>
+          <app-game-screen *ngIf='rideService.ride$.value && rideService.ride$.value.state == "game"'></app-game-screen>
           <app-menu-screen *ngIf='!rideService.ride$.value'></app-menu-screen>
           <!--<router-outlet></router-outlet>-->
         </div>

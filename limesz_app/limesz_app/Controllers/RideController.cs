@@ -13,7 +13,15 @@ public class RideController: ControllerBase
     [HttpGet("{rideId}")]
     public Ride GetRide(string rideId)
     {
-        return new Ride();
+        return new Lobby();
     }
+
+    [HttpGet("gmae")]
+    public Game GG(string rideId)
+    {
+        return new Game();
+    }
+    
+    
     
 }
