@@ -1,5 +1,5 @@
 
-export type State = 'lobby' | 'inGame' | 'gameOver'
+export type State = 'lobby' | 'game' | 'score'
 
 export interface Ride {
   id: string
@@ -14,11 +14,11 @@ export interface Lobby extends Ride {
 }
 
 export interface Game extends Ride {
-  state: 'inGame'
+  state: 'game'
 }
 
 export interface GameOver extends Ride {
-  state: 'gameOver'
+  state: 'score'
 }
 
 export interface Player {

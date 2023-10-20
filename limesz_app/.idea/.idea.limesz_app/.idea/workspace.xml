@@ -13,22 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_app/Controllers/GameController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/ListExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_app/Models/Card.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/RideController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/RideController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Hubs/RideHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Hubs/RideHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Models/Ride.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Models/Ride.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services/ride.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +217,7 @@
       <workItem from="1697010428008" duration="1046000" />
       <workItem from="1697013656341" duration="16789000" />
       <workItem from="1697699096045" duration="2249000" />
-      <workItem from="1697716962877" duration="3941000" />
+      <workItem from="1697716962877" duration="4146000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
