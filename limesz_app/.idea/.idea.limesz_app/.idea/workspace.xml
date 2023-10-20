@@ -14,13 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services/lobby.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services/lobby.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services/ride.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/appSettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +171,7 @@
       <workItem from="1697013656341" duration="16789000" />
       <workItem from="1697699096045" duration="2249000" />
       <workItem from="1697716962877" duration="4146000" />
-      <workItem from="1697787966305" duration="263000" />
+      <workItem from="1697787966305" duration="324000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
