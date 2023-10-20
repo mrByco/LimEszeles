@@ -1,10 +1,12 @@
 using margarita_app.Models;
+using Microsoft.AspNet.SignalR.Infrastructure;
 
 namespace margarita_app.Services;
 
 public class ConnectionService
 {
-    private List<ConnectionData> Connections { get; set; } = new List<ConnectionData>();
+    private List<ConnectionData> RecentlyDisconnected { get; set; } = new List<ConnectionData>();
+    public List<ConnectionData> Connections { get; set; } = new List<ConnectionData>();
     
     public void RegisterConnection(string connectionId, string connectionToken)
     {
@@ -24,6 +26,45 @@ public class ConnectionService
         }
     }
 
+    public void ConnectionLost(string connectionToken)
+    {
+        var connectionData = Connections.FirstOrDefault(c => c.ConnectionToken == connectionToken);
+        if (connectionData == null)
+        {
+            throw new Exception("Connection not found");
+        }
+        this.Connections.Remove(connectionData);
+        this.RecentlyDisconnected.Add(connectionData);
+    }
+
+    public void Timout(string playerId)
+    {
+        var connectionData = this.Connections.FirstOrDefault(c => c.UserId == playerId);
+        if (connectionData == null)
+        {
+            throw new Exception("Connection not found");
+        }
+        Connections.Remove(connectionData);
+    }
+    
+    public ConnectionData? GetTimeoutConnectionData(string connectionToken)
+    {
+        return this.RecentlyDisconnected.FirstOrDefault(c => c.ConnectionToken == connectionToken);
+    }
+    
+    public ConnectionData ReconnectPlayer(string connectionToken, string newConnectionId)
+    {
+        var connectionData = this.RecentlyDisconnected.FirstOrDefault(c => c.ConnectionToken == connectionToken);
+        if (connectionData == null)
+        {
+            throw new Exception("Connection not found");
+        }
+        connectionData.ConnectionId = newConnectionId;
+        this.RecentlyDisconnected.Remove(connectionData);
+        this.Connections.Add(connectionData);
+        return connectionData;
+    }
+
     public void AddUserId(string connectionToken, string userId)
     {
         var connection = this.Connections.FirstOrDefault(c => c.ConnectionToken == connectionToken);
@@ -40,7 +81,7 @@ public class ConnectionService
         return this.Connections.Find(c => c.UserId == userId)!.ConnectionId;
     }
 
-    private class ConnectionData
+    public class ConnectionData
     {
         public string ConnectionId { get; set; }
         public string ConnectionToken { get; set; }

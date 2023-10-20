@@ -114,4 +114,9 @@ public class GameService
         }
         
     }
+
+    public Ride? ReconnectPlayer(string userId)
+    {
+        return _rides.FirstOrDefault(r => r.Players.ContainsKey(userId));
+    }
 }

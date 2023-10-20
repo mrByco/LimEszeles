@@ -58,7 +58,10 @@ export class RideService {
 
   async initListener() {
     console.log("Init listener");
-    this.connectionToken = uuid.v4();
+
+    this.connectionToken = localStorage.getItem("connectionToken")??uuid.v4();
+    localStorage.setItem("connectionToken", this.connectionToken)
+
     this.connection = new HubConnectionBuilder()
       .configureLogging(LogLevel.Information)
       .withUrl(environment.backendUrl + "/ridehub")
