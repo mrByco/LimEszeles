@@ -33,6 +33,6 @@ export class LobbyComponent {
   }
 
   public start() {
-    firstValueFrom(this.lobbyApi.startGame({connectionToken: this.rideService.connectionToken}))
+    firstValueFrom(this.lobbyApi.star({connectionToken: this.rideService.connectionToken}))
   }
 }
