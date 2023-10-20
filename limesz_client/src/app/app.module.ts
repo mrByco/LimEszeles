@@ -37,6 +37,8 @@ import { LoginWrapper } from './components/login-wrapper/login-wrapper.component
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { LobbyScreenComponent } from './screens/lobby-screen/lobby-screen.component';
 import { GameScreenComponent } from './screens/game-screen/game-screen.component';
+import { SelfDeckComponent } from './components/self-deck/self-deck.component';
+import { UnoCardComponent } from './components/play-card/uno-card.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -56,6 +58,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LobbyComponent,
     LobbyScreenComponent,
     GameScreenComponent,
+    SelfDeckComponent,
+    UnoCardComponent,
   ],
   imports: [
     ImageCropperModule,
@@ -85,8 +89,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-left',
     }),
-    MatTabsModule,
     MatRippleModule,
+    MatTabsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

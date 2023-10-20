@@ -1,4 +1,5 @@
 export { AuthResult } from './models/auth-result';
+export { Card } from './models/card';
 export { CompanyRoles } from './models/company-roles';
 export { Game } from './models/game';
 export { LicenseInfo } from './models/license-info';

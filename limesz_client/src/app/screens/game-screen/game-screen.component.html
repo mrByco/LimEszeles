@@ -1,5 +1,8 @@
-<div class='position-relative' style='width: 100vw; height: 100vh; background: #2a0c55'>
+<div class='position-relative' style='width: 100vw; height: 100vh; background: #2a0c55; overflow: hidden'>
   <div class='position-absolute' style='right: 25px; top: 25px'>
     <app-icon-button [icon]='faArrowRightFromBracket' color='white' (click)='exit()'></app-icon-button>
+  </div>
+  <div class='position-absolute' style='bottom: 20px; left: 50%; transform: translateX(-50%)'>
+    <app-self-deck></app-self-deck>
   </div>
 </div>

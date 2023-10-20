@@ -10,7 +10,7 @@ namespace margarita_app.Roles
         {
             { ERestaurantRole.OWNER,  Enum.GetValues<Permission>().Where(p => p != Permission.internal_use_only).ToList() },
 
-            { ERestaurantRole.ADMIN, new List<Permission> { Permission.dashboard, Permission.edit_menu , Permission.edit_restaurant, Permission.read_orders, Permission.write_orders, Permission.read_employees} }
+            { ERestaurantRole.ADMIN, new List<Permission> { Permission.dashboard, Permission.edit_menu , Permission.edit_restaurant, Permission.read_orders, Permission.write_orders, Permission.read_employees } }
 		};
 
 		private static bool checkRoleHasPermission(ERestaurantRole role, Permission permission)

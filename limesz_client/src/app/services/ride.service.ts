@@ -9,6 +9,9 @@ import { environment } from '../../environments/environment';
 import * as uuid from 'uuid';
 import { LobbyService as LobbyApi } from '../api/services/lobby.service';
 import { AlertService } from './alert.service';
+import { ModalService } from './modal.service';
+import { LoginPageComponent } from '../generic/auth-page/login-page/login-page.component';
+import { SidebarService } from './sidebar-service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +25,7 @@ export class RideService {
   private userService = inject(UserService);
   private lobbyApi = inject(LobbyApi);
   private alertService = inject(AlertService);
+  private modalService = inject(SidebarService);
 
   private connection: HubConnection | undefined;
 
@@ -34,6 +38,7 @@ export class RideService {
       }
 
     });
+
     /*this.ride$.next({
       "id": "Y694U",
       "state": "lobby",
@@ -56,10 +61,15 @@ export class RideService {
         },
       }
     })*/
+
     this.initListener();
   }
 
   async initListener() {
+
+    this.modalService.show(LoginPageComponent, {title: "Login"});
+
+
     console.log("Init listener");
 
     this.connectionToken = localStorage.getItem("connectionToken")??uuid.v4();

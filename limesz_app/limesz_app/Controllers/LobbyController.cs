@@ -1,4 +1,6 @@
+using margarita_app.Misc;
 using margarita_app.Services;
+using margarita_data.Roles;
 using Microsoft.AspNet.SignalR.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
