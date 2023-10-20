@@ -75,6 +75,7 @@ public class GameService
         if (ride.Players.Count == 0)
         {
             await _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
+            _rides.Remove(ride);
         }
     }
     
