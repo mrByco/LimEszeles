@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { RideService } from '../../services/ride.service';
 
 @Component({
   selector: 'app-game-screen',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class GameScreenComponent {
 
+  protected readonly faArrowRightFromBracket = faArrowRightFromBracket;
+  private readonly rideService: RideService = inject(RideService);
+
+  exit() {
+    this.rideService.leave();
+  }
 }

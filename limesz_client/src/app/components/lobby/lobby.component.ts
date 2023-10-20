@@ -13,10 +13,10 @@ import { UserService } from '../../services/user.service';
 export class LobbyComponent {
 
   private rideService = inject(RideService);
-  private lobbyApi = inject(LobbyApi);
   public players: Player[] = [];
   public lobbyId: string = '';
   public myId: string = inject(UserService).userId;
+  private readonly lobbyApi = inject(LobbyApi);
 
   constructor() {
     this.rideService.ride$.subscribe((ride) => {
@@ -27,12 +27,11 @@ export class LobbyComponent {
     console.log(this.players, this.myId);
   }
 
-  public leave(){
-    console.log("Leave");
-    firstValueFrom(this.lobbyApi.leaveLobby({connectionToken: this.rideService.connectionToken}))
-  }
-
   public start() {
     firstValueFrom(this.lobbyApi.startGame({connectionToken: this.rideService.connectionToken}))
+  }
+
+  leave() {
+    this.rideService.leave();
   }
 }
