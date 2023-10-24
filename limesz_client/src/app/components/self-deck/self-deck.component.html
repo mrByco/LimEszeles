@@ -6,6 +6,7 @@
       'transform': 'rotate(' + (i / (cards.length - 1) * 30 - 15) + 'deg) translateY(' + Math.abs(i - (cards.length - 1) / 2) * 10 + 'px)',
       'transform-origin': 'bottom center'
     }"
+    class='card-container'
     style="height: 250px; width: 160px; background: white; border-radius: 8px; border: solid 1px black; margin-left: -25px; overflow: hidden"
   >
     <app-uno-card [cardColor]='card.color' textColor='black' [cardContent]='card.displayedValue'></app-uno-card>

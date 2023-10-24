@@ -17,6 +17,7 @@ public class Game : Ride
 {
     public override string State => "game";
     public List<Card> Deck { get; set; }
+    public Dictionary<string, List<Card>> CardsByPlayerId { get; set; }
 }
 
 public class ScoreScreen : Ride

@@ -14,19 +14,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Services/CardGame/CardGame.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Services/CardGame/Deck.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Services/CardGame/LimeszUno.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/LobbyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Models/Ride.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Models/Ride.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/Models/LicenseInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Models/LicenseInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/Roles/RestaurantRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Roles/RestaurantRoles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-screen/game-screen.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-screen/game-screen.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-screen/game-screen.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-screen/game-screen.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,24 +32,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dba5c270df9246b0bd419d94fd232bdb54b88/b1/122ac2b3/IHubContext`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/134622bcf8ad016d3faf7776eb0457b76a5798c537458aa82651ab2cee6e1/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f3e6bfc214439fa30f166129cdd87564821bb95bd98bf795db8c3e13848093/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/46ad6f59a630ee57fde5622ad04e8936dcef996eb216e1050e3652a28b1677/Hub`T.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/657505f1d9e6446cbe97335620600ce983680/1b/9249cd3e/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4ce06f9c8947828110e816fc4388205e5d1e9487d885b35295e1614e223de32/ObjectId.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51876386fdbc9f7d023118d9aa41d5f65b65fce13745eed5cab5ae88f5cd3/Ensure.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/739f57b74be83a174b032b6d0fca21926f93bd7db71741e09d74984a147a3d/Hub.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8fff635151dd30438f23da6aa86deb4cf9e3317aee607c41051513baf395be1/HubEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd11f65f54d252ef0e03e84ce37b5a7d31aeb44ae8c58dc5abd85ca6781c37/Hub.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ccf7d556f33f32855eda1a8557c3c54fe5e11ebec5c4b624ecba94ccc329874/BsonClassMapSerializer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f24bd85261f660b389d4621581f5214327e2a882864d60caafd9a0f4826522/MongoCollectionImpl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f2aed9edefc1fc6ff7d681789ec47d926056a65ad8106e54a16c71fa53313998/ConnectionString.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/Misc/Config.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/Services/Database/DatabaseService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/user/LimEsz/LimEszeles/limesz_app/limesz_app/Services/Game/GameService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/limesz_app/libman.json" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -184,6 +171,7 @@
       <workItem from="1697699096045" duration="2249000" />
       <workItem from="1697716962877" duration="4146000" />
       <workItem from="1697787966305" duration="12209000" />
+      <workItem from="1698153628023" duration="3404000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
