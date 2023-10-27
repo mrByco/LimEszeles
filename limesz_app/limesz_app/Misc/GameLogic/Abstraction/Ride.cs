@@ -5,7 +5,7 @@ using margarita_data.Models;
 namespace cardsplusplus.Abstraction;
 
 
-public abstract class Ride
+public class Ride
 {
     public string Id { get; set; }
     public string State { get; set; }
@@ -23,7 +23,7 @@ public class Game
     public List<Player> Players { get; set; }
 }
 
-public class ScoreScreenData : Ride
+public class ScoreScreenData
 {
 }
 

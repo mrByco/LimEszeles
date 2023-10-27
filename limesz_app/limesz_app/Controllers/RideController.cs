@@ -14,13 +14,13 @@ public class RideController: ControllerBase
     [HttpGet("{rideId}")]
     public Ride GetRide(string rideId)
     {
-        return new Lobby();
+        return new Ride();
     }
 
     [HttpGet("gmae")]
-    public GameState GG(string rideId)
+    public Ride GG(string rideId)
     {
-        return new GameState();
+        return new Ride();
     }
     
     

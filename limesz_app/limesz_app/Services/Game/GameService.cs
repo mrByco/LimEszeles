@@ -4,6 +4,7 @@ using margarita_app.Models;
 using Microsoft.AspNetCore.SignalR;
 using margarita_app.Misc;
 using margarita_app.Services.CardGame;
+using margarita_data.Models;
 
 namespace margarita_app.Services;
 
@@ -23,13 +24,13 @@ public class GameService
     
     public Ride CreateLobby(string userName, string userId)
     {
-        var ride = new Lobby();
+        var ride = new Ride();
         ride.Id = GenerateRideId();
-        ride.Players = new Dictionary<string, Player>();
-        ride.Players.Add(userId, new Player()
+        ride.Users = new List<User>();
+        ride.Users.Add(new User()
         {
             Id = userId,
-            Name = userName
+            Username = userName
         });
         _rides.Add(ride);
         NotifyRide(ride);
@@ -56,10 +57,10 @@ public class GameService
         {
             throw new Exception("Ride not found");
         }
-        ride.Players.Add(userId, new Player()
+        ride.Users.Add(new User()
         {
             Id = userId,
-            Name = userName
+            Username = userName
         });
         NotifyRide(ride);
     }
@@ -67,16 +68,16 @@ public class GameService
     public async Task LeaveLobby(string userId)
     {
         
-        var ride = this._rides.Find(l => l.Players.ContainsKey(userId));
+        var ride = this._rides.Find(l => l.Users.Any(u => u.Id == userId));
         if (ride == null)
         {
             throw new Exception("Ride not found");
         }
-        ride.Players.Remove(userId);
+        ride.Users.RemoveAll(u => u.Id == userId);
         NotifyRide(ride);
         var removedPlayerConnectionId = _connectionService.GetConnectionByUserId(userId);
         await _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
-        if (ride.Players.Count == 0)
+        if (ride.Users.Count == 0)
         {
             await _rideHub.Clients.Clients(removedPlayerConnectionId).SendAsync("rideChanged", null);
             _rides.Remove(ride);
@@ -101,29 +102,21 @@ public class GameService
 
     public async Task StartGame(string userId)
     {
-        Ride rideToStart = _rides.Find(r => r.Players.ContainsKey(userId));
+        Ride? rideToStart = _rides.FirstOrDefault(r => r.Users.Any(u => u.Id == userId));
         if (rideToStart == null)
         {
             throw new Exception("Ride not found");
         }
-
-        if (rideToStart is Lobby lobby)
-        {
-            GameState gameState = new GameState
-            {
-                Players = lobby.Players,
-                Id = lobby.Id,
-            };
-            _rides.Replace(lobby, gameState);
-            _cardGames.Add(gameState, new CardGame.CardGame(gameState, new LimeszUno()));
-            _cardGames[gameState].Start();
-            NotifyRide(gameState);
-        }
         
+        rideToStart.State = "started";
+        _cardGames.Add(rideToStart, new CardGame.CardGame(rideToStart, new LimeszUno()));
+        _cardGames[rideToStart].Start();
+        NotifyRide(rideToStart);
+
     }
 
     public Ride? ReconnectPlayer(string userId)
     {
-        return _rides.FirstOrDefault(r => r.Players.ContainsKey(userId));
+        return _rides.FirstOrDefault(r => r.Users.Any(u => u.Id == userId));
     }
 }

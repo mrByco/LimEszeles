@@ -92,7 +92,7 @@ public class ConnectionService
     public List<string> GetConnectionIdsForRide(Ride ride)
     {
         return Connections
-            .Where(c => ride.Players.ContainsKey(c.UserId??"no"))
+            .Where(c => ride.Users.Any(u => u.Id == (c.UserId??"no")))
             .Select(c => c.ConnectionId)
             .ToList();
     }

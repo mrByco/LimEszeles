@@ -2,8 +2,8 @@
   <div class="centered-rounded-panel" style='min-width: 400px'>
     <h5 style="font-weight: bold; color:#000;">Join code: {{lobbyId}}</h5>
     <hr>
-    <h5 *ngFor="let p of players" [ngStyle]='{"color": p.id == myId ? "black" : "#595959"}'>
-      {{p.name}} {{p.id == myId ? '(me)' : ''}}
+    <h5 *ngFor="let p of players" [ngStyle]='{"color": p.userId == myId ? "black" : "#595959"}'>
+      {{p.name}} {{p.userId == myId ? '(me)' : ''}}
     </h5>
     <hr>
     <app-big-button (click)='start()'>Start</app-big-button>

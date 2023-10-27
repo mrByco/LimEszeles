@@ -9,7 +9,6 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-import { Game } from '../models/game';
 import { Ride } from '../models/ride';
 
 @Injectable({
@@ -135,7 +134,7 @@ export class RideService extends BaseService {
     rideId?: string;
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Game>> {
+): Observable<StrictHttpResponse<Ride>> {
 
     const rb = new RequestBuilder(this.rootUrl, RideService.RideGmaeGetPath, 'get');
     if (params) {
@@ -149,7 +148,7 @@ export class RideService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Game>;
+        return r as StrictHttpResponse<Ride>;
       })
     );
   }
@@ -164,10 +163,10 @@ export class RideService extends BaseService {
     rideId?: string;
     context?: HttpContext
   }
-): Observable<Game> {
+): Observable<Ride> {
 
     return this.rideGmaeGet$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<Game>) => r.body as Game)
+      map((r: StrictHttpResponse<Ride>) => r.body as Ride)
     );
   }
 
@@ -181,7 +180,7 @@ export class RideService extends BaseService {
     rideId?: string;
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Game>> {
+): Observable<StrictHttpResponse<Ride>> {
 
     const rb = new RequestBuilder(this.rootUrl, RideService.RideGmaeGetPath, 'get');
     if (params) {
@@ -195,7 +194,7 @@ export class RideService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Game>;
+        return r as StrictHttpResponse<Ride>;
       })
     );
   }
@@ -210,10 +209,10 @@ export class RideService extends BaseService {
     rideId?: string;
     context?: HttpContext
   }
-): Observable<Game> {
+): Observable<Ride> {
 
     return this.rideGmaeGet$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<Game>) => r.body as Game)
+      map((r: StrictHttpResponse<Ride>) => r.body as Ride)
     );
   }
 

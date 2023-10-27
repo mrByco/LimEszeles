@@ -1,10 +1,12 @@
 /* tslint:disable */
 /* eslint-disable */
-import { Player } from './player';
+import { Game } from './game';
+import { ScoreScreenData } from './score-screen-data';
+import { User } from './user';
 export interface Ride {
+  game?: Game;
   id?: null | string;
-  players?: null | {
-[key: string]: Player;
-};
+  scoreScreenData?: ScoreScreenData;
   state?: null | string;
+  users?: null | Array<User>;
 }

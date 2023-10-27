@@ -12,6 +12,7 @@ export { Player } from './models/player';
 export { RefreshTokenRequest } from './models/refresh-token-request';
 export { RegistrationData } from './models/registration-data';
 export { Ride } from './models/ride';
+export { ScoreScreenData } from './models/score-screen-data';
 export { TokenKey } from './models/token-key';
 export { User } from './models/user';
 export { UserProfileDto } from './models/user-profile-dto';
