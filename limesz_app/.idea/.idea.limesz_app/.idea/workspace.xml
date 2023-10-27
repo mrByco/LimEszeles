@@ -12,9 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +215,7 @@
       <workItem from="1697010428008" duration="1046000" />
       <workItem from="1697013656341" duration="16789000" />
       <workItem from="1697699096045" duration="2249000" />
-      <workItem from="1697716962877" duration="4146000" />
+      <workItem from="1697716962877" duration="4361000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
