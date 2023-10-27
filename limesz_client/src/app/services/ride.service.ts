@@ -1,13 +1,17 @@
 import {inject, Injectable} from "@angular/core";
-import {BehaviorSubject} from "rxjs";
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import {Router} from "@angular/router";
 import { AuthService } from './auth.service';
 import { Ride } from '../ride';
 import { UserService } from './user.service';
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { environment } from '../../environments/environment';
-import { COMPILER_ERRORS_WITH_GUIDES } from '@angular/compiler-cli/src/ngtsc/diagnostics';
 import * as uuid from 'uuid';
+import { LobbyService as LobbyApi } from '../api/services/lobby.service';
+import { AlertService } from './alert.service';
+import { ModalService } from './modal.service';
+import { LoginPageComponent } from '../generic/auth-page/login-page/login-page.component';
+import { SidebarService } from './sidebar-service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +23,9 @@ export class RideService {
 
   private authService = inject(AuthService);
   private userService = inject(UserService);
+  private lobbyApi = inject(LobbyApi);
+  private alertService = inject(AlertService);
+  private modalService = inject(SidebarService);
 
   private connection: HubConnection | undefined;
 
@@ -31,6 +38,7 @@ export class RideService {
       }
 
     });
+
     /*this.ride$.next({
       "id": "Y694U",
       "state": "lobby",
@@ -53,18 +61,29 @@ export class RideService {
         },
       }
     })*/
+
     this.initListener();
   }
 
   async initListener() {
+
+    this.modalService.show(LoginPageComponent, {title: "Login"});
+
+
     console.log("Init listener");
-    this.connectionToken = uuid.v4();
+
+    this.connectionToken = localStorage.getItem("connectionToken")??uuid.v4();
+    localStorage.setItem("connectionToken", this.connectionToken)
+
     this.connection = new HubConnectionBuilder()
       .configureLogging(LogLevel.Information)
       .withUrl(environment.backendUrl + "/ridehub")
       .build();
 
-    await this.connection.start();
+    await this.connection.start().catch((err) => console.log(err));
+    this.connection.onclose((err) => {
+      this.alertService.error(err.message, "Remote connection lost")
+    });
 
     this.connection.on("rideChanged", (ride) => {
       ride = ride??undefined;
@@ -94,4 +113,11 @@ export class RideService {
 
     this.router.navigate(['/']);
   }
+
+  public async leave(){
+    console.log("Leave");
+    await firstValueFrom(this.lobbyApi.leaveLobby({connectionToken: this.connectionToken}))
+  }
+
+
 }

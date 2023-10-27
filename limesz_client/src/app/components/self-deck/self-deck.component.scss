@@ -1,0 +1,9 @@
+.card-container {
+
+}
+
+.card-container:hover {
+  transform: translateY(-20px) scale(155%);
+  opacity: 80%;
+  cursor: pointer;
+}

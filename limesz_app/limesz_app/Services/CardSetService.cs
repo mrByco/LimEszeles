@@ -4,7 +4,7 @@ namespace margarita_app.Services;
 
 public class CardSetService
 {
-    public List<Card> GetCardSet()
+    public static List<Card> GetUnoCardSet()
     {
         List<string> colors = new List<string>()
         {
