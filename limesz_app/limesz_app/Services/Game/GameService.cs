@@ -1,7 +1,9 @@
+using cardsplusplus.Abstraction;
 using margarita_app.Hubs;
 using margarita_app.Models;
 using Microsoft.AspNetCore.SignalR;
 using margarita_app.Misc;
+using margarita_app.Services.CardGame;
 
 namespace margarita_app.Services;
 
@@ -10,6 +12,8 @@ public class GameService
     private readonly List<Ride> _rides = new List<Ride>();
     private readonly IHubContext<RideHub> _rideHub;
     private readonly ConnectionService _connectionService;
+
+    private readonly Dictionary<Ride, CardGame.CardGame> _cardGames = new Dictionary<Ride, CardGame.CardGame>();
 
     public GameService(IHubContext<RideHub> rideHub, ConnectionService connectionService)
     {
@@ -105,13 +109,15 @@ public class GameService
 
         if (rideToStart is Lobby lobby)
         {
-            Game game = new Game
+            GameState gameState = new GameState
             {
                 Players = lobby.Players,
                 Id = lobby.Id,
             };
-            _rides.Replace(lobby, game);
-            NotifyRide(game);
+            _rides.Replace(lobby, gameState);
+            _cardGames.Add(gameState, new CardGame.CardGame(gameState, new LimeszUno()));
+            _cardGames[gameState].Start();
+            NotifyRide(gameState);
         }
         
     }

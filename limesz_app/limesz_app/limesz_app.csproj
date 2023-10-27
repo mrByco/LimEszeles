@@ -393,10 +393,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\cardsplusplus\cardsplusplus.csproj" />
     <ProjectReference Include="..\limesz_data\limesz_data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Misc\GameLogic\" />
     <Folder Include="TestData\" />
     <Folder Include="Services\ImageService\" />
     <Folder Include="Models\Metrics\" />

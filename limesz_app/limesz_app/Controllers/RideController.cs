@@ -1,3 +1,4 @@
+using cardsplusplus.Abstraction;
 using margarita_app.Hubs;
 using margarita_app.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +18,9 @@ public class RideController: ControllerBase
     }
 
     [HttpGet("gmae")]
-    public Game GG(string rideId)
+    public GameState GG(string rideId)
     {
-        return new Game();
+        return new GameState();
     }
     
     
