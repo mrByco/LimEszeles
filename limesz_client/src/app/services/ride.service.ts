@@ -35,6 +35,13 @@ export class RideService {
     return this.ride$.value.game.decks;
   }
 
+  public get isMyTurn(): boolean {
+    if (!this.ride$.value) {
+      return false;
+    }
+    return this.ride$.value.game.interactivePlayers.some(p => p.userId == this.userService.userId);
+  }
+
   public get meAsPlayer(): Player {
     if (!this.ride$.value) {
       return undefined;

@@ -15,11 +15,14 @@ export class MyCardsComponent {
   @Input()
   cards: Card[] = [];
   private actionsApi: ActionsApi = inject(ActionsApi);
-  private rideService: RideService = inject(RideService);
+  protected rideService: RideService = inject(RideService);
 
   protected readonly Math = Math;
 
   playCard(card: Card) {
+    if (!this.rideService.isMyTurn) {
+      return;
+    }
     console.log('playCard', card);
     firstValueFrom(this.actionsApi.playCard({ cardId: card.id, userId: this.rideService.meAsPlayer.userId }));
 

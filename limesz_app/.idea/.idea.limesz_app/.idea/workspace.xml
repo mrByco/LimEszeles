@@ -14,45 +14,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_app/Controllers/ActionsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/DeckConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/deck-config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/deck.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services/actions.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/decks/decks.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/decks/decks.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/decks/decks.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/decks/decks.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/in-game-player-list/in-game-player-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/in-game-player-list/in-game-player-list.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/in-game-player-list/in-game-player-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/in-game-player-list/in-game-player-list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/Deck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/Deck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/IGameBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/IGameBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/api.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/api.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/play-card/uno-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/play-card/uno-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/play-card/uno-card.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/play-card/uno-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/self-deck/self-deck.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/deck/deck.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-screen/game-screen.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-screen/game-screen.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,58 +301,6 @@
           <line>71</line>
           <properties documentPath="D:\Repos\syce\syce_app\syce_app\Controllers\ItemController.cs" initialLine="71" containingFunctionPresentation="Method 'LinkWebWatchProductByUrl'" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs</url>
-          <line>139</line>
-          <properties documentPath="D:\Repos\LimEsz\limesz_app\limesz_app\Services\Game\GameService.cs" initialLine="139" containingFunctionPresentation="Method 'PlayCard'">
-            <startOffsets>
-              <option value="4192" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4238" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs</url>
-          <line>114</line>
-          <properties documentPath="D:\Repos\LimEsz\limesz_app\limesz_app\Misc\GameLogic\CardGame\CardGame.cs" initialLine="114" containingFunctionPresentation="Method 'SetCurrentPlayer'">
-            <startOffsets>
-              <option value="2845" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2902" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs</url>
-          <line>26</line>
-          <properties documentPath="D:\Repos\LimEsz\limesz_app\limesz_app\Misc\GameLogic\CardGame\LimeszUno.cs" initialLine="26" containingFunctionPresentation="Method 'Start'">
-            <startOffsets>
-              <option value="821" />
-            </startOffsets>
-            <endOffsets>
-              <option value="822" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs</url>
-          <line>22</line>
-          <properties documentPath="D:\Repos\LimEsz\limesz_app\limesz_app\Misc\GameLogic\CardGame\LimeszUno.cs" initialLine="22" containingFunctionPresentation="Method 'Start'">
-            <startOffsets>
-              <option value="616" />
-            </startOffsets>
-            <endOffsets>
-              <option value="643" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

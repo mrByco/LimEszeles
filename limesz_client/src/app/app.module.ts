@@ -41,6 +41,7 @@ import { MyCardsComponent } from './components/my-cards/my-cards.component';
 import { CardComponent } from './components/card/card.component';
 import { DeckComponent } from './components/deck/deck.component';
 import { DecksComponent } from './components/decks/decks.component';
+import { InGamePlayerListComponent } from './components/in-game-player-list/in-game-player-list.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -63,7 +64,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MyCardsComponent,
     CardComponent,
     DeckComponent,
-    DecksComponent
+    DecksComponent,
+    InGamePlayerListComponent
   ],
   imports: [
     ImageCropperModule,

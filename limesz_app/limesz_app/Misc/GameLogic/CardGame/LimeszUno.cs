@@ -49,19 +49,20 @@ public class LimeszUno : IGameBehaviour
                 // You may want to add specific handling for this.
             }
 
-            Game.SetCurrentPlayer(Game.DefaultNextPlayer);
         }
         else
         {
             // Player draws two cards as a penalty for playing an invalid card.
             Game.GiveCards(Game.CurrentPlayer.Id, 2, "Source");
         }
+        Game.SetCurrentPlayer(Game.DefaultNextPlayer);
         Game.NotifyClients();
     }
 
     public void PullFromDeck(Player getPlayer, Deck getDeck, int count)
     {
         Game.GiveCards(getPlayer.Id, count, getDeck.Name);
+        Game.SetCurrentPlayer(Game.DefaultNextPlayer);
         Game.NotifyClients();
     }
 
