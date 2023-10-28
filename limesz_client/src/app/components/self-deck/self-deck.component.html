@@ -9,6 +9,6 @@
     class='card-container'
     style="height: 250px; width: 160px; background: white; border-radius: 8px; border: solid 1px black; margin-left: -25px; overflow: hidden"
   >
-    <app-uno-card [cardColor]='card.color' textColor='black' [cardContent]='card.displayedValue'></app-uno-card>
+    <app-uno-card [cardColor]='card.color' textColor='black' [cardContent]='card.displayedValue??card.value'></app-uno-card>
   </div>
 </div>

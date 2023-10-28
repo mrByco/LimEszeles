@@ -26,6 +26,7 @@ public class GameService
     {
         var ride = new Ride();
         ride.Id = GenerateRideId();
+        ride.State = "lobby";
         ride.Users = new List<User>();
         ride.Users.Add(new User()
         {
@@ -108,7 +109,7 @@ public class GameService
             throw new Exception("Ride not found");
         }
         
-        rideToStart.State = "started";
+        rideToStart.State = "game";
         _cardGames.Add(rideToStart, new CardGame.CardGame(rideToStart, new LimeszUno()));
         _cardGames[rideToStart].Start();
         NotifyRide(rideToStart);

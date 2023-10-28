@@ -9,7 +9,7 @@ import { RideService } from '../../services/ride.service';
 export class GameScreenComponent {
 
   protected readonly faArrowRightFromBracket = faArrowRightFromBracket;
-  private readonly rideService: RideService = inject(RideService);
+  protected readonly rideService: RideService = inject(RideService);
 
   exit() {
     this.rideService.leave();

@@ -23,7 +23,12 @@ public sealed class CardGame
     {
         hostRide = initGameState;
         hostRide.Game = new Game();
-        hostRide.Game.Players = new List<Player>();
+        hostRide.Game.Players = initGameState.Users.Select((u) => new Player
+        {
+            UserId = u.Id,
+            Name = u.Username,
+            Cards = new List<Card>()
+        }).ToList();
         
         _behaviour = behaviour;
         _behaviour.Init(this);

@@ -20,7 +20,7 @@ export class LobbyComponent {
 
   constructor() {
     this.rideService.ride$.subscribe((ride) => {
-      this.players = Object.values(ride?.players??[]);
+      this.players = Object.values(ride?.users??[]).map((user) => { return {id: user.id, name: user.username} });
       this.lobbyId = ride?.id??'';
       console.log(this.players, this.myId);
     });

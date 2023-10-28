@@ -3,6 +3,6 @@
     <app-icon-button [icon]='faArrowRightFromBracket' color='white' (click)='exit()'></app-icon-button>
   </div>
   <div class='position-absolute' style='bottom: 20px; left: 50%; transform: translateX(-50%)'>
-    <app-self-deck></app-self-deck>
+    <app-self-deck [cards]='rideService.meAsPlayer.cards'></app-self-deck>
   </div>
 </div>

@@ -2,16 +2,16 @@ import {inject, Injectable} from "@angular/core";
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import {Router} from "@angular/router";
 import { AuthService } from './auth.service';
-import { Ride } from '../ride';
 import { UserService } from './user.service';
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { environment } from '../../environments/environment';
 import * as uuid from 'uuid';
 import { LobbyService as LobbyApi } from '../api/services/lobby.service';
 import { AlertService } from './alert.service';
-import { ModalService } from './modal.service';
 import { LoginPageComponent } from '../generic/auth-page/login-page/login-page.component';
 import { SidebarService } from './sidebar-service';
+import { Ride } from '../api/models/ride';
+import { Player } from '../api/models/player';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,9 @@ export class RideService {
   private connection: HubConnection | undefined;
 
   private router = inject(Router);
+  public get meAsPlayer(): Player {
+    return this.ride$.value.game.players.find(p => p.userId == this.userService.userId);
+  }
 
   constructor() {
     this.userService.currentUser$.subscribe((user) => {

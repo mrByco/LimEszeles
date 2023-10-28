@@ -2,11 +2,10 @@
 
 import { Injectable } from "@angular/core";
 import { AuthService } from "./auth.service";
-import { UserProfileDto } from "../api/models";
+import { Player, UserProfileDto } from '../api/models';
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { UserService as UserApi } from "../api/services";
 import {LoadingService} from "./loading.service";
-import { Player } from '../ride';
 import { getRandomPlayerName } from '../helper/get-random-player-name';
 
 @Injectable()
@@ -72,7 +71,7 @@ export class UserService {
 
   getMeAsPlayer(): Player {
     return {
-      id: this.currentUser$.value?.id ?? "",
+      userId: this.currentUser$.value?.id ?? "",
       name: this.currentUser$.value?.name ?? "",
     }
   }
