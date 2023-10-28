@@ -12,6 +12,7 @@ import { LoginPageComponent } from '../generic/auth-page/login-page/login-page.c
 import { SidebarService } from './sidebar-service';
 import { Ride } from '../api/models/ride';
 import { Player } from '../api/models/player';
+import { Deck } from '../api/models/deck';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,14 @@ export class RideService {
   private connection: HubConnection | undefined;
 
   private router = inject(Router);
+  public get decks(): Deck[] {
+    return this.ride$.value.game.decks;
+  }
+
   public get meAsPlayer(): Player {
+    if (!this.ride$.value) {
+      return undefined;
+    }
     return this.ride$.value.game.players.find(p => p.userId == this.userService.userId);
   }
 

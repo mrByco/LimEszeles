@@ -37,8 +37,10 @@ import { LoginWrapper } from './components/login-wrapper/login-wrapper.component
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { LobbyScreenComponent } from './screens/lobby-screen/lobby-screen.component';
 import { GameScreenComponent } from './screens/game-screen/game-screen.component';
-import { SelfDeckComponent } from './components/self-deck/self-deck.component';
-import { UnoCardComponent } from './components/play-card/uno-card.component';
+import { MyCardsComponent } from './components/my-cards/my-cards.component';
+import { CardComponent } from './components/card/card.component';
+import { DeckComponent } from './components/deck/deck.component';
+import { DecksComponent } from './components/decks/decks.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -58,8 +60,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     LobbyComponent,
     LobbyScreenComponent,
     GameScreenComponent,
-    SelfDeckComponent,
-    UnoCardComponent,
+    MyCardsComponent,
+    CardComponent,
+    DeckComponent,
+    DecksComponent
   ],
   imports: [
     ImageCropperModule,

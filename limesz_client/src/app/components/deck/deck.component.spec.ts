@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayCardComponent } from './uno-card.component';
+import { DeckComponent } from './deck.component';
 
-describe('PlayCardComponent', () => {
-  let component: PlayCardComponent;
-  let fixture: ComponentFixture<PlayCardComponent>;
+describe('DeckComponent', () => {
+  let component: DeckComponent;
+  let fixture: ComponentFixture<DeckComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PlayCardComponent]
+      declarations: [DeckComponent]
     });
-    fixture = TestBed.createComponent(PlayCardComponent);
+    fixture = TestBed.createComponent(DeckComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
