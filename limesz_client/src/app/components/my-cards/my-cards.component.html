@@ -1,15 +1,12 @@
-<div class="d-flex" style="justify-content: space-between;">
-  <div
-    *ngFor="let card of cards; let i = index"
-    [ngStyle]="{
-      'zIndex': i + 5,
-      'transform': 'rotate(' + (i / (cards.length - 1) * 30 - 15) + 'deg) translateY(' + Math.abs(i - (cards.length - 1) / 2) * 10 + 'px)',
-      'transform-origin': 'bottom center'
-    }"
-    class='card-container'
-    [ngClass]='{"clickable": rideService.isMyTurn}'
-    style="height: 250px; width: 160px; background: white; border-radius: 8px; border: solid 1px black; margin-left: -25px; overflow: hidden"
-  >
-    <app-card (click)='playCard(card)' [card]='card'></app-card>
+<div class='d-flex justify-content-center' style="overflow: scroll; width: 100vw">
+  <div class='d-flex'>
+    <div
+      *ngFor="let card of cards; let i = index"
+      [ngStyle]="{'zIndex': i + 5}"
+      class='card-container'
+      [ngClass]='{"clickable": rideService.isMyTurn}'
+      style="height: 250px; width: 160px; background: white; border-radius: 8px; border: solid 1px black; margin-left: -30px;">
+      <app-card (click)='playCard(card)' [card]='card'></app-card>
+    </div>
   </div>
 </div>

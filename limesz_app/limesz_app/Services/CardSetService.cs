@@ -26,11 +26,16 @@ public class CardSetService
         {
             foreach (var value in values)
             {
+                var p = new Dictionary<string, object>()
+                {
+                    {"Color", color},
+                    {"Value", value}
+                };
                 cards.Add(new Card()
                 {
-                    Color = color,
-                    Value = value,
-                    Id = Guid.NewGuid().ToString()
+                    Image = ($"/assets/uno-cards/{color}-{value}.png").ToLower().Replace(" ", "-"),
+                    Id = Guid.NewGuid().ToString(),
+                    Params = p
                 });
             }
         }

@@ -2,84 +2,109 @@ using cardsplusplus.Abstraction;
 using margarita_app.Models;
 using margarita_app.Services;
 using margarita_app.Services.CardGame;
+using System;
+using System.Collections.Generic;
 
-namespace margarita_app.Misc.GameLogic.CardGame;
-
-public class LimeszUno : IGameBehaviour
+namespace margarita_app.Misc.GameLogic.CardGame
 {
-    private CardGame Game { get; set; }
-
-    public void Init(CardGame game)
+    public class LimeszUno : IGameBehaviour
     {
-        Game = game;
-        Game.CreateDeck("Source", CardSetService.GetUnoCardSet());
-        Game.CreateDeck("Discard", new List<Card>());
-        Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
-        Game.GetDeck("Discard").DeckConfig.CanPull = false;
-    }
+        private CardGame Game { get; set; }
 
-    public void Start()
-    {
-        Game.ShuffleDeck("Source");
-        Game.DealCards("Source", 5);
-        Game.MoveCard("Source", "Discard", Game.GetLastCardFromDeck("Source").Id);
-        Game.SetCurrentPlayer(Game.RandomPlayer.Id);
-    }
-
-    public void PlayCard(Card card, Player player)
-    {
-        if (!player.Cards.Contains(card))
+        public void Init(CardGame game)
         {
-            throw new Exception("Player doesn't have this card");
+            Game = game;
+            Game.CreateDeck("Source", CardSetService.GetUnoCardSet());
+            Game.CreateDeck("Discard", new List<Card>());
+            Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
+            Game.GetDeck("Discard").DeckConfig.CanPull = false;
         }
 
-        var lastCard = Game.GetLastCardFromDeck("Discard");
-        if (IsCardPlayable(card, lastCard))
+        public void Start()
         {
-            Game.MoveCard(Game.CurrentPlayer.Id, "Discard", card.Id);
-            if (player.Cards.Count == 1)
+            Game.ShuffleDeck("Source");
+            Game.DealCards("Source", 5);
+            Game.MoveCard("Source", "Discard", Game.GetLastCardFromDeck("Source").Id);
+            Game.SetCurrentPlayer(Game.RandomPlayer.Id);
+        }
+
+        public void PlayCard(Card card, Player player)
+        {
+            if (!player.Cards.Contains(card))
             {
-                // Player calls "Uno" if they have only one card left.
-                // You may want to add specific handling for this.
+                throw new Exception("Player doesn't have this card");
             }
 
-            if (player.Cards.Count == 0)
+            var lastCard = Game.GetLastCardFromDeck("Discard");
+            if (IsCardPlayable(card, lastCard))
             {
-                // Player wins the game.
-                // You may want to add specific handling for this.
+                Game.MoveCard(Game.CurrentPlayer.Id, "Discard", card.Id);
+
+                if (player.Cards.Count == 1)
+                {
+                    // Implement specific handling for "Uno" if necessary.
+                }
+
+                if (player.Cards.Count == 0)
+                {
+                    // Implement specific handling for a win if necessary.
+                }
+
+                var cardValue = card.Params["Value"] as string;
+                if (cardValue == "Reverse")
+                {
+                    Game.ReverseOrder();
+                }
+                else if (cardValue == "Skip")
+                {
+                    Game.SetCurrentPlayer(Game.DefaultNextPlayer);
+                }
+                else if (cardValue == "Draw 2")
+                {
+                    Game.GiveCards(Game.DefaultNextPlayer, 2, "Source");
+                }
+                else if (cardValue == "Wild Draw 4")
+                {
+                    Game.GiveCards(Game.DefaultNextPlayer, 4, "Source");
+                }
+                else if (cardValue == "Wild")
+                {
+                    // Implement specific handling for color selection if necessary.
+                }
+                else
+                {
+                    // The player plays a regular card.
+                }
+            }
+            else
+            {
+                Game.GiveCards(Game.CurrentPlayer.Id, 2, "Source");
             }
 
+            Game.SetCurrentPlayer(Game.DefaultNextPlayer);
+            Game.NotifyClients();
         }
-        else
+
+        public void PullFromDeck(Player getPlayer, Deck getDeck, int count)
         {
-            // Player draws two cards as a penalty for playing an invalid card.
-            Game.GiveCards(Game.CurrentPlayer.Id, 2, "Source");
+            Game.GiveCards(getPlayer.Id, count, getDeck.Name);
+            Game.SetCurrentPlayer(Game.DefaultNextPlayer);
+            Game.NotifyClients();
         }
-        Game.SetCurrentPlayer(Game.DefaultNextPlayer);
-        Game.NotifyClients();
-    }
 
-    public void PullFromDeck(Player getPlayer, Deck getDeck, int count)
-    {
-        Game.GiveCards(getPlayer.Id, count, getDeck.Name);
-        Game.SetCurrentPlayer(Game.DefaultNextPlayer);
-        Game.NotifyClients();
-    }
-
-    private bool IsCardPlayable(Card card, Card lastCard)
-    {
-        // Check if the card can be played based on Uno rules.
-        if (card.Color == lastCard.Color || card.Value == lastCard.Value)
+        private bool IsCardPlayable(Card card, Card lastCard)
         {
-            return true;
-        }
+            if (card.Params["Color"] == lastCard.Params["Color"] || card.Params["Value"] == lastCard.Params["Value"])
+            {
+                return true;
+            }
 
-        // Wild cards are always playable.
-        if (card.Value == "Wild" || card.Value == "Wild Draw Four")
-        {
-            return true;
-        }
+            if (card.Params["Value"] == "Wild" || card.Params["Value"] == "Wild Draw Four")
+            {
+                return true;
+            }
 
-        return false;
+            return false;
+        }
     }
 }

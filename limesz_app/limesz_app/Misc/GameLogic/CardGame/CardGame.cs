@@ -121,7 +121,22 @@ public sealed class CardGame
     }
     public Player RandomPlayer => players[new Random().Next(players.Count)];
     public Player CurrentPlayer => players.Find(player => player.Id == currentPlayers[0].Id)!;
-    public string DefaultNextPlayer => players[(players.IndexOf(CurrentPlayer) + 1) % players.Count].Id;
+    public int RoundDirection { get; set; } = 1;
+
+    public string DefaultNextPlayer
+    {
+        get
+        {
+            int currentPlayerIndex = players.IndexOf(CurrentPlayer);
+
+            if (currentPlayerIndex >= 0)
+            {
+                int nextPlayerIndex = (currentPlayerIndex + RoundDirection + players.Count) % players.Count;
+                return players[nextPlayerIndex].Id;
+            }
+            return "PlayerNotFound";
+        }
+    }
 
 
     public Card GetLastCardFromDeck(string deck)
@@ -198,5 +213,10 @@ public sealed class CardGame
     public void PullFromDeck(string userId, string deckName, int count)
     {
         _behaviour.PullFromDeck(GetPlayer(userId), GetDeck(deckName), count);
+    }
+
+    public void ReverseOrder()
+    {
+        this.RoundDirection *= -1;
     }
 }

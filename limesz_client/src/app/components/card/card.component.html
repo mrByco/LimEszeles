@@ -1,10 +1,9 @@
 <div class="uno-card" [ngStyle]="{'background-color': card.color}">
   <ng-container *ngIf='!flipped'>
-    <div class="color" [ngStyle]="{'color': card.color}">{{ card.color }}</div>
-    <div class="content">{{ card.displayedValue??card.value }}</div>
+    <img [src]='card.image'>
   </ng-container>
 
   <ng-container *ngIf='flipped'>
-    <img src='https://opengameart.org/sites/default/files/UNO-Back_0.svg'>
+    <img src='/assets/uno-cards/uno.png'>
   </ng-container>
 </div>
