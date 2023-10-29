@@ -3,6 +3,7 @@ using margarita_app.Hubs;
 using margarita_app.Models;
 using Microsoft.AspNetCore.SignalR;
 using margarita_app.Misc;
+using margarita_app.Misc.GameLogic.CardGame;
 using margarita_app.Services.CardGame;
 using margarita_data.Models;
 
@@ -14,7 +15,7 @@ public class GameService
     private readonly IHubContext<RideHub> _rideHub;
     private readonly ConnectionService _connectionService;
 
-    private readonly Dictionary<Ride, CardGame.CardGame> _cardGames = new Dictionary<Ride, CardGame.CardGame>();
+    private readonly Dictionary<Ride, Misc.GameLogic.CardGame.CardGame> _cardGames = new Dictionary<Ride, Misc.GameLogic.CardGame.CardGame>();
 
     public GameService(IHubContext<RideHub> rideHub, ConnectionService connectionService)
     {
@@ -34,6 +35,7 @@ public class GameService
             Username = userName
         });
         _rides.Add(ride);
+        
         NotifyRide(ride);
         
         return ride;
@@ -103,21 +105,48 @@ public class GameService
 
     public async Task StartGame(string userId)
     {
-        Ride? rideToStart = _rides.FirstOrDefault(r => r.Users.Any(u => u.Id == userId));
+        Ride? rideToStart = GetRideByUserId(userId);
         if (rideToStart == null)
         {
             throw new Exception("Ride not found");
         }
         
         rideToStart.State = "game";
-        _cardGames.Add(rideToStart, new CardGame.CardGame(rideToStart, new LimeszUno()));
+        var cardGame = new Misc.GameLogic.CardGame.CardGame(rideToStart, new LimeszUno());
+        cardGame.OnChange += () => NotifyRide(rideToStart);
+        _cardGames.Add(rideToStart, cardGame);
         _cardGames[rideToStart].Start();
         NotifyRide(rideToStart);
 
     }
 
+    private Ride? GetRideByUserId(string userId)
+    {
+        return _rides.FirstOrDefault(r => r.Users.Any(u => u.Id == userId));
+    }
+
     public Ride? ReconnectPlayer(string userId)
     {
         return _rides.FirstOrDefault(r => r.Users.Any(u => u.Id == userId));
+    }
+
+    public void PlayCard(string cardId, string userId)
+    {
+        var ride = GetRideByUserId(userId);
+        if (ride == null)
+        {
+            throw new Exception("Ride not found");
+        }
+        _cardGames[ride].PlayCardById(cardId, userId);
+    }
+
+    public void PullFromDeck(string userId, string deckName, int count)
+    {
+        var ride = GetRideByUserId(userId);
+        if (ride == null)
+        {
+            throw new Exception("Ride not found");
+        }
+        _cardGames[ride].PullFromDeck(userId, deckName, count);
     }
 }

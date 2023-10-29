@@ -2,7 +2,13 @@
   <div class='position-absolute' style='right: 25px; top: 25px'>
     <app-icon-button [icon]='faArrowRightFromBracket' color='white' (click)='exit()'></app-icon-button>
   </div>
+  <div class='position-absolute' style='top: 15px; left: 15px; transform: translateX(-50%)%'>
+    <app-in-game-player-list></app-in-game-player-list>
+  </div>
+  <div class='position-absolute' style='top: 15%; left: 50%; transform: translateX(-50%); width: 100%'>
+    <app-decks [decks]='rideService.decks'></app-decks>
+  </div>
   <div class='position-absolute' style='bottom: 20px; left: 50%; transform: translateX(-50%)'>
-    <app-self-deck [cards]='rideService.meAsPlayer.cards'></app-self-deck>
+    <app-my-cards [cards]='rideService.meAsPlayer?.cards??[]'></app-my-cards>
   </div>
 </div>

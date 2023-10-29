@@ -1,6 +1,8 @@
 export { AuthResult } from './models/auth-result';
 export { Card } from './models/card';
 export { CompanyRoles } from './models/company-roles';
+export { Deck } from './models/deck';
+export { DeckConfig } from './models/deck-config';
 export { Game } from './models/game';
 export { LicenseInfo } from './models/license-info';
 export { LicenseType } from './models/license-type';

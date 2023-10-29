@@ -1,18 +1,22 @@
-using System.Dynamic;
 using cardsplusplus.Abstraction;
 using margarita_app.Models;
+using margarita_app.Services.CardGame;
 
-namespace margarita_app.Services.CardGame;
+namespace margarita_app.Misc.GameLogic.CardGame;
 
 public sealed class CardGame
 {
-    private List<Player> players => this.hostRide.Game.Players;
+    private List<Player> players => hostRide.Game.Players;
     private List<Deck> decks => this.hostRide.Game.decks;
+    
+    public delegate void OnChangeHandler();
+
+    public event OnChangeHandler OnChange;
 
     public List<Player> currentPlayers
     {
-        get => hostRide.Game.Players;
-        set => hostRide.Game.Players = value;
+        get => hostRide.Game.InteractivePlayers;
+        set => hostRide.Game.InteractivePlayers = value;
     }
     // Players who able to take action
     private Ride hostRide;
@@ -71,11 +75,11 @@ public sealed class CardGame
         ShuffleDeck(fromDeck);
         foreach (var player in players)
         {
-            GiveCards(player, number, fromDeck);
+            GiveCards(player.Id, number, fromDeck);
         }
     }
 
-    public void GiveCards(Player player, int number, string deckName)
+    public void GiveCards(string playerId, int number, string deckName)
     {
         var deck = GetDeck(deckName);
         var cards = new List<Card>();
@@ -84,14 +88,14 @@ public sealed class CardGame
             cards.Add(deck.Cards[0]);
             deck.Cards.RemoveAt(0);
         }
-        GetPlayer(player.Id)?.Cards.AddRange(cards);
+        GetPlayer(playerId)?.Cards.AddRange(cards);
     }
 
     public Deck GetDeck(string name)
     {
         return decks.FirstOrDefault(deck => deck.Name == name)!;
     }
-    private Player?GetPlayer(string id)
+    private Player? GetPlayer(string id)
     {
         return players.FirstOrDefault(p => p.Id == id);
     }
@@ -115,39 +119,84 @@ public sealed class CardGame
     {
         currentPlayers = players.Select(p => GetPlayer(p)).ToList();
     }
-    
-    public void PlayerAction(Card card)
-    {
-        
-    }
-
     public Player RandomPlayer => players[new Random().Next(players.Count)];
     public Player CurrentPlayer => players.Find(player => player.Id == currentPlayers[0].Id)!;
-    public string DefaultNextPlayer => throw new NotImplementedException();
+    public string DefaultNextPlayer => players[(players.IndexOf(CurrentPlayer) + 1) % players.Count].Id;
 
 
     public Card GetLastCardFromDeck(string deck)
     {
+        if (GetDeck(deck).Cards.Count == 0)
+        {
+            throw new Exception($"Deck: {deck} is empty");
+        }
         return GetDeck(deck).Cards.Last();
+    }
+
+    public void NotifyClients()
+    {
+        if (OnChange != null)
+        {
+            OnChange();
+        }
     }
 
     public void MoveCard(string sourceStr, string destinationStr, string cardId)
     {
-        Card card;
+        Card? card = null;
         object source = Get(sourceStr);
         if (source == null)
         {
             return;
         }
-
+        
         if (source is Player sourcePlayer)
         {
-            
-        }
-        if (source is Deck sourceDeck)
-        {
-            
+            card = sourcePlayer.Cards.Find(c => c.Id == cardId)!;
+            sourcePlayer.Cards.Remove(card);
         }
         
+        if (source is Deck sourceDeck)
+        {
+            card = sourceDeck.Cards.Find(c => c.Id == cardId)!;
+            sourceDeck.Cards.Remove(card);
+        }
+        
+        if (card == null)
+        {
+            return;
+        }
+        
+        object destination = Get(destinationStr);
+        if (destination == null)
+        {
+            return;
+        }
+        
+        if (destination is Player destinationPlayer)
+        {
+            destinationPlayer.Cards.Add(card);
+        }
+
+        if (destination is Deck destinationDeck)
+        {
+            destinationDeck.Cards.Add(card);
+        }
+    }
+
+    public void PlayCardById(string cardId, string playerId)
+    {
+        var player = GetPlayer(playerId);
+        var card = player.Cards.FirstOrDefault(c => c.Id == cardId);
+        if (card == null)
+        {
+            return;
+        }
+        _behaviour.PlayCard(card, player);
+    }
+
+    public void PullFromDeck(string userId, string deckName, int count)
+    {
+        _behaviour.PullFromDeck(GetPlayer(userId), GetDeck(deckName), count);
     }
 }

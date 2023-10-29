@@ -1,0 +1,13 @@
+.deck {
+  width: 250px;
+  height: 300px;
+  border: white solid 1px;
+  border-radius: 10px;
+  color: white
+}
+
+.deck.clickable:hover {
+  transform: translateY(-20px) scale(110%);
+  opacity: 80%;
+  cursor: pointer;
+}

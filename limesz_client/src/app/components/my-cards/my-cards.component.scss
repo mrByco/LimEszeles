@@ -1,8 +1,15 @@
 .card-container {
-
+  opacity: 70%;
 }
 
 .card-container:hover {
+}
+
+.card-container.clickable {
+  opacity: 100%;
+}
+
+.card-container.clickable:hover {
   transform: translateY(-20px) scale(155%);
   opacity: 80%;
   cursor: pointer;

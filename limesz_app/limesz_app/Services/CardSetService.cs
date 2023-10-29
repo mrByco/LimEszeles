@@ -29,7 +29,8 @@ public class CardSetService
                 cards.Add(new Card()
                 {
                     Color = color,
-                    Value = value
+                    Value = value,
+                    Id = Guid.NewGuid().ToString()
                 });
             }
         }

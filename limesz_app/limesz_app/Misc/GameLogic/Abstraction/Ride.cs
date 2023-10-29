@@ -19,8 +19,9 @@ public class Ride
 
 public class Game
 {
-    public List<Deck> decks = new List<Deck>();
+    public List<Deck> decks { get; set; } = new List<Deck>();
     public List<Player> Players { get; set; }
+    public List<Player> InteractivePlayers { get; set; } = new List<Player>();
 }
 
 public class ScoreScreenData

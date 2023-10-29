@@ -1,0 +1,9 @@
+<div class='deck' [ngClass]='{"clickable": deck.deckConfig.canPull && rideService.isMyTurn}' (click)='pull()'>
+
+  <ng-container *ngIf='deck.cards.length > 0'>
+    <app-card [card]='deck.cards[deck.cards.length - 1]' [flipped]='deck.deckConfig.upsideDown'></app-card>
+  </ng-container>
+
+  {{deck.cards.length}} cards.
+  {{deck.name}}
+</div>

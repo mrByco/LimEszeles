@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelfDeckComponent } from './self-deck.component';
+import { DecksComponent } from './decks.component';
 
-describe('SelfDeckComponent', () => {
-  let component: SelfDeckComponent;
-  let fixture: ComponentFixture<SelfDeckComponent>;
+describe('DecksComponent', () => {
+  let component: DecksComponent;
+  let fixture: ComponentFixture<DecksComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SelfDeckComponent]
+      declarations: [DecksComponent]
     });
-    fixture = TestBed.createComponent(SelfDeckComponent);
+    fixture = TestBed.createComponent(DecksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
