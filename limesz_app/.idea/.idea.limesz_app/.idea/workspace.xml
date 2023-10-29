@@ -14,13 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomPrompt.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/lobby/lobby.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/ride.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/ride.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/739f57b74be83a174b032b6d0fca21926f93bd7db71741e09d74984a147a3d/Hub.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8fff635151dd30438f23da6aa86deb4cf9e3317aee607c41051513baf395be1/HubEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd11f65f54d252ef0e03e84ce37b5a7d31aeb44ae8c58dc5abd85ca6781c37/Hub.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/caccb9a16b7398be8d7bb6172f25e9c31e7d93eca254e79c3c6ff3ce733da8c/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ccf7d556f33f32855eda1a8557c3c54fe5e11ebec5c4b624ecba94ccc329874/BsonClassMapSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f24bd85261f660b389d4621581f5214327e2a882864d60caafd9a0f4826522/MongoCollectionImpl.cs" root0="SKIP_HIGHLIGHTING" />
@@ -298,19 +295,6 @@
           <line>71</line>
           <properties documentPath="D:\Repos\syce\syce_app\syce_app\Controllers\ItemController.cs" initialLine="71" containingFunctionPresentation="Method 'LinkWebWatchProductByUrl'" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs</url>
-          <line>23</line>
-          <properties documentPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" initialLine="23" containingFunctionPresentation="constructor 'CardGame'">
-            <startOffsets>
-              <option value="604" />
-            </startOffsets>
-            <endOffsets>
-              <option value="629" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
