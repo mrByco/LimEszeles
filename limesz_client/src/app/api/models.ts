@@ -1,6 +1,8 @@
+export { ActivePrompt } from './models/active-prompt';
 export { AuthResult } from './models/auth-result';
 export { Card } from './models/card';
 export { CompanyRoles } from './models/company-roles';
+export { CustomPromptDefinition } from './models/custom-prompt-definition';
 export { Deck } from './models/deck';
 export { DeckConfig } from './models/deck-config';
 export { Game } from './models/game';

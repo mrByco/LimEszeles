@@ -1,3 +1,5 @@
+using margarita_app.Misc.GameLogic.Abstraction;
+using margarita_app.Misc.GameLogic.CardGame;
 using margarita_app.Models;
 using margarita_app.Services.CardGame;
 using margarita_data.Models;
@@ -22,6 +24,8 @@ public class Game
     public List<Deck> decks { get; set; } = new List<Deck>();
     public List<Player> Players { get; set; }
     public List<Player> InteractivePlayers { get; set; } = new List<Player>();
+    public List<CustomPromptDefinition> CustomPrompts { get; set; } = new List<CustomPromptDefinition>();
+    public List<ActivePrompt> ActivePrompts { get; set; } = new List<ActivePrompt>();
 }
 
 public class ScoreScreenData

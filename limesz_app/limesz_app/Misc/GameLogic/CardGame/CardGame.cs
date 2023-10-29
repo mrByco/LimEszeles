@@ -1,4 +1,5 @@
 using cardsplusplus.Abstraction;
+using margarita_app.Misc.GameLogic.Abstraction;
 using margarita_app.Models;
 using margarita_app.Services.CardGame;
 
@@ -20,7 +21,8 @@ public sealed class CardGame
     }
     // Players who able to take action
     private Ride hostRide;
-
+    private Dictionary<string, TaskCompletionSource<Dictionary<string, object>>> activeTasks = new Dictionary<string, TaskCompletionSource<Dictionary<string, object>>>();
+    
     private IGameBehaviour _behaviour;
 
     public CardGame(Ride initGameState, IGameBehaviour behaviour)
@@ -218,5 +220,59 @@ public sealed class CardGame
     public void ReverseOrder()
     {
         this.RoundDirection *= -1;
+    }
+
+    public void DefinePrompt(string id, string uiType, object config)
+    {
+        hostRide.Game.CustomPrompts.Add(new CustomPromptDefinition()
+        {
+            Id = id,
+            UiType = uiType,
+            Configuration = config
+        });
+    }
+
+    public async Task<Dictionary<string, object>> WaitForPrompt(string playerId, string promptId)
+    {
+        var showToken = Guid.NewGuid().ToString();
+
+        var tcs = new TaskCompletionSource<Dictionary<string, object>>();
+    
+        // Store the TaskCompletionSource in a global dictionary
+        activeTasks[showToken] = tcs;
+
+        hostRide.Game.ActivePrompts.Add(new ActivePrompt()
+        {
+            shownTo = playerId,
+            promptDefinitionId = promptId,
+            showToken = showToken
+        });
+
+        OnChange();
+
+        return await tcs.Task;
+    }
+
+    public void OnPromptResponded(string showToken, Dictionary<string, object> response)
+    {
+        var prompt = hostRide.Game.ActivePrompts.FirstOrDefault(p => p.showToken == showToken);
+        if (prompt == null)
+        {
+            return;
+        }
+
+        // Check if there is a matching TaskCompletionSource in the global dictionary
+        if (activeTasks.TryGetValue(showToken, out var tcs))
+        {
+            // Set the result and remove it from the dictionary
+            tcs.SetResult(response);
+            activeTasks.Remove(showToken);
+        }
+    }
+
+
+    public void DefineButton(string uno, string sometexture, Action<string> action)
+    {
+        // TODO
     }
 }

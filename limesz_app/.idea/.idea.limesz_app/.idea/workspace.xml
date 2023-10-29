@@ -13,7 +13,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="" />
+    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/ActivePrompt.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomPrompt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomPromptDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -9,6 +9,7 @@ namespace margarita_app.Misc.GameLogic.CardGame
 {
     public class LimeszUno : IGameBehaviour
     {
+        private List<string> playersWithUno = new List<string>();
         private CardGame Game { get; set; }
 
         public void Init(CardGame game)
@@ -18,6 +19,25 @@ namespace margarita_app.Misc.GameLogic.CardGame
             Game.CreateDeck("Discard", new List<Card>());
             Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
             Game.GetDeck("Discard").DeckConfig.CanPull = false;
+            Game.DefinePrompt("coloPicker", "colo-picker", new List<string>{ "red", "green", "blue", "yellow"});
+            Game.DefineButton("uno", "someTexture", (string callerId) =>
+            {
+                var player = Game.CurrentPlayer;
+                if (player.Id != callerId)
+                {
+                    return;
+                }
+
+                if (player.Cards.Count > 1)
+                {
+                    Game.GiveCards(player.Id, 1, "Source");
+                }
+                else if (!playersWithUno.Contains(callerId))
+                {
+                    playersWithUno.Add(callerId);
+                }
+                Game.NotifyClients();
+            });
         }
 
         public void Start()
@@ -28,7 +48,7 @@ namespace margarita_app.Misc.GameLogic.CardGame
             Game.SetCurrentPlayer(Game.RandomPlayer.Id);
         }
 
-        public void PlayCard(Card card, Player player)
+        public async void PlayCard(Card card, Player player)
         {
             if (!player.Cards.Contains(card))
             {
@@ -69,26 +89,33 @@ namespace margarita_app.Misc.GameLogic.CardGame
                 }
                 else if (cardValue == "Wild")
                 {
-                    // Implement specific handling for color selection if necessary.
-                }
-                else
-                {
-                    // The player plays a regular card.
+                    var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
+                    card.Params["Color"] = pickedColor;
                 }
             }
             else
             {
                 Game.GiveCards(Game.CurrentPlayer.Id, 2, "Source");
             }
-
-            Game.SetCurrentPlayer(Game.DefaultNextPlayer);
-            Game.NotifyClients();
+            NextPlayer();
         }
 
         public void PullFromDeck(Player getPlayer, Deck getDeck, int count)
         {
             Game.GiveCards(getPlayer.Id, count, getDeck.Name);
+            NextPlayer();
+        }
+
+        private void NextPlayer()
+        {
             Game.SetCurrentPlayer(Game.DefaultNextPlayer);
+            var newCurrentPlayer = Game.CurrentPlayer;
+            
+            if (newCurrentPlayer.Cards.Count == 1 && !playersWithUno.Contains(newCurrentPlayer.Id))
+                Game.GiveCards(newCurrentPlayer.Id, 1, "Source");
+            
+            if (playersWithUno.Contains(newCurrentPlayer.Id)) 
+                playersWithUno.Remove(newCurrentPlayer.Id);
             Game.NotifyClients();
         }
 
