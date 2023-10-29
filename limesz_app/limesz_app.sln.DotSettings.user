@@ -19,4 +19,5 @@
     &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.NthDiscountData_ShouldThrowIfThereIsNoMatchingItem&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.NthDiscountData_ShouldAddNegativeCollectablePoints&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>
