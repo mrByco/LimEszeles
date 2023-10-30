@@ -26,4 +26,10 @@ public class ActionsController: ControllerBase
     {
         _gameService.PullFromDeck(userId, deckName, count);
     }
+
+    [HttpPost("answer-prompt/{userId}/{showToken}", Name = nameof(AnswerPrompt))]
+    public void AnswerPrompt(string userId, string showToken, Dictionary<string, object> result)
+    {
+        _gameService.AnswerPrompt(userId, showToken, result);
+    }
 }

@@ -1,0 +1,6 @@
+<div class='d-flex flex-column'>
+  <h3>Pick a color!</h3>
+  <button *ngFor='let color of args' [style]='{"background": color}' (click)='pickColor(color)'>
+    {{color}}
+  </button>
+</div>

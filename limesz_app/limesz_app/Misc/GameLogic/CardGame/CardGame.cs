@@ -268,6 +268,15 @@ public sealed class CardGame
             tcs.SetResult(response);
             activeTasks.Remove(showToken);
         }
+        hostRide.Game.ActivePrompts.Remove(prompt);
+    }
+
+    public void SendNotification(string title)
+    {
+        hostRide.Game.InGameNotifications.Add(new InGameNotification()
+        {
+            Title = title
+        });
     }
 
 

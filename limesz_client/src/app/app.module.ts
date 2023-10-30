@@ -42,6 +42,8 @@ import { CardComponent } from './components/card/card.component';
 import { DeckComponent } from './components/deck/deck.component';
 import { DecksComponent } from './components/decks/decks.component';
 import { InGamePlayerListComponent } from './components/in-game-player-list/in-game-player-list.component';
+import { ColorPickerPromptComponent } from './components/prompts/color-picker-prompt/color-picker-prompt.component';
+import { PromptService } from './services/prompt-service';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -65,7 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardComponent,
     DeckComponent,
     DecksComponent,
-    InGamePlayerListComponent
+    InGamePlayerListComponent,
+    ColorPickerPromptComponent
   ],
   imports: [
     ImageCropperModule,
@@ -113,6 +116,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoadingService,
     AutosaveService,
     UserService,
+    PromptService
   ],
   bootstrap: [AppComponent]
 })

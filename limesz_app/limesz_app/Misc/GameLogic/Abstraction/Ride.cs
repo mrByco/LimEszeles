@@ -26,6 +26,15 @@ public class Game
     public List<Player> InteractivePlayers { get; set; } = new List<Player>();
     public List<CustomPromptDefinition> CustomPrompts { get; set; } = new List<CustomPromptDefinition>();
     public List<ActivePrompt> ActivePrompts { get; set; } = new List<ActivePrompt>();
+    public List<InGameNotification> InGameNotifications { get; set; } = new List<InGameNotification>();
+}
+
+public class InGameNotification
+{
+    public string Title { get; set; }
+    public string? Description { get; set; }
+    public DateTime Created { get; set; } = DateTime.Now;
+    public string Id { get; set; } = Guid.NewGuid().ToString();
 }
 
 public class ScoreScreenData

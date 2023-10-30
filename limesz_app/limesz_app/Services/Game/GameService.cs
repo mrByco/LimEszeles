@@ -149,4 +149,14 @@ public class GameService
         }
         _cardGames[ride].PullFromDeck(userId, deckName, count);
     }
+
+    public void AnswerPrompt(string userId, string showToken, Dictionary<string, object> result)
+    {
+        var ride = GetRideByUserId(userId);
+        if (ride == null)
+        {
+            throw new Exception("Ride not found");
+        }
+        _cardGames[ride].OnPromptResponded(showToken, result);
+    }
 }

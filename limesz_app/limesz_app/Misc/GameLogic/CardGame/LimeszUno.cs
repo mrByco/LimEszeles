@@ -15,11 +15,11 @@ namespace margarita_app.Misc.GameLogic.CardGame
         public void Init(CardGame game)
         {
             Game = game;
-            Game.CreateDeck("Source", CardSetService.GetUnoCardSet());
+            Game.CreateDeck("Source", CardSetService.PromptDebugCardSet());
             Game.CreateDeck("Discard", new List<Card>());
             Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
             Game.GetDeck("Discard").DeckConfig.CanPull = false;
-            Game.DefinePrompt("coloPicker", "colo-picker", new List<string>{ "red", "green", "blue", "yellow"});
+            Game.DefinePrompt("colorPicker", "color-picker", new List<string>{ "red", "green", "blue", "yellow"});
             Game.DefineButton("uno", "someTexture", (string callerId) =>
             {
                 var player = Game.CurrentPlayer;
@@ -90,7 +90,8 @@ namespace margarita_app.Misc.GameLogic.CardGame
                 else if (cardValue == "Wild")
                 {
                     var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
-                    card.Params["Color"] = pickedColor;
+                    Game.SendNotification($"{player.Name} picked {pickedColor["color"]}");
+                    card.Params["Color"] = pickedColor["color"];
                 }
             }
             else

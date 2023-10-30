@@ -6,6 +6,7 @@ export { CustomPromptDefinition } from './models/custom-prompt-definition';
 export { Deck } from './models/deck';
 export { DeckConfig } from './models/deck-config';
 export { Game } from './models/game';
+export { InGameNotification } from './models/in-game-notification';
 export { LicenseInfo } from './models/license-info';
 export { LicenseType } from './models/license-type';
 export { LoginCredentials } from './models/login-credentials';

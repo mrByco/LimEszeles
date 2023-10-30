@@ -14,13 +14,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/ActivePrompt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/prompts/color-picker-prompt/color-picker-prompt.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/prompts/color-picker-prompt/color-picker-prompt.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/prompts/color-picker-prompt/color-picker-prompt.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/prompt-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/ActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/ActionsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomPrompt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomPromptDefinition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/generic/controls/modal-provider/modal-provider.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/generic/controls/modal-provider/modal-provider.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/modal.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/modal.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

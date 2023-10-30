@@ -5,6 +5,9 @@ import { ModalOptions } from "../generic/controls/modal/modal-options";
 @Injectable()
 export class ModalService {
     private modalProvider?: ModalProviderComponent;
+    public get isOpen() {
+        return this.modalProvider?.isOpen;
+    }
 
     constructor() { }
 
