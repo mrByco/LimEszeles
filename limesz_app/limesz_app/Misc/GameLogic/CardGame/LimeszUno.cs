@@ -112,7 +112,7 @@ namespace margarita_app.Misc.GameLogic.CardGame
             Game.SetCurrentPlayer(Game.DefaultNextPlayer);
             var newCurrentPlayer = Game.CurrentPlayer;
             
-            if (newCurrentPlayer.Cards.Count == 1 && !playersWithUno.Contains(newCurrentPlayer.Id))
+            if (newCurrentPlayer.Cards.Count == 1 && !playersWithUno.Contains(newCurrentPlayer.Id) && false)
                 Game.GiveCards(newCurrentPlayer.Id, 1, "Source");
             
             if (playersWithUno.Contains(newCurrentPlayer.Id)) 
