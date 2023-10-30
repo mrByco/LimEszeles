@@ -8,10 +8,10 @@ public class CardSetService
     {
         List<string> colors = new List<string>()
         {
-            "Blue",
-            "Green",
-            "Red",
-            "Yellow"
+            "blue",
+            "green",
+            "red",
+            "yellow"
         };
 
         List<string> values = new List<string>()
