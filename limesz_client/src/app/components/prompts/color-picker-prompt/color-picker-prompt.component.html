@@ -1,6 +1,12 @@
-<div class='d-flex flex-column'>
+<div class="color-picker">
   <h3>Pick a color!</h3>
-  <button *ngFor='let color of args' [style]='{"background": color}' (click)='pickColor(color)'>
-    {{color}}
-  </button>
+  <div class='d-flex h-100 justify-content-center'>
+    <ul class="sliceWrapper" >
+      <li *ngFor='let color of ["red", "green", "blue", "yellow", "purple"]; let i = index;' (click)="pickColor(color)"
+          [ngStyle]="{'transform': ('rotate('+ (i * 360 / 5) + 'deg) skewY(' + ((360 / 5) + 90) + 'deg)')}">
+        <div class="slice" [ngStyle]='{"background-color": color}'></div>
+      </li>
+    </ul>
+  </div>
+
 </div>
