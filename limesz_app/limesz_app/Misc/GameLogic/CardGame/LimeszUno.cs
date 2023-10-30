@@ -62,12 +62,14 @@ namespace margarita_app.Misc.GameLogic.CardGame
 
                 if (player.Cards.Count == 1)
                 {
-                    // Implement specific handling for "Uno" if necessary.
                 }
 
                 if (player.Cards.Count == 0)
                 {
-                    // Implement specific handling for a win if necessary.
+                    // Send notificattion so player x won, and remove from players
+                    
+                    Game.SendNotification($"{player.Name} won!");
+                    Game.RemovePlayer(player.Id);
                 }
 
                 var cardValue = card.Params["Value"] as string;
@@ -82,16 +84,22 @@ namespace margarita_app.Misc.GameLogic.CardGame
                 else if (cardValue == "Draw 2")
                 {
                     Game.GiveCards(Game.DefaultNextPlayer, 2, "Source");
+                    //Skip next player
+                    Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
                 else if (cardValue == "Wild Draw 4")
                 {
+                    var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
                     Game.GiveCards(Game.DefaultNextPlayer, 4, "Source");
+                    card.Params["Color"] = pickedColor["color"].ToString();
+                    //Skip next player
+                    Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
                 else if (cardValue == "Wild")
                 {
                     var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
                     Game.SendNotification($"{player.Name} picked {pickedColor["color"]}");
-                    card.Params["Color"] = pickedColor["color"];
+                    card.Params["Color"] = pickedColor["color"].ToString();
                 }
             }
             else
@@ -117,17 +125,32 @@ namespace margarita_app.Misc.GameLogic.CardGame
             
             if (playersWithUno.Contains(newCurrentPlayer.Id)) 
                 playersWithUno.Remove(newCurrentPlayer.Id);
+            
+            // Reshuffle the deck if there is more than 10 cards
+            if (Game.GetDeck("Source").Cards.Count < 10)
+            {
+                var deck = Game.GetDeck("Discard");
+                for (int i = 0; i < deck.Cards.Count - 2; i++)
+                {
+                    var lastCard = deck.Cards[0];
+                    Game.MoveCard("Discard", "Source", lastCard.Id);
+                }
+                
+                Game.ShuffleDeck("Source");
+                Game.SendNotification("Source is reshuffled, with drop cards.");
+            }
+
             Game.NotifyClients();
         }
 
         private bool IsCardPlayable(Card card, Card lastCard)
         {
-            if (card.Params["Color"] == lastCard.Params["Color"] || card.Params["Value"] == lastCard.Params["Value"])
+            if (card.Params["Color"].Equals(lastCard.Params["Color"]) || card.Params["Value"].Equals(lastCard.Params["Value"]))
             {
                 return true;
             }
 
-            if (card.Params["Value"] == "Wild" || card.Params["Value"] == "Wild Draw Four")
+            if (card.Params["Value"] == "Wild" || card.Params["Value"] == "Wild Draw 4")
             {
                 return true;
             }

@@ -285,4 +285,14 @@ public sealed class CardGame
     {
         // TODO
     }
+
+    public void RemovePlayer(string playerId)
+    {
+        var player = GetPlayer(playerId);
+        if (player == null)
+        {
+            return;
+        }
+        players.Remove(player);
+    }
 }
