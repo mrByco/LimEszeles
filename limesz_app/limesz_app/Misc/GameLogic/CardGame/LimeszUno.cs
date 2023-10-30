@@ -15,7 +15,7 @@ namespace margarita_app.Misc.GameLogic.CardGame
         public void Init(CardGame game)
         {
             Game = game;
-            Game.CreateDeck("Source", CardSetService.PromptDebugCardSet());
+            Game.CreateDeck("Source", CardSetService.GetUnoCardSet());
             Game.CreateDeck("Discard", new List<Card>());
             Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
             Game.GetDeck("Discard").DeckConfig.CanPull = false;
