@@ -13,6 +13,11 @@ namespace margarita_app.Misc
 		{
 		}
 
+		/// <summary>
+		/// Retrieves an image from the DALL-E API based on a given prompt.
+		/// </summary>
+		/// <param name="prompt">The text prompt used to generate the image.</param>
+		/// <returns>A Base64-encoded image as a string.</returns>
 		public async Task<string> GetImage(string prompt)
 		{
             var client = new HttpClient();

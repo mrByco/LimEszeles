@@ -93,7 +93,7 @@ public sealed class CardGame
         GetPlayer(playerId)?.Cards.AddRange(cards);
     }
 
-    public Deck GetDeck(string name)
+    public Deck? GetDeck(string name)
     {
         return decks.FirstOrDefault(deck => deck.Name == name)!;
     }
@@ -280,13 +280,24 @@ public sealed class CardGame
         });
     }
 
-
-    public void DefineButton(string uno, string sometexture, Action<string> action)
+    /// <summary>
+    /// Defines a button for the player to press
+    /// </summary>
+    /// <param name="buttonType">You can refer to the button with it later</param>
+    /// <param name="texture">The texture of the button</param>
+    /// <param name="action">The callback action, when the button is pressed, gets the pusher player id as string</param>
+    public void DefineButton(string buttonType, string texture, Action<string> action)
     {
         // TODO
     }
 
+    /// <summary>
+    /// Removes the player from the game
+    /// </summary>
+    /// <param name="playerId"></param>
     public void RemovePlayer(string playerId)
+    
+    
     {
         var player = GetPlayer(playerId);
         if (player == null)
