@@ -1,0 +1,5 @@
+<ng-container *ngIf='resource && prop'>
+  <app-string-field *ngIf='prop.propType == "string"' [prop]='prop' [resource]='resource'></app-string-field>
+  <app-date-time-field *ngIf='prop.propType == "date"' [prop]='prop' [resource]='resource'></app-date-time-field>
+  <app-number-field *ngIf='prop.propType == "number"' [prop]='prop' [resource]='resource'></app-number-field>
+</ng-container>

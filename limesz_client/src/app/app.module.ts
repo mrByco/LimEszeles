@@ -42,6 +42,8 @@ import { CardComponent } from './components/card/card.component';
 import { DeckComponent } from './components/deck/deck.component';
 import { DecksComponent } from './components/decks/decks.component';
 import { InGamePlayerListComponent } from './components/in-game-player-list/in-game-player-list.component';
+import { DynamicUiModule } from './dynamic-ui/dynamic-ui.module';
+import { GameRootComponent } from './screens/game-root/game-root.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -65,13 +67,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardComponent,
     DeckComponent,
     DecksComponent,
-    InGamePlayerListComponent
+    InGamePlayerListComponent,
+    GameRootComponent
   ],
   imports: [
     ImageCropperModule,
     GenericModule,
+    DynamicUiModule,
     RouterModule.forRoot([
-      { path: '', component: MenuScreenComponent, pathMatch: 'full' },
+      { path: '', component: GameRootComponent, pathMatch: 'full' },
     ], {
       paramsInheritanceStrategy: 'always',
       initialNavigation: 'enabledBlocking',

@@ -11,3 +11,5 @@
     <p style="color: white">Starting app</p>
   </div>
 </div>
+
+<ng-content *ngIf='!loadingService.initialLoading'></ng-content>

@@ -1,9 +1,16 @@
 using margarita_app.Models;
+using margarita_app.Services.Database;
+using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class CardSetService
+public class CardSetService: BaseDataResourceService<CardSet>
 {
+    public CardSetService(IDatabaseService databaseService) : base(databaseService)
+    {
+    }
+
+    protected override string CollectionName => "CardSets";
     public static List<Card> GetUnoCardSet()
     {
         List<string> colors = new List<string>()
@@ -37,4 +44,5 @@ public class CardSetService
 
         return cards;
     }
+
 }

@@ -1,0 +1,6 @@
+<div class='container text-white' *ngIf='resourceDefinition'>
+  <h1 class='text-white'>List view of {{resourceDefinition.name}}</h1>
+  <app-generic-table [input]='tableInput' *ngIf='tableInput' (rowClicked)='navigateDetailsPage($event)'>
+
+  </app-generic-table>
+</div>

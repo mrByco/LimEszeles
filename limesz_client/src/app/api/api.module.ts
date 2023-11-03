@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 import { ImagesService } from './services/images.service';
 import { LicenseService } from './services/license.service';
 import { LobbyService } from './services/lobby.service';
+import { ResourceService } from './services/resource.service';
 import { RideService } from './services/ride.service';
 import { UserService } from './services/user.service';
 import { WeatherForecastService } from './services/weather-forecast.service';
@@ -26,6 +27,7 @@ import { WeatherForecastService } from './services/weather-forecast.service';
     ImagesService,
     LicenseService,
     LobbyService,
+    ResourceService,
     RideService,
     UserService,
     WeatherForecastService,

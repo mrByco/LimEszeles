@@ -4,7 +4,7 @@ using margarita_data.Models;
 
 namespace margarita_app.Services
 {
-    public class RestaurantInviteService : BaseDataService<RestaurantInvite>
+    public class RestaurantInviteService : BaseDataResourceService<RestaurantInvite>
     {
         protected override string CollectionName => "RestaurantInvites";
 

@@ -1,0 +1,12 @@
+.generic-table {
+  visibility: visible;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0s;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}

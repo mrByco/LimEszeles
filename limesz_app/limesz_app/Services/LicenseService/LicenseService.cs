@@ -4,7 +4,7 @@ using margarita_data.Models;
 
 namespace margarita_app.Services.LicenseService
 {
-    public class LicenseService : BaseDataService<LicenseInfo>, ILicenseService
+    public class LicenseService : BaseDataResourceService<LicenseInfo>, ILicenseService
     {
         public LicenseService(IDatabaseService databaseService) : base(databaseService)
         {

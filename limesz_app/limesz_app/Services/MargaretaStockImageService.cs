@@ -8,7 +8,7 @@ using SixLabors.ImageSharp;
 
 namespace margarita_app.Services
 {
-    public class MargaretaStockImageService : BaseDataService<MargaretaStockImage>
+    public class MargaretaStockImageService : BaseDataResourceService<MargaretaStockImage>
     {
         private readonly IImageService _imageService;
 

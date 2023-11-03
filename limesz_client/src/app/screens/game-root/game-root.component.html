@@ -1,0 +1,3 @@
+<app-lobby-screen *ngIf='rideService.ride$.value && rideService.ride$.value.state == "lobby"'></app-lobby-screen>
+<app-game-screen *ngIf='rideService.ride$.value && rideService.ride$.value.state == "game"'></app-game-screen>
+<app-menu-screen *ngIf='!rideService.ride$.value'></app-menu-screen>

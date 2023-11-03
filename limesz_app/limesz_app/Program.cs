@@ -126,7 +126,9 @@ app.UseCors(builder =>
 });
 
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(settings =>
+{
+});
 
 app.UseAuthentication();
 app.UseAuthorization();

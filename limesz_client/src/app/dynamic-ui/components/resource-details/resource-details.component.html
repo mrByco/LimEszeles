@@ -1,0 +1,16 @@
+<div class='container text-white' *ngIf='resource'>
+
+  <div class='d-flex flex-column'>
+    <div *ngFor='let prop of resourceDefinition.props'>
+      <app-dynamic-prop-field [prop]='prop' [resource]='resource'></app-dynamic-prop-field>
+    </div>
+  </div>
+
+
+  <div class='row' *ngIf='false'>
+    <div class='col-md-12'>
+      <h1>404</h1>
+      <p>Page not found</p>
+    </div>
+  </div>
+</div>

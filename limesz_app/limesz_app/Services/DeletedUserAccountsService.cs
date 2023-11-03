@@ -3,7 +3,7 @@ using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class DeletedUserAccountsService: BaseDataService<DeletedUser>
+public class DeletedUserAccountsService: BaseDataResourceService<DeletedUser>
 {
     public DeletedUserAccountsService(IDatabaseService databaseService) : base(databaseService)
     {

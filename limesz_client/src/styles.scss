@@ -18,6 +18,7 @@
 
 @import 'ngx-toastr/toastr';
 @import '~@angular/cdk/overlay-prebuilt.css';
+@import '//classpath:compass/css3';
 
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
@@ -85,6 +86,10 @@ code {
 .mat-ripple-element {
   background-color: var(--ripple-color) !important; //var(--ripple-color) !important;
   opacity: 0.2;
+}
+
+.mat-datepicker-content {
+  background: white;
 }
 
 .btn-primary {
@@ -206,4 +211,9 @@ body {
 
 ion-tab-bar {
   margin-bottom: calc(4px + env(safe-area-inset-top));
+}
+
+
+.background {
+  background: #2a0c55;
 }
