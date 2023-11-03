@@ -1,5 +1,4 @@
 import { Component, inject, Input } from '@angular/core';
-import { Card } from '../../api/models/card';
 import { ActionsService as ActionsApi } from '../../api/services/actions.service';
 import { RideService } from '../../services/ride.service';
 import { firstValueFrom } from 'rxjs';
@@ -13,13 +12,13 @@ import { firstValueFrom } from 'rxjs';
 export class MyCardsComponent {
 
   @Input()
-  cards: Card[] = [];
+  cards: any[] = [];
   private actionsApi: ActionsApi = inject(ActionsApi);
   protected rideService: RideService = inject(RideService);
 
   protected readonly Math = Math;
 
-  playCard(card: Card) {
+  playCard(card: any) {
     if (!this.rideService.isMyTurn) {
       return;
     }

@@ -14,70 +14,109 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_app/Controllers/IStandardResourceController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Misc/StringExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ObjectField.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/PaginatedResourceResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ResourceDescription.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ResourceProp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/CardSet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/paginated-resource-result.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/resource-description.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/resource-prop.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services/resource.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/date-time-field/date-time-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/date-time-field/date-time-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/date-time-field/date-time-field.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/date-time-field/date-time-field.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/number-field/number-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/number-field/number-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/number-field/number-field.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/number-field/number-field.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/generic-table/generic-table.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/generic-table/generic-table.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/generic-table/generic-table.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-menu/resource-menu.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-menu/resource-menu.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-menu/resource-menu.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-type-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-root/game-root.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-root/game-root.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/screens/game-root/game-root.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Models/MetricsResultDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Models/MetricsResultDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/ActivePrompt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CustomPromptDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/active-prompt.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/custom-prompt-definition.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/in-game-notification.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/prompts/color-picker-prompt/color-picker-prompt.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/prompts/color-picker-prompt/color-picker-prompt.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/prompts/color-picker-prompt/color-picker-prompt.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/prompt-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-draw-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-reverse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-skip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-wild-draw-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/blue-wild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-draw-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-reverse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-skip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-wild-draw-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/green-wild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/joker-wild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-draw-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-reverse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-skip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-wild-draw-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/red-wild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/uno.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/wild-draw-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/wild-empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-draw-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-reverse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-skip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-wild-draw-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/assets/uno-cards/yellow-wild.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cardsplusplus/bin/Debug/net6.0/cardsplusplus.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cardsplusplus/cardsplusplus.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app.sln" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/ActionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/ActionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/DalleClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/DalleClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/Abstraction/Ride.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/CardGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Misc/GameLogic/CardGame/LimeszUno.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/CardSetService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/DeletedUserAccountsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/DeletedUserAccountsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/LicenseService/LicenseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/LicenseService/LicenseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/MargaretaStockImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/MargaretaStockImageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/RestaurantInviteService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/RestaurantInviteService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/Models/MargaretaStockImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Models/MargaretaStockImage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/limesz_data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/limesz_data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/api.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/api.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/Game/GameService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/card.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/services/actions.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/services/actions.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/generic/controls/loader/loader.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/generic/controls/loader/loader.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/card/card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/in-game-player-list/in-game-player-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/in-game-player-list/in-game-player-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/components/my-cards/my-cards.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/generic/controls/modal-provider/modal-provider.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/generic/controls/modal-provider/modal-provider.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/services/modal.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/services/modal.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +335,7 @@
       <workItem from="1697699096045" duration="2249000" />
       <workItem from="1697716962877" duration="4361000" />
       <workItem from="1698394736081" duration="6838000" />
-      <workItem from="1698999827853" duration="14390000" />
+      <workItem from="1698999827853" duration="14991000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>

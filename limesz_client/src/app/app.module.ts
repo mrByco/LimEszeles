@@ -44,6 +44,8 @@ import { DecksComponent } from './components/decks/decks.component';
 import { InGamePlayerListComponent } from './components/in-game-player-list/in-game-player-list.component';
 import { DynamicUiModule } from './dynamic-ui/dynamic-ui.module';
 import { GameRootComponent } from './screens/game-root/game-root.component';
+import { ColorPickerPromptComponent } from './components/prompts/color-picker-prompt/color-picker-prompt.component';
+import { PromptService } from './services/prompt-service';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -67,6 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardComponent,
     DeckComponent,
     DecksComponent,
+    InGamePlayerListComponent,
+    ColorPickerPromptComponent,
     InGamePlayerListComponent,
     GameRootComponent
   ],
@@ -117,6 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoadingService,
     AutosaveService,
     UserService,
+    PromptService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,10 +7,11 @@
 
 .card-container.clickable {
   opacity: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 .card-container.clickable:hover {
-  transform: translateY(-20px) scale(155%);
+  transform: translateY(-20px) scale(105%);
   opacity: 80%;
   cursor: pointer;
 }

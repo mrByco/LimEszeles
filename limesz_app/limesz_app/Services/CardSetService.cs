@@ -15,10 +15,10 @@ public class CardSetService: BaseDataResourceService<CardSet>
     {
         List<string> colors = new List<string>()
         {
-            "Blue",
-            "Green",
-            "Red",
-            "Yellow"
+            "blue",
+            "green",
+            "red",
+            "yellow"
         };
 
         List<string> values = new List<string>()
@@ -33,11 +33,67 @@ public class CardSetService: BaseDataResourceService<CardSet>
         {
             foreach (var value in values)
             {
+                var p = new Dictionary<string, object>()
+                {
+                    {"Color", color},
+                    {"Value", value}
+                };
                 cards.Add(new Card()
                 {
-                    Color = color,
-                    Value = value,
-                    Id = Guid.NewGuid().ToString()
+                    Image = ($"/assets/uno-cards/{color}-{value}.png").ToLower().Replace(" ", "-"),
+                    Id = Guid.NewGuid().ToString(),
+                    Params = p
+                });
+            }
+        }
+
+        return cards;
+    }
+
+
+    public static List<Card> PromptDebugCardSet()
+    {
+        
+        List<string> colors = new List<string>()
+        {
+            "Blue",
+            "Green",
+            "Red",
+            "Yellow"
+        };
+
+        List<string> values = new List<string>()
+        {
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4",
+            "Wild", "Wild Draw 4"
+        };
+
+        List<Card> cards = new List<Card>();
+
+        foreach (var color in colors)
+        {
+            foreach (var value in values)
+            {
+                var p = new Dictionary<string, object>()
+                {
+                    {"Color", color},
+                    {"Value", value}
+                };
+                cards.Add(new Card()
+                {
+                    Image = ($"/assets/uno-cards/{color}-{value}.png").ToLower().Replace(" ", "-"),
+                    Id = Guid.NewGuid().ToString(),
+                    Params = p
                 });
             }
         }

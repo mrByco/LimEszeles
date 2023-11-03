@@ -1,4 +1,5 @@
 using cardsplusplus.Abstraction;
+using margarita_app.Misc.GameLogic.Abstraction;
 using margarita_app.Models;
 using margarita_app.Services.CardGame;
 
@@ -20,7 +21,8 @@ public sealed class CardGame
     }
     // Players who able to take action
     private Ride hostRide;
-
+    private Dictionary<string, TaskCompletionSource<Dictionary<string, object>>> activeTasks = new Dictionary<string, TaskCompletionSource<Dictionary<string, object>>>();
+    
     private IGameBehaviour _behaviour;
 
     public CardGame(Ride initGameState, IGameBehaviour behaviour)
@@ -91,7 +93,7 @@ public sealed class CardGame
         GetPlayer(playerId)?.Cards.AddRange(cards);
     }
 
-    public Deck GetDeck(string name)
+    public Deck? GetDeck(string name)
     {
         return decks.FirstOrDefault(deck => deck.Name == name)!;
     }
@@ -121,7 +123,22 @@ public sealed class CardGame
     }
     public Player RandomPlayer => players[new Random().Next(players.Count)];
     public Player CurrentPlayer => players.Find(player => player.Id == currentPlayers[0].Id)!;
-    public string DefaultNextPlayer => players[(players.IndexOf(CurrentPlayer) + 1) % players.Count].Id;
+    public int RoundDirection { get; set; } = 1;
+
+    public string DefaultNextPlayer
+    {
+        get
+        {
+            int currentPlayerIndex = players.IndexOf(CurrentPlayer);
+
+            if (currentPlayerIndex >= 0)
+            {
+                int nextPlayerIndex = (currentPlayerIndex + RoundDirection + players.Count) % players.Count;
+                return players[nextPlayerIndex].Id;
+            }
+            return "PlayerNotFound";
+        }
+    }
 
 
     public Card GetLastCardFromDeck(string deck)
@@ -195,8 +212,98 @@ public sealed class CardGame
         _behaviour.PlayCard(card, player);
     }
 
+    
     public void PullFromDeck(string userId, string deckName, int count)
     {
         _behaviour.PullFromDeck(GetPlayer(userId), GetDeck(deckName), count);
+    }
+
+    public void ReverseOrder()
+    {
+        this.RoundDirection *= -1;
+    }
+
+    public void DefinePrompt(string id, string uiType, object config)
+    {
+        hostRide.Game.CustomPrompts.Add(new CustomPromptDefinition()
+        {
+            Id = id,
+            UiType = uiType,
+            Configuration = config
+        });
+    }
+
+    public async Task<Dictionary<string, object>> WaitForPrompt(string playerId, string promptId)
+    {
+        var showToken = Guid.NewGuid().ToString();
+
+        var tcs = new TaskCompletionSource<Dictionary<string, object>>();
+    
+        // Store the TaskCompletionSource in a global dictionary
+        activeTasks[showToken] = tcs;
+
+        hostRide.Game.ActivePrompts.Add(new ActivePrompt()
+        {
+            shownTo = playerId,
+            promptDefinitionId = promptId,
+            showToken = showToken
+        });
+
+        OnChange();
+
+        return await tcs.Task;
+    }
+
+    public void OnPromptResponded(string showToken, Dictionary<string, object> response)
+    {
+        var prompt = hostRide.Game.ActivePrompts.FirstOrDefault(p => p.showToken == showToken);
+        if (prompt == null)
+        {
+            return;
+        }
+
+        // Check if there is a matching TaskCompletionSource in the global dictionary
+        if (activeTasks.TryGetValue(showToken, out var tcs))
+        {
+            // Set the result and remove it from the dictionary
+            tcs.SetResult(response);
+            activeTasks.Remove(showToken);
+        }
+        hostRide.Game.ActivePrompts.Remove(prompt);
+    }
+
+    public void SendNotification(string title)
+    {
+        hostRide.Game.InGameNotifications.Add(new InGameNotification()
+        {
+            Title = title
+        });
+    }
+
+    /// <summary>
+    /// Defines a button for the player to press
+    /// </summary>
+    /// <param name="buttonType">You can refer to the button with it later</param>
+    /// <param name="texture">The texture of the button</param>
+    /// <param name="action">The callback action, when the button is pressed, gets the pusher player id as string</param>
+    public void DefineButton(string buttonType, string texture, Action<string> action)
+    {
+        // TODO
+    }
+
+    /// <summary>
+    /// Removes the player from the game
+    /// </summary>
+    /// <param name="playerId"></param>
+    public void RemovePlayer(string playerId)
+    
+    
+    {
+        var player = GetPlayer(playerId);
+        if (player == null)
+        {
+            return;
+        }
+        players.Remove(player);
     }
 }

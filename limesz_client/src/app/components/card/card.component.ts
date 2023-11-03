@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Card } from '../../api/models/card';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +6,6 @@ import { Card } from '../../api/models/card';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() card: Card;
+  @Input() card: any;
   @Input() flipped: boolean;
 }

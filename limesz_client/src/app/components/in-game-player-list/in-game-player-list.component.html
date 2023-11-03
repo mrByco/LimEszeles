@@ -1,5 +1,5 @@
 <div class='d-flex flex-column'>
   <div style='color: white' *ngFor='let player of players' [ngStyle]='{"font-weight": interactivePlayerIds.includes(player.userId) ? "bold" : "normal" }'>
-    {{player.name }} {{ this.rideService.meAsPlayer.userId == player.userId ? '(me)' : '' }}
+    {{player.name }} {{ this.rideService.meAsPlayer.userId == player.userId ? '(me)' : '' }} ({{ player.cards.length }} cards)
   </div>
 </div>
