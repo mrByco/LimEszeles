@@ -1,6 +1,11 @@
 <div class='container text-white' *ngIf='resourceDefinition'>
-  <h1 class='text-white'>List view of {{resourceDefinition.name}}</h1>
-  <app-generic-table [input]='tableInput' *ngIf='tableInput' (rowClicked)='navigateDetailsPage($event)'>
+  <div class='d-flex align-items-center justify-content-between'>
+    <h1 class='text-white'>List view of {{resourceDefinition.name}}</h1>
+    <app-generic-button [Action]='create'>New {{resourceDefinition.name}}</app-generic-button>
+  </div>
+  <app-generic-table [input]='tableInput' *ngIf='tableInput' (rowClicked)='navigateDetailsPage($event)' style='width: 100%; overflow: scroll' >
 
   </app-generic-table>
+
+
 </div>

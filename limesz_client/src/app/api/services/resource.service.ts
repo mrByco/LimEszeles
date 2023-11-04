@@ -277,4 +277,58 @@ export class ResourceService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation createResource
+   */
+  static readonly CreateResourcePath = '/Resource/create-resource/{resourceType}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `createResource()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  createResource$Response(params: {
+    resourceType: string;
+    context?: HttpContext
+    body?: any
+  }
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.CreateResourcePath, 'post');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+      rb.body(params.body, 'application/*+json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `createResource$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  createResource(params: {
+    resourceType: string;
+    context?: HttpContext
+    body?: any
+  }
+): Observable<void> {
+
+    return this.createResource$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
 }

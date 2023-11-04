@@ -19,7 +19,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { DatetimePickerComponent } from './components/fields/date-time-field/datetime-picker/datetime-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BoolFieldComponent } from './components/fields/bool-field/bool-field.component';
+import { _MatCheckboxRequiredValidatorModule, MatCheckboxModule } from '@angular/material/checkbox';
+import { GenericModule } from '../generic/generic.module';
 
 
 
@@ -33,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     StringFieldComponent,
     NumberFieldComponent,
     DateTimeFieldComponent,
-    DatetimePickerComponent
+    DatetimePickerComponent,
+    BoolFieldComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +63,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     NgxMatDatetimePickerModule,
     ReactiveFormsModule,
+    _MatCheckboxRequiredValidatorModule,
+    FormsModule,
+    MatCheckboxModule,
+    GenericModule,
   ],
   providers: [
     ResourceTypeService, ResourceService

@@ -28,4 +28,9 @@ export class ResourceService {
   }
 
 
+  createResource(name: string) {
+    return this.resourceApi.createResource({
+      resourceType: name,
+    }).toPromise();
+  }
 }

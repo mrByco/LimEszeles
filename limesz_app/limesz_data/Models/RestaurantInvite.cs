@@ -11,6 +11,9 @@ namespace margarita_data.Models
         public string RestaurantId { get; set; }
         public List<string> RolesToAddOnInvite { get; set; }
         public DateTime Created { get; set; }
+        
+        public DateTime KevinGN { get; set; }
+        public bool THBeforeGN { get; set; }
     }
 }
 

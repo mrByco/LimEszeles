@@ -130,6 +130,28 @@ public class ResourceController: ControllerBase
     [HttpGet("get-resource/{resourceType}/{id}", Name = nameof(GetResource))]
     public object GetResource(string resourceType, string id)
     {
+        var result = CallCorrespondingServiceMethod(resourceType, new object[] { id });
+        return result;
+    }
+
+    private object? CallCorrespondingServiceMethod(string resourceType, object[] args)
+    {
+        Type baseType = typeof(BaseDataResourceService<>);
+        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
+
+        var service =
+            _services.GetService(types.FirstOrDefault(t =>
+                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
+
+
+        var method = service.GetType().GetMethod("GetByIdResource");
+        var result = method?.Invoke(service, args);
+        return result;
+    }
+
+    [HttpPost("create-resource/{resourceType}", Name = nameof(CreateResource))]
+    public object CreateResource(string resourceType, object model)
+    {
         Type baseType = typeof(BaseDataResourceService<>);
         Type[] types = Assembly.GetAssembly(baseType).GetTypes();
 
@@ -138,8 +160,8 @@ public class ResourceController: ControllerBase
                 t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
         
         
-        var method = service.GetType().GetMethod("GetByIdResource");
-        var result = method?.Invoke(service, new object[] {id});
+        var method = service.GetType().GetMethod("CreateResource");
+        var result = method?.Invoke(service, new object[] {model});
         
         return result;
     }
