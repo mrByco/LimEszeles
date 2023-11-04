@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResourceProp } from '../../../api/models/resource-prop';
 
 @Component({
@@ -10,5 +10,6 @@ export class DynamicPropFieldComponent {
 
   @Input() prop: ResourceProp;
   @Input() resource: any;
+  @Output() onChanged = new EventEmitter<string>();
 
 }

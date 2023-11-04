@@ -1,5 +1,6 @@
 using System.Reflection;
 using margarita_app.Services;
+using margarita_data.Models;
 using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
 using Type = System.Type;
@@ -16,8 +17,7 @@ public class ResourceController: ControllerBase
     {
         _services = services;
     }
-    
-    
+
     [HttpGet("get-resource-list", Name = nameof(GetResourceTypes))]
     public List<ResourceDescription> GetResourceTypes()
     {
@@ -111,30 +111,40 @@ public class ResourceController: ControllerBase
     
     
     [HttpGet("get-resources-paginated/{resourceType}/{page}/{pageSize}", Name = nameof(GetResourcesPaginated))]
-    public async Task<PaginatedResourceResult> GetResourcesPaginated(string resourceType, int page, int pageSize)
+    public PaginatedResourceResult GetResourcesPaginated(string resourceType, int page, int pageSize)
     {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
-
-        var service =
-            _services.GetService(types.FirstOrDefault(t =>
-                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
-        
-        
-        var method = service.GetType().GetMethod("GetPaginatedResource");
-        var result = (PaginatedResourceResult) method?.Invoke(service, new object[] {page, pageSize});
-        
-        return result;
+        return (PaginatedResourceResult)
+            CallCorrespondingServiceMethod("GetPaginatedResource", resourceType,new object[] { page, pageSize })!;
     }
     
     [HttpGet("get-resource/{resourceType}/{id}", Name = nameof(GetResource))]
-    public object GetResource(string resourceType, string id)
+    public BaseRootModel GetResource(string resourceType, string id)
     {
-        var result = CallCorrespondingServiceMethod(resourceType, new object[] { id });
-        return result;
+        return (BaseRootModel) 
+            CallCorrespondingServiceMethod("GetByIdResource", resourceType, new object[] { id })!;
     }
 
-    private object? CallCorrespondingServiceMethod(string resourceType, object[] args)
+    [HttpGet("create-resource/{resourceType}", Name = nameof(CreateResource))]
+    public BaseRootModel CreateResource(string resourceType)
+    {
+        return (BaseRootModel)
+            CallCorrespondingServiceMethod("CreateResource", resourceType, new object[] {  })!;
+    }
+    
+    [HttpGet("update-resource/{resourceType}/{id}", Name = nameof(UpdateResource))]
+    public BaseRootModel UpdateResource(string resourceType, string id, object model)
+    {
+        return (BaseRootModel)
+            CallCorrespondingServiceMethod("UpdateResource", resourceType, new object[] { id, model })!;
+    }
+    
+    [HttpDelete("remove-resource/{resourceType}/{id}", Name = nameof(RemoveResource))]
+    public void RemoveResource(string resourceType, string id)
+    {
+        CallCorrespondingServiceMethod("RemoveResource", resourceType, new object[] { id });
+    }
+
+    private object? CallCorrespondingServiceMethod(string methodName, string resourceType, object[] args)
     {
         Type baseType = typeof(BaseDataResourceService<>);
         Type[] types = Assembly.GetAssembly(baseType).GetTypes();
@@ -143,53 +153,8 @@ public class ResourceController: ControllerBase
             _services.GetService(types.FirstOrDefault(t =>
                 t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
 
-
-        var method = service.GetType().GetMethod("GetByIdResource");
+        var method = service.GetType().GetMethod(methodName);
         var result = method?.Invoke(service, args);
         return result;
     }
-
-    [HttpPost("create-resource/{resourceType}", Name = nameof(CreateResource))]
-    public object CreateResource(string resourceType, object model)
-    {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
-
-        var service =
-            _services.GetService(types.FirstOrDefault(t =>
-                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
-        
-        
-        var method = service.GetType().GetMethod("CreateResource");
-        var result = method?.Invoke(service, new object[] {model});
-        
-        return result;
-    }
-    
-    
-    /*
-    public Task<List<CardSet>> Get()
-    {
-        return null;
-    }
-
-    public Task<CardSet> GetById(int id)
-    {
-        return null;
-    }
-
-    public Task<CardSet> Post(object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<CardSet> Put(int id, object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<CardSet> Delete(int id)
-    {
-        throw new NotImplementedException();
-    }*/
 }

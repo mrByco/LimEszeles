@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from '../../../services/loading.service';
 import { GenericTableInput } from '../generic-table/generic-table.component';
 import { create } from 'domain';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-resource-list',
@@ -69,8 +70,7 @@ export class ResourceListComponent {
   }
 
   protected readonly create = async () => {
-    this.loadingService.addTask(this.resourceService.createResource(this.resourceDefinition.name).then(id => {
-      this.router.navigate(['resources', this.resourceDefinition.name, id]);
-    }));
+    let created = await this.resourceService.createResource(this.resourceDefinition.name);
+    await this.router.navigate(['/resources', this.resourceDefinition.name, created.id]);
   };
 }

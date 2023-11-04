@@ -1,5 +1,6 @@
 export { ActivePrompt } from './models/active-prompt';
 export { AuthResult } from './models/auth-result';
+export { BaseRootModel } from './models/base-root-model';
 export { Card } from './models/card';
 export { CompanyRoles } from './models/company-roles';
 export { CustomPromptDefinition } from './models/custom-prompt-definition';

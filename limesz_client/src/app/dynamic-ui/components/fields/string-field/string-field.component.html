@@ -1,6 +1,6 @@
 <p>
   <mat-form-field appearance="fill">
     <mat-label>{{prop.propName}}</mat-label>
-    <input matInput [value]='resource[prop.jsAccessor]' placeholder="Placeholder">
+    <input [(ngModel)]='value' matInput placeholder='Placeholder'>
   </mat-form-field>
 </p>

@@ -7,7 +7,18 @@ import { ResourceProp } from '../../../../api/models/resource-prop';
   styleUrls: ['./string-field.component.scss']
 })
 export class StringFieldComponent {
+  get value(): any {
+    return this.resource[this.prop.jsAccessor];
+  }
+
+  set value(value: any) {
+    this._value = value;
+    this.onChanged.emit(value);
+  }
+
   @Input() prop: ResourceProp;
   @Input() resource: any;
-  @Output() onChanged = new EventEmitter<string>();
+  @Output() onChanged = new EventEmitter<any>();
+
+  private _value: any;
 }

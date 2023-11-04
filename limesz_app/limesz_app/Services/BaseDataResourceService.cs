@@ -7,7 +7,7 @@ using MongoDB.Driver;
 namespace margarita_app.Services
 {
     [Route("[controller]")]
-    public abstract class BaseDataResourceService<T>: BaseDataService<T> where T: BaseRootModel
+    public abstract class BaseDataResourceService<T>: BaseDataService<T> where T: BaseRootModel, new()
     {
         protected BaseDataResourceService(IDatabaseService databaseService) : base(databaseService)
         {
@@ -31,16 +31,17 @@ namespace margarita_app.Services
             return Get(id);
         }
         
-        public object? CreateResource(object model)
+        public object? CreateResource() 
         {
-            var m = (T)model;
-            return Create(m);
+            // instantiate a new object of type T
+            var instance = new T();
+            return Create(instance);
         }
         
         // Sets a single primitive type at a time
         public object UpdateResource(string id, FieldUpdateRequest fieldUpdateRequest)
         {
-            var m = (T)new object();
+            var m = new T();
             Update(m);
             return m;
         }

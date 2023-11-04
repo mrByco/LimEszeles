@@ -20,17 +20,23 @@ export class ResourceService {
   }
 
   public async getResource(resourceName: string, id: any): Promise<any> {
-    // @ts-ignore
-    return JSON.parse(await firstValueFrom(this.resourceApi.getResource({
+    return await firstValueFrom(this.resourceApi.getResource$Json({
       resourceType: resourceName,
       id,
-    })));
+    }));
   }
 
 
-  createResource(name: string) {
-    return this.resourceApi.createResource({
+  async createResource(name: string) {
+    return await firstValueFrom(this.resourceApi.createResource$Json({
       resourceType: name,
-    }).toPromise();
+    }));
+  }
+
+  async deleteResource(name: string, id: any) {
+    await firstValueFrom(this.resourceApi.removeResource({
+      resourceType: name,
+      id,
+    }));
   }
 }
