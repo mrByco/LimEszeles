@@ -41,19 +41,19 @@ export class ResourceService {
     }));
   }
 
-  async updateResource(name: string, id, changes: { [key: string]: any }) {
+  async updateResource(name: string, id, changes: FieldChange[]) {
 
     function toCSharpPath(jsPath) {
       return jsPath.split('.').map(p => p[0].toUpperCase() + p.slice(1)).join('.');
     }
 
-    let updateResurests = Object.keys(changes).map(k => {
+    let updateResurests = changes.map(k => {
       return {
-        path: toCSharpPath(k),
-        value: changes[k],
+        path: toCSharpPath(k.path),
+        value: k.value,
       };
     });
-    console.log(updateResurests);
+
     await firstValueFrom(this.resourceApi.updateResource$Json({
       resourceType: name,
       id,

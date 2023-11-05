@@ -2,7 +2,7 @@
 
   <div class='d-flex flex-column'>
     <div *ngFor='let prop of resourceDefinition.props'>
-      <app-dynamic-prop-field [prop]='prop' (onChanged)='registerChange(prop.jsAccessor, $event)' [resource]='resource'></app-dynamic-prop-field>
+      <app-dynamic-prop-field [prop]='prop' (onChanged)='registerChange($event.path, $event.value)' [resource]='resource'></app-dynamic-prop-field>
     </div>
   </div>
 

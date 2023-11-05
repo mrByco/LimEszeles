@@ -4,6 +4,7 @@ import { ResourceService } from '../../services/resource-service';
 import { ResourceTypeService } from '../../services/resource-type-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from '../../../services/loading.service';
+import { FieldChange } from '../../../api/models/field-change';
 
 @Component({
   selector: 'app-resource-details',
@@ -20,7 +21,7 @@ export class ResourceDetailsComponent {
   private router = inject(Router);
   private loadingService = inject(LoadingService);
 
-  private changes: { [key: string]: any } = {};
+  private changes: FieldChange[] = [];
 
   constructor(protected activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe(p => {
@@ -42,7 +43,6 @@ export class ResourceDetailsComponent {
 
   private async loadResource(resourceName: string, id: any) {
     this.resource = await this.resourceService.getResource(resourceName, id);
-    console.log(this.resource);
   }
 
   protected removeResource = async () => {
@@ -51,12 +51,21 @@ export class ResourceDetailsComponent {
   };
 
   public registerChange = (path: string, value: any) => {
-    this.changes[path] = value;
+    let lastChangeWasCommand = typeof value === "string" && value.startsWith('$') && value.endsWith('$')
+    let lastWasSamePath = this.changes.length > 0 && this.changes[this.changes.length - 1].path === path;
+
+    if (!lastChangeWasCommand && lastWasSamePath) {
+      this.changes[this.changes.length - 1].value = value;
+    }else {
+      this.changes.push({ path: path, value: value });
+      console.log("Changes:");
+      this.changes.forEach(c => console.log(c.path + " = " + c.value.toString()));
+    }
   };
 
   updateResource = async () => {
     await this.resourceService.updateResource(this.resourceDefinition.name, this.resource.id, this.changes);
-    this.changes = {};
+    this.changes = [];
   };
 
 }

@@ -23,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoolFieldComponent } from './components/fields/bool-field/bool-field.component';
 import { _MatCheckboxRequiredValidatorModule, MatCheckboxModule } from '@angular/material/checkbox';
 import { GenericModule } from '../generic/generic.module';
+import { ListFieldComponent } from './components/list/list-field/list-field.component';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -37,7 +39,8 @@ import { GenericModule } from '../generic/generic.module';
     NumberFieldComponent,
     DateTimeFieldComponent,
     DatetimePickerComponent,
-    BoolFieldComponent
+    BoolFieldComponent,
+    ListFieldComponent
   ],
   imports: [
     CommonModule,
@@ -67,6 +70,7 @@ import { GenericModule } from '../generic/generic.module';
     FormsModule,
     MatCheckboxModule,
     GenericModule,
+    MatListModule,
   ],
   providers: [
     ResourceTypeService, ResourceService

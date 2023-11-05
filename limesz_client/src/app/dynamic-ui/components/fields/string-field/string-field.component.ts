@@ -8,10 +8,14 @@ import { ResourceProp } from '../../../../api/models/resource-prop';
 })
 export class StringFieldComponent {
   get value(): any {
+    if (this.prop.jsAccessor.startsWith('[') && this.prop.jsAccessor.endsWith(']')){
+      return this.resource[parseInt(this.prop.jsAccessor.slice(1, -1))];
+    }
     return this.resource[this.prop.jsAccessor];
   }
 
   set value(value: any) {
+
     this._value = value;
     this.onChanged.emit(value);
   }

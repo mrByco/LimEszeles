@@ -14,9 +14,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ResourceProp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ResourceProp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/resource-prop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/resource-prop.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +38,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1774eb4a4b8983b4c9f69624f3883a4c617b7e95e8f384c4bf7cda1ecc09f86/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3655f57ed1ade7942059fb82deb8cc94bbbe141e75638a4e86933a85e24/Activator.RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4ce06f9c8947828110e816fc4388205e5d1e9487d885b35295e1614e223de32/ObjectId.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51876386fdbc9f7d023118d9aa41d5f65b65fce13745eed5cab5ae88f5cd3/Ensure.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6f2c3a317ee06bc1b0766b94d4e6a045ea25c9a3da49cb9075bcee751250d4/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7262732eee179af215faab36a7f3c3cfac93ba12af52a3888d839fe7e53420/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/808c8e5dde187c4d7a9d27086ee0845adb6a8be0623cbc982fcafbe7c44f79/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a64357ccf6e3349d098262337b4a821dfc37ed653d94ada0a8859c6dde/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a189637ee62ade5a353f967e8f9214fb749ea16c9375dc6d2b6df37388f81/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aec8f52367c5a362193c977347c963ff857cd35a4345376c7a7f6ea6edbef8/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ccf7d556f33f32855eda1a8557c3c54fe5e11ebec5c4b624ecba94ccc329874/BsonClassMapSerializer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -237,7 +251,7 @@
       <workItem from="1698394736081" duration="6838000" />
       <workItem from="1698999827853" duration="16112000" />
       <workItem from="1699106529193" duration="2069000" />
-      <workItem from="1699182927595" duration="7051000" />
+      <workItem from="1699182927595" duration="14199000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
@@ -295,19 +309,6 @@
           <line>71</line>
           <properties documentPath="D:\Repos\syce\syce_app\syce_app\Controllers\ItemController.cs" initialLine="71" containingFunctionPresentation="Method 'LinkWebWatchProductByUrl'" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs</url>
-          <line>52</line>
-          <properties documentPath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" initialLine="52" containingFunctionPresentation="method 'UpdateResource'">
-            <startOffsets>
-              <option value="1804" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1815" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
