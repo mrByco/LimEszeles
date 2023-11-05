@@ -3,6 +3,7 @@ using margarita_app.Services;
 using margarita_data.Models;
 using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver.Core.Operations;
 using Type = System.Type;
 
 namespace margarita_app.Controllers;
@@ -131,11 +132,11 @@ public class ResourceController: ControllerBase
             CallCorrespondingServiceMethod("CreateResource", resourceType, new object[] {  })!;
     }
     
-    [HttpGet("update-resource/{resourceType}/{id}", Name = nameof(UpdateResource))]
-    public BaseRootModel UpdateResource(string resourceType, string id, object model)
+    [HttpPost("update-resource/{resourceType}/{id}", Name = nameof(UpdateResource))]
+    public BaseRootModel UpdateResource(string resourceType, string id, List<FieldChange> requests)
     {
         return (BaseRootModel)
-            CallCorrespondingServiceMethod("UpdateResource", resourceType, new object[] { id, model })!;
+            CallCorrespondingServiceMethod("UpdateResource", resourceType, new object[] { id, requests })!;
     }
     
     [HttpDelete("remove-resource/{resourceType}/{id}", Name = nameof(RemoveResource))]
@@ -146,15 +147,23 @@ public class ResourceController: ControllerBase
 
     private object? CallCorrespondingServiceMethod(string methodName, string resourceType, object[] args)
     {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
+        try
+        {
+            Type baseType = typeof(BaseDataResourceService<>);
+            Type[] types = Assembly.GetAssembly(baseType).GetTypes();
 
-        var service =
-            _services.GetService(types.FirstOrDefault(t =>
-                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
+            var service =
+                _services.GetService(types.FirstOrDefault(t =>
+                    t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
 
-        var method = service.GetType().GetMethod(methodName);
-        var result = method?.Invoke(service, args);
-        return result;
+            var method = service.GetType().GetMethod(methodName);
+            var result = method?.Invoke(service, args);
+            return result;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

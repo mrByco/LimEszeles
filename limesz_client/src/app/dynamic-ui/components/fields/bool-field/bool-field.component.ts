@@ -7,7 +7,19 @@ import { ResourceProp } from '../../../../api/models/resource-prop';
   styleUrls: ['./bool-field.component.scss']
 })
 export class BoolFieldComponent {
+  get value(): boolean {
+    console.log(this.resource[this.prop.jsAccessor], this.prop.jsAccessor, this.resource);
+    return this.resource[this.prop.jsAccessor]
+  }
+
+  set value(value: boolean) {
+    this._value = value;
+    this.resource[this.prop.jsAccessor] = value;
+    this.onChanged.emit(value)
+  }
   @Input() prop: ResourceProp;
   @Input() resource: any;
-  @Output() onChanged = new EventEmitter<string>();
+  @Output() onChanged = new EventEmitter<boolean>();
+
+  private _value: boolean;
 }

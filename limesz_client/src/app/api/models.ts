@@ -6,6 +6,7 @@ export { CompanyRoles } from './models/company-roles';
 export { CustomPromptDefinition } from './models/custom-prompt-definition';
 export { Deck } from './models/deck';
 export { DeckConfig } from './models/deck-config';
+export { FieldChange } from './models/field-change';
 export { Game } from './models/game';
 export { InGameNotification } from './models/in-game-notification';
 export { LicenseInfo } from './models/license-info';

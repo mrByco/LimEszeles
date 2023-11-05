@@ -55,6 +55,7 @@ export class ResourceDetailsComponent {
   };
 
   updateResource = async () => {
+    await this.resourceService.updateResource(this.resourceDefinition.name, this.resource.id, this.changes);
     this.changes = {};
   };
 

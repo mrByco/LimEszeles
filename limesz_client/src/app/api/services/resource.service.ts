@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 import { BaseRootModel } from '../models/base-root-model';
+import { FieldChange } from '../models/field-change';
 import { PaginatedResourceResult } from '../models/paginated-resource-result';
 import { ResourceDescription } from '../models/resource-description';
 
@@ -439,11 +440,11 @@ export class ResourceService extends BaseService {
     resourceType: string;
     id: string;
     context?: HttpContext
-    body?: any
+    body?: Array<FieldChange>
   }
 ): Observable<StrictHttpResponse<BaseRootModel>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ResourceService.UpdateResourcePath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.UpdateResourcePath, 'post');
     if (params) {
       rb.path('resourceType', params.resourceType, {});
       rb.path('id', params.id, {});
@@ -472,7 +473,7 @@ export class ResourceService extends BaseService {
     resourceType: string;
     id: string;
     context?: HttpContext
-    body?: any
+    body?: Array<FieldChange>
   }
 ): Observable<BaseRootModel> {
 
@@ -491,11 +492,11 @@ export class ResourceService extends BaseService {
     resourceType: string;
     id: string;
     context?: HttpContext
-    body?: any
+    body?: Array<FieldChange>
   }
 ): Observable<StrictHttpResponse<BaseRootModel>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ResourceService.UpdateResourcePath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.UpdateResourcePath, 'post');
     if (params) {
       rb.path('resourceType', params.resourceType, {});
       rb.path('id', params.id, {});
@@ -524,7 +525,7 @@ export class ResourceService extends BaseService {
     resourceType: string;
     id: string;
     context?: HttpContext
-    body?: any
+    body?: Array<FieldChange>
   }
 ): Observable<BaseRootModel> {
 

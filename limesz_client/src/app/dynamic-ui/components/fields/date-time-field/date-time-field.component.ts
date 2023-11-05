@@ -9,15 +9,23 @@ import moment from 'moment/moment';
   styleUrls: ['./date-time-field.component.scss']
 })
 export class DateTimeFieldComponent implements AfterViewInit {
+  get value(): Moment {
+    return this._value;
+  }
+
+  set value(value: moment.Moment) {
+    this._value = value;
+    this.onChanged.emit(value.format('YYYY-MM-DDTHH:mm:ss'));
+  }
 
   @Input() prop: ResourceProp;
   @Input() resource: any;
   @Output() onChanged = new EventEmitter<string>();
 
 
-  value: Moment = moment();
+  private _value: Moment = moment();
 
   ngAfterViewInit(): void {
-    this.value = moment(this.resource[this.prop.jsAccessor]);
+    this._value = moment(this.resource[this.prop.jsAccessor]);
   }
 }

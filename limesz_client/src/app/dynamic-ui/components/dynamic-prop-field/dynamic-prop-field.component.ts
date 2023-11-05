@@ -10,6 +10,6 @@ export class DynamicPropFieldComponent {
 
   @Input() prop: ResourceProp;
   @Input() resource: any;
-  @Output() onChanged = new EventEmitter<string>();
+  @Output() onChanged = new EventEmitter<any>();
 
 }

@@ -6,5 +6,5 @@ public class ResourceProp
 {
     public string PropType { get; set; }
     public string PropName { get; set; }
-    public string JSAccessor => PropName.ToCamelCase();
+    public string JSAccessor => PropName.toJSAccessorName();
 }

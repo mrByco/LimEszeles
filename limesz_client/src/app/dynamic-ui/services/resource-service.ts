@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ResourceService as ResourceApi } from '../../api/services/resource.service';
 import { firstValueFrom } from 'rxjs';
 import { PaginatedResourceResult } from 'src/app/api/models';
+import { FieldChange } from 'src/app/api/models/field-change';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,26 @@ export class ResourceService {
     await firstValueFrom(this.resourceApi.removeResource({
       resourceType: name,
       id,
+    }));
+  }
+
+  async updateResource(name: string, id, changes: { [key: string]: any }) {
+
+    function toCSharpPath(jsPath) {
+      return jsPath.split('.').map(p => p[0].toUpperCase() + p.slice(1)).join('.');
+    }
+
+    let updateResurests = Object.keys(changes).map(k => {
+      return {
+        path: toCSharpPath(k),
+        value: changes[k],
+      };
+    });
+    console.log(updateResurests);
+    await firstValueFrom(this.resourceApi.updateResource$Json({
+      resourceType: name,
+      id,
+      body: updateResurests,
     }));
   }
 }
