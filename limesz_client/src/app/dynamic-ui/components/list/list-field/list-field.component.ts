@@ -1,48 +1,17 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { ResourceProp } from '../../../../api/models/resource-prop';
-import { Resource } from '@angular/compiler-cli/src/ngtsc/metadata';
+import { BaseField } from '../../fields/base-field';
 import { ResourceDescription } from '../../../../api/models/resource-description';
-import _default from 'chart.js/dist/core/core.interaction';
-import index = _default.modes.index;
-import * as path from 'path';
 
 @Component({
   selector: 'app-list-field',
   templateUrl: './list-field.component.html',
   styleUrls: ['./list-field.component.scss']
 })
-export class ListFieldComponent {
-  get resource(): any {
-    return this._resource;
+export class ListFieldComponent extends BaseField {
+  public get innerType(): ResourceProp | string{
+    return this.baseProp.embededTypeDefinition as ResourceProp | string;
   }
-  @Input()
-  set resource(value: any) {
-    // TODO handle nullable types
-    this._resource = value;
-    this._resource[this.prop.jsAccessor] ??= [];
-  }
-
-  @Input() prop: ResourceProp;
-  private _resource: any;
-  @Output() onChanged = new EventEmitter<{path: string, value: any}>();
-  protected isPrimitiveType(): boolean {
-    return typeof this.innerType === 'string';
-  };
-
-
-  get getObjectResourceProp(): ResourceProp {
-    return {
-      propName: this.prop.propName,
-      propType: 'object',
-      jsAccessor: this.prop.jsAccessor,
-      embededTypeDefinition: this.prop.embededTypeDefinition
-    }
-  };
-
-  public get innerType(): ResourceProp[] | string{
-    return this.prop.embededTypeDefinition as ResourceProp[]  | string;
-  }
-
 
   public get innerTypeName() {
 
@@ -50,7 +19,7 @@ export class ListFieldComponent {
 
       return this.innerType;
     }
-    return this.prop.propName;
+    return this.baseProp.propName;
   }
 
   getListElementProp(i: number): ResourceProp {
@@ -61,24 +30,46 @@ export class ListFieldComponent {
         jsAccessor: `[${i}]`
       }
     }
+
+    if (!Array.isArray(this.innerType.embededTypeDefinition)){
+      return {
+        propName: `[${i}]`,
+        propType: 'list',
+        jsAccessor: `[${i}]`,
+        embededTypeDefinition: (this.innerType.embededTypeDefinition as ResourceDescription)
+      }
+    }
+
     return {
       propName: `[${i}]`,
       propType: 'object',
       jsAccessor: `[${i}]`,
-      embededTypeDefinition: this.innerType
+      embededTypeDefinition: (this.innerType.embededTypeDefinition as ResourceProp[])
     }
   }
 
-
   addItem() {
     // Add a new item to the list
-    this._resource[this.prop.jsAccessor].push('New Item');
-    this.onChanged.emit({path: `[${this.resource[this.prop.jsAccessor].length - 1}]`, value: "$INSERT$"});
+    console.log("LIST", this.baseProp, this.baseResource);
+    this.value ??= [];
+    if (this.baseProp.propType === 'string'){
+      this.value.push("");
+    }
+    if (this.baseProp.propType === 'number'){
+      this.value.push(0);
+    }
+    if (this.baseProp.propType === 'object'){
+      this.value.push({});
+    }
+    if (this.baseProp.propType === 'list'){
+      this.value.push([]);
+    }
+    this.onChanged.emit({path: `[${this.value.length - 1}]`, value: "$INSERT$"});
   }
 
   removeItem(index: number) {
     // Remove the item at the specified index
-    this._resource[this.prop.jsAccessor].splice(index, 1);
+    this.value.splice(index, 1);
     this.onChanged.emit({path: `[${index}]`, value: "$REMOVE$"});
   }
 
@@ -86,7 +77,14 @@ export class ListFieldComponent {
     this.onChanged.emit({path: path, value: value})
   }
 
-  objectChanged() {
 
+  @Input() set prop(value) {
+    this.baseProp = value;
+  }
+  @Input() set resource(value) {
+    this.baseResource = value;
+  }
+  @Output() get onChanged(){
+    return this.baseOnChanged;
   }
 }

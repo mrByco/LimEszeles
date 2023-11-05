@@ -3,10 +3,10 @@ namespace margarita_data.Models;
 public class NestedTest: BaseRootModel
 {
     public string CarName { get; set; }
-    public Engine Engine { get; set; }
-    public List<Edition> Editions { get; set; }
+    public Engine Engine { get; set; } = new Engine();
+    public List<Edition> Editions { get; set; } = new List<Edition>();
 
-    public List<List<string>> ListInList { get; set; }
+    public List<List<string>> ListInList { get; set; } = new List<List<string>>();
 }
 
 public class Engine

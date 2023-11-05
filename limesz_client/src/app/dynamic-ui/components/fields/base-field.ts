@@ -19,10 +19,14 @@ export abstract class BaseField {
     return this._baseResource;
   }
 
-  set baseResource(value: any) {
-    this._baseResource = value;
+  set baseResource(v: any) {
+    this._baseResource = v;
     if (this.baseProp.propType === 'object'){
-      this.value ??= {};
+      this._value ??= {};
+    }
+    if (this.baseProp.propType === 'list'){
+      console.log("LIST CORRECTED", this.baseProp, this.baseResource);
+      this._value ??= [];
     }
   }
   private _baseResource: any;

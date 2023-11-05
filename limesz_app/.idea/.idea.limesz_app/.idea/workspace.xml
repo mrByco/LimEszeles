@@ -14,28 +14,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_app/Services/NestedTestService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/NestedTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/base-field.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/object-field/object-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/object-field/object-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/object-field/object-field.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/number-field/number-field.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_data/Models/NestedTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Models/NestedTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/base-field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/base-field.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DisabledMethodsStorage">
+    <option name="disabledMethods">
+      <set>
+        <option value="System.Private.CoreLib : System.RuntimeType : get_DeclaringMethod ()" />
+      </set>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -50,6 +48,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/808c8e5dde187c4d7a9d27086ee0845adb6a8be0623cbc982fcafbe7c44f79/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a64357ccf6e3349d098262337b4a821dfc37ed653d94ada0a8859c6dde/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a189637ee62ade5a353f967e8f9214fb749ea16c9375dc6d2b6df37388f81/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aa2e741c1b6b87e0f329e1b0e0606663df6de87a1f2a97d36dbe03888fcb7/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aec8f52367c5a362193c977347c963ff857cd35a4345376c7a7f6ea6edbef8/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ccf7d556f33f32855eda1a8557c3c54fe5e11ebec5c4b624ecba94ccc329874/BsonClassMapSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f24bd85261f660b389d4621581f5214327e2a882864d60caafd9a0f4826522/MongoCollectionImpl.cs" root0="SKIP_HIGHLIGHTING" />
@@ -254,7 +253,7 @@
       <workItem from="1698394736081" duration="6838000" />
       <workItem from="1698999827853" duration="16112000" />
       <workItem from="1699106529193" duration="2069000" />
-      <workItem from="1699182927595" duration="17711000" />
+      <workItem from="1699182927595" duration="20252000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>

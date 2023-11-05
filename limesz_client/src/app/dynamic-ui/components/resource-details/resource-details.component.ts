@@ -51,6 +51,7 @@ export class ResourceDetailsComponent {
   };
 
   public registerChange = (path: string, value: any) => {
+    console.log("Registering change: " + path + " = " + value.toString());
     let lastChangeWasCommand = typeof value === "string" && value.startsWith('$') && value.endsWith('$')
     let lastWasSamePath = this.changes.length > 0 && this.changes[this.changes.length - 1].path === path;
 

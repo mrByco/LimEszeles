@@ -2,6 +2,7 @@ using System.Collections;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using Geocoding;
 using margarita_app.Services.Database;
 using margarita_data.Models;
 using margarita_data.Models.AutoUI;
@@ -83,45 +84,12 @@ namespace margarita_app.Services
         }
 
 
-        static void RemoveElementByIndex(object obj, string arrayPath, int index)
-        {
-            var properties = arrayPath.Split('.');
-            var currentObject = obj;
-
-            for (int i = 0; i < properties.Length - 1; i++)
-            {
-                var propertyName = properties[i];
-                var propertyInfo = currentObject.GetType().GetProperty(propertyName);
-                currentObject = propertyInfo.GetValue(currentObject);
-            }
-
-            var finalPropertyName = properties[properties.Length - 1];
-            var finalPropertyInfo = currentObject.GetType().GetProperty(finalPropertyName);
-
-            if (finalPropertyInfo != null && finalPropertyInfo.PropertyType.IsArray)
-            {
-                // If the final property is an array, we can remove the element at the desired index
-                var array = (Array) finalPropertyInfo.GetValue(currentObject);
-                var newArray = Array.CreateInstance(finalPropertyInfo.PropertyType.GetElementType(), array.Length - 1);
-                for (int i = 0, j = 0; i < array.Length; i++)
-                {
-                    if (i != index)
-                    {
-                        newArray.SetValue(array.GetValue(i), j);
-                        j++;
-                    }
-                }
-
-                finalPropertyInfo.SetValue(currentObject, newArray);
-            }
-        }
-
-
         static void SetPropertyByPath(object obj, string path, object value)
         {
             JsonElement JsonElement = (JsonElement)value;
             value = GetValueFromJsonElement(JsonElement);
             
+            // Split by dot, then by square brackets, then recover square brackets
             var pathSegments = path.Split('.');
             List<dynamic> accessList = new List<dynamic>();
 
@@ -130,9 +98,15 @@ namespace margarita_app.Services
                 if (segment.Contains("["))
                 {
                     var arrayName = segment.Split('[')[0];
-                    int index = int.Parse(segment.Split('[')[1].TrimEnd(']'));
                     accessList.Add(arrayName);
-                    accessList.Add( index);
+                    
+                    List<string> indexParts = segment.Split('[').Select(s => s.TrimEnd(']')).ToList();
+                    indexParts.RemoveAt(0);
+                    
+                    indexParts.Select(s => int.Parse(s)).ForEach(i =>
+                    {
+                        accessList.Add( i);
+                    });
                 }
                 else
                 {
@@ -229,7 +203,7 @@ namespace margarita_app.Services
                     }
                     else if (command == "$REMOVE$")
                     {
-                        list.RemoveAt(list.Count - 1);
+                        list.RemoveAt(arrayIndex);
                     }
                 }
                 else

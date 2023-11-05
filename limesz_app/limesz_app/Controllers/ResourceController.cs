@@ -81,7 +81,7 @@ public class ResourceController: ControllerBase
             }
             else
             {
-                prop.EmbededTypeDefinition = GetPropertyListOfType(genericType);
+                prop.EmbededTypeDefinition = GetPropertyDefinition(genericType.Name, genericType);
             }
         }
         
