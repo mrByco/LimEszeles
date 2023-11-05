@@ -8,7 +8,6 @@ import { ResourceProp } from '../../../../api/models/resource-prop';
 })
 export class BoolFieldComponent {
   get value(): boolean {
-    console.log(this.resource[this.prop.jsAccessor], this.prop.jsAccessor, this.resource);
     return this.resource[this.prop.jsAccessor]
   }
 

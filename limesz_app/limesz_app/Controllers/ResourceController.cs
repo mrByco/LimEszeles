@@ -1,4 +1,5 @@
 using System.Reflection;
+using Google.Rpc.Context;
 using margarita_app.Services;
 using margarita_data.Models;
 using margarita_data.Models.AutoUI;
@@ -34,11 +35,15 @@ public class ResourceController: ControllerBase
 
                 if (genericType != null)
                 {
+                    if (type.BaseType?.Name != typeof(BaseDataResourceService<>).Name)
+                    {
+                        return new();
+                    }
                     resourceTypes.Add(new ResourceDescription()
                     {
                         Name = type.Name,
                         Type = genericType.Name,
-                        Props = GetResourceDescription(type)
+                        Props = GetPropertyListOfType(genericType)
                     });
                 }
             }
@@ -47,70 +52,87 @@ public class ResourceController: ControllerBase
         return resourceTypes;
     }
 
-    private List<ResourceProp> GetResourceDescription(Type type)
+    private List<ResourceProp> GetPropertyListOfType(Type type)
     {
         var props = new List<ResourceProp>();
-
-        if (type.BaseType?.Name != typeof(BaseDataResourceService<>).Name)
-        {
-            return new();
-        }
+        var properties = type.GetProperties();
         
-        var genericType = type.BaseType.GetGenericArguments()[0];
-        var properties = genericType.GetProperties();
         foreach (var property in properties)
         {
-            switch (property.PropertyType.Name)
-            {
-                case "String":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "string"
-                    });
-                    break;
-                case "Int32":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "number"
-                    });
-                    break;
-                case "Decimal":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "number" 
-                    });
-                    break;
-                case "DateTime":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "date" 
-                    });
-                    break;
-                case "Boolean":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "boolean"
-                    });
-                    break;
-                // Add more cases for other common property types as needed
-                default:
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "unknown" // Or handle it in a way suitable for your use case
-                    });
-                    break;
-            }
+            props.Add(GetPropertyDefinition(property.Name, property.PropertyType));
         }
         return props;
     }
+
+    private ResourceProp GetPropertyDefinition(string name, Type propertyType)
+    {
+        var prop = new ResourceProp()
+        {
+            PropName = name,
+            PropType = GetAtomicPropertyType(propertyType)
+        };
+        
+        if (prop.PropType == "list")
+        {
+            var genericType = propertyType.GetGenericArguments()[0];
+            if (isPrimitiveType(genericType))
+            {
+                prop.EmbededTypeDefinition = GetAtomicPropertyType(genericType);
+            }
+            else
+            {
+                prop.EmbededTypeDefinition = GetPropertyListOfType(genericType);
+            }
+        }
+        
+        if (prop.PropType == "object")
+        {
+            prop.EmbededTypeDefinition = GetPropertyListOfType(propertyType);
+        }
+
+        return prop;
+    }
+
+    static bool isPrimitiveType(Type type)
+    {
+        var atomic = GetAtomicPropertyType(type);
+        if (atomic == "object" || atomic == "list" || atomic == "enum")
+            return false;
+        return true;
+    }
+    
+    static string GetAtomicPropertyType(Type type)
+    {
+        switch (type.Name)
+        {
+            case "String":
+                return "string";
+            case "Int32":
+                return "number";
+            case "Decimal":
+                return "number";
+            case "DateTime":
+                return "date";
+            case "Boolean":
+                return "boolean";
+            case "List`1":
+                return "list";
+            default:
+                if (type.BaseType != null && type.BaseType.Name == "Enum")
+                {
+                    return "enum";
+                }
+
+                if (!type.IsPrimitive)
+                    return "object";
+
+                return "unknown";
+        }
+    }
     
     
+
+
     [HttpGet("get-resources-paginated/{resourceType}/{page}/{pageSize}", Name = nameof(GetResourcesPaginated))]
     public PaginatedResourceResult GetResourcesPaginated(string resourceType, int page, int pageSize)
     {

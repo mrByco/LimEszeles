@@ -14,13 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/FieldChange.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/Misc/StringExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Misc/StringExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ResourceProp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Models/AutoUI/ResourceProp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +237,7 @@
       <workItem from="1698394736081" duration="6838000" />
       <workItem from="1698999827853" duration="16112000" />
       <workItem from="1699106529193" duration="2069000" />
-      <workItem from="1699182927595" duration="4002000" />
+      <workItem from="1699182927595" duration="7051000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
