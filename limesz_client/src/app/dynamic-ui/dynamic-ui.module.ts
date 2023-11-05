@@ -25,6 +25,7 @@ import { _MatCheckboxRequiredValidatorModule, MatCheckboxModule } from '@angular
 import { GenericModule } from '../generic/generic.module';
 import { ListFieldComponent } from './components/list/list-field/list-field.component';
 import { MatListModule } from '@angular/material/list';
+import { ObjectFieldComponent } from './components/fields/object-field/object-field.component';
 
 
 
@@ -40,7 +41,8 @@ import { MatListModule } from '@angular/material/list';
     DateTimeFieldComponent,
     DatetimePickerComponent,
     BoolFieldComponent,
-    ListFieldComponent
+    ListFieldComponent,
+    ObjectFieldComponent
   ],
   imports: [
     CommonModule,

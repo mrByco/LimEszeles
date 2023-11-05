@@ -5,7 +5,12 @@
 
   <div class='d-flex flex-column'>
     <div class='d-flex' *ngFor="let item of resource[prop.jsAccessor]; let i = index">
-      <app-dynamic-prop-field [prop]='getListElementProp(i)' [resource]='resource[prop.jsAccessor]' (onChanged)='complexChange($event.path, $event.value)' ></app-dynamic-prop-field>
+
+      <app-dynamic-prop-field  [prop]='getListElementProp(i)' [resource]='resource[prop.jsAccessor]' (onChanged)='complexChange($event.path, $event.value)' ></app-dynamic-prop-field>
+
+
+      <app-object-field *ngIf='!isPrimitiveType  && false' [prop]='getObjectResourceProp' (onChanged)='objectChanged()' [resource]='resource[i]'></app-object-field>
+
       <button mat-raised-button color="warn" (click)="removeItem(i)">Remove</button>
     </div>
   </div>

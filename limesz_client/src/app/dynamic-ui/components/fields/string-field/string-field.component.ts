@@ -1,28 +1,22 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResourceProp } from '../../../../api/models/resource-prop';
+import { BaseField } from '../base-field';
 
 @Component({
   selector: 'app-string-field',
   templateUrl: './string-field.component.html',
   styleUrls: ['./string-field.component.scss']
 })
-export class StringFieldComponent {
-  get value(): any {
-    if (this.prop.jsAccessor.startsWith('[') && this.prop.jsAccessor.endsWith(']')){
-      return this.resource[parseInt(this.prop.jsAccessor.slice(1, -1))];
-    }
-    return this.resource[this.prop.jsAccessor];
+export class StringFieldComponent extends BaseField {
+
+  @Input() set prop(value) {
+    this.baseProp = value;
+  }
+  @Input() set resource(value) {
+    this.baseResource = value;
+  }
+  @Output() get onChanged(){
+    return this.baseOnChanged;
   }
 
-  set value(value: any) {
-
-    this._value = value;
-    this.onChanged.emit(value);
-  }
-
-  @Input() prop: ResourceProp;
-  @Input() resource: any;
-  @Output() onChanged = new EventEmitter<any>();
-
-  private _value: any;
 }

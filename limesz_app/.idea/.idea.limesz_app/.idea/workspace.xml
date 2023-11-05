@@ -14,18 +14,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_app/Services/NestedTestService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/limesz_data/Models/NestedTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/base-field.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/object-field/object-field.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/object-field/object-field.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/object-field/object-field.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/limesz_app/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Services/BaseDataResourceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/api/models/resource-prop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/api/models/resource-prop.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/number-field/number-field.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/string-field/string-field.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-details/resource-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/list/list-field/list-field.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" afterDir="false" />
     </list>
@@ -251,7 +254,7 @@
       <workItem from="1698394736081" duration="6838000" />
       <workItem from="1698999827853" duration="16112000" />
       <workItem from="1699106529193" duration="2069000" />
-      <workItem from="1699182927595" duration="14199000" />
+      <workItem from="1699182927595" duration="17711000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>

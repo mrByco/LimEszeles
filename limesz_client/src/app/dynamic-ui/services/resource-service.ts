@@ -8,8 +8,6 @@ import { FieldChange } from 'src/app/api/models/field-change';
   providedIn: 'root'
 })
 export class ResourceService {
-
-
   constructor(private resourceApi: ResourceApi) { }
 
   public async getResources(resourceName: string, pageNumber: number, pageSize: number): Promise<PaginatedResourceResult> {

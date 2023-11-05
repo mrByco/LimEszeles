@@ -25,9 +25,22 @@ export class ListFieldComponent {
   @Input() prop: ResourceProp;
   private _resource: any;
   @Output() onChanged = new EventEmitter<{path: string, value: any}>();
+  protected isPrimitiveType(): boolean {
+    return typeof this.innerType === 'string';
+  };
 
-  public get innerType(): ResourceDescription | string{
-    return this.prop.embededTypeDefinition as ResourceDescription | string;
+
+  get getObjectResourceProp(): ResourceProp {
+    return {
+      propName: this.prop.propName,
+      propType: 'object',
+      jsAccessor: this.prop.jsAccessor,
+      embededTypeDefinition: this.prop.embededTypeDefinition
+    }
+  };
+
+  public get innerType(): ResourceProp[] | string{
+    return this.prop.embededTypeDefinition as ResourceProp[]  | string;
   }
 
 
@@ -37,7 +50,7 @@ export class ListFieldComponent {
 
       return this.innerType;
     }
-    return this.innerType.type;
+    return this.prop.propName;
   }
 
   getListElementProp(i: number): ResourceProp {
@@ -50,8 +63,9 @@ export class ListFieldComponent {
     }
     return {
       propName: `[${i}]`,
-      propType: this.innerType.type,
-      jsAccessor: `[${i}]`
+      propType: 'object',
+      jsAccessor: `[${i}]`,
+      embededTypeDefinition: this.innerType
     }
   }
 
@@ -70,5 +84,9 @@ export class ListFieldComponent {
 
   complexChange(path: string, value: any) {
     this.onChanged.emit({path: path, value: value})
+  }
+
+  objectChanged() {
+
   }
 }

@@ -140,19 +140,33 @@ namespace margarita_app.Services
                 }
             }
             var currentObject = obj;
+            
+            object previousObject = null;
+            PropertyInfo propertyInfo = null;
 
             for (int i = 0; i < accessList.Count - 1; i++)
             {
+                previousObject = currentObject!;
                 if (accessList[i] is string)
                 {
                     var propertyName = accessList[i];
-                    var propertyInfo = currentObject.GetType().GetProperty(propertyName);
+                    propertyInfo = currentObject.GetType().GetProperty(propertyName);
+                    
+                    // TODO CHECK PERMISSION TO CREATE OBJECT
+                    
                     currentObject = propertyInfo.GetValue(currentObject);
+                    if (currentObject == null && propertyInfo != null)
+                    {
+                        currentObject = Activator.CreateInstance(propertyInfo.PropertyType);
+                        propertyInfo.SetValue(previousObject, currentObject);
+                    }
+                    
                 }
                 else if (accessList[i] is int)
                 {
                     var array = (currentObject as IList);
                     currentObject = array[accessList[i]];
+                    
                 }
             }
 
@@ -162,6 +176,9 @@ namespace margarita_app.Services
             Type targetType;
             if (finalPropertyName is string)
             {
+                
+                
+                
                 var finalPropertyInfo = currentObject.GetType().GetProperty(finalPropertyName);
                 targetType = finalPropertyInfo.PropertyType;
             }
@@ -180,6 +197,15 @@ namespace margarita_app.Services
             if (finalPropertyName is int arrayIndex)
             {
                 var list = currentObject as IList;
+                
+                //TODO Create permission
+                if (list == null)
+                {
+                    Type genericType = propertyInfo.PropertyType.GenericTypeArguments[0];
+                    list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(genericType));
+                    propertyInfo.SetValue(previousObject, list);
+                }
+                
                 if (value is string command && command.StartsWith("$") && command.EndsWith("$") && command.Length > 1)
                 {
                     if (command == "$INSERT$")
@@ -193,6 +219,7 @@ namespace margarita_app.Services
                         else if (parameterless)
                         {
                             list.Add(Activator.CreateInstance(targetType));
+                            
                         }
                         else
                         {
