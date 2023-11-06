@@ -8,6 +8,6 @@ namespace margarita_data.Models;
 public class ManufacturedCar: BaseRootModel
 {
     public DateTime ManufacturedDate { get; set; } = DateTime.Now;
-    [ForeignKey(typeof(ManufacturedCar))]
+    [ForeignKey(typeof(CarModel))]
     public string Model { get; set; }
 }

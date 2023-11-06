@@ -11,6 +11,7 @@ using margarita_app.Services.PostalCodeService;
 using margarita_app.Middleware;
 using margarita_app.Services.Database;
 using margarita_app.Services.LicenseService;
+using margarita_data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,6 +46,7 @@ builder.Services.AddSingleton<ConnectionService>();
 builder.Services.AddSingleton<GameService>();
 builder.Services.AddSingleton<CardSetService>();
 builder.Services.AddSingleton<NestedTestService>();
+builder.Services.AddSingleton<ManufacturedCarService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>

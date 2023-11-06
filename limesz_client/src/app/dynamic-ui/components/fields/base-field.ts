@@ -30,13 +30,14 @@ export abstract class BaseField {
 
   set baseResource(v: any) {
     this._baseResource = v;
-    if (this.baseProp.propType === 'object'){
+    if (this.baseProp?.propType === 'object'){
       //this._value ??= {};
     }
-    if (this.baseProp.propType === 'list'){
+    if (this.baseProp?.propType === 'list'){
       this.value ??= [];
     }
   }
+
   private _baseResource: any;
 
   baseProp: ResourceProp;

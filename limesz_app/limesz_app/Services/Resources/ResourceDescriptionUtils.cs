@@ -1,5 +1,7 @@
 using System.Reflection;
+using margarita_app.Misc;
 using margarita_data.Models.AutoUI;
+using margarita_data.Models.AutoUI.ResourceAnnotation;
 
 namespace margarita_app.Services;
 
@@ -32,38 +34,70 @@ public static class ResourceDescriptionUtils
         return resourceTypes;
     }
 
-    private static ResourceDescription GetResourceDescription(Type type, Type genericType)
+    private static ResourceDescription GetResourceDescription(Type resourceType, Type modelType)
     {
-        return new ResourceDescription()
+        var description = new ResourceDescription()
         {
-            Name = type.Name,
-            Type = genericType.Name,
-            Props = GetPropertyListOfType(genericType)
+            Name = resourceType.Name,
+            Type = modelType.Name,
+            Props = GetPropertyListOfType(modelType),
+            DescriptionOptions = GetResourceDescriptionOptions(modelType)
         };
+        var idProp = description.Props.FirstOrDefault(x => x.PropName == "Id");
+        if (idProp != null)
+        {
+            idProp.PropOptions.IsSelfId = true;
+            idProp.PropOptions.SetReadOnly();
+        }
+        return description;
     }
 
-    public static List<ResourceProp> GetPropertyListOfType(Type type)
+    private static ResourceDescriptionOptions GetResourceDescriptionOptions(Type model)
+    {
+        var properties = model.GetProperties();
+        var options = new ResourceDescriptionOptions();
+        var attr = model.GetCustomAttribute<StringRepresentationAttribute>();
+        
+        if (attr != null)
+            options.StringRepresentationFieldName = attr.Name.toJSAccessorName();
+        
+        return options;
+    }
+
+    public static List<ResourceProp> GetPropertyListOfType(Type modelType)
     {
         var props = new List<ResourceProp>();
-        var properties = type.GetProperties();
+        var properties = modelType.GetProperties();
         
         foreach (var property in properties)
         {
-            props.Add(GetPropertyDefinition(property.Name, property.PropertyType));
+            props.Add(GetPropertyDefinition(property.Name, property.PropertyType, property));
         }
         return props;
     }
-    public static ResourceProp GetPropertyDefinition(string name, Type propertyType)
+    public static ResourceProp GetPropertyDefinition(string name, Type type, PropertyInfo? propertyInfo = null)
     {
+        
         var prop = new ResourceProp()
         {
             PropName = name,
-            PropType = GetAtomicPropertyTypeName(propertyType)
+            PropType = GetAtomicPropertyTypeName(type)
         };
+
+        if (prop.PropType == "string" && propertyInfo?.GetCustomAttribute<ForeignKeyAttribute>() != null)
+        {
+            var key = propertyInfo?.GetCustomAttribute<ForeignKeyAttribute>();
+            prop.PropType = "reference";
+            prop.EmbededTypeDefinition = key?.ForeignResourceType.Name;
+        }
+
+        if (propertyInfo != null)
+            ProcessPropertySpecificOptions(propertyInfo, prop.PropOptions);
+        ProcessTypeSpecificPropertyOptions(type, prop.PropOptions);
         
         if (prop.PropType == "list")
         {
-            var genericType = propertyType.GetGenericArguments()[0];
+            var genericType = type.GetGenericArguments()[0];
             if (isPrimitiveType(genericType))
             {
                 prop.EmbededTypeDefinition = GetAtomicPropertyTypeName(genericType);
@@ -76,11 +110,30 @@ public static class ResourceDescriptionUtils
         
         if (prop.PropType == "object")
         {
-            prop.EmbededTypeDefinition = GetPropertyListOfType(propertyType);
+            prop.EmbededTypeDefinition = GetPropertyListOfType(type);
         }
 
         return prop;
     }
+
+    private static void ProcessPropertySpecificOptions(PropertyInfo info, ResourcePropOptions options)
+    {
+        if (!info.CanWrite || !info.GetSetMethod(/*nonPublic*/ true).IsPublic)
+            options.SetReadOnly();
+        
+        var foreignKey = info.GetCustomAttribute<ForeignKeyAttribute>();
+        
+        options.ForeignKeyOf = foreignKey?.ForeignResourceType.Name;
+    }
+    
+    private static void ProcessTypeSpecificPropertyOptions(Type type, ResourcePropOptions options)
+    {
+        var attr = type.GetCustomAttribute<StringRepresentationAttribute>();
+        
+        if (attr != null)
+            options.StringRepresentationFieldName = attr.Name.toJSAccessorName();
+    }
+
     static bool isPrimitiveType(Type type)
     {
         var atomic = GetAtomicPropertyTypeName(type);

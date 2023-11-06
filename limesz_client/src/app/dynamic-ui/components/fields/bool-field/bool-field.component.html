@@ -1,6 +1,6 @@
 
 <!-- Angular material boolean field, tickbox-->
 
-<mat-checkbox [(ngModel)]="value" [name]='prop.propName'>
+<mat-checkbox [(ngModel)]="value" [name]='prop.propName' [disabled]='prop.propOptions?.isReadOnly'>
     {{prop.propName}}
 </mat-checkbox>

@@ -16,6 +16,7 @@ export class BoolFieldComponent {
     this.resource[this.prop.jsAccessor] = value;
     this.onChanged.emit(value)
   }
+
   @Input() prop: ResourceProp;
   @Input() resource: any;
   @Output() onChanged = new EventEmitter<boolean>();

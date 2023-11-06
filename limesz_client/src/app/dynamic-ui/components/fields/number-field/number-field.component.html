@@ -1,5 +1,5 @@
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" >
     <mat-label>{{baseProp.propName}}</mat-label>
-    <input [(ngModel)]='value' type='number' matInput placeholder='Placeholder'>
+    <input [(ngModel)]='value' type='number' matInput placeholder='Placeholder' [readonly]='baseProp.propOptions.isReadOnly'>
   </mat-form-field>

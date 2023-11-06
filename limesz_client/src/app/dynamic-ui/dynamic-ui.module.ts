@@ -27,6 +27,8 @@ import { ListFieldComponent } from './components/list/list-field/list-field.comp
 import { MatListModule } from '@angular/material/list';
 import { ObjectFieldComponent } from './components/fields/object-field/object-field.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ReferenceFieldComponent } from './components/fields/reference-field/reference-field.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -43,7 +45,8 @@ import { MatButtonModule } from '@angular/material/button';
     DatetimePickerComponent,
     BoolFieldComponent,
     ListFieldComponent,
-    ObjectFieldComponent
+    ObjectFieldComponent,
+    ReferenceFieldComponent
   ],
   imports: [
     CommonModule,
@@ -75,6 +78,7 @@ import { MatButtonModule } from '@angular/material/button';
     GenericModule,
     MatListModule,
     MatButtonModule,
+    MatAutocompleteModule,
   ],
   providers: [
     ResourceTypeService, ResourceService

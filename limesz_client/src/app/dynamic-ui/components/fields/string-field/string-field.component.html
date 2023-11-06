@@ -1,4 +1,4 @@
   <mat-form-field appearance="fill">
-    <mat-label>{{baseProp.propName}} {{value == null ? "[null]" : ""}}</mat-label>
-    <input [(ngModel)]='value' matInput placeholder='Placeholder'>
+    <mat-label>{{baseProp.propName}} {{value == null ? "[null]" : ""}} {{baseProp.propOptions?.isReadOnly ? "(readonly)" : ""}}</mat-label>
+    <input [(ngModel)]='value' matInput placeholder='Placeholder' [readonly]='baseProp.propOptions?.isReadOnly'>
   </mat-form-field>

@@ -9,7 +9,7 @@
         <ng-container *ngIf='field.canSortBy'>
           <th mat-header-cell *matHeaderCellDef [mat-sort-header]='field.name'> {{field.displayName}} </th>
         </ng-container>
-        <td mat-cell *matCellDef="let element"> {{element[field.name]}} </td>
+        <td mat-cell *matCellDef="let element"> {{field.accessor(element)}} </td>
       </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="_input.displayedColumns"></tr>

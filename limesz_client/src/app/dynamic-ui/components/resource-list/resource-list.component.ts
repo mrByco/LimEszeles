@@ -7,6 +7,7 @@ import { LoadingService } from '../../../services/loading.service';
 import { GenericTableInput } from '../generic-table/generic-table.component';
 import { create } from 'domain';
 import { firstValueFrom } from 'rxjs';
+import { getPropertyByJsPath } from '../../../helper/apollo-resource-utils';
 
 @Component({
   selector: 'app-resource-list',
@@ -23,7 +24,6 @@ export class ResourceListComponent {
   private loadingService = inject(LoadingService);
 
   tableInput: GenericTableInput;
-
   constructor(activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe(p => {
       this.loadResourceType(p.resourceName);
@@ -46,14 +46,31 @@ export class ResourceListComponent {
     }
     this.tableInput = {
       allColumns: this.resourceDefinition.props.map(p => {
-        console.log(p)
+        let accessor = (value) => getPropertyByJsPath(value, p.jsAccessor);
+
+        if (p.propType === 'object' && p.propOptions.stringRepresentationFieldName){
+          accessor = (value: any) => getPropertyByJsPath(value, p.jsAccessor + '.' + p.propOptions.stringRepresentationFieldName);
+        }
+
+        if (p.propType === 'list'
+          && !p.propOptions.stringRepresentationFieldName
+          && p.embededTypeDefinition.propType == "object"
+          && p.embededTypeDefinition.propOptions.stringRepresentationFieldName) {
+          accessor = ((value: any) => {
+            let objectList = getPropertyByJsPath(value, p.jsAccessor)
+            let names = objectList.map(o => getPropertyByJsPath(o, p.embededTypeDefinition.propOptions.stringRepresentationFieldName));
+            return names.join(', ');
+          })
+        }
+
         return {
-          name: p.jsAccessor,
+          name: p.propName,
+          accessor: accessor,
           displayName: p.propName,
-          canSortBy: false,
+          canSortBy: false
         }
       }),
-      displayedColumns: this.resourceDefinition.props.map(p => p.jsAccessor),
+      displayedColumns: this.resourceDefinition.props.map(p => p.propName),
       loadDataPaginated: async (pageNumber: number, pageSize: number) => {
         const resources = await this.resourceService.getResources(resourceName, pageNumber, pageSize);
         return {

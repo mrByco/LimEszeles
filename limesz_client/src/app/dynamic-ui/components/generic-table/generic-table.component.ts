@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { getPropertyByJsPath } from 'src/app/helper/apollo-resource-utils';
 
 @Component({
   selector: 'app-generic-table',
@@ -54,7 +55,7 @@ export class GenericTableComponent {
       this.dataSource.paginator = this.paginator;
 
       this.dataSource.connect().subscribe(d => {
-        console.log(d);
+
       });
 
       this.paginator.page.subscribe(() => {
@@ -65,6 +66,7 @@ export class GenericTableComponent {
       })
       this.loadData();
     }, 0)
+
   }
 
   public getFilter() {
@@ -99,6 +101,7 @@ export class GenericTableComponent {
   }
 
   initialLoadDone = false;
+  protected readonly getPropertyByJsPath = getPropertyByJsPath;
 }
 
 export interface GenericTableInput {
@@ -107,6 +110,7 @@ export interface GenericTableInput {
     name: string;
     displayName: string;
     canSortBy?: boolean;
+    accessor: (value: any) => any;
   }[];
   loadDataPaginated: (pageNumber: number, pageSize: number, orderByFilterData?: OrderFilterData) => Promise<{data: any[], total: number}>;
 }
