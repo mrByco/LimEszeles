@@ -19,7 +19,7 @@ using SendGrid.Helpers.Mail;
 namespace margarita_app.Services
 {
 
-    public class UserService: BaseDataResourceService<User>
+    public class UserService: BaseDataService<User>
 	{
         private static UserService _instance;
         public static UserService instance => _instance;

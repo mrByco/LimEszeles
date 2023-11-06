@@ -23,111 +23,9 @@ public class ResourceController: ControllerBase
     [HttpGet("get-resource-list", Name = nameof(GetResourceTypes))]
     public List<ResourceDescription> GetResourceTypes()
     {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
-        List<ResourceDescription> resourceTypes = new List<ResourceDescription>();
-        foreach (var type in types)
-        {
-            var t = type.BaseType?.Name == baseType.Name;
-            if (type.BaseType != null && type.BaseType.IsGenericType && t)
-            {
-                Type genericType = type.BaseType.GetGenericArguments().FirstOrDefault();
+        var descriptions = ResourceDescriptionUtils.GetResourceDescriptions();
 
-                if (genericType != null)
-                {
-                    if (type.BaseType?.Name != typeof(BaseDataResourceService<>).Name)
-                    {
-                        return new();
-                    }
-                    resourceTypes.Add(new ResourceDescription()
-                    {
-                        Name = type.Name,
-                        Type = genericType.Name,
-                        Props = GetPropertyListOfType(genericType)
-                    });
-                }
-            }
-        }
-
-        return resourceTypes;
-    }
-
-    private List<ResourceProp> GetPropertyListOfType(Type type)
-    {
-        var props = new List<ResourceProp>();
-        var properties = type.GetProperties();
-        
-        foreach (var property in properties)
-        {
-            props.Add(GetPropertyDefinition(property.Name, property.PropertyType));
-        }
-        return props;
-    }
-
-    private ResourceProp GetPropertyDefinition(string name, Type propertyType)
-    {
-        var prop = new ResourceProp()
-        {
-            PropName = name,
-            PropType = GetAtomicPropertyType(propertyType)
-        };
-        
-        if (prop.PropType == "list")
-        {
-            var genericType = propertyType.GetGenericArguments()[0];
-            if (isPrimitiveType(genericType))
-            {
-                prop.EmbededTypeDefinition = GetAtomicPropertyType(genericType);
-            }
-            else
-            {
-                prop.EmbededTypeDefinition = GetPropertyDefinition(genericType.Name, genericType);
-            }
-        }
-        
-        if (prop.PropType == "object")
-        {
-            prop.EmbededTypeDefinition = GetPropertyListOfType(propertyType);
-        }
-
-        return prop;
-    }
-
-    static bool isPrimitiveType(Type type)
-    {
-        var atomic = GetAtomicPropertyType(type);
-        if (atomic == "object" || atomic == "list" || atomic == "enum")
-            return false;
-        return true;
-    }
-    
-    static string GetAtomicPropertyType(Type type)
-    {
-        switch (type.Name)
-        {
-            case "String":
-                return "string";
-            case "Int32":
-                return "number";
-            case "Decimal":
-                return "number";
-            case "DateTime":
-                return "date";
-            case "Boolean":
-                return "boolean";
-            case "List`1":
-                return "list";
-            default:
-                if (type.BaseType != null && type.BaseType.Name == "Enum")
-                {
-                    return "enum";
-                }
-
-                if (!type.IsPrimitive)
-                    return "object";
-
-                return "unknown";
-        }
+        return descriptions;
     }
 
     [HttpGet("get-resources-paginated/{resourceType}/{page}/{pageSize}", Name = nameof(GetResourcesPaginated))]
@@ -168,7 +66,7 @@ public class ResourceController: ControllerBase
     {
         try
         {
-            Type baseType = typeof(BaseDataResourceService<>);
+            Type baseType = typeof(SmartDataService<>);
             Type[] types = Assembly.GetAssembly(baseType).GetTypes();
 
             var service =

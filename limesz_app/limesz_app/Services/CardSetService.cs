@@ -4,7 +4,7 @@ using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class CardSetService: BaseDataResourceService<CardSet>
+public class CardSetService: SmartDataService<CardSet>
 {
     public CardSetService(IDatabaseService databaseService) : base(databaseService)
     {

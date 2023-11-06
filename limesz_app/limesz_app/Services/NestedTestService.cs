@@ -3,7 +3,7 @@ using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class NestedTestService: BaseDataResourceService<NestedTest>
+public class NestedTestService: SmartDataService<CarModel>
 {
     public NestedTestService(IDatabaseService databaseService) : base(databaseService)
     {
