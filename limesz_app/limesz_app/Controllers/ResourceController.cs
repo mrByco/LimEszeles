@@ -1,7 +1,10 @@
 using System.Reflection;
+using Google.Rpc.Context;
 using margarita_app.Services;
+using margarita_data.Models;
 using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver.Core.Operations;
 using Type = System.Type;
 
 namespace margarita_app.Controllers;
@@ -16,8 +19,7 @@ public class ResourceController: ControllerBase
     {
         _services = services;
     }
-    
-    
+
     [HttpGet("get-resource-list", Name = nameof(GetResourceTypes))]
     public List<ResourceDescription> GetResourceTypes()
     {
@@ -33,11 +35,15 @@ public class ResourceController: ControllerBase
 
                 if (genericType != null)
                 {
+                    if (type.BaseType?.Name != typeof(BaseDataResourceService<>).Name)
+                    {
+                        return new();
+                    }
                     resourceTypes.Add(new ResourceDescription()
                     {
                         Name = type.Name,
                         Type = genericType.Name,
-                        Props = GetResourceDescription(type)
+                        Props = GetPropertyListOfType(genericType)
                     });
                 }
             }
@@ -46,150 +52,140 @@ public class ResourceController: ControllerBase
         return resourceTypes;
     }
 
-    private List<ResourceProp> GetResourceDescription(Type type)
+    private List<ResourceProp> GetPropertyListOfType(Type type)
     {
         var props = new List<ResourceProp>();
-
-        if (type.BaseType?.Name != typeof(BaseDataResourceService<>).Name)
-        {
-            return new();
-        }
+        var properties = type.GetProperties();
         
-        var genericType = type.BaseType.GetGenericArguments()[0];
-        var properties = genericType.GetProperties();
         foreach (var property in properties)
         {
-            switch (property.PropertyType.Name)
-            {
-                case "String":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "string"
-                    });
-                    break;
-                case "Int32":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "number"
-                    });
-                    break;
-                case "Decimal":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "number" 
-                    });
-                    break;
-                case "DateTime":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "date" 
-                    });
-                    break;
-                case "Boolean":
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "boolean"
-                    });
-                    break;
-                // Add more cases for other common property types as needed
-                default:
-                    props.Add(new ResourceProp()
-                    {
-                        PropName = property.Name,
-                        PropType = "unknown" // Or handle it in a way suitable for your use case
-                    });
-                    break;
-            }
+            props.Add(GetPropertyDefinition(property.Name, property.PropertyType));
         }
         return props;
     }
-    
-    
-    [HttpGet("get-resources-paginated/{resourceType}/{page}/{pageSize}", Name = nameof(GetResourcesPaginated))]
-    public async Task<PaginatedResourceResult> GetResourcesPaginated(string resourceType, int page, int pageSize)
-    {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
 
-        var service =
-            _services.GetService(types.FirstOrDefault(t =>
-                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
+    private ResourceProp GetPropertyDefinition(string name, Type propertyType)
+    {
+        var prop = new ResourceProp()
+        {
+            PropName = name,
+            PropType = GetAtomicPropertyType(propertyType)
+        };
         
+        if (prop.PropType == "list")
+        {
+            var genericType = propertyType.GetGenericArguments()[0];
+            if (isPrimitiveType(genericType))
+            {
+                prop.EmbededTypeDefinition = GetAtomicPropertyType(genericType);
+            }
+            else
+            {
+                prop.EmbededTypeDefinition = GetPropertyDefinition(genericType.Name, genericType);
+            }
+        }
         
-        var method = service.GetType().GetMethod("GetPaginatedResource");
-        var result = (PaginatedResourceResult) method?.Invoke(service, new object[] {page, pageSize});
-        
-        return result;
+        if (prop.PropType == "object")
+        {
+            prop.EmbededTypeDefinition = GetPropertyListOfType(propertyType);
+        }
+
+        return prop;
+    }
+
+    static bool isPrimitiveType(Type type)
+    {
+        var atomic = GetAtomicPropertyType(type);
+        if (atomic == "object" || atomic == "list" || atomic == "enum")
+            return false;
+        return true;
+    }
+    
+    static string GetAtomicPropertyType(Type type)
+    {
+        switch (type.Name)
+        {
+            case "String":
+                return "string";
+            case "Int32":
+                return "number";
+            case "Decimal":
+                return "number";
+            case "DateTime":
+                return "date";
+            case "Boolean":
+                return "boolean";
+            case "List`1":
+                return "list";
+            default:
+                if (type.BaseType != null && type.BaseType.Name == "Enum")
+                {
+                    return "enum";
+                }
+
+                if (!type.IsPrimitive)
+                    return "object";
+
+                return "unknown";
+        }
+    }
+    
+    
+
+
+    [HttpGet("get-resources-paginated/{resourceType}/{page}/{pageSize}", Name = nameof(GetResourcesPaginated))]
+    public PaginatedResourceResult GetResourcesPaginated(string resourceType, int page, int pageSize)
+    {
+        return (PaginatedResourceResult)
+            CallCorrespondingServiceMethod("GetPaginatedResource", resourceType,new object[] { page, pageSize })!;
     }
     
     [HttpGet("get-resource/{resourceType}/{id}", Name = nameof(GetResource))]
-    public object GetResource(string resourceType, string id)
+    public BaseRootModel GetResource(string resourceType, string id)
     {
-        var result = CallCorrespondingServiceMethod(resourceType, new object[] { id });
-        return result;
+        return (BaseRootModel) 
+            CallCorrespondingServiceMethod("GetByIdResource", resourceType, new object[] { id })!;
     }
 
-    private object? CallCorrespondingServiceMethod(string resourceType, object[] args)
+    [HttpGet("create-resource/{resourceType}", Name = nameof(CreateResource))]
+    public BaseRootModel CreateResource(string resourceType)
     {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
-
-        var service =
-            _services.GetService(types.FirstOrDefault(t =>
-                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
-
-
-        var method = service.GetType().GetMethod("GetByIdResource");
-        var result = method?.Invoke(service, args);
-        return result;
-    }
-
-    [HttpPost("create-resource/{resourceType}", Name = nameof(CreateResource))]
-    public object CreateResource(string resourceType, object model)
-    {
-        Type baseType = typeof(BaseDataResourceService<>);
-        Type[] types = Assembly.GetAssembly(baseType).GetTypes();
-
-        var service =
-            _services.GetService(types.FirstOrDefault(t =>
-                t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
-        
-        
-        var method = service.GetType().GetMethod("CreateResource");
-        var result = method?.Invoke(service, new object[] {model});
-        
-        return result;
+        return (BaseRootModel)
+            CallCorrespondingServiceMethod("CreateResource", resourceType, new object[] {  })!;
     }
     
+    [HttpPost("update-resource/{resourceType}/{id}", Name = nameof(UpdateResource))]
+    public BaseRootModel UpdateResource(string resourceType, string id, List<FieldChange> requests)
+    {
+        return (BaseRootModel)
+            CallCorrespondingServiceMethod("UpdateResource", resourceType, new object[] { id, requests })!;
+    }
     
-    /*
-    public Task<List<CardSet>> Get()
+    [HttpDelete("remove-resource/{resourceType}/{id}", Name = nameof(RemoveResource))]
+    public void RemoveResource(string resourceType, string id)
     {
-        return null;
+        CallCorrespondingServiceMethod("RemoveResource", resourceType, new object[] { id });
     }
 
-    public Task<CardSet> GetById(int id)
+    private object? CallCorrespondingServiceMethod(string methodName, string resourceType, object[] args)
     {
-        return null;
-    }
+        try
+        {
+            Type baseType = typeof(BaseDataResourceService<>);
+            Type[] types = Assembly.GetAssembly(baseType).GetTypes();
 
-    public Task<CardSet> Post(object value)
-    {
-        throw new NotImplementedException();
-    }
+            var service =
+                _services.GetService(types.FirstOrDefault(t =>
+                    t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
 
-    public Task<CardSet> Put(int id, object value)
-    {
-        throw new NotImplementedException();
+            var method = service.GetType().GetMethod(methodName);
+            var result = method?.Invoke(service, args);
+            return result;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
-
-    public Task<CardSet> Delete(int id)
-    {
-        throw new NotImplementedException();
-    }*/
 }

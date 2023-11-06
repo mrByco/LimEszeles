@@ -9,6 +9,8 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { BaseRootModel } from '../models/base-root-model';
+import { FieldChange } from '../models/field-change';
 import { PaginatedResourceResult } from '../models/paginated-resource-result';
 import { ResourceDescription } from '../models/resource-description';
 
@@ -230,18 +232,327 @@ export class ResourceService extends BaseService {
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getResource()` instead.
+   * To access only the response body, use `getResource$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getResource$Response(params: {
+  getResource$Plain$Response(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<BaseRootModel>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.GetResourcePath, 'get');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<BaseRootModel>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getResource$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getResource$Plain(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+  }
+): Observable<BaseRootModel> {
+
+    return this.getResource$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<BaseRootModel>) => r.body as BaseRootModel)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getResource$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getResource$Json$Response(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<BaseRootModel>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.GetResourcePath, 'get');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<BaseRootModel>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `getResource$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getResource$Json(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+  }
+): Observable<BaseRootModel> {
+
+    return this.getResource$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<BaseRootModel>) => r.body as BaseRootModel)
+    );
+  }
+
+  /**
+   * Path part for operation createResource
+   */
+  static readonly CreateResourcePath = '/Resource/create-resource/{resourceType}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `createResource$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  createResource$Plain$Response(params: {
+    resourceType: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<BaseRootModel>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.CreateResourcePath, 'get');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<BaseRootModel>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `createResource$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  createResource$Plain(params: {
+    resourceType: string;
+    context?: HttpContext
+  }
+): Observable<BaseRootModel> {
+
+    return this.createResource$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<BaseRootModel>) => r.body as BaseRootModel)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `createResource$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  createResource$Json$Response(params: {
+    resourceType: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<BaseRootModel>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.CreateResourcePath, 'get');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<BaseRootModel>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `createResource$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  createResource$Json(params: {
+    resourceType: string;
+    context?: HttpContext
+  }
+): Observable<BaseRootModel> {
+
+    return this.createResource$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<BaseRootModel>) => r.body as BaseRootModel)
+    );
+  }
+
+  /**
+   * Path part for operation updateResource
+   */
+  static readonly UpdateResourcePath = '/Resource/update-resource/{resourceType}/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateResource$Plain()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateResource$Plain$Response(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+    body?: Array<FieldChange>
+  }
+): Observable<StrictHttpResponse<BaseRootModel>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.UpdateResourcePath, 'post');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+      rb.path('id', params.id, {});
+      rb.body(params.body, 'application/*+json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<BaseRootModel>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateResource$Plain$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateResource$Plain(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+    body?: Array<FieldChange>
+  }
+): Observable<BaseRootModel> {
+
+    return this.updateResource$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<BaseRootModel>) => r.body as BaseRootModel)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateResource$Json()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateResource$Json$Response(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+    body?: Array<FieldChange>
+  }
+): Observable<StrictHttpResponse<BaseRootModel>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.UpdateResourcePath, 'post');
+    if (params) {
+      rb.path('resourceType', params.resourceType, {});
+      rb.path('id', params.id, {});
+      rb.body(params.body, 'application/*+json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<BaseRootModel>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `updateResource$Json$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  updateResource$Json(params: {
+    resourceType: string;
+    id: string;
+    context?: HttpContext
+    body?: Array<FieldChange>
+  }
+): Observable<BaseRootModel> {
+
+    return this.updateResource$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<BaseRootModel>) => r.body as BaseRootModel)
+    );
+  }
+
+  /**
+   * Path part for operation removeResource
+   */
+  static readonly RemoveResourcePath = '/Resource/remove-resource/{resourceType}/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `removeResource()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  removeResource$Response(params: {
     resourceType: string;
     id: string;
     context?: HttpContext
   }
 ): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ResourceService.GetResourcePath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ResourceService.RemoveResourcePath, 'delete');
     if (params) {
       rb.path('resourceType', params.resourceType, {});
       rb.path('id', params.id, {});
@@ -261,72 +572,18 @@ export class ResourceService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getResource$Response()` instead.
+   * To access the full response (for headers, for example), `removeResource$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getResource(params: {
+  removeResource(params: {
     resourceType: string;
     id: string;
     context?: HttpContext
   }
 ): Observable<void> {
 
-    return this.getResource$Response(params).pipe(
-      map((r: StrictHttpResponse<void>) => r.body as void)
-    );
-  }
-
-  /**
-   * Path part for operation createResource
-   */
-  static readonly CreateResourcePath = '/Resource/create-resource/{resourceType}';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `createResource()` instead.
-   *
-   * This method sends `application/*+json` and handles request body of type `application/*+json`.
-   */
-  createResource$Response(params: {
-    resourceType: string;
-    context?: HttpContext
-    body?: any
-  }
-): Observable<StrictHttpResponse<void>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ResourceService.CreateResourcePath, 'post');
-    if (params) {
-      rb.path('resourceType', params.resourceType, {});
-      rb.body(params.body, 'application/*+json');
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'text',
-      accept: '*/*',
-      context: params?.context
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
-  }
-
-  /**
-   * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `createResource$Response()` instead.
-   *
-   * This method sends `application/*+json` and handles request body of type `application/*+json`.
-   */
-  createResource(params: {
-    resourceType: string;
-    context?: HttpContext
-    body?: any
-  }
-): Observable<void> {
-
-    return this.createResource$Response(params).pipe(
+    return this.removeResource$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }

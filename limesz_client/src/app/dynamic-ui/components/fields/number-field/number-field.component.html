@@ -1,1 +1,6 @@
-<p>number-field works!</p>
+<p >
+  <mat-form-field appearance="fill">
+    <mat-label>{{baseProp.propName}}</mat-label>
+    <input [(ngModel)]='value' type='number' matInput placeholder='Placeholder'>
+  </mat-form-field>
+</p>

@@ -44,6 +44,7 @@ builder.Services.AddSingleton<DeletedUserAccountsService>();
 builder.Services.AddSingleton<ConnectionService>();
 builder.Services.AddSingleton<GameService>();
 builder.Services.AddSingleton<CardSetService>();
+builder.Services.AddSingleton<NestedTestService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>

@@ -1,0 +1,7 @@
+<div class='d-flex flex-column' style='margin-left: 15px'>
+  <p>{{baseProp.propName}}</p>
+  <div *ngFor='let innerProp of innerDefinition'>
+    <app-dynamic-prop-field [resource]='value' [prop]='innerProp' (onChanged)='change($event)'></app-dynamic-prop-field>
+  </div>
+</div>
+

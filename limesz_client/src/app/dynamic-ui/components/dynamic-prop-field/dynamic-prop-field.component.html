@@ -1,6 +1,12 @@
-<ng-container *ngIf='resource && prop'>
-  <app-string-field *ngIf='prop.propType == "string"' [prop]='prop' [resource]='resource'></app-string-field>
-  <app-date-time-field *ngIf='prop.propType == "date"' [prop]='prop' [resource]='resource'></app-date-time-field>
-  <app-number-field *ngIf='prop.propType == "number"' [prop]='prop' [resource]='resource'></app-number-field>
-  <app-bool-field *ngIf='prop.propType == "boolean"' [prop]='prop' [resource]='resource'></app-bool-field>
+<ng-container *ngIf='prop'>
+  <app-string-field *ngIf='prop.propType == "string"' [prop]='prop' [resource]='resource' (onChanged)='this.primitiveChange($event)'></app-string-field>
+  <app-date-time-field *ngIf='prop.propType == "date"' [prop]='prop' [resource]='resource' (onChanged)='this.primitiveChange($event)'></app-date-time-field>
+  <app-number-field *ngIf='prop.propType == "number"' [prop]='prop' [resource]='resource' (onChanged)='this.primitiveChange($event)'></app-number-field>
+  <app-bool-field *ngIf='prop.propType == "boolean"' [prop]='prop' [resource]='resource' (onChanged)='this.primitiveChange($event)'></app-bool-field>
+
+  <app-list-field *ngIf='prop.propType == "list"' [prop]='prop' [resource]='resource' (onChanged)='complexChange($event.path, $event.value)'></app-list-field>
+
+  <app-object-field *ngIf='prop.propType == "object"' [prop]='prop' [resource]='resource' (onChanged)='complexChange($event.path, $event.value)'></app-object-field>
+
+  <!--<p>{{prop.propType}}</p>-->
 </ng-container>

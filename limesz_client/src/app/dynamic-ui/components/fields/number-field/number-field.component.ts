@@ -1,14 +1,22 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResourceProp } from '../../../../api/models/resource-prop';
+import { BaseField } from '../base-field';
 
 @Component({
   selector: 'app-number-field',
   templateUrl: './number-field.component.html',
   styleUrls: ['./number-field.component.scss']
 })
-export class NumberFieldComponent {
+export class NumberFieldComponent extends BaseField {
 
-  @Input() prop: ResourceProp;
-  @Input() resource: any;
-  @Output() onChanged = new EventEmitter<string>();
+
+  @Input() set prop(value) {
+    this.baseProp = value;
+  }
+  @Input() set resource(value) {
+    this.baseResource = value;
+  }
+  @Output() get onChanged(){
+    return this.baseOnChanged;
+  }
 }

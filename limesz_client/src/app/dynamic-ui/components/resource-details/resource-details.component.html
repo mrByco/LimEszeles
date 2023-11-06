@@ -2,9 +2,12 @@
 
   <div class='d-flex flex-column'>
     <div *ngFor='let prop of resourceDefinition.props'>
-      <app-dynamic-prop-field [prop]='prop' [resource]='resource'></app-dynamic-prop-field>
+      <app-dynamic-prop-field [prop]='prop' (onChanged)='registerChange($event.path, $event.value)' [resource]='resource'></app-dynamic-prop-field>
     </div>
   </div>
+
+  <app-generic-button [color]='"red"' [Action]='removeResource'>Delete</app-generic-button>
+  <app-generic-button [color]='"blue"' [Action]='updateResource'>Update</app-generic-button>
 
 
   <div class='row' *ngIf='false'>
