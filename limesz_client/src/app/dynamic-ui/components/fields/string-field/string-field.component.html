@@ -1,6 +1,4 @@
-<p >
   <mat-form-field appearance="fill">
-    <mat-label>{{baseProp.propName}}</mat-label>
+    <mat-label>{{baseProp.propName}} {{value == null ? "[null]" : ""}}</mat-label>
     <input [(ngModel)]='value' matInput placeholder='Placeholder'>
   </mat-form-field>
-</p>

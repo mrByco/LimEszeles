@@ -51,11 +51,16 @@ export class ResourceDetailsComponent {
   };
 
   public registerChange = (path: string, value: any) => {
-    console.log("Registering change: " + path + " = " + value.toString());
-    let lastChangeWasCommand = typeof value === "string" && value.startsWith('$') && value.endsWith('$')
+
+    function isCommand(value): boolean {
+      return typeof value === "string" && value.startsWith('$') && value.endsWith('$');
+    }
+    let lastWasCommand = isCommand(this.changes[this.changes.length - 1]?.value)
+    let currentIsCommand = isCommand(value)
+
     let lastWasSamePath = this.changes.length > 0 && this.changes[this.changes.length - 1].path === path;
 
-    if (!lastChangeWasCommand && lastWasSamePath) {
+    if (!currentIsCommand && !lastWasCommand && lastWasSamePath) {
       this.changes[this.changes.length - 1].value = value;
     }else {
       this.changes.push({ path: path, value: value });
@@ -65,8 +70,9 @@ export class ResourceDetailsComponent {
   };
 
   updateResource = async () => {
-    await this.resourceService.updateResource(this.resourceDefinition.name, this.resource.id, this.changes);
+    this.resource = await this.resourceService.updateResource(this.resourceDefinition.name, this.resource.id, this.changes);
     this.changes = [];
+
   };
 
 }

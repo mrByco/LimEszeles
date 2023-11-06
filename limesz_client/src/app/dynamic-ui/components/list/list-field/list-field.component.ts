@@ -50,7 +50,6 @@ export class ListFieldComponent extends BaseField {
 
   addItem() {
     // Add a new item to the list
-    console.log("LIST", this.baseProp, this.baseResource);
     this.value ??= [];
     if (this.baseProp.propType === 'string'){
       this.value.push("");
@@ -59,7 +58,8 @@ export class ListFieldComponent extends BaseField {
       this.value.push(0);
     }
     if (this.baseProp.propType === 'object'){
-      this.value.push({});
+      this.value.push(null);
+
     }
     if (this.baseProp.propType === 'list'){
       this.value.push([]);

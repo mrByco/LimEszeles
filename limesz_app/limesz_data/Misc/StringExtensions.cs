@@ -25,7 +25,6 @@ public static class StringExtensions
         bool foundLower = false;
         char[] chars = input.ToCharArray();
         
-        chars[0] = Char.ToLower(chars[0]);
 
         for (int i = 1; i < chars.Length; i++)
         {
@@ -35,6 +34,7 @@ public static class StringExtensions
             }
             chars[i - 1] = Char.ToLower(chars[i - 1]);
         }
+        chars[0] = Char.ToLower(chars[0]);
 
         return new string(chars);
     }

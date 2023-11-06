@@ -9,14 +9,18 @@ export abstract class BaseField {
   }
   get value(): any {
     if (this.baseProp.jsAccessor.startsWith('[') && this.baseProp.jsAccessor.endsWith(']')){
-      return this._baseResource?.[parseInt(this.baseProp.jsAccessor.slice(1, -1))];
+      return this._baseResource?.[parseInt(this.baseProp.jsAccessor.slice(1, -1))]??undefined;
     }
     return this._baseResource?.[this.baseProp.jsAccessor];
   }
 
   set value(value: any) {
-    console.log(this._baseResource, this.baseProp.jsAccessor, value)
-    this._value = value;
+    if (this._baseResource){
+      if (this.baseProp.jsAccessor.startsWith('[') && this.baseProp.jsAccessor.endsWith(']')){
+        this._baseResource[parseInt(this.baseProp.jsAccessor.slice(1, -1))]??undefined;
+      }
+      this._baseResource[this.baseProp.jsAccessor] = value;
+    }
     this.baseOnChanged.emit(value);
   }
 
@@ -27,18 +31,16 @@ export abstract class BaseField {
   set baseResource(v: any) {
     this._baseResource = v;
     if (this.baseProp.propType === 'object'){
-      this._value ??= {};
+      //this._value ??= {};
     }
     if (this.baseProp.propType === 'list'){
-      console.log("LIST CORRECTED", this.baseProp, this.baseResource);
-      this._value ??= [];
+      this.value ??= [];
     }
   }
   private _baseResource: any;
 
   baseProp: ResourceProp;
-  baseOnChanged = new EventEmitter<any>();
+  baseOnChanged = new EventEmitter<{path: string, value: any}>();
 
-  private _value: any;
 
 }

@@ -40,19 +40,19 @@ export class ResourceService {
   }
 
   async updateResource(name: string, id, changes: FieldChange[]) {
-
     function toCSharpPath(jsPath) {
       return jsPath.split('.').map(p => p[0].toUpperCase() + p.slice(1)).join('.');
     }
 
     let updateResurests = changes.map(k => {
+
       return {
         path: toCSharpPath(k.path),
         value: k.value,
       };
     });
 
-    await firstValueFrom(this.resourceApi.updateResource$Json({
+    return await firstValueFrom(this.resourceApi.updateResource$Json({
       resourceType: name,
       id,
       body: updateResurests,
