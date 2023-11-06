@@ -13,21 +13,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/bool-field/bool-field.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/bool-field/bool-field.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/bool-field/bool-field.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/bool-field/bool-field.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.limesz_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_app/Controllers/ResourceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/limesz_data/Models/RestaurantInvite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/limesz_data/Models/RestaurantInvite.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/dynamic-prop-field/dynamic-prop-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/date-time-field/date-time-field.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/fields/date-time-field/date-time-field.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/components/resource-list/resource-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/dynamic-ui.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../limesz_client/src/app/dynamic-ui/services/resource-service.ts" afterDir="false" />
-    </list>
+    <list default="true" id="9a3fdf6e-7016-4169-9893-6eec00f96f2e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,7 +231,7 @@
       <workItem from="1697699096045" duration="2249000" />
       <workItem from="1697716962877" duration="4361000" />
       <workItem from="1698394736081" duration="6838000" />
-      <workItem from="1698999827853" duration="16112000" />
+      <workItem from="1698999827853" duration="16719000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing join create leave lobby">
       <created>1697466769448</created>
