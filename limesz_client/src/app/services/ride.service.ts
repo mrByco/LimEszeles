@@ -51,44 +51,14 @@ export class RideService {
 
   constructor() {
     this.userService.currentUser$.subscribe((user) => {
-      if (!user) {
+      if (!user)
         return;
-      }
-
     });
-
-    /*this.ride$.next({
-      "id": "Y694U",
-      "state": "lobby",
-      "players": {
-        "Anonymous_lv3hq3q847ut81gubtxp": {
-          "id": "Anonymous_lv3hq3q847ut81gubtxp",
-          "name": "CrimsonWitch"
-        },
-        "Anonymous_lv3hq3q847ut81gub34234": {
-          "id": "Anonymous_lv3hq3q847ut81gub34234",
-          "name": "CrimsonWitch"
-        },
-        "Anonymous_lv3hq3q847ut81gub4545": {
-          "id": "Anonymous_lv3hq3q847ut81gub4545",
-          "name": "CrimsonWitch"
-        },
-        "Anonymous_lv3hq3q847ut81gub": {
-          "id": "Anonymous_lv3hq3q847ut81gub",
-          "name": "CrimsonWitch"
-        },
-      }
-    })*/
-
     this.initListener();
   }
 
   async initListener() {
-
     this.modalService.show(LoginPageComponent, {title: "Login"});
-
-
-    console.log("Init listener");
 
     this.connectionToken = localStorage.getItem("connectionToken")??uuid.v4();
     localStorage.setItem("connectionToken", this.connectionToken)

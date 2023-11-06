@@ -65,7 +65,6 @@ export class ResourceListComponent {
   }
 
   navigateDetailsPage(data: any) {
-    console.log(data);
     this.router.navigate(['resources', this.resourceDefinition.name, data.id])
   }
 

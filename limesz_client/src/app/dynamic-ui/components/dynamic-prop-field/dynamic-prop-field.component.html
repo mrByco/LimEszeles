@@ -7,6 +7,4 @@
   <app-list-field *ngIf='prop.propType == "list"' [prop]='prop' [resource]='resource' (onChanged)='complexChange($event.path, $event.value)'></app-list-field>
 
   <app-object-field *ngIf='prop.propType == "object"' [prop]='prop' [resource]='resource' (onChanged)='complexChange($event.path, $event.value)'></app-object-field>
-
-  <!--<p>{{prop.propType}}</p>-->
 </ng-container>

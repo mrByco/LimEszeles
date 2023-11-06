@@ -29,6 +29,9 @@ export class AppComponent {
     }));
 
     this.rideService.ride$.subscribe(ride => {
+      if (!ride) {
+        return;
+      }
       let notShownNotifications = ride.game.inGameNotifications.filter(n => !this.shownNotifications.includes(n.id));
       for (let notification of notShownNotifications) {
         alertService.success(notification.title, notification.description);

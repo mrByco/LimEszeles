@@ -9,19 +9,17 @@ import { ResourceDescription } from '../../../../api/models/resource-description
   styleUrls: ['./list-field.component.scss']
 })
 export class ListFieldComponent extends BaseField {
-  public get innerType(): ResourceProp | string{
-    return this.baseProp.embededTypeDefinition as ResourceProp | string;
-  }
+
 
   public get innerTypeName() {
-
     if(typeof this.innerType === 'string'){
-
       return this.innerType;
     }
-    return this.baseProp.propName;
+
+    return (this.innerType as ResourceProp).propType;
   }
 
+  // Gets the type for the element by its index
   getListElementProp(i: number): ResourceProp {
     if(typeof this.innerType === 'string'){
       return {
@@ -31,20 +29,22 @@ export class ListFieldComponent extends BaseField {
       }
     }
 
-    if (!Array.isArray(this.innerType.embededTypeDefinition)){
-      return {
+    // Its never array
+    if (!Array.isArray(this.innerType)){
+      let listElementProp = {
         propName: `[${i}]`,
-        propType: 'list',
+        propType: this.innerType.propType,
         jsAccessor: `[${i}]`,
-        embededTypeDefinition: (this.innerType.embededTypeDefinition as ResourceDescription)
+        embededTypeDefinition: this.innerType.embededTypeDefinition
       }
+      return listElementProp
     }
 
     return {
       propName: `[${i}]`,
       propType: 'object',
       jsAccessor: `[${i}]`,
-      embededTypeDefinition: (this.innerType.embededTypeDefinition as ResourceProp[])
+      embededTypeDefinition: (this.innerType as ResourceProp).embededTypeDefinition
     }
   }
 

@@ -26,6 +26,7 @@ import { GenericModule } from '../generic/generic.module';
 import { ListFieldComponent } from './components/list/list-field/list-field.component';
 import { MatListModule } from '@angular/material/list';
 import { ObjectFieldComponent } from './components/fields/object-field/object-field.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -73,6 +74,7 @@ import { ObjectFieldComponent } from './components/fields/object-field/object-fi
     MatCheckboxModule,
     GenericModule,
     MatListModule,
+    MatButtonModule,
   ],
   providers: [
     ResourceTypeService, ResourceService

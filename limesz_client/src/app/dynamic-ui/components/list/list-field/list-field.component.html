@@ -4,8 +4,8 @@
   <button mat-raised-button color="primary" (click)="addItem()">Add Item {{innerTypeName}}</button>
 
   <div class='d-flex flex-column'>
-    <div class='d-flex' *ngFor="let item of baseResource[baseProp.jsAccessor]; let i = index">
-      <app-dynamic-prop-field  [prop]='getListElementProp(i)' [resource]='baseResource[baseProp.jsAccessor]' (onChanged)='complexChange($event.path, $event.value)' ></app-dynamic-prop-field>
+    <div class='d-flex' *ngFor="let item of value; let i = index">
+      <app-dynamic-prop-field  [prop]='getListElementProp(i)' [resource]='value' (onChanged)='complexChange($event.path, $event.value)' ></app-dynamic-prop-field>
       <button mat-raised-button color="warn" (click)="removeItem(i)">Remove</button>
     </div>
   </div>

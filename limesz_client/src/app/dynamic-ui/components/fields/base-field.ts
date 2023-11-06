@@ -1,12 +1,17 @@
 import { EventEmitter, Input, Output } from '@angular/core';
 import { ResourceProp } from '../../../api/models/resource-prop';
+import { ResourceDescription } from '../../../api/models/resource-description';
 
 export abstract class BaseField {
+
+  public get innerType(): ResourceProp[] | ResourceProp | string{
+    return this.baseProp.embededTypeDefinition;
+  }
   get value(): any {
     if (this.baseProp.jsAccessor.startsWith('[') && this.baseProp.jsAccessor.endsWith(']')){
-      return this._baseResource[parseInt(this.baseProp.jsAccessor.slice(1, -1))];
+      return this._baseResource?.[parseInt(this.baseProp.jsAccessor.slice(1, -1))];
     }
-    return this._baseResource[this.baseProp.jsAccessor];
+    return this._baseResource?.[this.baseProp.jsAccessor];
   }
 
   set value(value: any) {

@@ -129,9 +129,6 @@ public class ResourceController: ControllerBase
                 return "unknown";
         }
     }
-    
-    
-
 
     [HttpGet("get-resources-paginated/{resourceType}/{page}/{pageSize}", Name = nameof(GetResourcesPaginated))]
     public PaginatedResourceResult GetResourcesPaginated(string resourceType, int page, int pageSize)
