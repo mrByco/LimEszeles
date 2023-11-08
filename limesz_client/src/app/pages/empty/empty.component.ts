@@ -14,7 +14,4 @@ export class EmptyComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
-
-    protected readonly console = console;
 }

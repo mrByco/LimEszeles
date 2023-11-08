@@ -65,6 +65,7 @@ export class ResourceDetailsComponent {
     }else {
       this.changes.push({ path: path, value: value });
       console.log("Changes:");
+      console.log(this.changes);
       this.changes.forEach(c => console.log(c.path + " = " + c.value.toString()));
     }
   };

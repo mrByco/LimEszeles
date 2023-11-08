@@ -46,6 +46,9 @@ import { DynamicUiModule } from './dynamic-ui/dynamic-ui.module';
 import { GameRootComponent } from './screens/game-root/game-root.component';
 import { ColorPickerPromptComponent } from './components/prompts/color-picker-prompt/color-picker-prompt.component';
 import { PromptService } from './services/prompt-service';
+import { PlutoFor } from './dynamic-ui/directives/pluto-for-of.directive';
+import { InjectTestComponent } from './pages/empty/inject-test/inject-test.component';
+import { PlutoModule } from '../../projects/pluto/src/lib/pluto.module';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -72,7 +75,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     InGamePlayerListComponent,
     ColorPickerPromptComponent,
     InGamePlayerListComponent,
-    GameRootComponent
+    GameRootComponent,
+    PlutoFor,
+    InjectTestComponent
   ],
   imports: [
     ImageCropperModule,
@@ -105,6 +110,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     MatRippleModule,
     MatTabsModule,
+    PlutoModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

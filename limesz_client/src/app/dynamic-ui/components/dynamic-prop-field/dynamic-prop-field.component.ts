@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { ResourceProp } from '../../../api/models/resource-prop';
 import * as path from 'path';
 import { BaseField } from '../fields/base-field';
+import { ResourceAccessorDirective } from '../../directives/resource-accessor.directive';
 
 @Component({
   selector: 'app-dynamic-prop-field',
@@ -9,6 +10,8 @@ import { BaseField } from '../fields/base-field';
   styleUrls: ['./dynamic-prop-field.component.scss']
 })
 export class DynamicPropFieldComponent extends BaseField implements OnInit {
+
+  private dir: ResourceAccessorDirective = inject(ResourceAccessorDirective);
 
   primitiveChange(value){
     this.onChanged.emit({path: this.prop.propName, value: value})
@@ -20,6 +23,7 @@ export class DynamicPropFieldComponent extends BaseField implements OnInit {
 
   ngOnInit(): void {
     //console.log(this.prop, this.resource)
+    console.log(this.dir.appResourceAccessor + ", parents: ", this.dir.parents)
   }
 
   @Input() set prop(value) {

@@ -29,6 +29,8 @@ import { ObjectFieldComponent } from './components/fields/object-field/object-fi
 import { MatButtonModule } from '@angular/material/button';
 import { ReferenceFieldComponent } from './components/fields/reference-field/reference-field.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ResourceAccessorDirective } from './directives/resource-accessor.directive';
 
 
 
@@ -46,7 +48,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     BoolFieldComponent,
     ListFieldComponent,
     ObjectFieldComponent,
-    ReferenceFieldComponent
+    ReferenceFieldComponent,
+    ResourceAccessorDirective
   ],
   imports: [
     CommonModule,
@@ -68,6 +71,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    MatFormFieldModule,
     MatIconModule,
     MatDatepickerModule,
     NgxMatDatetimePickerModule,

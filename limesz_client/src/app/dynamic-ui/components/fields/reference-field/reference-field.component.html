@@ -1,15 +1,17 @@
-<mat-form-field>
-  <mat-label>{{baseProp.propName}}</mat-label>
-  <input type="text"
-         placeholder="Pick one"
-         aria-label="Number"
-         matInput
-         [(ngModel)]='fieldContent'
-         [matAutocomplete]="auto">
-  <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onSelected($event)' (opened)='panelOpened()'>
-    <mat-option *ngFor="let option of filteredOptions" [value]="option">
-      {{option.name}}
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
-<p>asd</p>
+
+<form>
+  <mat-form-field>
+    <mat-label>{{baseProp.propName}}</mat-label>
+    <input type="text"
+           placeholder=""
+           matInput
+           (input)='onInput($event.target["value"])'
+           [formControl]='formControl'
+           [matAutocomplete]='auto'>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onSelected($event)' (opened)='panelOpened()' [displayWith]='displayObject'>
+      <mat-option *ngFor="let option of filteredOptions" [value]="option" >
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ResourceProp } from '../../../../api/models/resource-prop';
 import { BaseField } from '../base-field';
 

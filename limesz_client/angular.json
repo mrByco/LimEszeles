@@ -175,6 +175,48 @@
           "defaultConfiguration": "production"
         }
       }
+    },
+    "pluto": {
+      "projectType": "library",
+      "root": "projects/pluto",
+      "sourceRoot": "projects/pluto/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/pluto/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/pluto/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/pluto/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/pluto/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/pluto/**/*.ts",
+              "projects/pluto/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }
