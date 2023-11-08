@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using margarita_app.Hubs;
 using margarita_app.Misc;
@@ -22,11 +24,13 @@ Config.Instance = builder.Configuration.Get<Config>();
 
 builder.Services.AddControllersWithViews();
 
-#if TEST
+/*#if TEST
 builder.Services.AddSingleton<IDatabaseService, FakeDatabaseService>();
 #else
 builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
-#endif
+#endif*/
+
+builder.ConfigurePluto(Assembly.GetExecutingAssembly());
 
 builder.Services.AddTransient<IAzureStorage, AzureStorage>();
 
@@ -47,6 +51,10 @@ builder.Services.AddSingleton<GameService>();
 builder.Services.AddSingleton<CardSetService>();
 builder.Services.AddSingleton<NestedTestService>();
 builder.Services.AddSingleton<ManufacturedCarService>();
+
+//TODO
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>

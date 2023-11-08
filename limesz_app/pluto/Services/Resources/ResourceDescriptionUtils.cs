@@ -10,7 +10,7 @@ public static class ResourceDescriptionUtils
     public static List<ResourceDescription> GetResourceDescriptions()
     {
         Type resourceServiceBaseName = typeof(SmartDataService<>);
-        Type[] types = Assembly.GetAssembly(resourceServiceBaseName).GetTypes();
+        Type[] types = PlutoConfig.BindingAssembly.GetTypes();
         var resourceTypes = new List<ResourceDescription>();
         foreach (var type in types)
         {

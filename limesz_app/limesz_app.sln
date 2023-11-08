@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "limesz_data", "limesz_data\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "limesz_app.tests", "limesz_app.tests\limesz_app.tests.csproj", "{DF99F1C9-943A-4802-93CB-A236B0029A36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pluto_data", "pluto_data\pluto_data.csproj", "{D1689661-FE68-4BCB-A003-C2EB69DCEB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pluto", "pluto\pluto.csproj", "{10835FAB-F2FD-45A2-9681-B51D408511DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,18 @@ Global
 		{DF99F1C9-943A-4802-93CB-A236B0029A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF99F1C9-943A-4802-93CB-A236B0029A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF99F1C9-943A-4802-93CB-A236B0029A36}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{D1689661-FE68-4BCB-A003-C2EB69DCEB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1689661-FE68-4BCB-A003-C2EB69DCEB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1689661-FE68-4BCB-A003-C2EB69DCEB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1689661-FE68-4BCB-A003-C2EB69DCEB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1689661-FE68-4BCB-A003-C2EB69DCEB73}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1689661-FE68-4BCB-A003-C2EB69DCEB73}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{10835FAB-F2FD-45A2-9681-B51D408511DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10835FAB-F2FD-45A2-9681-B51D408511DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10835FAB-F2FD-45A2-9681-B51D408511DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10835FAB-F2FD-45A2-9681-B51D408511DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10835FAB-F2FD-45A2-9681-B51D408511DD}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{10835FAB-F2FD-45A2-9681-B51D408511DD}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

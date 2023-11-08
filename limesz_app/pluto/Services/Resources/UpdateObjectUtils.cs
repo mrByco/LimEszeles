@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Reflection;
 using System.Text.Json;
-using Geocoding;
 
 namespace margarita_app.Services;
 
@@ -205,7 +204,9 @@ public static class UpdateObjectUtils
                     List<string> indexParts = segment.Split('[').Select(s => s.TrimEnd(']')).ToList();
                     indexParts.RemoveAt(0);
 
-                    indexParts.Select(s => int.Parse(s)).ForEach(i => { accessList.Add(i); });
+                    var indexPartsAsInt = indexParts.Select(s => int.Parse(s));
+                    indexPartsAsInt.ToList().ForEach(i => accessList.Add(i));
+                    
                 }
                 else
                 {

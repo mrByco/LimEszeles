@@ -33,6 +33,7 @@
     <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\AutoUI\" />
     <Folder Include="Roles\" />
   </ItemGroup>
   <ItemGroup>
@@ -40,5 +41,8 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\pluto_data\pluto_data.csproj" />
   </ItemGroup>
 </Project>

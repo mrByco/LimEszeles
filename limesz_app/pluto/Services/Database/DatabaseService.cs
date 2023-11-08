@@ -14,7 +14,7 @@ namespace margarita_app.Services.Database
 
         public DatabaseService()
         {
-            var mongoConnectionString = Config.Instance.MongoConnectionString;
+            var mongoConnectionString = PlutoConfig.Instance.MongoConnectionString;
             MongoClient = new MongoClient(mongoConnectionString);
             MongoDatabase = MongoClient.GetDatabase(DatabaseName);
         }
