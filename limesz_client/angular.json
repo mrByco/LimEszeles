@@ -26,6 +26,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "ts-lib",
+              "kjua-svg",
+              "quill",
+              "moment/moment"
+            ],
             "progress": false,
             "outputPath": "dist/limesz_app/browser",
             "index": "src/index.html",

@@ -396,6 +396,7 @@
     <ProjectReference Include="..\cardsplusplus\cardsplusplus.csproj" />
     <ProjectReference Include="..\limesz_data\limesz_data.csproj" />
     <ProjectReference Include="..\pluto\pluto.csproj" />
+    <ProjectReference Include="..\pluto_data\pluto_data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
