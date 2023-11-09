@@ -21,7 +21,7 @@ namespace margarita_app.Services.EmailService
 
         public async Task<Response> SendEmail(EmailAddress from, EmailAddress to, string subject, string plainTextContent, string htmlContent)
         {
-            var apiKey = Config.Instance.SendGridAPIkey;
+            var apiKey = PlutoConfig.Instance.SendGridAPIkey;
             var client = new SendGridClient(apiKey);
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Net;
-using margarita_app.Roles;
+﻿using System.Net;
 using margarita_app.Services;
-using margarita_app.Services.LicenseService;
 using margarita_data.Models;
 using margarita_data.Roles;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +8,6 @@ namespace margarita_app.Misc
 {
     public static class ControllerBaseExtensions
     {
-        public static ILicenseService licenseService;
 
         public static string GetUserId(this ControllerBase controller)
         {
@@ -33,15 +29,16 @@ namespace margarita_app.Misc
         {
             var user = GetUser(controller);
             if (user == null) throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
-            if (AppRoles.CheckUserPermission(user, permission))
+            /*if (AppRoles.CheckUserPermission(user, permission))
             {
                 return;
-            }
+            }*/
 
-            var license = licenseService.GetCurrentLicensesForRestaurant(restaurantId).FirstOrDefault();
+            /* TODO imlement licenses var license = licenseService.GetCurrentLicensesForRestaurant(restaurantId).FirstOrDefault();
             if (license == null || !license.LicenseType.LicensePermissions.Contains(permission))
-                throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
-            var hasPermission = RestaurantRoles.CheckUserPermission(user, restaurantId, permission);
+                throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);*/
+            // TODO var hasPermission = OLDRoless.CheckUserPermission(user, restaurantId, permission);
+            var hasPermission = true;
             if (!hasPermission) throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
         }
 
@@ -49,14 +46,8 @@ namespace margarita_app.Misc
         {
             var user = controller.GetUser();
             if (user == null) return false;
-            return user.CompanyRoles.Any(r => r.CompanyId == companyId);
-        }
-        
-        public static bool IsAppAdmin(this ControllerBase controller)
-        {
-            var user = controller.GetUser();
-            if (user == null) return false;
-            return user.AppRoles.Count > 0;
+            //TODO return user.CompanyRoles.Any(r => r.CompanyId == companyId);
+            return true;
         }
 
 
@@ -64,8 +55,8 @@ namespace margarita_app.Misc
         {
             var user = GetUser(controller);
             if (user == null) throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
-            var hasPermission = AppRoles.CheckUserPermission(user, permission);
-            if (!hasPermission) throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
+            // TODO var hasPermission = AppRoles.CheckUserPermission(user, permission);
+            // TODO if (!hasPermission) throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
         }
     }
 }

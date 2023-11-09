@@ -4,18 +4,18 @@ using margarita_data.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace margarita_app.Services
+namespace pluto.PlutoRepo
 {
-    public abstract class BaseDataService<T> where T: BaseRootModel
+    public abstract class MongoBaseRepositoryImpl<T>: IPlutoBaseRepositoryImpl<T> where T: BaseRootModel
     {
         protected abstract string CollectionName { get; }
 
 
         protected readonly IMongoCollection<T> _collection;
 
-        public BaseDataService(IDatabaseService databaseService)
+        public MongoBaseRepositoryImpl(IMongoDatabaseService mongoDatabaseService)
         {
-            _collection = databaseService.MongoDatabase.GetCollection<T>(CollectionName);
+            _collection = mongoDatabaseService.MongoDatabase.GetCollection<T>(CollectionName);
         }
 
         public List<T> Get() => _collection.Find(_ => true).ToList();

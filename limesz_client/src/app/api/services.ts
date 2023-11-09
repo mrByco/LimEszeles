@@ -1,7 +1,6 @@
 export { ActionsService } from './services/actions.service';
 export { AuthService } from './services/auth.service';
 export { ImagesService } from './services/images.service';
-export { LicenseService } from './services/license.service';
 export { LobbyService } from './services/lobby.service';
 export { ResourceService } from './services/resource.service';
 export { RideService } from './services/ride.service';

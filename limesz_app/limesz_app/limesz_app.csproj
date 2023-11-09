@@ -404,6 +404,5 @@
     <Folder Include="TestData\" />
     <Folder Include="Services\ImageService\" />
     <Folder Include="Models\Metrics\" />
-    <Folder Include="Services\LicenseService\" />
   </ItemGroup>
 </Project>

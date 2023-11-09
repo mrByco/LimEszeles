@@ -4,9 +4,9 @@ using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class CardSetService: SmartDataService<CardSet>
+public class CardSetService: PlutoSmartRepo<CardSet>
 {
-    public CardSetService(IDatabaseService databaseService) : base(databaseService)
+    public CardSetService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
     {
     }
 

@@ -3,14 +3,15 @@ using margarita_data.Models;
 using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using pluto.PlutoRepo;
 
 namespace margarita_app.Services
 {
-    [Route("[controller]")]
-    public abstract class SmartDataService<T> : BaseDataService<T> where T : BaseRootModel, new()
+    [Route("pl/resources")]
+    public abstract class PlutoSmartRepo<T> : MongoBaseRepositoryImpl<T> where T : BaseRootModel, new()
     {
         
-        protected SmartDataService(IDatabaseService databaseService) : base(databaseService)
+        protected PlutoSmartRepo(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
         {
         }
 

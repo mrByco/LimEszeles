@@ -3,9 +3,9 @@ using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class NestedTestService: SmartDataService<CarModel>
+public class NestedTestService: PlutoSmartRepo<CarModel>
 {
-    public NestedTestService(IDatabaseService databaseService) : base(databaseService)
+    public NestedTestService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
     {
     }
 

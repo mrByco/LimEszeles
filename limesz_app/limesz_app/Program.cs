@@ -5,8 +5,6 @@ using margarita_app.Services;
 using margarita_app.Services.EmailService;
 using margarita_app.Services.ImageService;
 using margarita_app.Services.PostalCodeService;
-using margarita_app.Middleware;
-using margarita_app.Services.LicenseService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,13 +30,9 @@ builder.Services.AddTransient<IAzureStorage, AzureStorage>();
 builder.Services.AddScoped<IImageService, ImageService>();
 
 builder.Services.AddSingleton<RestaurantInviteService>();
-builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<IPostalCodeService, PostalCodeService>();
 builder.Services.AddSingleton<EmailService>();
 builder.Services.AddSingleton<DocumentFileService>();
-builder.Services.AddSingleton<ILicenseService, LicenseService>();
-builder.Services.AddSingleton<MargaretaStockImageService>();
-builder.Services.AddSingleton<DeletedUserAccountsService>();
 builder.Services.AddSingleton<ConnectionService>();
 builder.Services.AddSingleton<GameService>();
 builder.Services.AddSingleton<CardSetService>();
@@ -53,8 +47,6 @@ builder.Services.AddSignalR();
 var app = builder.Build();
 
 
-// INIT LICENSE SERVICE SINGLETON
-ControllerBaseExtensions.licenseService = app.Services.GetService<ILicenseService>();
 // INIT user servie singleton
 app.Services.GetService<UserService>();
 

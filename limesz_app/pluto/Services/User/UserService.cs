@@ -2,7 +2,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using margarita_data;
 using margarita_data.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Net;
@@ -10,27 +9,25 @@ using margarita_app.Misc;
 using System.Security.Cryptography;
 using System.Web.Http;
 using MongoDB.Driver;
-using margarita_data.DTO;
 using margarita_app.Services.Database;
 using margarita_app.Models.Auth;
-using MongoDB.Driver.Linq;
+using margarita_app.Services.RoleGrantService;
+using pluto.PlutoRepo;
 using SendGrid.Helpers.Mail;
 
 namespace margarita_app.Services
 {
 
-    public class UserService: BaseDataService<User>
+    public class UserService: MongoBaseRepositoryImpl<User>, IUserService
 	{
         private static UserService _instance;
         public static UserService instance => _instance;
-        private readonly DeletedUserAccountsService _deletedUserAccountsService;
         private readonly EmailService.EmailService _emailService;
 
-        public UserService(IDatabaseService databaseService, RestaurantInviteService _restaurantInviteService, EmailService.EmailService emailService, DeletedUserAccountsService deletedUserAccountsService) : base(databaseService)
+        public UserService(IMongoDatabaseService mongoDatabaseService, EmailService.EmailService emailService) : base(mongoDatabaseService)
         {
             if (_instance == null) _instance = this;
             this._emailService = emailService;
-            this._deletedUserAccountsService = deletedUserAccountsService;
         }
 
         protected override string CollectionName => "Users";
@@ -84,9 +81,9 @@ namespace margarita_app.Services
 
         private string GenerateAccessToken(string email, string id, DateTime expires)
         {
-            var issuer = Config.Instance!.Jwt!.Issuer;
-            var audience = Config.Instance!.Jwt!.Audience;
-            var key = Encoding.ASCII.GetBytes(Config.Instance!.Jwt!.Key!);
+            var issuer = PlutoConfig.Instance!.Jwt!.Issuer;
+            var audience = PlutoConfig.Instance!.Jwt!.Audience;
+            var key = Encoding.ASCII.GetBytes(PlutoConfig.Instance!.Jwt!.Key!);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -174,7 +171,6 @@ namespace margarita_app.Services
         {
             var user = GetUserByEmail(email);
             if (user == null) throw new System.Web.Http.HttpResponseException(HttpStatusCode.NotFound);
-            _deletedUserAccountsService.Create(new DeletedUser { DeletedAt = UTCNow.GetNow, User = user});
             Remove(user.Id!);
         }
 
@@ -233,7 +229,7 @@ namespace margarita_app.Services
             var tokenLink = token;
             Dictionary<string, string> variables = new Dictionary<string, string>() 
             {
-                { "TOKEN_LINK", $"{Config.Instance.HostNameForEmails}/password-reset/{token}/{queryParams??""}" }
+                { "TOKEN_LINK", $"{PlutoConfig.Instance.HostNameForEmails}/password-reset/{token}/{queryParams??""}" }
             };
             var result = await _emailService.SendEmail(new EmailAddress("noreply@margareta.app", "Margareta.app"), new EmailAddress() { Email = email }, "Password reset", token, "password-reset.html", variables);
             return result.IsSuccessStatusCode;

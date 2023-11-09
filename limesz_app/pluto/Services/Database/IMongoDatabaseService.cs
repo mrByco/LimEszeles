@@ -2,7 +2,7 @@
 
 namespace margarita_app.Services.Database
 {
-    public interface IDatabaseService
+    public interface IMongoDatabaseService
     {
         public IMongoDatabase MongoDatabase { get; }
     }

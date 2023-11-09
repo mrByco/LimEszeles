@@ -3,9 +3,9 @@ using margarita_data.Models;
 
 namespace margarita_app.Services;
 
-public class ManufacturedCarService: SmartDataService<ManufacturedCar>
+public class ManufacturedCarService: PlutoSmartRepo<ManufacturedCar>
 {
-    public ManufacturedCarService(IDatabaseService databaseService) : base(databaseService)
+    public ManufacturedCarService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
     {
     }
 

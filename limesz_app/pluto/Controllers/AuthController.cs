@@ -2,12 +2,9 @@
 using margarita_app.Services;
 using margarita_data.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using margarita_app.Misc;
 using margarita_data.Roles;
-using margarita_data.DTO;
-using MongoDB.Bson;
 
 namespace margarita_app.Controllers
 {
@@ -15,9 +12,9 @@ namespace margarita_app.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserService _UserService;
+        private readonly IUserService _UserService;
 
-        public AuthController(UserService userService)
+        public AuthController(IUserService userService)
         {
             _UserService = userService;
         }

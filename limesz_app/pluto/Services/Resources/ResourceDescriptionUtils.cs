@@ -9,7 +9,7 @@ public static class ResourceDescriptionUtils
 {
     public static List<ResourceDescription> GetResourceDescriptions()
     {
-        Type resourceServiceBaseName = typeof(SmartDataService<>);
+        Type resourceServiceBaseName = typeof(PlutoSmartRepo<>);
         Type[] types = PlutoConfig.BindingAssembly.GetTypes();
         var resourceTypes = new List<ResourceDescription>();
         foreach (var type in types)
@@ -21,7 +21,7 @@ public static class ResourceDescriptionUtils
 
                 if (modelType != null)
                 {
-                    if (type.BaseType?.Name != typeof(SmartDataService<>).Name)
+                    if (type.BaseType?.Name != typeof(PlutoSmartRepo<>).Name)
                     {
                         continue;
                     }

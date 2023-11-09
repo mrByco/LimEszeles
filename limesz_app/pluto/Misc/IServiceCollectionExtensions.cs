@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Text;
+using margarita_app.Services;
 using margarita_app.Services.Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -19,11 +20,13 @@ public static class WebApplicationBuilderExtensions
         #if TEST
             services.AddSingleton<IDatabaseService, FakeDatabaseService>();
         #else
-            services.AddSingleton<IDatabaseService, DatabaseService>();
+            services.AddSingleton<IMongoDatabaseService, MongoDatabaseService>();
         #endif
         
+        //TODO make user service replaceable
+        services.AddSingleton<IUserService, UserService>();
         
-        var assembly = typeof(IDatabaseService).Assembly;
+        var assembly = typeof(IMongoDatabaseService).Assembly;
         services.AddControllers()
             .AddApplicationPart(assembly);
         
@@ -56,8 +59,8 @@ public static class WebApplicationBuilderExtensions
                 }
             });
         });
-        
-        
+
+
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

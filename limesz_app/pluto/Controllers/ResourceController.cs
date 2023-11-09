@@ -65,7 +65,7 @@ public class ResourceController: ControllerBase
     {
         try
         {
-            Type baseType = typeof(SmartDataService<>);
+            Type baseType = typeof(PlutoSmartRepo<>);
             IEnumerable<Type> types = PlutoConfig.BindingAssembly.GetTypes().Concat(baseType.Assembly.GetTypes());
 
             var service =

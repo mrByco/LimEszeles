@@ -5,14 +5,14 @@ using MongoDB.Driver;
 
 namespace margarita_app.Services.Database
 {
-    public class DatabaseService: IDatabaseService
+    public class MongoDatabaseService: IMongoDatabaseService
     {
         protected readonly string DatabaseName = "application";
         public readonly MongoClient MongoClient;
         public IMongoDatabase MongoDatabase { get; }
         
 
-        public DatabaseService()
+        public MongoDatabaseService()
         {
             var mongoConnectionString = PlutoConfig.Instance.MongoConnectionString;
             MongoClient = new MongoClient(mongoConnectionString);

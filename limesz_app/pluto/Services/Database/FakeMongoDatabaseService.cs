@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 
 namespace margarita_app.Services.Database
 {
-    public class FakeDatabaseService : IDatabaseService
+    public class FakeMongoDatabaseService : IMongoDatabaseService
     {
 
         internal static MongoDbRunner _runner;
@@ -21,7 +21,7 @@ namespace margarita_app.Services.Database
         private readonly IWebHostEnvironment _environment;
         private readonly string TEST_DATA_PATH = "TestData";
 
-        public FakeDatabaseService(IWebHostEnvironment environment)
+        public FakeMongoDatabaseService(IWebHostEnvironment environment)
         {
             _environment = environment;
             
