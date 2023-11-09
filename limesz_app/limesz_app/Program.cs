@@ -1,19 +1,12 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
 using margarita_app.Hubs;
 using margarita_app.Misc;
 using margarita_app.Services;
 using margarita_app.Services.EmailService;
 using margarita_app.Services.ImageService;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using margarita_app.Services.PostalCodeService;
 using margarita_app.Middleware;
-using margarita_app.Services.Database;
 using margarita_app.Services.LicenseService;
-using margarita_data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,59 +47,6 @@ builder.Services.AddSingleton<ManufacturedCarService>();
 
 //TODO
 
-
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(option =>
-{
-    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Margarita api", Version = "v1" });
-    option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please enter a valid token",
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "Bearer"
-    });
-    option.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
-});
-
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(o =>
-{
-    o.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey
-        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true
-    };
-});
-builder.Services.AddAuthorization();
-
 builder.Services.AddSignalR();
 
 
@@ -128,6 +68,9 @@ if (!app.Environment.IsDevelopment())
 
 //app.UseStaticFiles();
 app.UseRouting();
+
+app.UsePluto();
+
 app.UseCors(builder =>
 {
     builder.WithOrigins("http://localhost:7156", "http://localhost:4200", "https://limesz.cookta.me")
@@ -135,15 +78,6 @@ app.UseCors(builder =>
         .AllowAnyHeader()
         .AllowCredentials();
 });
-
-app.UseSwagger();
-app.UseSwaggerUI(settings =>
-{
-});
-
-app.UseAuthentication();
-app.UseAuthorization();
-app.UseMiddleware<ErrorHandlerMiddleware>();
 
 
 app.UseEndpoints(endpoints =>

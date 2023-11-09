@@ -1,10 +1,9 @@
 using System.Reflection;
-using Google.Rpc.Context;
+using margarita_app.Misc;
 using margarita_app.Services;
 using margarita_data.Models;
 using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver.Core.Operations;
 using Type = System.Type;
 
 namespace margarita_app.Controllers;
@@ -67,7 +66,7 @@ public class ResourceController: ControllerBase
         try
         {
             Type baseType = typeof(SmartDataService<>);
-            Type[] types = Assembly.GetAssembly(baseType).GetTypes();
+            IEnumerable<Type> types = PlutoConfig.BindingAssembly.GetTypes().Concat(baseType.Assembly.GetTypes());
 
             var service =
                 _services.GetService(types.FirstOrDefault(t =>
