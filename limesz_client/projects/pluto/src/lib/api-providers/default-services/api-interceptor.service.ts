@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { concat, concatAll, concatMap, filter, from, map, merge, Observable, tap } from 'rxjs';
 import { PlAlertService } from './pl-alert.service';
-import { ApiUrl, RefreshTokenPath } from '../../pluto.module';
+import { ApiUrl, META_API_REQUEST_PATH, RefreshTokenPath } from '../../pluto.module';
 import { APlutoAuthApi } from '../a-pluto-auth-api';
 import { APlutoAuthService } from '../a-pluto-auth-service';
 
@@ -17,12 +17,23 @@ import { APlutoAuthService } from '../a-pluto-auth-service';
   providedIn: 'root',
 })
 export class ApiInterceptorService implements HttpInterceptor {
-  constructor(private authService: APlutoAuthService, private router: Router) { }
+  constructor(private authService: APlutoAuthService) { }
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    //if it is https://somedomain:orevenport/{{MetaApiRequestPath}}, redirect it
+    if (req.url.includes(META_API_REQUEST_PATH)) {
+      const urlParts = req.url.split(META_API_REQUEST_PATH);
+      // remove the first element
+      urlParts.shift();
+      const url = `${ApiUrl}${urlParts.join('')}`;
+      return next.handle(req.clone({ url }));
+    }
+
+
+
     if (!req.url.startsWith(ApiUrl)) {
       return next.handle(req);
     }

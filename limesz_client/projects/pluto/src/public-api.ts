@@ -18,6 +18,10 @@ export * from './lib/api-providers/default-services/file-upload.service';
 export * from './lib/api-providers/default-services/loading.service';
 export * from './lib/api-providers/default-services/language.service';
 export * from './lib/api-providers/a-pluto-alert-service';
+export * from './lib/api-providers/a-pluto-auth-service';
+
+export * from './lib/api-providers/a-pluto-auth-api';
+export * from './lib/api-providers/a-pluto-user-api';
 
 
 export * from './lib/generic_module/generic/big-button/big-button.component';

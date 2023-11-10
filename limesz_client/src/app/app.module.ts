@@ -34,10 +34,9 @@ import { InGamePlayerListComponent } from './components/in-game-player-list/in-g
 import { GameRootComponent } from './screens/game-root/game-root.component';
 import { ColorPickerPromptComponent } from './components/prompts/color-picker-prompt/color-picker-prompt.component';
 import { PromptService } from './services/prompt-service';
+import { AuthApi } from './api/services/auth-api';
+import { APlutoAuthApi, PlutoModule } from 'projects/pluto/src/public-api';
 import { InjectTestComponent } from './pages/empty/inject-test/inject-test.component';
-import { AuthApi } from './api/services';
-import { PlutoModule } from '../../projects/pluto/src/lib/pluto.module';
-import { APlutoAuthApi } from '../../projects/pluto/src/lib/api-providers/a-pluto-auth-api';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -62,17 +61,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     DecksComponent,
     InGamePlayerListComponent,
     ColorPickerPromptComponent,
-    InGamePlayerListComponent,
     GameRootComponent,
     InjectTestComponent
   ],
   imports: [
     ImageCropperModule,
+    ApiModule.forRoot({rootUrl: ApiUrl}),
     PlutoModule.forRoot({
       ApiUrl: ApiUrl,
       RefreshTokenPath: AuthApi.AuthRefreshTokenPostPath,
       providers: [
-          { provide: APlutoAuthApi, useClass: AuthApi, deps: [ApiModule] },
+          { provide: APlutoAuthApi, useClass: AuthApi },
         ]
     }),
     RouterModule.forRoot([
@@ -84,7 +83,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    ApiModule.forRoot({ rootUrl: ApiUrl }),
     FormsModule,
     FontAwesomeModule,
     TranslateModule.forRoot({

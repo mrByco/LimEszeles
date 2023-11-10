@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ResourceService as ResourceApi } from '../../../../../../src/app/api/services/resource.service';
+
 import { firstValueFrom } from 'rxjs';
-import { PaginatedResourceResult } from '../../../../../../src/app/api/models';
-import { FieldChange } from '../../../../../../src/app/api/models/field-change';
 import { BaseRootModel } from '../../api-providers/generated-api/models/base-root-model';
+import { ResourceApi } from '../../api-providers/generated-api/services/resource-api';
+import { PaginatedResourceResult } from '../../api-providers/generated-api/models/paginated-resource-result';
+import { FieldChange } from '../../api-providers/generated-api/models/field-change';
 
 @Injectable({
   providedIn: 'root'

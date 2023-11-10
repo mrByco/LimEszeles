@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { ResourceDescription } from '../../../../../../src/app/api/models/resource-description';
-import {ResourceService as ResourceApi} from '../../../../../../src/app/api/services/resource.service';
-import { LoadingService } from '../../../../../../src/app/services/loading.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { LoadingService } from '../../api-providers/default-services/loading.service';
+import { ResourceApi } from '../../api-providers/generated-api/services';
+import { ResourceDescription } from '../../api-providers/generated-api/models/resource-description';
 
 @Injectable({
   providedIn: 'root'

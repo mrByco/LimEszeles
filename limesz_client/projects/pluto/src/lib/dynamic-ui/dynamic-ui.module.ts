@@ -85,7 +85,8 @@ import { ResourceAccessorDirective } from './directives/resource-accessor.direct
     MatAutocompleteModule,
   ],
   providers: [
-    ResourceTypeService, ResourceService
+    ResourceTypeService,
+    ResourceService,
   ]
 })
 export class DynamicUiModule { }
