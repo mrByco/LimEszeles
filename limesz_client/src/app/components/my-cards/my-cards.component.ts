@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { ActionsService as ActionsApi } from '../../api/services/actions.service';
+import { ActionsApi } from 'src/app/api/services';
 import { RideService } from '../../services/ride.service';
 import { firstValueFrom } from 'rxjs';
 

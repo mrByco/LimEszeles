@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 export { ActivePrompt } from './models/active-prompt';
 export { AuthResult } from './models/auth-result';
 export { BaseRootModel } from './models/base-root-model';

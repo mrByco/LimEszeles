@@ -1,8 +1,8 @@
 import { Component, inject, Input } from '@angular/core';
 import { Deck } from 'src/app/api/models';
 import { RideService } from '../../services/ride.service';
-import { ActionsService as ActionsApi } from '../../api/services/actions.service';
 import { firstValueFrom } from 'rxjs';
+import { ActionsApi } from '../../api/services/actions-api';
 
 @Component({
   selector: 'app-deck',

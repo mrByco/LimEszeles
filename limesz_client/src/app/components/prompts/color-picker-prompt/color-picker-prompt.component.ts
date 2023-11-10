@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { ActionsService as ActionsApi } from '../../../api/services/actions.service';
 import { RideService } from '../../../services/ride.service';
-import { firstValueFrom } from 'rxjs';
+import { ActionsApi } from '../../../api/services';
 @Component({
   selector: 'app-color-picker-prompt',
   templateUrl: './color-picker-prompt.component.html',

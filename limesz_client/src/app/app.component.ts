@@ -1,11 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertService } from './services/alert.service';
-import { ThemeService } from './services/theme.service';
-import { LoadingService } from './services/loading.service';
 import { RideService } from './services/ride.service';
 import { UserService } from './services/user.service';
 import { PromptService } from './services/prompt-service';
+import { APlutoAlertService, LoadingService, ThemeService } from 'projects/pluto/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +16,11 @@ export class AppComponent {
   public rideService: RideService = inject(RideService);
   public userService: UserService = inject(UserService);
   public promptService = inject(PromptService);
+  private alertService = inject(APlutoAlertService);
 
   public shownNotifications: string[] = [];
 
-  constructor(themeService: ThemeService, alertService: AlertService, activatedRoute: ActivatedRoute) {
+  constructor(themeService: ThemeService, activatedRoute: ActivatedRoute) {
     this.loadingService.addTask(new Promise((resolve: any) => {
       setTimeout(() => {
         resolve();
@@ -34,7 +33,7 @@ export class AppComponent {
       }
       let notShownNotifications = ride.game.inGameNotifications.filter(n => !this.shownNotifications.includes(n.id));
       for (let notification of notShownNotifications) {
-        alertService.success(notification.title, notification.description);
+        this.alertService.success(notification.title, notification.description);
         this.shownNotifications.push(notification.id);
       }
     });

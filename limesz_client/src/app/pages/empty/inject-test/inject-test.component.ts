@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { EmptyComponent } from '../empty.component';
-import { PlutoForOfContext } from '../../../dynamic-ui/directives/pluto-for-of.directive';
+import { PlutoForOfContext } from '../../../../../projects/pluto/src/lib/dynamic-ui/directives/pluto-for-of.directive';
 
 @Component({
   selector: 'app-inject-test',

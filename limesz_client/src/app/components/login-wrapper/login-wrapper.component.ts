@@ -1,6 +1,6 @@
 // login-wrapper.component.ts
 import {Component, inject} from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { PlAuthService } from 'pluto/src/lib/api-providers/default-services/pl-auth.service';
 import { User } from '../../api/models/user';
 import { UserService } from '../../services/user.service';
 
@@ -15,7 +15,7 @@ export class LoginWrapper {
   user: User | null = null;
   loading = true;
 
-  constructor(private authService: AuthService, private userService: UserService) {
+  constructor(private authService: PlAuthService, private userService: UserService) {
     this.userService.currentUser$.subscribe(user => {
       this.user = user;
       this.loading = false;

@@ -1,18 +1,18 @@
 import {inject, Injectable} from "@angular/core";
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import {Router} from "@angular/router";
-import { AuthService } from './auth.service';
+import { PlAuthService } from 'pluto/src/lib/api-providers/default-services/pl-auth.service';
 import { UserService } from './user.service';
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { environment } from '../../environments/environment';
 import * as uuid from 'uuid';
-import { LobbyService as LobbyApi } from '../api/services/lobby.service';
-import { AlertService } from './alert.service';
-import { LoginPageComponent } from '../generic/auth-page/login-page/login-page.component';
-import { SidebarService } from './sidebar-service';
+import { LoginPageComponent } from '../../../projects/pluto/src/lib/generic_module/generic/auth-page/login-page/login-page.component';
 import { Ride } from '../api/models/ride';
 import { Player } from '../api/models/player';
 import { Deck } from '../api/models/deck';
+import { LobbyApi } from '../api/services';
+import { APlutoAlertService, PlAlertService, SidebarService } from 'projects/pluto/src/public-api';
+import { APlutoAuthService } from 'pluto/src/lib/api-providers/a-pluto-auth-service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +22,10 @@ export class RideService {
   public connectionToken = "";
   public ride$: BehaviorSubject<Ride | undefined> = new BehaviorSubject<Ride | undefined>(undefined);
 
-  private authService = inject(AuthService);
+  private authService = inject(APlutoAuthService);
   private userService = inject(UserService);
   private lobbyApi = inject(LobbyApi);
-  private alertService = inject(AlertService);
+  private alertService = inject(APlutoAlertService);
   private modalService = inject(SidebarService);
 
   private connection: HubConnection | undefined;

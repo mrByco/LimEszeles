@@ -21,7 +21,7 @@ builder.Services.AddSingleton<IDatabaseService, FakeDatabaseService>();
 builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
 #endif*/
 
-builder.ConfigurePluto(Assembly.GetExecutingAssembly());
+builder.ConfigurePluto();
 
 builder.Services.AddTransient<IAzureStorage, AzureStorage>();
 
