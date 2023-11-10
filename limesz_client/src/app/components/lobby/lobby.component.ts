@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {RideService} from "../../services/ride.service";
-import {LobbyService as LobbyApi} from "../../api/services";
+import {RideApi, LobbyApi} from "../../api/services";
 import { firstValueFrom } from 'rxjs';
 import { Player } from '../../api/models/player';
 import { UserService } from '../../services/user.service';

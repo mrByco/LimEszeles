@@ -1,12 +1,13 @@
 // This services manages users data
 
 import { Injectable } from "@angular/core";
-import { AuthService } from "./auth.service";
+import { PlAuthService } from "pluto/src/lib/api-providers/default-services/pl-auth.service";
 import { Player, UserProfileDto } from '../api/models';
 import { BehaviorSubject, firstValueFrom } from "rxjs";
-import { UserService as UserApi } from "../api/services";
-import {LoadingService} from "./loading.service";
 import { getRandomPlayerName } from '../helper/get-random-player-name';
+import { UserApi } from '../api/services/user-api';
+import { LoadingService } from '../../../projects/pluto/src/lib/api-providers/default-services/loading.service';
+import { APlutoAuthService } from 'pluto/src/lib/api-providers/a-pluto-auth-service';
 
 @Injectable()
 export class UserService {
@@ -21,7 +22,7 @@ export class UserService {
         return this.currentUser?.name ?? localStorage.getItem("anonymous-user-name");
     }
 
-    constructor(private authService: AuthService, private userApi: UserApi, private loadingService: LoadingService) {
+    constructor(private authService: APlutoAuthService, private userApi: UserApi, private loadingService: LoadingService) {
         this.currentUser$.subscribe(user => this.currentUser = user);
         authService.Authenticated$.subscribe(auth => {
             if (!auth) {

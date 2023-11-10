@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { Deck } from 'src/app/api/models';
 import { RideService } from '../../services/ride.service';
-import { ActionsService as ActionsApi } from '../../api/services/actions.service';
+import { ActionsApi } from 'src/app/api/services';
 import { firstValueFrom } from 'rxjs';
 
 @Component({

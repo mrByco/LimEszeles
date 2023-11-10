@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using margarita_app.Services.Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,9 +10,9 @@ namespace margarita_app.Misc;
 
 public static class WebApplicationBuilderExtensions
 {
-    public static void ConfigurePluto(this WebApplicationBuilder builder, Assembly bindingAssembly)
+    public static void ConfigurePluto(this WebApplicationBuilder builder)
     {
-        PlutoConfig.BindingAssembly = bindingAssembly;
+        PlutoConfig.BindingAssembly = Assembly.GetEntryAssembly();
         var services = builder.Services;
         
         PlutoConfig.Instance = builder.Configuration.Get<PlutoConfig>();
@@ -57,7 +58,9 @@ public static class WebApplicationBuilderExtensions
             });
         });
         
-        
+        CheckJwtConfiguration(builder);
+
+
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -78,5 +81,25 @@ public static class WebApplicationBuilderExtensions
             };
         });
         builder.Services.AddAuthorization();
+    }
+    
+    private static void CheckJwtConfiguration(WebApplicationBuilder builder)
+    {
+        EnsureAllConfigurationsExist(builder.Configuration,
+            ("Jwt:Key", "JWT key is missing or not configured in appsettings.json under Jwt:Key"),
+            ("Jwt:Issuer", "JWT issuer is missing or not configured in appsettings.json under Jwt:Issuer"),
+            ("Jwt:Audience", "JWT audience is missing or not configured in appsettings.json under Jwt:Audience"));
+    }
+
+    private static void EnsureAllConfigurationsExist(IConfiguration configuration, params (string Key, string ErrorMessage)[] configurations)
+    {
+        var missingConfigurations = configurations.Where(c => configuration[c.Key] == null).ToList();
+
+        if (missingConfigurations.Any())
+        {
+            var errorMessage = "The following JWT configurations are missing or not properly configured in appsettings.json:\n";
+            errorMessage += string.Join("\n", missingConfigurations.Select(c => $"- {c.ErrorMessage}"));
+            throw new InvalidOperationException(errorMessage);
+        }
     }
 }

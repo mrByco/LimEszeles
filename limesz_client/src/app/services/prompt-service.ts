@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { ModalService } from './modal.service';
 import { RideService } from './ride.service';
 import { ColorPickerPromptComponent } from '../components/prompts/color-picker-prompt/color-picker-prompt.component';
-import { ActionsService as ActionsApi } from '../api/services/actions.service';
 import { firstValueFrom } from 'rxjs';
+import { ActionsApi } from '../api/services';
+import { ModalService } from 'projects/pluto/src/public-api';
 
 @Injectable({
   providedIn: 'root'

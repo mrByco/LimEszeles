@@ -1,9 +1,8 @@
 import {Component, inject} from '@angular/core';
-import { LobbyService as LobbyApi } from '../../api/services';
 import { UserService } from '../../services/user.service';
-import { AuthService } from '../../services/auth.service';
 import { RideService } from '../../services/ride.service';
 import { firstValueFrom } from 'rxjs';
+import { LobbyApi } from '../../api/services';
 
 @Component({
   selector: 'app-menu',
