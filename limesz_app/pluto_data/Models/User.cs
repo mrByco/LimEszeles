@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using Pluto.Models.AccessControl;
+using Pluto.Models.Auth;
 
-namespace margarita_data.Models
+namespace Pluto.Models
 {
     [BsonIgnoreExtraElements]
     public class User : BaseRootModel

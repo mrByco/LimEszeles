@@ -1,10 +1,13 @@
 using System.Reflection;
-using margarita_app.Hubs;
-using margarita_app.Misc;
-using margarita_app.Services;
-using margarita_app.Services.EmailService;
-using margarita_app.Services.ImageService;
-using margarita_app.Services.PostalCodeService;
+using limesz_app.Hubs;
+using limesz_app.Misc;
+using limesz_app.Services;
+using limesz_app.Services.Game;
+using limesz_app.Services.ImageService;
+using limesz_app.Services.PostalCodeService;
+using pluto.Misc;
+using pluto.Services.EmailService;
+using pluto.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
 

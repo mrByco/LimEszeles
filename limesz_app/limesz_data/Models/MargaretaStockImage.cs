@@ -1,4 +1,6 @@
 ﻿using System;
+using Pluto.Models;
+
 namespace margarita_data.Models
 {
 	public class MargaretaStockImage: BaseRootModel

@@ -1,11 +1,7 @@
-using cardsplusplus.Abstraction;
-using margarita_app.Models;
-using margarita_app.Services;
-using margarita_app.Services.CardGame;
-using System;
-using System.Collections.Generic;
+using limesz_app.Misc.GameLogic.Abstraction;
+using limesz_app.Services;
 
-namespace margarita_app.Misc.GameLogic.CardGame
+namespace limesz_app.Misc.GameLogic.CardGame
 {
     public class LimeszUno : IGameBehaviour
     {

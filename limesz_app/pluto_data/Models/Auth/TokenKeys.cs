@@ -1,5 +1,4 @@
-﻿using System;
-namespace margarita_data.Models
+﻿namespace Pluto.Models.Auth
 {
 	public class TokenKey
 	{

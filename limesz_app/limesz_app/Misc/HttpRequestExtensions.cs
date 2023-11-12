@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace margarita_app.Misc
+namespace limesz_app.Misc
 {
     public static class HttpRequestExtensions
     {

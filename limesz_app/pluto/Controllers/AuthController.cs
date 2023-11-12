@@ -1,12 +1,12 @@
-﻿using margarita_app.Models.Auth;
-using margarita_app.Services;
-using margarita_data.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using margarita_app.Misc;
-using margarita_data.Roles;
+using pluto.Misc;
+using Pluto.Models;
+using Pluto.Models.AccessControl;
+using Pluto.Models.Auth;
+using pluto.Services.User;
 
-namespace margarita_app.Controllers
+namespace pluto.Controllers
 {
     [Route("[controller]")]
     [ApiController]

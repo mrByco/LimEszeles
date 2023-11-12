@@ -1,5 +1,4 @@
-﻿using System;
-namespace margarita_data.Roles
+﻿namespace Pluto.Models.AccessControl
 {
     public class Permission
     {

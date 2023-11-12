@@ -1,4 +1,4 @@
-using margarita_data.Models;
+using Pluto.Models;
 
 namespace pluto.PlutoRepo;
 

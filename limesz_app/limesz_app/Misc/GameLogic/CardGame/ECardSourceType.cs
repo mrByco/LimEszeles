@@ -1,6 +1,4 @@
-using margarita_app.Models;
-
-namespace margarita_app.Services.CardGame;
+namespace limesz_app.Misc.GameLogic.CardGame;
 
 public enum ECardSourceType
 {

@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace margarita_app.Models.RestaurantContracts
+namespace margarita_data.DTO
 {
 	public class EmployeeDto
     {

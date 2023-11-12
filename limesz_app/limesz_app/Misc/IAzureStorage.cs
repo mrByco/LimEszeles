@@ -1,7 +1,6 @@
-﻿using System;
-using margarita_app.Models.Blob;
+﻿using limesz_app.Models.Blob;
 
-namespace margarita_app.Misc
+namespace limesz_app.Misc
 {
     public interface IAzureStorage
     {

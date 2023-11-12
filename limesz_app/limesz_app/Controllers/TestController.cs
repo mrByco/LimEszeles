@@ -1,8 +1,6 @@
-﻿using System;
-using margarita_app.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace margarita_app.Controllers
+namespace limesz_app.Controllers
 {
     [Route("[controller]")]
     [ApiController]

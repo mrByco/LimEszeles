@@ -1,10 +1,7 @@
-using cardsplusplus.Abstraction;
-using margarita_app.Hubs;
-using margarita_app.Models;
+using limesz_app.Misc.GameLogic.Abstraction;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
 
-namespace margarita_app.Controllers;
+namespace limesz_app.Controllers;
 
 [Route("[controller]")]
 [ApiController]

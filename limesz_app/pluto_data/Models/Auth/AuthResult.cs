@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace margarita_app.Models.Auth
+namespace Pluto.Models.Auth
 {
 	public class AuthResult
 	{

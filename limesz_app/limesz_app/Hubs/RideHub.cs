@@ -1,14 +1,9 @@
-
-
-
-
-using cardsplusplus.Abstraction;
-using margarita_app.Models;
-using margarita_app.Services;
-using Microsoft.AspNetCore.Server.IIS.Core;
+using limesz_app.Misc.GameLogic.Abstraction;
+using limesz_app.Services;
+using limesz_app.Services.Game;
 using Microsoft.AspNetCore.SignalR;
 
-namespace margarita_app.Hubs;
+namespace limesz_app.Hubs;
 
 public class RideHub: Hub
 {

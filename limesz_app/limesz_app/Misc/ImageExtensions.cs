@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using SixLabors.ImageSharp;
+﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
-namespace margarita_app.Misc
+namespace limesz_app.Misc
 {
     public static class ImageExtensions
     {

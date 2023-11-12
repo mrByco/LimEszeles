@@ -1,10 +1,7 @@
-﻿namespace margarita_app.Misc
+﻿using Newtonsoft.Json;
+
+namespace limesz_app.Misc
 {
-    using System.Net.Http.Json;
-    using System.Text.Json.Serialization;
-    using Newtonsoft.Json;
-
-
     public class LogLevelConfig
     {
         [JsonProperty("Default")]

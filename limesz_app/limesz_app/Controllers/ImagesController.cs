@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
-using margarita_app.Misc;
-using margarita_app.Models.Blob;
+﻿using limesz_app.Misc;
+using limesz_app.Models.Blob;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Win32.SafeHandles;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace margarita_app.Controllers
+namespace limesz_app.Controllers
 {
     [Route("[controller]")]
     public class ImagesController : Controller

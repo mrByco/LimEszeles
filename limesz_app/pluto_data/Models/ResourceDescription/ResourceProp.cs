@@ -1,6 +1,6 @@
-using margarita_app.Misc;
+using Pluto.Misc;
 
-namespace margarita_data.Models.AutoUI;
+namespace Pluto.Models.ResourceDescription;
 
 public class ResourceProp
 {

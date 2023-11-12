@@ -1,6 +1,6 @@
-using margarita_app.Services;
+using pluto.Services.User;
 
-namespace margarita_app.Misc;
+namespace pluto.Misc;
 
 public class PlutoOptions
 {

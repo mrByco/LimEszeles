@@ -1,5 +1,4 @@
-﻿using System;
-namespace margarita_app.Services
+﻿namespace limesz_app.Services
 {
 	public class UTCNow
 	{

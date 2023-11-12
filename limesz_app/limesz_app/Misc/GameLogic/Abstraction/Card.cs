@@ -1,4 +1,4 @@
-namespace margarita_app.Models;
+namespace limesz_app.Misc.GameLogic.Abstraction;
 
 public class Card
 {

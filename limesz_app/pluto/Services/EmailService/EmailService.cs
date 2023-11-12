@@ -1,8 +1,8 @@
-﻿using margarita_app.Misc;
-using SendGrid.Helpers.Mail;
+﻿using pluto.Misc;
 using SendGrid;
+using SendGrid.Helpers.Mail;
 
-namespace margarita_app.Services.EmailService
+namespace pluto.Services.EmailService
 {
     public class EmailService
     {

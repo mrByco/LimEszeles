@@ -1,9 +1,8 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
 using System.Web.Http;
 
-namespace margarita_app.Middleware
+namespace pluto.Middleware
 {
     public class ErrorHandlerMiddleware
     {

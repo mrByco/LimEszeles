@@ -1,4 +1,4 @@
-﻿namespace margarita_app.Misc
+﻿namespace limesz_app.Misc
 {
     public class DrawPosition
     {

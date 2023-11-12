@@ -1,6 +1,4 @@
-using System.Text;
-
-namespace margarita_app.Misc;
+namespace Pluto.Misc;
 
 public static class StringExtensions
 {

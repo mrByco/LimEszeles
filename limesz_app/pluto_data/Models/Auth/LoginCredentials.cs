@@ -1,4 +1,4 @@
-﻿namespace margarita_app.Models.Auth
+﻿namespace Pluto.Models.Auth
 {
     public class LoginCredentials
     {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Text;
 using Newtonsoft.Json;
-using SendGrid.Helpers.Mail;
 
-namespace margarita_app.Misc
+namespace limesz_app.Misc
 {
 	public class DalleClient
 	{

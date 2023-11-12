@@ -1,9 +1,6 @@
-using cardsplusplus.Abstraction;
-using margarita_app.Misc.GameLogic.Abstraction;
-using margarita_app.Models;
-using margarita_app.Services.CardGame;
+using limesz_app.Misc.GameLogic.Abstraction;
 
-namespace margarita_app.Misc.GameLogic.CardGame;
+namespace limesz_app.Misc.GameLogic.CardGame;
 
 public sealed class CardGame
 {

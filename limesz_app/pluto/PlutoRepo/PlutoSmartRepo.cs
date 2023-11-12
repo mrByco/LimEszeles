@@ -1,11 +1,12 @@
-using margarita_app.Services.Database;
-using margarita_data.Models;
-using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using pluto.PlutoRepo;
+using Pluto.Models;
+using Pluto.Models.ResourceDescription;
+using pluto.PlutoRepo.Implementations;
+using pluto.Services.Database;
+using pluto.Services.Resources;
 
-namespace margarita_app.Services
+namespace pluto.PlutoRepo
 {
     [Route("pl/resources")]
     public abstract class PlutoSmartRepo<T> : MongoBaseRepositoryImpl<T> where T : BaseRootModel, new()

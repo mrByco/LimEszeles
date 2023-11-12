@@ -1,10 +1,10 @@
 ﻿using System.Net;
-using margarita_app.Services;
-using margarita_data.Models;
-using margarita_data.Roles;
 using Microsoft.AspNetCore.Mvc;
+using Pluto.Models;
+using Pluto.Models.AccessControl;
+using pluto.Services.User;
 
-namespace margarita_app.Misc
+namespace pluto.Misc
 {
     public static class ControllerBaseExtensions
     {

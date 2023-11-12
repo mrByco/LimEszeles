@@ -1,5 +1,4 @@
-﻿using System;
-namespace margarita_app.Models.Blob
+﻿namespace limesz_app.Models.Blob
 {
     public class BlobResponseDto
     {

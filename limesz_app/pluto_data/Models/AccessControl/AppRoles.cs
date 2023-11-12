@@ -1,7 +1,4 @@
-﻿using System;
-using margarita_data.Models;
-
-namespace margarita_data.Roles
+﻿namespace Pluto.Models.AccessControl
 {
 }
 

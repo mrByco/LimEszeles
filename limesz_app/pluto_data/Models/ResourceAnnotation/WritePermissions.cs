@@ -1,4 +1,4 @@
-namespace margarita_data.Models.AutoUI.ResourceAnnotation;
+namespace Pluto.Models.ResourceAnnotation;
 
 [System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.Property)]
 public class WritePermissions: Attribute

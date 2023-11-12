@@ -1,4 +1,4 @@
-namespace margarita_app.Services.RoleGrantService;
+namespace pluto.Services.RoleGrantService;
 
 public class IRoleGrantService
 {

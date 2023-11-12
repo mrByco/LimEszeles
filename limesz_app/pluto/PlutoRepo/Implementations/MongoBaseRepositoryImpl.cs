@@ -1,10 +1,10 @@
 ﻿using System.Linq.Expressions;
-using margarita_app.Services.Database;
-using margarita_data.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Pluto.Models;
+using pluto.Services.Database;
 
-namespace pluto.PlutoRepo
+namespace pluto.PlutoRepo.Implementations
 {
     public abstract class MongoBaseRepositoryImpl<T>: IPlutoBaseRepositoryImpl<T> where T: BaseRootModel
     {

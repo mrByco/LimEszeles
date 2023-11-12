@@ -1,4 +1,4 @@
-namespace margarita_data.Models.AutoUI;
+namespace Pluto.Models.ResourceDescription;
 
 public class PaginatedResourceResult
 {

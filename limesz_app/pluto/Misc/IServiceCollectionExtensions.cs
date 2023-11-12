@@ -1,13 +1,12 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
-using margarita_app.Services;
-using margarita_app.Services.Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using pluto.Services.Database;
+using pluto.Services.User;
 
-namespace margarita_app.Misc;
+namespace pluto.Misc;
 
 public static class WebApplicationBuilderExtensions
 {

@@ -1,4 +1,4 @@
-namespace margarita_app.Hubs;
+namespace limesz_app.Hubs;
 
 public interface IRideHub
 {

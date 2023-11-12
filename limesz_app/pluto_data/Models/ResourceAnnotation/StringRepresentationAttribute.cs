@@ -1,6 +1,4 @@
-using System.Security.AccessControl;
-
-namespace margarita_data.Models.AutoUI.ResourceAnnotation;
+namespace Pluto.Models.ResourceAnnotation;
 
 [System.AttributeUsage(System.AttributeTargets.Class | AttributeTargets.Property)]
 public class StringRepresentationAttribute : System.Attribute

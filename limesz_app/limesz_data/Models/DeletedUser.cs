@@ -1,3 +1,5 @@
+using Pluto.Models;
+
 namespace margarita_data.Models;
 
 public class DeletedUser: BaseRootModel

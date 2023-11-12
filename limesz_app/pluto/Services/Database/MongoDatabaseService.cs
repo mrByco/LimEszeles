@@ -1,9 +1,7 @@
-﻿
-using System;
-using margarita_app.Misc;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
+using pluto.Misc;
 
-namespace margarita_app.Services.Database
+namespace pluto.Services.Database
 {
     public class MongoDatabaseService: IMongoDatabaseService
     {

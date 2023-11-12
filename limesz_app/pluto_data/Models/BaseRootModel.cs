@@ -1,8 +1,7 @@
-﻿using System;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace margarita_data.Models
+namespace Pluto.Models
 {
 	public class BaseRootModel
 	{

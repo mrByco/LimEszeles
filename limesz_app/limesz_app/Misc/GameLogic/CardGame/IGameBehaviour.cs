@@ -1,7 +1,6 @@
-using cardsplusplus.Abstraction;
-using margarita_app.Models;
+using limesz_app.Misc.GameLogic.Abstraction;
 
-namespace margarita_app.Services.CardGame;
+namespace limesz_app.Misc.GameLogic.CardGame;
 
 public interface IGameBehaviour
 {

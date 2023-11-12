@@ -1,13 +1,10 @@
-using cardsplusplus.Abstraction;
-using margarita_app.Hubs;
-using margarita_app.Models;
+using limesz_app.Hubs;
+using limesz_app.Misc.GameLogic.Abstraction;
+using limesz_app.Misc.GameLogic.CardGame;
 using Microsoft.AspNetCore.SignalR;
-using margarita_app.Misc;
-using margarita_app.Misc.GameLogic.CardGame;
-using margarita_app.Services.CardGame;
-using margarita_data.Models;
+using Pluto.Models;
 
-namespace margarita_app.Services;
+namespace limesz_app.Services.Game;
 
 public class GameService
 {

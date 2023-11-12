@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace margarita_app.Models
+namespace limesz_app.Models
 {
 	public class ChatDto
 	{

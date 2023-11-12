@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace margarita_app.Services;
+namespace pluto.Services.Resources;
 
 public class ResolvedPropertyParams
 {

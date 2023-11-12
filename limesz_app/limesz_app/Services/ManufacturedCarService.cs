@@ -1,7 +1,8 @@
-using margarita_app.Services.Database;
-using margarita_data.Models;
+using margarita_data.Models.CarExample;
+using pluto.PlutoRepo;
+using pluto.Services.Database;
 
-namespace margarita_app.Services;
+namespace limesz_app.Services;
 
 public class ManufacturedCarService: PlutoSmartRepo<ManufacturedCar>
 {

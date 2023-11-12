@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 
-namespace margarita_app.Misc
+namespace limesz_app.Misc
 {
     public static class ObjectExtensions
     {

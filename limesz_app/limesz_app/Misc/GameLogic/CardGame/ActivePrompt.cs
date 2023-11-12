@@ -1,4 +1,4 @@
-namespace margarita_app.Misc.GameLogic.CardGame;
+namespace limesz_app.Misc.GameLogic.CardGame;
 
 public class ActivePrompt
 {

@@ -1,14 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Reflection.Metadata;
-using Azure;
+﻿using Azure;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using margarita_app.Models.Blob;
-using margarita_data.Models;
-using static System.Reflection.Metadata.BlobBuilder;
+using limesz_app.Models.Blob;
 
-namespace margarita_app.Misc
+namespace limesz_app.Misc
 {
     public class AzureStorage : IAzureStorage
     {

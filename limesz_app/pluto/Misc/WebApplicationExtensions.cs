@@ -1,6 +1,6 @@
-using margarita_app.Middleware;
+using pluto.Middleware;
 
-namespace margarita_app.Misc;
+namespace pluto.Misc;
 
 public static class WebApplicationExtensions
 {

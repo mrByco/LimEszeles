@@ -10,7 +10,8 @@
   "profiles": {
     "limesz": {
       "commandName": "Project",
-      "applicationUrl": "https://localhost:7156;http://localhost:5156"
+      "applicationUrl": "https://localhost:7156;http://localhost:5156",
+      "environmentVariables": {}
     }
   }
 }

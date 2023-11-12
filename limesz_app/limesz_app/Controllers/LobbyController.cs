@@ -1,10 +1,8 @@
-using margarita_app.Misc;
-using margarita_app.Services;
-using margarita_data.Roles;
-using Microsoft.AspNet.SignalR.Infrastructure;
+using limesz_app.Services;
+using limesz_app.Services.Game;
 using Microsoft.AspNetCore.Mvc;
 
-namespace margarita_app.Controllers;
+namespace limesz_app.Controllers;
 
 [Route("[controller]")]
 [ApiController]

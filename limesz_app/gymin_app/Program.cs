@@ -1,5 +1,5 @@
 using System.Reflection;
-using margarita_app.Misc;
+using pluto.Misc;
 
 var builder = WebApplication.CreateBuilder(args);
 

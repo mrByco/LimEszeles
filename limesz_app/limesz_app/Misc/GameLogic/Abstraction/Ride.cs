@@ -1,10 +1,7 @@
-using margarita_app.Misc.GameLogic.Abstraction;
-using margarita_app.Misc.GameLogic.CardGame;
-using margarita_app.Models;
-using margarita_app.Services.CardGame;
-using margarita_data.Models;
+using limesz_app.Misc.GameLogic.CardGame;
+using Pluto.Models;
 
-namespace cardsplusplus.Abstraction;
+namespace limesz_app.Misc.GameLogic.Abstraction;
 
 
 public class Ride

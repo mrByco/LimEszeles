@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace margarita_app.Controllers
+namespace limesz_app.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,4 +1,4 @@
-namespace margarita_app
+namespace limesz_app
 {
     public class WeatherForecast
     {

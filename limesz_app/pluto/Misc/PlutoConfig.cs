@@ -1,12 +1,8 @@
 ﻿using System.Reflection;
+using Newtonsoft.Json;
 
-namespace margarita_app.Misc
+namespace pluto.Misc
 {
-    using System.Net.Http.Json;
-    using System.Text.Json.Serialization;
-    using Newtonsoft.Json;
-
-
     public class LogLevelConfig
     {
         [JsonProperty("Default")]
@@ -55,6 +51,9 @@ namespace margarita_app.Misc
 
         [JsonProperty("OPEN_AI_KEY")]
         public string OPEN_AI_KEY { get; set; }
+
+        public string SENDER_NOREPLY_EMAIL { get; set; } = "noreply@margareta.app";
+        public string SENDER_NOREPLY_NAME { get; set; } = "noreply";
 
 
 

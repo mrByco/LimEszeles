@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace margarita_app.Models
+namespace limesz_app.Models
 {
     [KnownType(typeof(MetricsResultDTO))]
     public class MetricsResultDTO

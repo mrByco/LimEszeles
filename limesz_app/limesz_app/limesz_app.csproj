@@ -9,9 +9,10 @@
     <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
     <UserSecretsId>6d68d835-3f14-4432-a977-95bef4f0e7a4</UserSecretsId>
     <Configurations>Debug;Release;Test</Configurations>
-    <RootNamespace>margarita_app</RootNamespace>
+    <RootNamespace>limesz_app</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'limesz' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.3" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
@@ -393,7 +394,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\cardsplusplus\cardsplusplus.csproj" />
     <ProjectReference Include="..\limesz_data\limesz_data.csproj" />
     <ProjectReference Include="..\pluto\pluto.csproj" />
     <ProjectReference Include="..\pluto_data\pluto_data.csproj" />

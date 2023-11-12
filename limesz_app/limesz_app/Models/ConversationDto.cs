@@ -1,5 +1,4 @@
-﻿using System;
-namespace margarita_app.Models
+﻿namespace limesz_app.Models
 {
 	public class ConversationDto
 	{

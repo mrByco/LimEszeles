@@ -1,24 +1,21 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using margarita_data.Models;
-using Microsoft.IdentityModel.Tokens;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using margarita_app.Misc;
+using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web.Http;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
-using margarita_app.Services.Database;
-using margarita_app.Models.Auth;
-using margarita_app.Services.RoleGrantService;
-using pluto.PlutoRepo;
+using pluto.Misc;
+using Pluto.Models.Auth;
+using pluto.PlutoRepo.Implementations;
+using pluto.Services.Database;
 using SendGrid.Helpers.Mail;
 
-namespace margarita_app.Services
+namespace pluto.Services.User
 {
 
-    public class UserService: MongoBaseRepositoryImpl<User>, IUserService
+    public class UserService: MongoBaseRepositoryImpl<Pluto.Models.User>, IUserService
 	{
         private static UserService _instance;
         public static UserService instance => _instance;
@@ -57,7 +54,7 @@ namespace margarita_app.Services
             return GenerateTokens(user);
         }
 
-        private AuthResult GenerateTokens(User user)
+        private AuthResult GenerateTokens(Pluto.Models.User user)
         {
             var accessTokenExpires = DateTime.UtcNow.AddHours(1);
             var accessToken = GenerateAccessToken(user.Email, user.Id!, accessTokenExpires);
@@ -143,7 +140,7 @@ namespace margarita_app.Services
             byte[] salt;
             string savedPasswordHash;
             ExcryptUserPassword(password, out salt, out savedPasswordHash);
-            var user = new User
+            var user = new Pluto.Models.User
             {
                 Username = username,
                 Email = email,
@@ -157,8 +154,8 @@ namespace margarita_app.Services
             _collection.InsertOne(user);
         }
 
-        public User? GetUserByEmail(string email) => this.Get(u => u.Email == email).FirstOrDefault();
-        public User? GetUserById(string id) => this.Get(u => u.Id == id).FirstOrDefault();
+        public Pluto.Models.User? GetUserByEmail(string email) => this.Get(u => u.Email == email).FirstOrDefault();
+        public Pluto.Models.User? GetUserById(string id) => this.Get(u => u.Id == id).FirstOrDefault();
 
         public void RegisterUser(string username, string email, string password)
         {
@@ -231,7 +228,7 @@ namespace margarita_app.Services
             {
                 { "TOKEN_LINK", $"{PlutoConfig.Instance.HostNameForEmails}/password-reset/{token}/{queryParams??""}" }
             };
-            var result = await _emailService.SendEmail(new EmailAddress("noreply@margareta.app", "Margareta.app"), new EmailAddress() { Email = email }, "Password reset", token, "password-reset.html", variables);
+            var result = await _emailService.SendEmail(new EmailAddress(PlutoConfig.Instance.SENDER_NOREPLY_EMAIL, PlutoConfig.Instance.SENDER_NOREPLY_NAME), new EmailAddress() { Email = email }, "Password reset", token, "password-reset.html", variables);
             return result.IsSuccessStatusCode;
         }
     }

@@ -1,15 +1,10 @@
-﻿using margarita_app.Misc;
-using margarita_data.Models;
-using Mongo2Go;
-using Mongo2Go.Helper;
+﻿using Mongo2Go;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Security.Cryptography;
 
-namespace margarita_app.Services.Database
+namespace pluto.Services.Database
 {
     public class FakeMongoDatabaseService : IMongoDatabaseService
     {

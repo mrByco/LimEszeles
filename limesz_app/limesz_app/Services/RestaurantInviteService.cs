@@ -1,9 +1,8 @@
-﻿using System;
-using margarita_app.Services.Database;
-using margarita_data.Models;
-using pluto.PlutoRepo;
+﻿using margarita_data.Models;
+using pluto.PlutoRepo.Implementations;
+using pluto.Services.Database;
 
-namespace margarita_app.Services
+namespace limesz_app.Services
 {
     public class RestaurantInviteService : MongoBaseRepositoryImpl<RestaurantInvite>
     {

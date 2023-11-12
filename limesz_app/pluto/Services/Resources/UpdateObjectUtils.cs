@@ -2,7 +2,7 @@ using System.Collections;
 using System.Reflection;
 using System.Text.Json;
 
-namespace margarita_app.Services;
+namespace pluto.Services.Resources;
 
 public static class UpdateObjectUtils
 {

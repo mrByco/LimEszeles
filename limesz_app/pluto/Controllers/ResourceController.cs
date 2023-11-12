@@ -1,12 +1,12 @@
-using System.Reflection;
-using margarita_app.Misc;
-using margarita_app.Services;
-using margarita_data.Models;
-using margarita_data.Models.AutoUI;
 using Microsoft.AspNetCore.Mvc;
+using pluto.Misc;
+using Pluto.Models;
+using Pluto.Models.ResourceDescription;
+using pluto.PlutoRepo;
+using pluto.Services.Resources;
 using Type = System.Type;
 
-namespace margarita_app.Controllers;
+namespace pluto.Controllers;
 
 [Route("[controller]")]
 [ApiController]

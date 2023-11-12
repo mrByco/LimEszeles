@@ -1,8 +1,6 @@
-using cardsplusplus.Abstraction;
-using margarita_app.Models;
-using Microsoft.AspNet.SignalR.Infrastructure;
+using limesz_app.Misc.GameLogic.Abstraction;
 
-namespace margarita_app.Services;
+namespace limesz_app.Services;
 
 public class ConnectionService
 {

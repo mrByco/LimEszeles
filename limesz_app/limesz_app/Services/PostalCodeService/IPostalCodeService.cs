@@ -1,6 +1,6 @@
-﻿using margarita_app.Models;
+﻿using limesz_app.Models;
 
-namespace margarita_app.Services.PostalCodeService
+namespace limesz_app.Services.PostalCodeService
 {
     public interface IPostalCodeService
     {

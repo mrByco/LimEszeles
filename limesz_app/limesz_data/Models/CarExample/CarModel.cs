@@ -1,7 +1,8 @@
-using margarita_data.Models.AutoUI.ResourceAnnotation;
 using MongoDB.Bson.Serialization.Attributes;
+using Pluto.Models;
+using Pluto.Models.ResourceAnnotation;
 
-namespace margarita_data.Models;
+namespace margarita_data.Models.CarExample;
 
 [BsonIgnoreExtraElements]
 [StringRepresentation(nameof(FullCarName))]

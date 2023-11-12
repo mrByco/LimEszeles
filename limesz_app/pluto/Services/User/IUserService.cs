@@ -1,6 +1,6 @@
-using margarita_app.Models.Auth;
+using Pluto.Models.Auth;
 
-namespace margarita_app.Services;
+namespace pluto.Services.User;
 
 public interface IUserService
 {

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
-namespace margarita_app.Services.ImageService
+namespace limesz_app.Services.ImageService
 {
     public interface IImageService
     {

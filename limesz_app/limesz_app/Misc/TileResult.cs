@@ -1,5 +1,4 @@
-﻿using System;
-namespace margarita_app.Misc
+﻿namespace limesz_app.Misc
 {
 	public interface TileResult
 	{

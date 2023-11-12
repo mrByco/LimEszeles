@@ -1,8 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Xml.Linq;
-using margarita_data;
-using margarita_data.Models;
+
 using Microsoft.Extensions.Configuration;
+
+namespace margarita_data;
 
 public class Program
 {

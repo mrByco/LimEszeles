@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
-using margarita_app.Misc;
-using margarita_data.Models;
-using Microsoft.Extensions.Hosting;
+using limesz_app.Misc;
 
-namespace margarita_app.Services.ImageService
+namespace limesz_app.Services.ImageService
 {
     public class ImageService : IImageService
     {

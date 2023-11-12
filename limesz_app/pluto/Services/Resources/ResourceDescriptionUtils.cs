@@ -1,9 +1,11 @@
 using System.Reflection;
-using margarita_app.Misc;
-using margarita_data.Models.AutoUI;
-using margarita_data.Models.AutoUI.ResourceAnnotation;
+using pluto.Misc;
+using Pluto.Misc;
+using Pluto.Models.ResourceAnnotation;
+using Pluto.Models.ResourceDescription;
+using pluto.PlutoRepo;
 
-namespace margarita_app.Services;
+namespace pluto.Services.Resources;
 
 public static class ResourceDescriptionUtils
 {

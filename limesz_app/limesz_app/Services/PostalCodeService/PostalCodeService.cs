@@ -1,8 +1,6 @@
-﻿using margarita_app.Models;
-using Microsoft.Extensions.Hosting;
-using System;
+﻿using limesz_app.Models;
 
-namespace margarita_app.Services.PostalCodeService
+namespace limesz_app.Services.PostalCodeService
 {
     public class PostalCodeService : IPostalCodeService
     {

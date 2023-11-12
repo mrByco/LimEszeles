@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace margarita_app.Services.Database
+namespace pluto.Services.Database
 {
     public interface IMongoDatabaseService
     {
