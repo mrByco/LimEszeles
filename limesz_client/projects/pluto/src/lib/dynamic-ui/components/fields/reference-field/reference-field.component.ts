@@ -35,14 +35,9 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
     this.baseProp = value;
     this.loadResourceType();
   }
-  @Input() set resource(value) {
-    this.baseResource = value;
+  @Input() set data(value) {
     this.loadReferenceObject();
   }
-  @Output() get onChanged(){
-    return this.baseOnChanged;
-  }
-
   ngOnInit(): void {
     this.formControl.setValue({
       name: "Loading",
@@ -56,7 +51,7 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
 
   onSelected(event: MatAutocompleteSelectedEvent) {
      let id = event.option.value.object.id
-    console.log(id, event.option, this.baseResource, this.baseProp.jsAccessor);
+    //console.log(id, event.option, this.baseResource, this.baseProp.jsAccessor);
      this.value = id;
   }
 
@@ -114,4 +109,7 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
   onInput(input: string) {
     this.filterOptions(input);
   }
+
+  @Input()
+  fullJsAccessor: string;
 }

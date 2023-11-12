@@ -5,9 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { ActionsApi } from './services/actions-api';
-import { AuthApi } from './services/pl-auth-api.service';
+import { AuthApi } from './services/auth-api';
 import { ImagesApi } from './services/images-api';
-import { LicenseApi } from './services/license-api';
 import { LobbyApi } from './services/lobby-api';
 import { ResourceApi } from './services/resource-api';
 import { RideApi } from './services/ride-api';
@@ -25,7 +24,6 @@ import { WeatherForecastApi } from './services/weather-forecast-api';
     ActionsApi,
     AuthApi,
     ImagesApi,
-    LicenseApi,
     LobbyApi,
     ResourceApi,
     RideApi,
@@ -47,7 +45,7 @@ export class ApiModule {
     }
   }
 
-  constructor(
+  constructor( 
     @Optional() @SkipSelf() parentModule: ApiModule,
     @Optional() http: HttpClient
   ) {

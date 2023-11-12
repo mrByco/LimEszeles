@@ -1,13 +1,14 @@
-<div class='container text-white' *ngIf='resource' [appResourceAccessor]='"blue"'>
-
+<div style='height: 90vh' class='container text-white overflow-auto' *plResource='let object from this.resourceType; let def = definition; Id: this.objectId'>
+  <h2>Nice resource page</h2>
+  <p>{{object}}</p>
   <div class='d-flex flex-column'>
-    <div *ngFor='let prop of resourceDefinition.props'>
-      <app-dynamic-prop-field [prop]='prop' (onChanged)='registerChange($event.path, $event.value)' [resource]='resource'></app-dynamic-prop-field>
+    <div *ngFor='let prop of def.props'>
+      <app-dynamic-prop-field [prop]='prop' fullJsAccessor=''></app-dynamic-prop-field>
     </div>
   </div>
 
-  <app-generic-button [color]='"red"' [Action]='removeResource'>Delete</app-generic-button>
-  <app-generic-button [color]='"blue"' [Action]='updateResource'>Update</app-generic-button>
+  <app-generic-button  [Action]='removeResource'>Delete</app-generic-button>
+  <app-generic-button [Action]='updateResource' >Update</app-generic-button>
 
 
   <div class='row' *ngIf='false'>

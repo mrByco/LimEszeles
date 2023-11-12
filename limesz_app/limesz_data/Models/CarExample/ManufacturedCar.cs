@@ -11,4 +11,5 @@ public class ManufacturedCar: BaseRootModel
     public DateTime ManufacturedDate { get; set; } = DateTime.Now;
     [ForeignKey(typeof(CarModel))]
     public string Model { get; set; }
+    public List<string> Notes { get; set; } = new List<string>();
 }

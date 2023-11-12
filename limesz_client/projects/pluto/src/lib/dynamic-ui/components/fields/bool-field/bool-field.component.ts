@@ -8,17 +8,17 @@ import { ResourceProp } from '../../../../api-providers/generated-api/models/res
 })
 export class BoolFieldComponent {
   get value(): boolean {
-    return this.resource[this.prop.jsAccessor]
+    return this.data[this.prop.jsAccessor]
   }
 
   set value(value: boolean) {
     this._value = value;
-    this.resource[this.prop.jsAccessor] = value;
+    this.data[this.prop.jsAccessor] = value;
     this.onChanged.emit(value)
   }
 
   @Input() prop: ResourceProp;
-  @Input() resource: any;
+  @Input() data: any;
   @Output() onChanged = new EventEmitter<boolean>();
 
   private _value: boolean;

@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text;
 using pluto.Misc;
 using Pluto.Misc;
 using Pluto.Models.ResourceAnnotation;
@@ -42,7 +43,7 @@ public static class ResourceDescriptionUtils
         {
             Name = resourceType.Name,
             Type = modelType.Name,
-            Props = GetPropertyListOfType(modelType),
+            Props = GetPropertyListOfType(modelType, ""),
             DescriptionOptions = GetResourceDescriptionOptions(modelType)
         };
         var idProp = description.Props.FirstOrDefault(x => x.PropName == "Id");
@@ -66,25 +67,30 @@ public static class ResourceDescriptionUtils
         return options;
     }
 
-    public static List<ResourceProp> GetPropertyListOfType(Type modelType)
+    public static List<ResourceProp> GetPropertyListOfType(Type modelType, string path)
     {
         var props = new List<ResourceProp>();
         var properties = modelType.GetProperties();
         
         foreach (var property in properties)
         {
-            props.Add(GetPropertyDefinition(property.Name, property.PropertyType, property));
+            props.Add(GetPropertyDefinition(property.Name, property.PropertyType, AppendPath(path, property.Name.toJSAccessorName()),  property));
         }
         return props;
     }
-    public static ResourceProp GetPropertyDefinition(string name, Type type, PropertyInfo? propertyInfo = null)
+    public static ResourceProp GetPropertyDefinition(string name, Type type, string path, PropertyInfo? propertyInfo = null)
     {
-        
+       
+
         var prop = new ResourceProp()
         {
             PropName = name,
-            PropType = GetAtomicPropertyTypeName(type)
+            PropType = GetAtomicPropertyTypeName(type),
+            // Handle the edge case when there is a list in a list
+            FullJsAccessor = path
         };
+
+        prop.Id = GetId(prop.FullJsAccessor);
 
         if (prop.PropType == "string" && propertyInfo?.GetCustomAttribute<ForeignKeyAttribute>() != null)
         {
@@ -100,22 +106,53 @@ public static class ResourceDescriptionUtils
         if (prop.PropType == "list")
         {
             var genericType = type.GetGenericArguments()[0];
+            prop.FullJsAccessor = AddListSuffix(prop.FullJsAccessor);
             if (isPrimitiveType(genericType))
             {
                 prop.EmbededTypeDefinition = GetAtomicPropertyTypeName(genericType);
             }
             else
             {
-                prop.EmbededTypeDefinition = GetPropertyDefinition(genericType.Name, genericType);
+                prop.EmbededTypeDefinition = GetPropertyDefinition(genericType.Name, genericType, prop.FullJsAccessor);
             }
         }
         
         if (prop.PropType == "object")
         {
-            prop.EmbededTypeDefinition = GetPropertyListOfType(type);
+            prop.EmbededTypeDefinition = GetPropertyListOfType(type, path);
         }
 
         return prop;
+    }
+    
+    private static string AddListSuffix(string path)
+    {
+        var shortHash = GetId(path);
+        return $"{path}[{shortHash}]";
+    }
+
+    /// <summary>
+    /// Returns an id, unique to the path, per base root model
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    private static string GetId(string path)
+    {
+        if (string.IsNullOrEmpty(path))
+        {
+            return "";
+        }
+        var hash = HashString(path);
+        hash = hash.Substring(0, 6);
+        
+        return $"$ID_{hash}$";
+    }
+
+    private static string AppendPath(string path, string name)
+    {
+        if (path == "")
+            return name;
+        return path + "." + name;
     }
 
     private static void ProcessPropertySpecificOptions(PropertyInfo info, ResourcePropOptions options)
@@ -169,6 +206,29 @@ public static class ResourceDescriptionUtils
                     return "object";
 
                 return "unknown";
+        }
+    }
+    
+    static string HashString(string text, string salt = "")
+    {
+        if (String.IsNullOrEmpty(text))
+        {
+            return String.Empty;
+        }
+    
+        // Uses SHA256 to create the hash
+        using (var sha = new System.Security.Cryptography.SHA256Managed())
+        {
+            // Convert the string to a byte array first, to be processed
+            byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(text + salt);
+            byte[] hashBytes = sha.ComputeHash(textBytes);
+        
+            // Convert back to a string, removing the '-' that BitConverter adds
+            string hash = BitConverter
+                .ToString(hashBytes)
+                .Replace("-", String.Empty);
+
+            return hash;
         }
     }
 }

@@ -1,24 +1,20 @@
-<div *ngIf='prop' class='m-1'>
+<div *ngIf='prop && prop.fullJsAccessor' class='m-1'>
   {{value == null ? 'null' : ""}}
   <app-string-field *ngIf='prop.propType == "string"'
                     class='primitive-field'
-                    [prop]='prop' [resource]='resource'
-                    (onChanged)='this.primitiveChange($event)'></app-string-field>
+                    [prop]='prop'></app-string-field>
   <app-date-time-field *ngIf='prop.propType == "date"'
                        class='primitive-field'
-                       [prop]='prop' [resource]='resource'
-                       (onChanged)='this.primitiveChange($event)'></app-date-time-field>
+                       [prop]='prop'></app-date-time-field>
   <app-number-field *ngIf='prop.propType == "number"'
                     class='primitive-field'
-                    [prop]='prop' [resource]='resource'
-                    (onChanged)='this.primitiveChange($event)'></app-number-field>
+                    [prop]='prop'></app-number-field>
   <app-bool-field *ngIf='prop.propType == "boolean"'
                   style='height: 60px'
-                  [prop]='prop' [resource]='resource'
-                  (onChanged)='this.primitiveChange($event)'></app-bool-field>
+                  [prop]='prop'></app-bool-field>
 
-  <app-list-field *ngIf='prop.propType == "list"' [prop]='prop' [resource]='resource' (onChanged)='complexChange($event.path, $event.value)'></app-list-field>
-  <app-object-field *ngIf='prop.propType == "object"' [prop]='prop' [resource]='resource' (onChanged)='complexChange($event.path, $event.value)'></app-object-field>
+  <app-list-field *ngIf='prop.propType == "list"' [prop]='prop'></app-list-field>
+  <app-object-field *ngIf='prop.propType == "object"' [prop]='prop'></app-object-field>
 
-  <app-reference-field *ngIf='prop.propType == "reference"' [prop]='prop' [resource]='resource' (onChanged)='primitiveChange($event)'></app-reference-field>
+  <app-reference-field *ngIf='prop.propType == "reference"' [prop]='prop'></app-reference-field>
 </div>

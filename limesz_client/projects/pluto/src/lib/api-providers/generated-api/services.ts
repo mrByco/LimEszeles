@@ -1,7 +1,6 @@
 export { ActionsApi } from './services/actions-api';
-export { AuthApi } from './services/pl-auth-api.service';
+export { AuthApi } from './services/auth-api';
 export { ImagesApi } from './services/images-api';
-export { LicenseApi } from './services/license-api';
 export { LobbyApi } from './services/lobby-api';
 export { ResourceApi } from './services/resource-api';
 export { RideApi } from './services/ride-api';

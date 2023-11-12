@@ -9,29 +9,32 @@
 import {
   Directive,
   DoCheck,
-  EmbeddedViewRef,
+  EmbeddedViewRef, Host, Inject, inject,
   Injector,
   Input,
   IterableChangeRecord,
   IterableChanges,
   IterableDiffer,
   IterableDiffers,
-  NgIterable,
+  NgIterable, Optional, SkipSelf,
   TemplateRef,
   TrackByFunction,
   ViewContainerRef,
-  ɵRuntimeError as RuntimeError,
 } from '@angular/core';
+import { ResourceProp } from '../../api-providers/generated-api/models/resource-prop';
 
 
-export class TestContext {
-  value: string = "hello";
-  constructor() {
-  }
+export class PlForState {
+  public propertyId: string;
+  public propertyIndex: number;
+
+  parentState: PlForState | null = null;
+  mergedState: { [key: string]: number } = {};
 }
 
 export class PlutoForOfContext<T, U extends NgIterable<T> = NgIterable<T>> {
-  constructor(public $implicit: T, public ngForOf: U, public index: number, public count: number) {}
+  constructor(public $implicit: T, public ngForOf: U, public index: number, public count: number) {
+  }
 
   get first(): boolean {
     return this.index === 0;
@@ -149,86 +152,62 @@ export class PlutoForOfContext<T, U extends NgIterable<T> = NgIterable<T>> {
  * @publicApi
  */
 @Directive({
-  selector: '[plutoFor][plutoForOf]'
+  selector: '[plFor][plForOf]',
 })
 export class PlutoForOf<T, U extends NgIterable<T> = NgIterable<T>> implements DoCheck {
-  /**
-   * The value of the iterable expression, which can be used as a
-   * [template input variable](guide/structural-directives#shorthand).
-   */
+
   @Input()
-  set plutoForOf(plutoForOF: U&NgIterable<T>|undefined|null) {
-    this._plutoForOf = plutoForOF;
-    this._ngForOfDirty = true;
+  set plForOf(plutoForOF: U & NgIterable<T> | undefined | null) {
+    this._plForOf = plutoForOF;
+    this._plForOfDirty = true;
   }
-  /**
-   * Specifies a custom `TrackByFunction` to compute the identity of items in an iterable.
-   *
-   * If a custom `TrackByFunction` is not provided, `NgForOf` will use the item's [object
-   * identity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
-   * as the key.
-   *
-   * `NgForOf` uses the computed key to associate items in an iterable with DOM elements
-   * it produces for these items.
-   *
-   * A custom `TrackByFunction` is useful to provide good user experience in cases when items in an
-   * iterable rendered using `NgForOf` have a natural identifier (for example, custom ID or a
-   * primary key), and this iterable could be updated with new object instances that still
-   * represent the same underlying entity (for example, when data is re-fetched from the server,
-   * and the iterable is recreated and re-rendered, but most of the data is still the same).
-   *
-   * @see {@link TrackByFunction}
-   */
+
   @Input()
-  set ngForTrackBy(fn: TrackByFunction<T>) {
+  set plForTrackBy(fn: TrackByFunction<T>) {
     this._trackByFn = fn;
   }
 
-  get ngForTrackBy(): TrackByFunction<T> {
+  get plForTrackBy(): TrackByFunction<T> {
     return this._trackByFn;
   }
 
-  private _plutoForOf: U|undefined|null = null;
-  private _ngForOfDirty: boolean = true;
-  private _differ: IterableDiffer<T>|null = null;
-  // TODO(issue/24571): remove '!'
-  // waiting for microsoft/typescript#43662 to allow the return type `TrackByFunction|undefined` for
-  // the getter
+  @Input()
+  plForProp: ResourceProp | undefined | null = null;
+
+
+  private _plForOf: U | undefined | null = null;
+  private _plForOfDirty: boolean = true;
+  private _differ: IterableDiffer<T> | null = null;
+
   private _trackByFn!: TrackByFunction<T>;
+
+  private _parentForState: PlForState | null = null;
 
   constructor(
     private _viewContainer: ViewContainerRef,
-    private _template: TemplateRef<PlutoForOfContext<T, U>>, private _differs: IterableDiffers) {}
+    private _template: TemplateRef<PlutoForOfContext<T, U>>, private _differs: IterableDiffers,
+    @Host() @Optional() @Inject(PlForState) parentDirective: PlForState) {
+    this._parentForState = parentDirective ?? null;
+  }
 
-  /**
-   * A reference to the template that is stamped out for each item in the iterable.
-   * @see [template reference variable](guide/template-reference-variables)
-   */
   @Input()
   set ngForTemplate(value: TemplateRef<PlutoForOfContext<T, U>>) {
-    // TODO(TS2.1): make TemplateRef<Partial<NgForRowOf<T>>> once we move to TS v2.1
-    // The current type is too restrictive; a template that just uses index, for example,
-    // should be acceptable.
     if (value) {
       this._template = value;
     }
   }
 
-  /**
-   * Applies the changes when needed.
-   * @nodoc
-   */
   ngDoCheck(): void {
-    if (this._ngForOfDirty) {
-      this._ngForOfDirty = false;
+    if (this._plForOfDirty) {
+      this._plForOfDirty = false;
       // React on ngForOf changes only once all inputs have been initialized
-      const value = this._plutoForOf;
+      const value = this._plForOf;
       if (!this._differ && value) {
-        this._differ = this._differs.find(value).create(this.ngForTrackBy);
+        this._differ = this._differs.find(value).create(this.plForTrackBy);
       }
     }
     if (this._differ) {
-      const changes = this._differ.diff(this._plutoForOf);
+      const changes = this._differ.diff(this._plForOf);
       if (changes) this._applyChanges(changes);
     }
   }
@@ -236,20 +215,16 @@ export class PlutoForOf<T, U extends NgIterable<T> = NgIterable<T>> implements D
   private _applyChanges(changes: IterableChanges<T>) {
     const viewContainer = this._viewContainer;
     changes.forEachOperation(
-      (item: IterableChangeRecord<T>, adjustedPreviousIndex: number|null,
-       currentIndex: number|null) => {
+      (item: IterableChangeRecord<T>, adjustedPreviousIndex: number | null,
+       currentIndex: number | null) => {
         if (item.previousIndex == null) {
           // NgForOf is never "null" or "undefined" here because the differ detected
           // that a new item needs to be inserted from the iterable. This implies that
           // there is an iterable value for "_ngForOf".
-          let injector = Injector.create({
-            providers: [
-              {provide: PlutoForOfContext, useValue: new PlutoForOfContext<T, U>(item.item, this._plutoForOf!, item.currentIndex, -1) }
-              ],
-          })
+          let injector = Injector.create([{ provide: PlForState, useValue: this.getForState(this.plForProp?.id ?? "", currentIndex ?? 0) }], this._viewContainer.injector);
           viewContainer.createEmbeddedView(
-            this._template, new PlutoForOfContext<T, U>(item.item, this._plutoForOf!, -1, -1),
-            {index: currentIndex === null ? undefined : currentIndex, injector: injector });
+            this._template, new PlutoForOfContext<T, U>(item.item, this._plForOf!, -1, -1),
+            { index: currentIndex === null ? undefined : currentIndex, injector: injector });
         } else if (currentIndex == null) {
           viewContainer.remove(
             adjustedPreviousIndex === null ? undefined : adjustedPreviousIndex);
@@ -266,13 +241,23 @@ export class PlutoForOf<T, U extends NgIterable<T> = NgIterable<T>> implements D
       const context = viewRef.context;
       context.index = i;
       context.count = ilen;
-      context.ngForOf = this._plutoForOf!;
+      context.ngForOf = this._plForOf!;
     }
 
     changes.forEachIdentityChange((record: any) => {
       const viewRef = <EmbeddedViewRef<PlutoForOfContext<T, U>>>viewContainer.get(record.currentIndex);
       applyViewChange(viewRef, record);
     });
+  }
+
+  private getForState(propId: string, i: number): PlForState {
+    let forState = new PlForState();
+    forState.propertyId = propId;
+    forState.propertyIndex = i;
+    forState.parentState = this._parentForState;
+    forState.mergedState = { ...(this._parentForState?.mergedState??{}), [propId]: i };
+
+    return forState;
   }
 
   /**
@@ -290,7 +275,7 @@ export class PlutoForOf<T, U extends NgIterable<T> = NgIterable<T>> implements D
 // Also export the `NgForOf` class as `NgFor` to improve the DX for
 // cases when the directive is used as standalone, so the class name
 // matches the CSS selector (*ngFor).
-export {PlutoForOf as PlutoFor};
+export { PlutoForOf as PlutoFor };
 
 function applyViewChange<T>(
   view: EmbeddedViewRef<PlutoForOfContext<T>>, record: IterableChangeRecord<T>) {

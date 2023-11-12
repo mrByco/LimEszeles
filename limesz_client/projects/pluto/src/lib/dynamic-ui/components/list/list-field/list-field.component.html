@@ -1,11 +1,11 @@
 <div class='ml-4' style='margin-left: 15px'>
-  <h6 class='text-white'>{{baseProp.propName}}</h6>
+  <h6 class='text-white'>{{prop.propName}}</h6>
 
   <button mat-raised-button color="primary" (click)="addItem()">Add Item {{innerTypeName}}</button>
 
   <div class='d-flex flex-column'>
-    <div class='d-flex' *ngFor="let item of value; let i = index">
-      <app-dynamic-prop-field  [prop]='getListElementProp(i)' [resource]='value' (onChanged)='complexChange($event.path, $event.value)' ></app-dynamic-prop-field>
+    <div class='d-flex' *plFor="let item of value; let i = index; prop: prop; trackBy: track">
+      <app-dynamic-prop-field  [prop]='this.innerType' ></app-dynamic-prop-field>
       <button mat-raised-button color="warn" (click)="removeItem(i)">Remove</button>
     </div>
   </div>

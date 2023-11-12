@@ -46,11 +46,11 @@ export class ResourceService {
       return jsPath.split('.').map(p => p[0].toUpperCase() + p.slice(1)).join('.');
     }
 
-    let updateResurests = changes.map(k => {
+    let updateResurests = changes.map(change => {
 
       return {
-        path: toCSharpPath(k.path),
-        value: k.value,
+        path: toCSharpPath(change.path),
+        value: change.value,
       };
     });
 

@@ -19,13 +19,13 @@ export class DateTimeFieldComponent implements AfterViewInit {
   }
 
   @Input() prop: ResourceProp;
-  @Input() resource: any;
+  @Input() data: any;
   @Output() onChanged = new EventEmitter<string>();
 
 
   private _value: Moment = moment();
 
   ngAfterViewInit(): void {
-    this._value = moment(this.resource[this.prop.jsAccessor]);
+    this._value = moment();//moment(this.data[this.prop.jsAccessor]);
   }
 }

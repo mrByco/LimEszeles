@@ -4,14 +4,14 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { ActionsService } from './services/actions.service';
-import { AuthService } from './services/auth.service';
-import { ImagesService } from './services/images.service';
-import { LobbyService } from './services/lobby.service';
-import { ResourceService } from './services/resource.service';
-import { RideService } from './services/ride.service';
-import { UserService } from './services/user.service';
-import { WeatherForecastService } from './services/weather-forecast.service';
+import { ActionsApi } from './services/actions-api';
+import { AuthApi } from './services/auth-api';
+import { ImagesApi } from './services/images-api';
+import { LobbyApi } from './services/lobby-api';
+import { ResourceApi } from './services/resource-api';
+import { RideApi } from './services/ride-api';
+import { UserApi } from './services/user-api';
+import { WeatherForecastApi } from './services/weather-forecast-api';
 
 /**
  * Module that provides all services and configuration.
@@ -21,14 +21,14 @@ import { WeatherForecastService } from './services/weather-forecast.service';
   exports: [],
   declarations: [],
   providers: [
-    ActionsService,
-    AuthService,
-    ImagesService,
-    LobbyService,
-    ResourceService,
-    RideService,
-    UserService,
-    WeatherForecastService,
+    ActionsApi,
+    AuthApi,
+    ImagesApi,
+    LobbyApi,
+    ResourceApi,
+    RideApi,
+    UserApi,
+    WeatherForecastApi,
     ApiConfiguration
   ],
 })

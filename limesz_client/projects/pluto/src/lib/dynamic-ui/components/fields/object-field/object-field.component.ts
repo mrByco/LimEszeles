@@ -25,25 +25,11 @@ export class ObjectFieldComponent extends BaseField implements OnInit {
     return this.baseProp.embededTypeDefinition;
   }
 
-  change(event: { path: string; value: any }) {
-    this.onChanged.emit({
-      path: "." + event.path,
-      value: event.value
-    });
-    console.log("OBJ", this.resource)
-  }
-
   ngOnInit(): void {
-    console.log(this.prop, this.resource)
+
   }
 
   @Input() set prop(value) {
     this.baseProp = value;
-  }
-  @Input() set resource(value) {
-    this.baseResource = value;
-  }
-  @Output() get onChanged(){
-    return this.baseOnChanged;
   }
 }

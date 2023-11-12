@@ -30,7 +30,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReferenceFieldComponent } from './components/fields/reference-field/reference-field.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ResourceAccessorDirective } from './directives/resource-accessor.directive';
+import { PlResource } from './directives/pl-resource.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { PlutoForOf } from './directives/pluto-for-of.directive';
 
 
 
@@ -49,7 +51,8 @@ import { ResourceAccessorDirective } from './directives/resource-accessor.direct
     ListFieldComponent,
     ObjectFieldComponent,
     ReferenceFieldComponent,
-    ResourceAccessorDirective
+    PlResource,
+    PlutoForOf
   ],
   imports: [
     CommonModule,
@@ -83,6 +86,7 @@ import { ResourceAccessorDirective } from './directives/resource-accessor.direct
     MatListModule,
     MatButtonModule,
     MatAutocompleteModule,
+    MatTooltipModule,
   ],
   providers: [
     ResourceTypeService,

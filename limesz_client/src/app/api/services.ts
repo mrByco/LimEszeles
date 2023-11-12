@@ -1,8 +1,8 @@
-export { ActionsService } from './services/actions.service';
-export { AuthService } from './services/auth.service';
-export { ImagesService } from './services/images.service';
-export { LobbyService } from './services/lobby.service';
-export { ResourceService } from './services/resource.service';
-export { RideService } from './services/ride.service';
-export { UserService } from './services/user.service';
-export { WeatherForecastService } from './services/weather-forecast.service';
+export { ActionsApi } from './services/actions-api';
+export { AuthApi } from './services/auth-api';
+export { ImagesApi } from './services/images-api';
+export { LobbyApi } from './services/lobby-api';
+export { ResourceApi } from './services/resource-api';
+export { RideApi } from './services/ride-api';
+export { UserApi } from './services/user-api';
+export { WeatherForecastApi } from './services/weather-forecast-api';

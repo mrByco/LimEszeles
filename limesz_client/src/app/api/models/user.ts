@@ -1,18 +1,18 @@
 /* tslint:disable */
 /* eslint-disable */
-import { PasswordResetToken } from './password-reset-token';
-import { TokenKey } from './token-key';
-import { UserRoles } from './user-roles';
+import { PasswordResetToken } from '../models/password-reset-token';
+import { TokenKey } from '../models/token-key';
+import { UserRoles } from '../models/user-roles';
 export interface User {
-  email?: null | string;
+  email?: string | null;
   emailVerifyed?: boolean;
-  id?: null | string;
+  id?: string | null;
   lastLogin?: string;
-  password?: null | string;
+  password?: string | null;
   passwordResetToken?: PasswordResetToken;
-  passwordSalt?: null | string;
-  refreshTokenKeys?: null | Array<TokenKey>;
+  passwordSalt?: string | null;
+  refreshTokenKeys?: Array<TokenKey> | null;
   registrationDate?: string;
   roles?: UserRoles;
-  username?: null | string;
+  username?: string | null;
 }

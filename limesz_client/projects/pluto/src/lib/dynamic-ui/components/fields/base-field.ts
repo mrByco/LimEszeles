@@ -1,47 +1,68 @@
-import { EventEmitter, Input, Output } from '@angular/core';
-import { ResourceProp } from '../../../../../../../src/app/api/models/resource-prop';
-import { ResourceDescription } from '../../../../../../../src/app/api/models/resource-description';
+import { EventEmitter, inject, Input, Optional, Output } from '@angular/core';
+import { PlResource } from '../../directives/pl-resource.directive';
+import { ResourceProp } from '../../../api-providers/generated-api/models/resource-prop';
+import { getPropertyByJsPath, setPropertyByJsPath } from '../../../helpers/apollo-resource-utils';
+import { PlForState } from '../../directives/pluto-for-of.directive';
 
 export abstract class BaseField {
 
-  public get innerType(): ResourceProp[] | ResourceProp | string{
-    return this.baseProp.embededTypeDefinition;
+  get baseProp(): ResourceProp {
+    return this._baseProp;
   }
+
+  set baseProp(value: ResourceProp) {
+    this._baseProp = value;
+    this.updateComputedPathAndSyncIfCan();
+  }
+  private _baseProp: ResourceProp;
+
+  private get canSyncToResource(): boolean {
+    return this._baseProp?.fullJsAccessor !== undefined && this.plResource?.data !== undefined && this.realizedJsPath !== undefined;
+  }
+
+  plResource: PlResource;
+  private plForState: PlForState | undefined;
+  public realizedJsPath: string | undefined;
+
+  constructor() {
+    this.plResource = inject(PlResource);
+    this.plForState = inject(PlForState, { optional: true });
+  }
+
   get value(): any {
-    if (this.baseProp.jsAccessor.startsWith('[') && this.baseProp.jsAccessor.endsWith(']')){
-      return this._baseResource?.[parseInt(this.baseProp.jsAccessor.slice(1, -1))]??undefined;
+    if (!this.canSyncToResource) {
+      return this._valueBuffer;
     }
-    return this._baseResource?.[this.baseProp.jsAccessor];
+    let ret= getPropertyByJsPath(this.plResource.data, this.realizedJsPath);
+    //console.log(this.realizedJsPath, ret);
+    return ret;
   }
 
   set value(value: any) {
-    if (this._baseResource){
-      if (this.baseProp.jsAccessor.startsWith('[') && this.baseProp.jsAccessor.endsWith(']')){
-        this._baseResource[parseInt(this.baseProp.jsAccessor.slice(1, -1))]??undefined;
+    if (!this.canSyncToResource) {
+      this._valueBufferDirty = true;
+      this._valueBuffer;
+      return;
+    }
+    setPropertyByJsPath(this.plResource.data, this.realizedJsPath, value);
+    console.log(this.realizedJsPath, value);
+    this.plResource.registerChange(this.realizedJsPath, value);
+  }
+
+  private _valueBufferDirty: boolean = false;
+  _valueBuffer: any;
+
+  private updateComputedPathAndSyncIfCan() {
+    if ( this._baseProp?.fullJsAccessor) {
+      this.realizedJsPath = this._baseProp.fullJsAccessor;
+      for (let key of Object.keys(this.plForState?.mergedState??{})) {
+        this.realizedJsPath = `${this.realizedJsPath.replace(key, this.plForState.mergedState[key].toString())}`;
       }
-      this._baseResource[this.baseProp.jsAccessor] = value;
     }
-    this.baseOnChanged.emit(value);
-  }
-
-  get baseResource(): any {
-    return this._baseResource;
-  }
-
-  set baseResource(v: any) {
-    this._baseResource = v;
-    if (this.baseProp?.propType === 'object'){
-      //this._value ??= {};
-    }
-    if (this.baseProp?.propType === 'list'){
-      this.value ??= [];
+    if (this.canSyncToResource && this._valueBufferDirty) {
+      this.value = this._valueBuffer;
+      this._valueBufferDirty = false;
     }
   }
-
-  private _baseResource: any;
-
-  baseProp: ResourceProp;
-  baseOnChanged = new EventEmitter<{path: string, value: any}>();
-
 
 }

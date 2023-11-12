@@ -3,16 +3,20 @@ import { ResourceDescription } from '../api-providers/generated-api/models/resou
 
 
 export function getPropertyByJsPath(object, jsPath) {
-  const pathArray = jsPath.split('.').reduce((acc, item) => {
+  if (!jsPath){
+    console.log(new Error('jsPath is undefined').stack);
+  }
+  const pathArray = [];
+  jsPath.split('.').forEach(item => {
     if (item.includes('[')) {
-      const [key, index] = item.split('[');
-      const numIndex = parseInt(index.slice(0, -1), 10);
-      acc.push(key, numIndex);
+      const items: string[] = item.split('[');
+      const key = items.shift();
+      let keys = items.map(i => parseInt(i.replace(']', '')));
+      pathArray.push(key, ...keys);
     } else {
-      acc.push(item);
+      pathArray.push(item);
     }
-    return acc;
-  }, []);
+  });
 
   let value = object;
   for (const pathSegment of pathArray) {
@@ -24,6 +28,33 @@ export function getPropertyByJsPath(object, jsPath) {
   }
 
   return value;
+}
+
+export function setPropertyByJsPath(object, jsPath: string, value) {
+  const pathArray = [];
+  jsPath.split('.').forEach(item => {
+    if (item.includes('[')) {
+      const items: string[] = item.split('[');
+      const key = items.shift();
+      let keys = items.map(i => parseInt(i.replace(']', '')));
+      pathArray.push(...keys);
+    } else {
+      pathArray.push(item);
+    }
+  });
+
+  let currentObject = object;
+  for (let i = 0; i < pathArray.length - 1; i++) {
+    const pathSegment = pathArray[i];
+    if (currentObject && currentObject.hasOwnProperty(pathSegment)) {
+      currentObject = currentObject[pathSegment];
+    } else {
+      return;
+    }
+  }
+
+  const lastPathSegment = pathArray[pathArray.length - 1];
+  currentObject[lastPathSegment] = value;
 }
 
 export function getResourceStringRepresentation(resource: BaseRootModel, resourceDefinition: ResourceDescription) {
