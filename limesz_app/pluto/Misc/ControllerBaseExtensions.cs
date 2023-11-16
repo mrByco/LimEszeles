@@ -56,7 +56,7 @@ namespace pluto.Misc
                 return false;
             }
             var roleIds = user.Roles
-                .Where(r => r.RoleSpaceKind == roleSpaceKind && (r.Subject == subject || r.Subject == null))
+                .Where(r => parentRoleSpaces.Contains(r.RoleSpaceKind) && (r.Subject == subject || r.Subject == null))
                 .SelectMany(r => r.Roles);
             List<Role> roles = RolesResource.Instance.GetMany(roleIds);
             return roles.Exists(r => r.Permissions.Contains(permission));

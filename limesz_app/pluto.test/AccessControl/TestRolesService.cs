@@ -1,9 +1,11 @@
+using pluto.Misc;
 using Pluto.Models;
 using Pluto.Models.AccessControl;
 using pluto.Services.Roles;
 
 namespace pluto.test.AccessControl;
 
+[TestFixture]
 public class TestRolesService
 {
 
@@ -14,7 +16,7 @@ public class TestRolesService
         {
             new RolesItem()
             {
-                RoleSpaceKind = "system",
+                RoleSpaceKind = RoleSpace.System.RoleSpaceKind,
                 Roles = new List<string>()
                 {
                     "sysadmin"
@@ -29,7 +31,7 @@ public class TestRolesService
         {
             new RolesItem()
             {
-                RoleSpaceKind = "system",
+                RoleSpaceKind = RoleSpace.System.RoleSpaceKind,
                 Roles = new List<string>()
                 {
                     "sysadmin"
@@ -91,6 +93,13 @@ public class TestRolesService
     [SetUp]
     public void Setup()
     {
+        RoleSpace.CustomRoleSpaces = new List<RoleSpace>()
+        {
+            new RoleSpace()
+            {
+                RoleSpaceKind = "gym",
+            }
+        };
         RolesResource.Instance = new MockRolesResource()
         {
             RolesInsideCollection = new List<Role>
@@ -98,7 +107,7 @@ public class TestRolesService
                 new Role
                 {
                     Id = "sysadmin",
-                    RoleSpaceKind = "system",
+                    RoleSpaceKind = RoleSpace.System.RoleSpaceKind,
                     RoleSpaceSubject = null,
                     Permissions = new()
                     {
@@ -162,6 +171,48 @@ public class TestRolesService
     [Test]
     public void Test1()
     {
-        Assert.Pass();
+        bool hasPermission = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(AdminUser, "NonExistentPermission", "gym");
+        Assert.IsFalse(hasPermission);
+
     }
+    [Test]
+    public void UniAdminUserHasPermissionInGym()
+    {
+        bool hasPermission = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(UniAdminUser, MockPermissions.Read, "gym");
+        Assert.IsTrue(hasPermission);
+    }
+    [Test]
+    public void AdminIdUserHasPermissionInGymWithSubject()
+    {
+        bool hasPermission = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(AdminIdUser, MockPermissions.Write, "gym", "gym1");
+        Assert.IsTrue(hasPermission);
+    }
+    [Test]
+    public void OperatorUserDoesNotHavePermissionInGym()
+    {
+        bool hasPermission = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(OperatorUser, MockPermissions.Delete, "gym");
+        Assert.IsFalse(hasPermission);
+    }
+
+    [Test]
+    public void SysAdminUserHasPermissionInSystemAndGym()
+    {
+        bool hasPermissionSystem = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(SysAdminUser, MockPermissions.Read, RoleSpace.System.RoleSpaceKind);
+        bool hasPermissionGym = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(SysAdminUser, MockPermissions.Read, "gym");
+    
+        Assert.IsTrue(hasPermissionSystem && hasPermissionGym);
+    }
+    
+    [Test]
+    public void SysAdminUserDoesNotHavePermissionInSystemButHasInGym()
+    {
+        bool hasPermissionSystem = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(SysAdminUser, MockPermissions.Write, RoleSpace.System.RoleSpaceKind);
+        bool hasPermissionGym = ControllerBaseExtensions.CheckUserHasPermissionInRoleSpace(SysAdminUser, MockPermissions.Write, "gym");
+    
+        Assert.IsFalse(hasPermissionSystem && hasPermissionGym);
+    }
+
+
+
+
 }

@@ -10,7 +10,7 @@ public class RoleSpace
     public string RoleSpaceKind { get; set; }
     public Type? RoleSpaceType { get; set; }
 
-    public List<RoleSpace> parents { get; set; }
+    public List<RoleSpace> parents { get; set; } = new List<RoleSpace>();
 
     public static RoleSpace System { get; } = new RoleSpace
     {
@@ -43,6 +43,7 @@ public class RoleSpace
             allParents.Add(parent.RoleSpaceKind);
             allParents.AddRange(parent.GetDistinctParentsKinds());
         }
+        allParents.Add(this.RoleSpaceKind);
         allParents.Add(System.RoleSpaceKind);
         return allParents.Distinct().ToList();
     }

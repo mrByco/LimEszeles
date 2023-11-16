@@ -1,25 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0de549c1_002Df615_002D4b6e_002Daa73_002D574f4eb2224f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;margareta_app.tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Project Location="\Users\user\Repos\Margarita\margarita_app\margareta_app.tests" Presentation="&amp;lt;margareta_app.tests&amp;gt;" /&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0de549c1_002Df615_002D4b6e_002Daa73_002D574f4eb2224f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;margareta_app.tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::59653774-ED88-4C21-A71A-D45658D9630F::net6.0::pluto.test.AccessControl.TestRolesService&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8bce050b_002D378e_002D47de_002Da749_002De7bc6832a9ac/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestPaymentService" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Services.TestPaymentService&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.PaymentPrice_ShouldContainExtrasSizesAndVariations&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.FilterApplicableDiscounts_ShouldReturnDiscountsWithEnoughPoints&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.MenuDiscountData_ShouldReduceThePriceForItems&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.MenuDiscountData_ShouldThrowIfDiscountNotApplicableBecauseFoodSizeMissmatch&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.MenuDiscountData_ShouldThrowIfDiscountCountMissmatch&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.PaymentReceipt_ShouldMatchOrderItemsWhenNoDiscounts&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.PaymentReceipt_ItemsShouldNotIncludeMenuDiscountItems&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.PaymentReceipt_ShouldContainExtrasFromMenuOrders&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.PaymentReceipt_ShouldIncludeMenuDiscounts&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.PaymentReceipt_TotalPriceShouldMatchPaymentPrice&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.NthDiscountData_ShouldReducePriceForMostExpensiveItem&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.NthDiscountData_ShouldThrowIfThereIsNoMatchingItem&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::DF99F1C9-943A-4802-93CB-A236B0029A36::net6.0::margareta_app.tests.Payments.TestPaymentPriceCalculation.NthDiscountData_ShouldAddNegativeCollectablePoints&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
+	
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=df99f1c9_002D943a_002D4802_002D93cb_002Da236b0029a36_0023limesz_005Fapp_002Etests/@EntryIndexedValue">True</s:Boolean>
 	
 	
