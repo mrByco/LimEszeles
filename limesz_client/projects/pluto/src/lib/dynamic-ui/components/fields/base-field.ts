@@ -6,6 +6,10 @@ import { PlForState } from '../../directives/pluto-for-of.directive';
 
 export abstract class BaseField {
 
+  get getHeader(): string {
+    return this.baseProp.propName + " " + (this.baseProp.propOptions?.isReadOnly ? "(readonly)" : "");
+  }
+
   get baseProp(): ResourceProp {
     return this._baseProp;
   }
@@ -45,7 +49,6 @@ export abstract class BaseField {
       return;
     }
     setPropertyByJsPath(this.plResource.data, this.realizedJsPath, value);
-    console.log(this.realizedJsPath, value);
     this.plResource.registerChange(this.realizedJsPath, value);
   }
 

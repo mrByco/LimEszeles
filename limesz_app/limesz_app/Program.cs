@@ -6,6 +6,8 @@ using limesz_app.Services.Game;
 using limesz_app.Services.ImageService;
 using limesz_app.Services.PostalCodeService;
 using pluto.Misc;
+using Pluto.Models;
+using Pluto.Models.AccessControl;
 using pluto.Services.EmailService;
 using pluto.Services.User;
 
@@ -25,9 +27,12 @@ builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
 #endif*/
 
 builder.ConfigurePluto();
+RoleSpace.CustomRoleSpaces = new List<RoleSpace>()
+{
+    RoleSpace.For<User>("user")
+};
 
 builder.Services.AddTransient<IAzureStorage, AzureStorage>();
-
 
 
 builder.Services.AddScoped<IImageService, ImageService>();

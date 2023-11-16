@@ -56,17 +56,17 @@ namespace pluto.Controllers
             return this.GetUser();
         }
 
-        [HttpGet("has-permission/{permission}/{restaurantId?}")]
-        public bool HasPermission(string permission, string? restaurantId)
+        [HttpGet("has-permission/{permission}/{permissionSpace?}/{subjectId?}")]
+        public bool HasPermission(string permission, string? permissionSpace, string? subjectId)
         {
             var user = this.GetUser();
             if (user == null)
                 return false;
             try
             {
-                var parsedPermission = (Permission)Enum.Parse(typeof(Permission), permission);
-                if (restaurantId == null) this.CHECK_PERMISSION(parsedPermission);
-                else this.CHECK_PERMISSION(parsedPermission, restaurantId);
+                if (permissionSpace == null) this.CHECK_PERMISSION(permission);
+                else if (subjectId == null) this.CHECK_PERMISSION(permission, permissionSpace);
+                else this.CHECK_PERMISSION(permission, permissionSpace, subjectId);
                 return true;
             }
             catch (Exception)

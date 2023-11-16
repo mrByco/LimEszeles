@@ -89,12 +89,10 @@ export class PlResource implements OnInit {
     this.updateView();
   }
 
-  protected removeResource = async () => {
-    await this.resourceService.deleteResource(this.resourceDefinition.name, this.data.id);
-  };
-
   public registerChange = (path: string, value: any) => {
-
+    if (value === undefined || value === null) {
+      value = "$SET_NULL$";
+    }
     if (!path){
       // print stack trace
       // console.log("Path is null");
@@ -126,4 +124,8 @@ export class PlResource implements OnInit {
   };
 
 
+  async remove() {
+
+    await this.resourceService.deleteResource(this.resourceDefinition.name, this.data.id);
+  }
 }

@@ -1,10 +1,11 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using Pluto.Models.AccessControl;
 using Pluto.Models.Auth;
+using Pluto.Models.ResourceAnnotation;
 
 namespace Pluto.Models
 {
-    [BsonIgnoreExtraElements]
+    [BsonIgnoreExtraElements, StandaloneResource("Users")]
     public class User : BaseRootModel
     {
         public string Username { get; set; }
@@ -16,7 +17,7 @@ namespace Pluto.Models
         public List<TokenKey> RefreshTokenKeys { get; set; } = new List<TokenKey>();
         public PasswordResetToken? PasswordResetToken { get; set; }
         public bool EmailVerifyed { get; set; }
-        public UserRoles Roles { get; set; } = new UserRoles();
+        public List<RolesItem> Roles { get; set; } = new List<RolesItem>();
 
         public static readonly RoleSpace RoleSpace = RoleSpace.For<User>("user");
     }

@@ -25,20 +25,17 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
   private foreignResourceDescription: ResourceDescription;
   private linkedObject: BaseRootModel;
 
+  @Input() set prop(value) {
+    this.baseProp = value;
+  }
+
   private allOptions: {name: string, object: BaseRootModel}[] = [];
   protected filteredOptions: {name: string, object: any}[] = [{
     name: "Loading",
     object: null,
   }];
 
-  @Input() set prop(value) {
-    this.baseProp = value;
-    this.loadResourceType();
-  }
-  @Input() set data(value) {
-    this.loadReferenceObject();
-  }
-  ngOnInit(): void {
+  async ngOnInit() {
     this.formControl.setValue({
       name: "Loading",
       object: null,
@@ -47,6 +44,9 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
     this.formControl.registerOnChange((value) => {
 
     });
+
+    await this.loadResourceType();
+    await this.loadReferenceObject();
   }
 
   onSelected(event: MatAutocompleteSelectedEvent) {
@@ -62,17 +62,32 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
   }
 
   private async loadReferenceObject() {
+    console.log(this.value)
+    if (this.value == null){
+      this.formControl.setValue({
+        name: "Not set",
+        object: null,
+      });
+      return;
+    }
     this.linkedObject = await this.resourceService.getResource(this.foreignResourceDescription.name, this.value);
-
-    this.formControl.setValue({
-      name: this.displayObject(this.linkedObject),
-      object: this.linkedObject,
-    });
+    if (!this.linkedObject){
+      this.formControl.setValue({
+        name: "Invalid reference",
+        object: null,
+      });
+    }else {
+      this.formControl.setValue({
+        name: this.displayObject(this.linkedObject),
+        object: this.linkedObject,
+      });
+    }
   }
 
   panelOpened() {
     this.loadOptions();
   }
+
   async loadOptions() {
     // TODO limitation to 10000 objects
     let models = await this.resourceService.getResources(this.foreignResourceDescription.name, 0, 10000);
@@ -83,11 +98,16 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
       }
     });
     this.fuse.setCollection(this.allOptions);
-    this.filterOptions(this.displayObject(this.linkedObject));
+    if (!this.linkedObject){
+      this.filterOptions("");
+    }else {
+      this.filterOptions(this.displayObject(this.linkedObject));
+    }
   }
 
   filterOptions(text: string) {
-    this.filteredOptions = this.fuse.search(text, {limit: 15}).map(r => r.item);
+    console.log("Filtering options", text);
+    this.filteredOptions = this.fuse.search(text, {limit: 15}).map(r => r?.item??"");
     this.filteredOptions.push({
       name: "Create new",
       object: "CREATE_NEW",
@@ -97,7 +117,7 @@ export class ReferenceFieldComponent extends BaseField implements OnInit {
   displayObject = (value) => {
     let object = value?.object;
     if (!object){
-      return "Invalid reference";
+      return value?.name;
     }
     if (typeof value.object === 'string'){
       return value.object;

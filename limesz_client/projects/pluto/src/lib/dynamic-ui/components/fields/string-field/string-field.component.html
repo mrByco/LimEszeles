@@ -1,4 +1,8 @@
-  <mat-form-field appearance="fill" [matTooltip]='this.realizedJsPath'>
-    <mat-label>{{baseProp.propName}} {{value == null ? "[null]" : ""}} {{baseProp.propOptions?.isReadOnly ? "(readonly)" : ""}}</mat-label>
+  <mat-form-field appearance="fill" [matTooltip]='this.realizedJsPath' *ngIf='this.value != null'>
+    <mat-label>{{getHeader}}</mat-label>
     <input [(ngModel)]='value' matInput placeholder='Placeholder' [readonly]='baseProp.propOptions?.isReadOnly'>
+    <button *ngIf='this.baseProp?.propOptions?.isNullable' (click)='this.value = null' mat-icon-button color='primary' matSuffix [attr.aria-label]="'Set null'" [attr.aria-pressed]="">
+      <mat-icon>{{'close'}}</mat-icon>
+    </button>
   </mat-form-field>
+  <app-generic-button *ngIf='this.value == null' (click)='this.value = ""'>Set {{this.baseProp?.propName}}</app-generic-button>

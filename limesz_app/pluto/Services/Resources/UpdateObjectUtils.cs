@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
+using pluto.Misc;
 
 namespace pluto.Services.Resources;
 
@@ -39,10 +41,9 @@ public static class UpdateObjectUtils
             for (int i = 0; i < accessList.Count - 1; i++)
             {
                 previousObject = currentObject!;
-                if (accessList[i] is string)
+                if (accessList[i] is string propertyName)
                 {
-                    var propertyName = accessList[i];
-                    propertyInfo = currentObject.GetType().GetProperty(propertyName);
+                    propertyInfo = currentObject.GetType().GetPropertyIgnoreCase(propertyName);
 
                     // TODO CHECK PERMISSION TO CREATE OBJECT
 
@@ -72,17 +73,17 @@ public static class UpdateObjectUtils
         /// Actually sets the property on the object
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="targetPropertyName"></param>
+        /// <param name="targetPropertyAccessor"></param>
         /// <param name="targetObject"></param>
         /// <param name="containerObject"></param>
         /// <param name="containerPropertyInfo"></param>
         /// <exception cref="Exception"></exception>
-        private static void SetPropertyOnObject(object value, dynamic targetPropertyName, object targetObject,
+        private static void SetPropertyOnObject(object value, dynamic targetPropertyAccessor, object targetObject,
             PropertyInfo? containerPropertyInfo, object? containerObject)
         {
-            Type targetType = GetAndParseSpecialTargetType(ref value, targetPropertyName, targetObject);
+            Type targetType = GetAndParseSpecialTargetType(ref value, targetPropertyAccessor, targetObject);
             
-            if (targetPropertyName is int arrayIndex)
+            if (targetPropertyAccessor is int targetPropertyIndex)
             {
                 var list = targetObject as IList;
 
@@ -116,20 +117,37 @@ public static class UpdateObjectUtils
                     }
                     else if (command == "$REMOVE$")
                     {
-                        list.RemoveAt(arrayIndex);
+                        list.RemoveAt(targetPropertyIndex);
                     }
                 }
                 else
                 {
-                    list[arrayIndex] = value;
+                    list[targetPropertyIndex] = value;
                 }
             }
-            else
+            else if (targetPropertyAccessor is string targetPropertyName)
             {
-                // Set the final property
-                var finalPropertyInfo = targetObject.GetType().GetProperty(targetPropertyName);
-                // Handle other non-array property types
-                finalPropertyInfo.SetValue(targetObject, value);
+                if (targetType.IsClass && value is Dictionary<string, object> dict)
+                {
+                    // Create a new instance of the target type
+                    var instance = Activator.CreateInstance(targetType);
+                    // Set the properties of the new instance
+                    foreach (var (key, val) in dict)
+                    {
+                        SetPropertyOnObject(val, key, instance, null, null);
+                    }
+
+                    // Set the final property
+                    var finalPropertyInfo = targetObject.GetType().GetPropertyIgnoreCase(targetPropertyName);
+                    finalPropertyInfo.SetValue(targetObject, instance);
+                }
+                else
+                {
+                    // Set the final property
+                    var finalPropertyInfo = targetObject.GetType().GetPropertyIgnoreCase(targetPropertyName);
+                    // Handle other non-array property types
+                    finalPropertyInfo.SetValue(targetObject, value);
+                }
             }
         }
 
@@ -170,9 +188,9 @@ public static class UpdateObjectUtils
         private static Type GetTargetType(dynamic propertyName, object currentObject)
         {
             Type targetType;
-            if (propertyName is string)
+            if (propertyName is string str)
             {
-                var finalPropertyInfo = currentObject.GetType().GetProperty(propertyName);
+                var finalPropertyInfo = currentObject.GetType().GetPropertyIgnoreCase(str);
                 targetType = finalPropertyInfo.PropertyType;
             }
             else
@@ -182,7 +200,9 @@ public static class UpdateObjectUtils
 
             return targetType;
         }
+
         
+
 
         /// <summary>
         /// Converts the javascript notated PropertyPath to a List
@@ -221,6 +241,10 @@ public static class UpdateObjectUtils
         {
             JsonElement JsonElement = (JsonElement)value;
             value = GetValueFromJsonElement(JsonElement);
+            if (value is string && value.Equals("$SET_NULL$"))
+            {
+                value = null;
+            }
             return value;
         }
 

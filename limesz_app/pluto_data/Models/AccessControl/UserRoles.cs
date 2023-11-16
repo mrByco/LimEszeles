@@ -1,13 +1,9 @@
 namespace Pluto.Models.AccessControl;
 
-public class UserRoles
-{
-    List<UserRolesItem> Roles { get; set; } = new List<UserRolesItem>();
-}
 
-public class UserRolesItem
+public class RolesItem
 {
-    public string RoleSpaceKind { get; set; }
-    public string RoleSpaceObjectId { get; set; }
+    public string RoleSpaceKind { get; set; } = RoleSpace.System.RoleSpaceKind;
+    public string? Subject { get; set; }
     public List<string> Roles { get; set; } = new List<string>();
 }

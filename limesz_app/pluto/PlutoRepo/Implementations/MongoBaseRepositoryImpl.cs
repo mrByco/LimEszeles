@@ -17,6 +17,11 @@ namespace pluto.PlutoRepo.Implementations
         {
             _collection = mongoDatabaseService.MongoDatabase.GetCollection<T>(CollectionName);
         }
+        
+        public MongoBaseRepositoryImpl(IMongoDatabaseService mongoDatabaseService, string collectionName)
+        {
+            _collection = mongoDatabaseService.MongoDatabase.GetCollection<T>(collectionName);
+        }
 
         public List<T> Get() => _collection.Find(_ => true).ToList();
         public List<T> Get(Expression<Func<T, bool>> expr) => _collection.Find(expr).ToList();

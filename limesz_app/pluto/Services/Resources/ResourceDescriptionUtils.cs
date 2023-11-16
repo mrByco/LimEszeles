@@ -1,7 +1,10 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using pluto.Misc;
 using Pluto.Misc;
+using Pluto.Models;
 using Pluto.Models.ResourceAnnotation;
 using Pluto.Models.ResourceDescription;
 using pluto.PlutoRepo;
@@ -13,7 +16,12 @@ public static class ResourceDescriptionUtils
     public static List<ResourceDescription> GetResourceDescriptions()
     {
         Type resourceServiceBaseName = typeof(PlutoSmartRepo<>);
-        Type[] types = PlutoConfig.BindingAssembly.GetTypes();
+        var types = PlutoConfig.BindingAssembly
+            .GetTypes()
+            .Concat(Assembly.GetExecutingAssembly().GetTypes())
+            .Concat(typeof(BaseRootModel).Assembly.GetTypes())
+            .ToList();
+        
         var resourceTypes = new List<ResourceDescription>();
         foreach (var type in types)
         {
@@ -28,20 +36,26 @@ public static class ResourceDescriptionUtils
                     {
                         continue;
                     }
-                    var description = GetResourceDescription(type, modelType);
+                    var description = GetResourceDescription(type.Name, modelType);
                     resourceTypes.Add(description);
                 }
+            }
+
+            if (type.GetCustomAttribute<StandaloneResourceAttribute>() != null)
+            {
+                var description = GetResourceDescription(type.Name, type);
+                resourceTypes.Add(description);
             }
         }
 
         return resourceTypes;
     }
 
-    private static ResourceDescription GetResourceDescription(Type resourceType, Type modelType)
+    private static ResourceDescription GetResourceDescription(string resourceName, Type modelType)
     {
         var description = new ResourceDescription()
         {
-            Name = resourceType.Name,
+            Name = resourceName,
             Type = modelType.Name,
             Props = GetPropertyListOfType(modelType, ""),
             DescriptionOptions = GetResourceDescriptionOptions(modelType)
@@ -161,8 +175,10 @@ public static class ResourceDescriptionUtils
             options.SetReadOnly();
         
         var foreignKey = info.GetCustomAttribute<ForeignKeyAttribute>();
-        
         options.ForeignKeyOf = foreignKey?.ForeignResourceType.Name;
+        
+        var nullable = info.GetCustomAttribute<CanSetNullAttribute>();
+        options.isNullable = nullable != null;
     }
     
     private static void ProcessTypeSpecificPropertyOptions(Type type, ResourcePropOptions options)
@@ -171,6 +187,19 @@ public static class ResourceDescriptionUtils
         
         if (attr != null)
             options.StringRepresentationFieldName = attr.Name.toJSAccessorName();
+    }
+    
+    static bool IsNullable(Type type)
+    {
+        var nullableAttribute = type.GetCustomAttributes();
+
+        var names = nullableAttribute.Select(a => a.GetType().Name);
+        var NullableContextAttribute = names.Contains("NullableContextAttribute");
+        var NullableAttribute = names.Contains("NullableAttribute");
+        // Check if the type is a generic type
+        
+
+        return NullableAttribute;
     }
 
     static bool isPrimitiveType(Type type)

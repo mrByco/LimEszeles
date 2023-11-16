@@ -1,5 +1,8 @@
-
-  <mat-form-field appearance="fill" >
-    <mat-label>{{baseProp.propName}}</mat-label>
-    <input [(ngModel)]='value' type='number' matInput placeholder='Placeholder' [readonly]='baseProp.propOptions.isReadOnly'>
-  </mat-form-field>
+<mat-form-field appearance="fill" *ngIf='value !== null'>
+  <mat-label>{{baseProp.propName}}</mat-label>
+  <input [(ngModel)]='value' type='number' matInput placeholder='Placeholder' [readonly]='baseProp.propOptions?.isReadOnly'>
+  <button *ngIf='baseProp.propOptions.isNullable' (click)='value = null' mat-icon-button color='primary' matSuffix>
+    <mat-icon>{{'close'}}</mat-icon>
+  </button>
+</mat-form-field>
+<app-generic-button *ngIf='value === null' (click)='value = 0'>Set {{baseProp.propName}}</app-generic-button>

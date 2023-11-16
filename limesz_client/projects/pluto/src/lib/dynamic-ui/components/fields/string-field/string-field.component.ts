@@ -12,4 +12,6 @@ export class StringFieldComponent extends BaseField {
   @Input() set prop(value) {
     this.baseProp = value;
   }
+
+
 }

@@ -13,5 +13,8 @@
         {{option.name}}
       </mat-option>
     </mat-autocomplete>
+    <button *ngIf='baseProp.propOptions.isNullable' (click)='value = null' mat-icon-button color='primary' matSuffix>
+      <mat-icon>{{'close'}}</mat-icon>
+    </button>
   </mat-form-field>
 </form>

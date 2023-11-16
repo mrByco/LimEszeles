@@ -37,7 +37,7 @@ export function setPropertyByJsPath(object, jsPath: string, value) {
       const items: string[] = item.split('[');
       const key = items.shift();
       let keys = items.map(i => parseInt(i.replace(']', '')));
-      pathArray.push(...keys);
+      pathArray.push(key, ...keys);
     } else {
       pathArray.push(item);
     }
@@ -45,15 +45,18 @@ export function setPropertyByJsPath(object, jsPath: string, value) {
 
   let currentObject = object;
   for (let i = 0; i < pathArray.length - 1; i++) {
+
     const pathSegment = pathArray[i];
-    if (currentObject && currentObject.hasOwnProperty(pathSegment)) {
+    if ((currentObject && currentObject.hasOwnProperty(pathSegment)) || !isNaN(parseInt(pathSegment))) {
       currentObject = currentObject[pathSegment];
     } else {
+      console.error(`Property ${pathSegment} does not exist in object ${currentObject}, could not be set`)
       return;
     }
   }
 
   const lastPathSegment = pathArray[pathArray.length - 1];
+
   currentObject[lastPathSegment] = value;
 }
 

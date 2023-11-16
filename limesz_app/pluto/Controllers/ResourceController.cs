@@ -1,8 +1,12 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using pluto.Misc;
 using Pluto.Models;
+using Pluto.Models.ResourceAnnotation;
 using Pluto.Models.ResourceDescription;
 using pluto.PlutoRepo;
+using pluto.Services.Database;
 using pluto.Services.Resources;
 using Type = System.Type;
 
@@ -65,12 +69,13 @@ public class ResourceController: ControllerBase
     {
         try
         {
-            Type baseType = typeof(PlutoSmartRepo<>);
-            IEnumerable<Type> types = PlutoConfig.BindingAssembly.GetTypes().Concat(baseType.Assembly.GetTypes());
+            var types = PlutoConfig.BindingAssembly
+                .GetTypes()
+                .Concat(Assembly.GetExecutingAssembly().GetTypes())
+                .Concat(typeof(BaseRootModel).Assembly.GetTypes())
+                .ToList();
 
-            var service =
-                _services.GetService(types.FirstOrDefault(t =>
-                    t.Name == resourceType && t.BaseType?.Name == baseType.Name) ?? throw new InvalidOperationException());
+            var service = GetServiceForModelType(resourceType, types);
 
             var method = service.GetType().GetMethod(methodName);
             var result = method?.Invoke(service, args);
@@ -81,5 +86,37 @@ public class ResourceController: ControllerBase
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private object? GetServiceForModelType(string resourceType, List<Type> types)
+    {
+        Type? serviceType = types
+            .FirstOrDefault(t => t.Name == resourceType && t.BaseType?.Name == typeof(PlutoSmartRepo<>).Name);
+        object? service;
+        if (serviceType != null)
+        {
+            service = _services.GetService(serviceType);
+        }
+        else
+        {
+            Type? modelType = types.FirstOrDefault(t =>
+                t.Name == resourceType &&
+                t.GetCustomAttribute<StandaloneResourceAttribute>() != null);
+            if (modelType == null)
+            {
+                throw new InvalidOperationException($"No model found for type {resourceType}");
+            }
+
+            var attr = modelType.GetCustomAttribute<StandaloneResourceAttribute>();
+
+            var args = new object[]
+            {
+                _services.GetService<IMongoDatabaseService>(),
+                attr.CollectionName
+            };
+            service = Activator.CreateInstance(typeof(PlutoSmartRepo<>).MakeGenericType(modelType), args );
+        }
+        
+        return service;
     }
 }

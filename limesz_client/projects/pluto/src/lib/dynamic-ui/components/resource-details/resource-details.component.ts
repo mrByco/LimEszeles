@@ -35,6 +35,7 @@ export class ResourceDetailsComponent {
 
   protected removeResource = async () => {
     // TODO call directive to remove
+    await this.resource.remove();
     await this.router.navigate(['../'], { relativeTo: this.activatedRoute });
   };
 

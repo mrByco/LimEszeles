@@ -10,4 +10,5 @@ public class ResourcePropOptions
     public string? ForeignKeyOf { get; set; }
     public bool IsReadOnly { get; private set; } = false;
     public void SetReadOnly() => IsReadOnly = true;
+    public bool isNullable { get; set; } = false;
 }

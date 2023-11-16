@@ -1,8 +1,13 @@
+using System.ComponentModel;
+using Pluto.Models.ResourceAnnotation;
+
 namespace Pluto.Models.AccessControl;
 
+[StandaloneResource("Roles")]
 public class Role: BaseRootModel
 {
     public string RoleSpaceKind { get; set; }
+    [Readonly]
     public string RoleSpaceObjectId { get; set; }
     
     public string Name { get; set; }

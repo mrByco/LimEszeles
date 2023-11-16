@@ -1,9 +1,9 @@
 <h5 class='text-white' *ngIf='!isListElement'>{{baseProp.propName}}</h5>
-<div  class='d-flex align-items-center' [ngClass]='{"flex-column align-items-end": innerDefinition.length > 4}' style='margin-left: 15px'>
+<div class='d-flex align-items-center' [ngClass]='{"flex-column align-items-end": innerDefinition.length > 4}' style='margin-left: 15px'>
   <h5 class='text-white' *ngIf='isListElement'>{{listIndex}}.</h5>
   <ng-container *ngIf='value'>
     <app-dynamic-prop-field *ngFor='let innerProp of innerDefinition' [prop]='innerProp'></app-dynamic-prop-field>
+    <app-generic-button (click)='value = null'>Set to Null</app-generic-button>
   </ng-container>
-  <app-generic-button *ngIf='!value'>Instantiate</app-generic-button>
+  <app-generic-button *ngIf='value == null' (click)='value = {}'>Instantiate</app-generic-button>
 </div>
-

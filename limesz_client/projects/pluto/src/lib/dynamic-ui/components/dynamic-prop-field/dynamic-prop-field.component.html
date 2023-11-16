@@ -1,5 +1,4 @@
 <div *ngIf='prop && prop.fullJsAccessor' class='m-1'>
-  {{value == null ? 'null' : ""}}
   <app-string-field *ngIf='prop.propType == "string"'
                     class='primitive-field'
                     [prop]='prop'></app-string-field>

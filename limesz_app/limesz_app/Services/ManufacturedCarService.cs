@@ -6,9 +6,8 @@ namespace limesz_app.Services;
 
 public class ManufacturedCarService: PlutoSmartRepo<ManufacturedCar>
 {
-    public ManufacturedCarService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
+    public ManufacturedCarService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService, "ManifacturedCars")
     {
     }
 
-    protected override string CollectionName => "ManifacturedCars";
 }

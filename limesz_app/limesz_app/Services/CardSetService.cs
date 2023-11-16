@@ -7,11 +7,11 @@ namespace limesz_app.Services;
 
 public class CardSetService: PlutoSmartRepo<CardSet>
 {
-    public CardSetService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
+    public CardSetService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService, "CardSets1s")
     {
     }
 
-    protected override string CollectionName => "CardSets";
+
     public static List<Card> GetUnoCardSet()
     {
         List<string> colors = new List<string>()

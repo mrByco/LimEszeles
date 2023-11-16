@@ -9,12 +9,15 @@ using pluto.Services.Resources;
 namespace pluto.PlutoRepo
 {
     [Route("pl/resources")]
-    public abstract class PlutoSmartRepo<T> : MongoBaseRepositoryImpl<T> where T : BaseRootModel, new()
+    public class PlutoSmartRepo<T> : MongoBaseRepositoryImpl<T> where T : BaseRootModel, new()
     {
         
-        protected PlutoSmartRepo(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
+        public PlutoSmartRepo(IMongoDatabaseService mongoDatabaseService, string collectionName) : base(mongoDatabaseService, collectionName)
         {
+            this.CollectionName = collectionName;
         }
+
+        protected override string CollectionName { get; }
 
         // Should only called from ResourceController though reflection
         public PaginatedResourceResult GetPaginatedResource(int page, int count)

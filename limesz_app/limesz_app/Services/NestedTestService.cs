@@ -6,9 +6,7 @@ namespace limesz_app.Services;
 
 public class NestedTestService: PlutoSmartRepo<CarModel>
 {
-    public NestedTestService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService)
+    public NestedTestService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService, "NestedTest1")
     {
     }
-
-    protected override string CollectionName => "NestedTest1";
 }
