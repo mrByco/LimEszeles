@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RideService } from './services/ride.service';
 import { UserService } from './services/user.service';
 import { PromptService } from './services/prompt-service';
-import { APlutoAlertService, LoadingService, ThemeService } from 'projects/pluto/src/public-api';
+import { AlertService, LoadingService, ThemeService } from 'projects/pluto/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
   public rideService: RideService = inject(RideService);
   public userService: UserService = inject(UserService);
   public promptService = inject(PromptService);
-  private alertService = inject(APlutoAlertService);
+  private alertService = inject(AlertService);
 
   public shownNotifications: string[] = [];
 

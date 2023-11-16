@@ -1,15 +1,15 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { APlutoAuthApi } from '../a-pluto-auth-api';
-import { APlutoAlertService } from '../a-pluto-alert-service';
+import { AlertService } from '../alert.service';
 import { RegistrationData } from '../generated-api/models/RegistrationData';
 import { LoginCredentials } from '../generated-api/models/login-credentials';
 import { AuthResult } from '../generated-api/models/auth-result';
-import { APlutoAuthService } from '../a-pluto-auth-service';
+import { AuthService } from '../auth-service';
 
 
 @Injectable()
-export class PlAuthService implements APlutoAuthService {
+export class PlAuthService implements AuthService {
     private token?: string;
     private tokenValidity?: number;
     private currentTokenRefresh?: Promise<void>;
@@ -47,11 +47,11 @@ export class PlAuthService implements APlutoAuthService {
             let result = await firstValueFrom(this.authApi.authRegisterPost$Json({ body: data }));
             this.UseAuthResult(result);
 
-            APlutoAlertService.instance.success("Sikeres regisztráció");
+            AlertService.instance.success("Sikeres regisztráció");
             return true;
         }
         catch {
-            APlutoAlertService.instance.error("Sikertelen regisztráció");
+            AlertService.instance.error("Sikertelen regisztráció");
             return false;
         }
     };
@@ -61,11 +61,11 @@ export class PlAuthService implements APlutoAuthService {
             /*let result = await firstValueFrom(this.authApi.authRegisterInvitePost$Json({ body: data, invite: invit }));
             this.UseAuthResult(result);*/
 
-            APlutoAlertService.instance.success("Bejelentkezve");
+            AlertService.instance.success("Bejelentkezve");
             return true;
         }
         catch {
-            APlutoAlertService.instance.error("Sikertelen bejelentkezés");
+            AlertService.instance.error("Sikertelen bejelentkezés");
             return false;
         }
     }
@@ -80,11 +80,11 @@ export class PlAuthService implements APlutoAuthService {
             let result = await firstValueFrom(this.authApi.authLoginPost$Json({ body: user }));
             this.UseAuthResult(result);
 
-            APlutoAlertService.instance.success("Bejelentkezve");
+            AlertService.instance.success("Bejelentkezve");
             return true;
         }
         catch {
-            APlutoAlertService.instance.error("Sikertelen bejelentkezés");
+            AlertService.instance.error("Sikertelen bejelentkezés");
             return false;
         }
     }
@@ -92,7 +92,7 @@ export class PlAuthService implements APlutoAuthService {
     async ResetPassword(password: string, token: string) {
         let result = await firstValueFrom(this.authApi.authResetPasswordPost$Json({ body: { password: password, token: token } }));
         this.UseAuthResult(result);
-        APlutoAlertService.instance.success("Sikeres jelszó visszaállítás");
+        AlertService.instance.success("Sikeres jelszó visszaállítás");
     }
 
     async MakeTokenRefresh() {

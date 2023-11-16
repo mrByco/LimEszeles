@@ -11,10 +11,10 @@ import { StrictHttpResponse } from '../strict-http-response';
 
 import { authCreatePasswordResetTokenEmailQueryParamsPost } from '../fn/auth/auth-create-password-reset-token-email-query-params-post';
 import { AuthCreatePasswordResetTokenEmailQueryParamsPost$Params } from '../fn/auth/auth-create-password-reset-token-email-query-params-post';
-import { authHasPermissionPermissionRestaurantIdGet$Json } from '../fn/auth/auth-has-permission-permission-restaurant-id-get-json';
-import { AuthHasPermissionPermissionRestaurantIdGet$Json$Params } from '../fn/auth/auth-has-permission-permission-restaurant-id-get-json';
-import { authHasPermissionPermissionRestaurantIdGet$Plain } from '../fn/auth/auth-has-permission-permission-restaurant-id-get-plain';
-import { AuthHasPermissionPermissionRestaurantIdGet$Plain$Params } from '../fn/auth/auth-has-permission-permission-restaurant-id-get-plain';
+import { authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json } from '../fn/auth/auth-has-permission-permission-permission-space-subject-id-get-json';
+import { AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Json$Params } from '../fn/auth/auth-has-permission-permission-permission-space-subject-id-get-json';
+import { authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain } from '../fn/auth/auth-has-permission-permission-permission-space-subject-id-get-plain';
+import { AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Params } from '../fn/auth/auth-has-permission-permission-permission-space-subject-id-get-plain';
 import { authLoginPost$Json } from '../fn/auth/auth-login-post-json';
 import { AuthLoginPost$Json$Params } from '../fn/auth/auth-login-post-json';
 import { authLoginPost$Plain } from '../fn/auth/auth-login-post-plain';
@@ -304,49 +304,49 @@ export class AuthApi extends BaseService {
     );
   }
 
-  /** Path part for operation `authHasPermissionPermissionRestaurantIdGet()` */
-  static readonly AuthHasPermissionPermissionRestaurantIdGetPath = '/Auth/has-permission/{permission}/{restaurantId}';
+  /** Path part for operation `authHasPermissionPermissionPermissionSpaceSubjectIdGet()` */
+  static readonly AuthHasPermissionPermissionPermissionSpaceSubjectIdGetPath = '/Auth/has-permission/{permission}/{permissionSpace}/{subjectId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `authHasPermissionPermissionRestaurantIdGet$Plain()` instead.
+   * To access only the response body, use `authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  authHasPermissionPermissionRestaurantIdGet$Plain$Response(params: AuthHasPermissionPermissionRestaurantIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<boolean>> {
-    return authHasPermissionPermissionRestaurantIdGet$Plain(this.http, this.rootUrl, params, context);
+  authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Response(params: AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<boolean>> {
+    return authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `authHasPermissionPermissionRestaurantIdGet$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  authHasPermissionPermissionRestaurantIdGet$Plain(params: AuthHasPermissionPermissionRestaurantIdGet$Plain$Params, context?: HttpContext): Observable<boolean> {
-    return this.authHasPermissionPermissionRestaurantIdGet$Plain$Response(params, context).pipe(
+  authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain(params: AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Params, context?: HttpContext): Observable<boolean> {
+    return this.authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Response(params, context).pipe(
       map((r: StrictHttpResponse<boolean>): boolean => r.body)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `authHasPermissionPermissionRestaurantIdGet$Json()` instead.
+   * To access only the response body, use `authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  authHasPermissionPermissionRestaurantIdGet$Json$Response(params: AuthHasPermissionPermissionRestaurantIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<boolean>> {
-    return authHasPermissionPermissionRestaurantIdGet$Json(this.http, this.rootUrl, params, context);
+  authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json$Response(params: AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<boolean>> {
+    return authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `authHasPermissionPermissionRestaurantIdGet$Json$Response()` instead.
+   * To access the full response (for headers, for example), `authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  authHasPermissionPermissionRestaurantIdGet$Json(params: AuthHasPermissionPermissionRestaurantIdGet$Json$Params, context?: HttpContext): Observable<boolean> {
-    return this.authHasPermissionPermissionRestaurantIdGet$Json$Response(params, context).pipe(
+  authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json(params: AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Json$Params, context?: HttpContext): Observable<boolean> {
+    return this.authHasPermissionPermissionPermissionSpaceSubjectIdGet$Json$Response(params, context).pipe(
       map((r: StrictHttpResponse<boolean>): boolean => r.body)
     );
   }

@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
 import { firstValueFrom } from "rxjs";
-import { APlutoAlertService } from '../a-pluto-alert-service';
+import { AlertService } from '../alert.service';
 
 @Injectable()
-export class PlAlertService extends APlutoAlertService {
+export class PlAlertService extends AlertService {
     constructor(private toastService: ToastrService, private translateService: TranslateService) {
         super();
     }

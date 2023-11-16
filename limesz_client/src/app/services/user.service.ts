@@ -7,7 +7,7 @@ import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { getRandomPlayerName } from '../helper/get-random-player-name';
 import { UserApi } from '../api/services/user-api';
 import { LoadingService } from '../../../projects/pluto/src/lib/api-providers/default-services/loading.service';
-import { APlutoAuthService } from 'pluto/src/lib/api-providers/a-pluto-auth-service';
+import { AuthService } from 'pluto/src/lib/api-providers/auth-service';
 
 @Injectable()
 export class UserService {
@@ -22,7 +22,7 @@ export class UserService {
         return this.currentUser?.name ?? localStorage.getItem("anonymous-user-name");
     }
 
-    constructor(private authService: APlutoAuthService, private userApi: UserApi, private loadingService: LoadingService) {
+    constructor(private authService: AuthService, private userApi: UserApi, private loadingService: LoadingService) {
         this.currentUser$.subscribe(user => this.currentUser = user);
         authService.Authenticated$.subscribe(auth => {
             if (!auth) {

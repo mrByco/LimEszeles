@@ -3,13 +3,13 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import {LoadingService} from "./loading.service";
-import { APlutoAuthService } from '../a-pluto-auth-service';
+import { AuthService } from '../auth-service';
 import { UserProfileDto } from '../../../../../../src/app/api/models/user-profile-dto';
 import { APlutoUserApi } from '../a-pluto-user-api';
 
 // TODO implement base userservice from elsewhere
 @Injectable()
-export class UserService {
+export class PlUserService {
 
     public currentUser$: BehaviorSubject<UserProfileDto | undefined> = new BehaviorSubject<UserProfileDto | undefined>(undefined);
     public currentUser: UserProfileDto | undefined = undefined;
@@ -21,7 +21,7 @@ export class UserService {
         return this.currentUser?.name ?? localStorage.getItem("anonymous-user-name");
     }
 
-    constructor(private authService: APlutoAuthService, private userApi: APlutoUserApi, private loadingService: LoadingService) {
+    constructor(private authService: AuthService, private userApi: APlutoUserApi, private loadingService: LoadingService) {
         this.currentUser$.subscribe(user => this.currentUser = user);
         authService.Authenticated$.subscribe(auth => {
             if (!auth) {

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthPageLayoutComponent } from '../auth-page-layout/auth-page-layout.component';
-import { APlutoAuthService } from '../../../../api-providers/a-pluto-auth-service';
+import { AuthService } from '../../../../api-providers/auth-service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class PasswordResetComponent {
 
   passwordsSame = false;
 
-  constructor(fb: FormBuilder, private authService: APlutoAuthService, private activatedRoute: ActivatedRoute) {
+  constructor(fb: FormBuilder, private authService: AuthService, private activatedRoute: ActivatedRoute) {
     this.newPasswordForm = fb.group({
       password: ['', [Validators.required, Validators.minLength(8)]],
       passwordConfirm: ['', [Validators.required, Validators.minLength(8)]],

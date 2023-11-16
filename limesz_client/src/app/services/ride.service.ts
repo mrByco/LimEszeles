@@ -11,8 +11,8 @@ import { Ride } from '../api/models/ride';
 import { Player } from '../api/models/player';
 import { Deck } from '../api/models/deck';
 import { LobbyApi } from '../api/services';
-import { APlutoAlertService, PlAlertService, SidebarService } from 'projects/pluto/src/public-api';
-import { APlutoAuthService } from 'pluto/src/lib/api-providers/a-pluto-auth-service';
+import { AlertService, PlAlertService, SidebarService } from 'projects/pluto/src/public-api';
+import { AuthService } from 'pluto/src/lib/api-providers/auth-service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +22,10 @@ export class RideService {
   public connectionToken = "";
   public ride$: BehaviorSubject<Ride | undefined> = new BehaviorSubject<Ride | undefined>(undefined);
 
-  private authService = inject(APlutoAuthService);
+  private authService = inject(AuthService);
   private userService = inject(UserService);
   private lobbyApi = inject(LobbyApi);
-  private alertService = inject(APlutoAlertService);
+  private alertService = inject(AlertService);
   private modalService = inject(SidebarService);
 
   private connection: HubConnection | undefined;

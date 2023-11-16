@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import { PasswordResetToken } from '../models/password-reset-token';
+import { RolesItem } from '../models/roles-item';
 import { TokenKey } from '../models/token-key';
-import { UserRoles } from '../models/user-roles';
 export interface User {
   email?: string | null;
   emailVerifyed?: boolean;
@@ -13,6 +13,6 @@ export interface User {
   passwordSalt?: string | null;
   refreshTokenKeys?: Array<TokenKey> | null;
   registrationDate?: string;
-  roles?: UserRoles;
+  roles?: Array<RolesItem> | null;
   username?: string | null;
 }

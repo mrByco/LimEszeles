@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 
-export abstract class APlutoAuthService {
+export abstract class AuthService {
   Authenticated: Boolean;
   Token: string;
   Authenticated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

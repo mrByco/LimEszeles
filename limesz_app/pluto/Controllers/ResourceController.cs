@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Net;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using Pluto;
 using pluto.Misc;
 using Pluto.Models;
+using Pluto.Models.AccessControl;
 using Pluto.Models.ResourceAnnotation;
 using Pluto.Models.ResourceDescription;
 using pluto.PlutoRepo;
@@ -64,6 +68,77 @@ public class ResourceController: ControllerBase
     {
         CallCorrespondingServiceMethod("RemoveResource", resourceType, new object[] { id });
     }
+    
+    [HttpGet("data-contexts", Name = nameof(GetAvailableDataContexts))]
+    public List<GenericObject> GetAvailableDataContexts()
+    {
+        // TODO test it
+        var dataContexts = new List<GenericObject>();
+        var roleSpaces = RoleSpace.AllRoleSpaces;
+        var user = this.GetUser();
+        if (user == null) throw new System.Web.Http.HttpResponseException(HttpStatusCode.Unauthorized);
+        var userRoleSpaces = user.Roles.Select(r => r.RoleSpaceKind).Distinct();
+        
+        user.Roles.ForEach(r =>
+        {
+            var roleSpace = roleSpaces.FirstOrDefault(rs => rs.RoleSpaceKind == r.RoleSpaceKind);
+            if (roleSpace != null)
+            {
+                if (roleSpace.RoleSpaceType == null && roleSpace.RoleSpaceKind == RoleSpace.System.RoleSpaceKind)
+                {
+                    // Its system rolepsace
+                    dataContexts.Add(new GenericObject()
+                    {
+                        Id = r.RoleSpaceKind,
+                        Name = roleSpace.RoleSpaceDisplayName,
+                        Type = r.RoleSpaceKind,
+                    });
+                    return;
+                }
+                if (roleSpace.RoleSpaceType == null)
+                {
+                    return;
+                }
+
+                if (r.Subject != null && dataContexts.TrueForAll(d => d.Id != r.Subject))
+                {
+                    GenericObject obj = this.GetGenericObjectById(roleSpace.RoleSpaceType.Name, r.Subject);
+                    dataContexts.Add(obj);
+                }
+                else
+                {
+                    var objects = this.GetAllByTypeName(roleSpace.RoleSpaceType.Name);
+                    dataContexts.AddRange(objects);
+                }
+            }
+        });
+        
+        dataContexts = dataContexts.DistinctBy(d => d.Id).ToList();
+
+        return dataContexts;
+    }
+
+    private GenericObject GetGenericObjectById(string objectType, string id)
+    {
+        var value = CallCorrespondingServiceMethod("Get", objectType, new object[] { id });
+        return new GenericObject()
+        {
+            Id = id,
+            Name = value?.ToString(),
+            Type = objectType
+        };
+    }
+
+    private List<GenericObject> GetAllByTypeName(string objectType)
+    {
+        IEnumerable<object> values = (IEnumerable<object>)CallCorrespondingServiceMethod("Get", objectType, new object[] { });
+        return values.Select(v => new GenericObject()
+        {
+            Id = v.GetType().GetProperty("Id").GetValue(v).ToString(),
+            Name = v.ToString(),
+            Type = objectType
+        }).ToList();
+    }
 
     private object? CallCorrespondingServiceMethod(string methodName, string resourceType, object[] args)
     {
@@ -91,7 +166,13 @@ public class ResourceController: ControllerBase
     private object? GetServiceForModelType(string resourceType, List<Type> types)
     {
         Type? serviceType = types
-            .FirstOrDefault(t => t.Name == resourceType && t.BaseType?.Name == typeof(PlutoSmartRepo<>).Name);
+            .FirstOrDefault(t => 
+                (t.Name == resourceType 
+                 || (t.IsGenericType 
+                     && t.GenericTypeArguments.Length > 0 
+                     && t.GenericTypeArguments[0].Name == resourceType)) 
+                && t.BaseType?.Name == typeof(PlutoSmartRepo<>).Name);
+        
         object? service;
         if (serviceType != null)
         {

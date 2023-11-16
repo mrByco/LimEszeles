@@ -6,18 +6,17 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { concat, concatAll, concatMap, filter, from, map, merge, Observable, tap } from 'rxjs';
+import { concatMap, from, Observable, tap } from 'rxjs';
 import { PlAlertService } from './pl-alert.service';
 import { ApiUrl, META_API_REQUEST_PATH, RefreshTokenPath } from '../../pluto.module';
-import { APlutoAuthApi } from '../a-pluto-auth-api';
-import { APlutoAuthService } from '../a-pluto-auth-service';
+import { AuthService } from '../auth-service';
+import { DataContextProvider } from '../data-context-provider';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiInterceptorService implements HttpInterceptor {
-  constructor(private authService: APlutoAuthService) { }
+  constructor(private authService: AuthService) { }
 
   intercept(
     req: HttpRequest<any>,
@@ -32,8 +31,6 @@ export class ApiInterceptorService implements HttpInterceptor {
       return next.handle(req.clone({ url }));
     }
 
-
-
     if (!req.url.startsWith(ApiUrl)) {
       return next.handle(req);
     }
@@ -41,8 +38,13 @@ export class ApiInterceptorService implements HttpInterceptor {
       return next.handle(req);
     }
 
+    let context = DataContextProvider.instance.getDataContext();
+    let contextBase64 = btoa(JSON.stringify(context));
+
     const tokenizedReq = req.clone({
-      headers: req.headers.set('Access-Control-Allow-Origin', '* '),
+      headers: req.headers
+        .set('Access-Control-Allow-Origin', '* ')
+        .set('Pl-Context', contextBase64)
     });
     let token = this.authService.Token;
     if (!token && this.authService.Authenticated) {

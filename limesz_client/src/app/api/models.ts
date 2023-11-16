@@ -22,9 +22,9 @@ export { ResourceDescriptionOptions } from './models/resource-description-option
 export { ResourceProp } from './models/resource-prop';
 export { ResourcePropOptions } from './models/resource-prop-options';
 export { Ride } from './models/ride';
+export { RolesItem } from './models/roles-item';
 export { ScoreScreenData } from './models/score-screen-data';
 export { TokenKey } from './models/token-key';
 export { User } from './models/user';
 export { UserProfileDto } from './models/user-profile-dto';
-export { UserRoles } from './models/user-roles';
 export { WeatherForecast } from './models/weather-forecast';

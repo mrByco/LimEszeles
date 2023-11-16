@@ -33,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PlResource } from './directives/pl-resource.directive';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PlutoForOf } from './directives/pluto-for-of.directive';
+import { ContextTypesComponent } from './components/context-types/context-types.component';
 
 
 
@@ -52,7 +53,8 @@ import { PlutoForOf } from './directives/pluto-for-of.directive';
     ObjectFieldComponent,
     ReferenceFieldComponent,
     PlResource,
-    PlutoForOf
+    PlutoForOf,
+    ContextTypesComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 <div class='container d-flex flex-column align-items-center'>
+  <pl-context-types></pl-context-types>
   <h2 class='text-white'>Available Standard Resources</h2>
   <div class='menu-item' [routerLink]='["/resources", resource.name]'
        *ngFor='let resource of resourceTypeService.resourceTypes | async; let i = index'

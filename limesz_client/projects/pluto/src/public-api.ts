@@ -12,13 +12,13 @@ export * from './lib/generic_module/generic/controls/icon-button/icon-button.com
 export * from './lib/api-providers/default-services/modal.service';
 export * from './lib/api-providers/default-services/sidebar-service';
 export * from './lib/api-providers/default-services/pl-alert.service';
-export * from './lib/api-providers/default-services/user.service';
+export * from './lib/api-providers/default-services/pl-user.service';
 export * from './lib/api-providers/default-services/theme.service';
 export * from './lib/api-providers/default-services/file-upload.service';
 export * from './lib/api-providers/default-services/loading.service';
 export * from './lib/api-providers/default-services/language.service';
-export * from './lib/api-providers/a-pluto-alert-service';
-export * from './lib/api-providers/a-pluto-auth-service';
+export * from './lib/api-providers/alert.service';
+export * from './lib/api-providers/auth-service';
 
 export * from './lib/api-providers/a-pluto-auth-api';
 export * from './lib/api-providers/a-pluto-user-api';

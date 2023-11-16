@@ -7,16 +7,18 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface AuthHasPermissionPermissionRestaurantIdGet$Plain$Params {
+export interface AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Params {
   permission: string;
-  restaurantId: string;
+  permissionSpace: string;
+  subjectId: string;
 }
 
-export function authHasPermissionPermissionRestaurantIdGet$Plain(http: HttpClient, rootUrl: string, params: AuthHasPermissionPermissionRestaurantIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<boolean>> {
-  const rb = new RequestBuilder(rootUrl, authHasPermissionPermissionRestaurantIdGet$Plain.PATH, 'get');
+export function authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain(http: HttpClient, rootUrl: string, params: AuthHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<boolean>> {
+  const rb = new RequestBuilder(rootUrl, authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain.PATH, 'get');
   if (params) {
     rb.path('permission', params.permission, {});
-    rb.path('restaurantId', params.restaurantId, {});
+    rb.path('permissionSpace', params.permissionSpace, {});
+    rb.path('subjectId', params.subjectId, {});
   }
 
   return http.request(
@@ -29,4 +31,4 @@ export function authHasPermissionPermissionRestaurantIdGet$Plain(http: HttpClien
   );
 }
 
-authHasPermissionPermissionRestaurantIdGet$Plain.PATH = '/Auth/has-permission/{permission}/{restaurantId}';
+authHasPermissionPermissionPermissionSpaceSubjectIdGet$Plain.PATH = '/Auth/has-permission/{permission}/{permissionSpace}/{subjectId}';

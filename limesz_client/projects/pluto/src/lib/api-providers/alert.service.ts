@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export abstract class APlutoAlertService {
+export abstract class AlertService {
   abstract error(title: string, description?: string);
   abstract success(title: string, description?: string);
 
@@ -11,9 +11,9 @@ export abstract class APlutoAlertService {
   public static get instance() {
     return this._instance;
   }
-  private static _instance?: APlutoAlertService;
+  private static _instance?: AlertService;
 
   constructor() {
-    APlutoAlertService._instance = this;
+    AlertService._instance = this;
   }
 }
