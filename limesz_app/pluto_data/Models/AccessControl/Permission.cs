@@ -2,10 +2,10 @@
 {
     public class BasePermissions
     {
-        public static string Write => "write";
-        public static string Read => "read";
-        public static string Create => "create";
-        public static string Delete => "delete";
+        public const string Write = "write";
+        public const string Read = "read";
+        public const string Create = "create";
+        public const string Delete = "delete";
     }
 }
 

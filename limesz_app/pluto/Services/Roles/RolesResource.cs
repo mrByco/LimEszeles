@@ -5,9 +5,9 @@ using pluto.Services.Database;
 
 namespace pluto.Services.Roles;
 
-public class RolesResource: PlutoSmartRepo<Role>
+public class RolesResource: PlutoSmartRepo<Role>, IRolesResource
 {
-    public static RolesResource Instance { get; set; }
+    public static IRolesResource Instance { get; set; }
     public RolesResource(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService, "Role")
     {
         Instance = this;
