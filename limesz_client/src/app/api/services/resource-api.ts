@@ -14,6 +14,11 @@ import { createResource$Json } from '../fn/resource/create-resource-json';
 import { CreateResource$Json$Params } from '../fn/resource/create-resource-json';
 import { createResource$Plain } from '../fn/resource/create-resource-plain';
 import { CreateResource$Plain$Params } from '../fn/resource/create-resource-plain';
+import { GenericObject } from '../models/generic-object';
+import { getAvailableDataContexts$Json } from '../fn/resource/get-available-data-contexts-json';
+import { GetAvailableDataContexts$Json$Params } from '../fn/resource/get-available-data-contexts-json';
+import { getAvailableDataContexts$Plain } from '../fn/resource/get-available-data-contexts-plain';
+import { GetAvailableDataContexts$Plain$Params } from '../fn/resource/get-available-data-contexts-plain';
 import { getResource$Json } from '../fn/resource/get-resource-json';
 import { GetResource$Json$Params } from '../fn/resource/get-resource-json';
 import { getResource$Plain } from '../fn/resource/get-resource-plain';
@@ -298,6 +303,53 @@ export class ResourceApi extends BaseService {
   removeResource(params: RemoveResource$Params, context?: HttpContext): Observable<void> {
     return this.removeResource$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
+    );
+  }
+
+  /** Path part for operation `getAvailableDataContexts()` */
+  static readonly GetAvailableDataContextsPath = '/Resource/data-contexts';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getAvailableDataContexts$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getAvailableDataContexts$Plain$Response(params?: GetAvailableDataContexts$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<GenericObject>>> {
+    return getAvailableDataContexts$Plain(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getAvailableDataContexts$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getAvailableDataContexts$Plain(params?: GetAvailableDataContexts$Plain$Params, context?: HttpContext): Observable<Array<GenericObject>> {
+    return this.getAvailableDataContexts$Plain$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<GenericObject>>): Array<GenericObject> => r.body)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getAvailableDataContexts$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getAvailableDataContexts$Json$Response(params?: GetAvailableDataContexts$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<GenericObject>>> {
+    return getAvailableDataContexts$Json(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getAvailableDataContexts$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getAvailableDataContexts$Json(params?: GetAvailableDataContexts$Json$Params, context?: HttpContext): Observable<Array<GenericObject>> {
+    return this.getAvailableDataContexts$Json$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<GenericObject>>): Array<GenericObject> => r.body)
     );
   }
 

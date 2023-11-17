@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\pluto\pluto.csproj" />
+      <ProjectReference Include="..\pluto_data\pluto_data.csproj" />
     </ItemGroup>
 
 </Project>

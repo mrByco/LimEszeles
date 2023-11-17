@@ -9,6 +9,7 @@ export { Deck } from './models/deck';
 export { DeckConfig } from './models/deck-config';
 export { FieldChange } from './models/field-change';
 export { Game } from './models/game';
+export { GenericObject } from './models/generic-object';
 export { InGameNotification } from './models/in-game-notification';
 export { LoginCredentials } from './models/login-credentials';
 export { PaginatedResourceResult } from './models/paginated-resource-result';
