@@ -1,3 +1,4 @@
+using limesz_app.Misc.GameLogic.Abstraction;
 using limesz_app.Services;
 using limesz_app.Services.Game;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,15 @@ public class LobbyController: ControllerBase
     {
         _connectionService.AddUserId(connectionToken, userId);
         _gameService.CreateLobby(userName, userId);
+    }
+    
+    [HttpGet("set-card-set/{cardSetId}/{connectionToken}", Name = nameof(SetCardSetInRide))]
+    public void SetCardSetInRide(string cardSetId, string connectionToken)
+    {
+        var userId = _connectionService.GetUserIdByConnectionToken(connectionToken);
+        Ride ride = _gameService.GetRideByUserId(userId);
+        ride.Settings.CardSetId = cardSetId;
+        _gameService.NotifyRide(ride);
     }
     
     [HttpGet("start-game/{connectionToken}", Name = nameof(StartGame))]

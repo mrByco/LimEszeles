@@ -26,6 +26,6 @@ export class DateTimeFieldComponent implements AfterViewInit {
   private _value: Moment = moment();
 
   ngAfterViewInit(): void {
-    this._value = moment();//moment(this.data[this.prop.jsAccessor]);
+    this._value = moment();
   }
 }

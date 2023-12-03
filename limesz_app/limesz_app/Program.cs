@@ -47,6 +47,7 @@ builder.Services.AddSingleton<CardSetService>();
 builder.Services.AddSingleton<NestedTestService>();
 builder.Services.AddSingleton<ManufacturedCarService>();
 
+
 //TODO
 
 builder.Services.AddSignalR();

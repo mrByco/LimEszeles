@@ -1,12 +1,14 @@
-<body class='background'>
-<lib-button></lib-button>
-
+<body class=''>
   <app-loader>
     <app-modal-provider>
       <div class="d-flex">
         <app-side-bar style="z-index: 50;" side="left" #sidebar></app-side-bar>
         <div class="d-flex flex-column" style="width: 100%; min-height: 100vh">
-          <router-outlet></router-outlet>
+          <app-game-screen *ngIf='rideService.ride$.value && rideService.ride$.value.state == "game"'></app-game-screen>
+          <ng-container *ngIf='!rideService.ride$.value || rideService.ride$.value.state != "game"'>
+            <app-navbar></app-navbar>
+            <router-outlet></router-outlet>
+          </ng-container>
         </div>
         <app-side-bar style="z-index: 50;" side="right" #sidebar></app-side-bar>
       </div>

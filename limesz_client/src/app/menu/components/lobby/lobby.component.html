@@ -1,0 +1,47 @@
+<div class='d-flex flex-wrap justify-content-between'>
+
+  <div class='panel m-4' style='min-width: 350px'>
+    Players
+    <hr>
+    <h5 *ngFor='let p of players' [ngStyle]='{"color": p.userId == myId ? "black" : "#595959"}'>
+      {{p.name}} {{p.userId == myId ? '(me)' : ''}}
+    </h5>
+    <hr>
+    <app-big-button (click)='start()'>Start</app-big-button>
+    <app-big-button (click)='leave()'>Leave</app-big-button>
+
+  </div>
+
+
+  <div class='panel m-4 d-flex flex-column h-100' style='min-width: 500px'>
+    <h5 style='font-weight: bold; color:#000;'>Settings</h5>
+    <hr>
+    <div class='d-flex align-items-center' >
+      <div style='font-weight: bold; font-size: 18px; color:#000;'>Join code: {{lobbyId}}</div>
+      <button mat-button color='primary' (click)='copyJoinCode()'>Copy</button>
+    </div>
+    <div class='d-flex align-items-center'>
+      <div style='font-weight: bold; font-size: 18px; color: #000'>Card set: </div>
+      <button mat-button color='primary' [matMenuTriggerFor]='selectCardSetMenu'>{{currentCardSet?.name??""}}</button>
+      <mat-menu #selectCardSetMenu>
+        <button *ngFor='let set of cardSetService.cardSets' mat-menu-item (click)='setCardSet(set.id)'>{{set.name}}</button>
+      </mat-menu>
+    </div>
+    <hr>
+    <div class='align-self-end d-flex justify-content-around w-100 mt-4'>
+
+      <button mat-flat-button color='primary' (click)='start()'>
+        Start
+      </button>
+      <button mat-flat-button>
+        Leave
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class='panel m-4' style='width: 350px'>
+
+  </div>
+</div>

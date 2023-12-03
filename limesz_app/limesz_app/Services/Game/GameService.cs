@@ -1,6 +1,7 @@
 using limesz_app.Hubs;
 using limesz_app.Misc.GameLogic.Abstraction;
 using limesz_app.Misc.GameLogic.CardGame;
+using margarita_data.Models;
 using Microsoft.AspNetCore.SignalR;
 using Pluto.Models;
 
@@ -26,11 +27,13 @@ public class GameService
         ride.Id = GenerateRideId();
         ride.State = "lobby";
         ride.Users = new List<User>();
+        ride.Settings.CardSetId = CardSetService.GetUnoCardSet().Id;
         ride.Users.Add(new User()
         {
             Id = userId,
             Username = userName
         });
+        
         _rides.Add(ride);
         
         NotifyRide(ride);
@@ -84,7 +87,7 @@ public class GameService
         }
     }
     
-    private void NotifyRide(Ride ride)
+    public void NotifyRide(Ride ride)
     {
         var connectionIds = _connectionService.GetConnectionIdsForRide(ride);
         if (connectionIds.Count == 0)
@@ -109,7 +112,7 @@ public class GameService
         }
         
         rideToStart.State = "game";
-        var cardGame = new Misc.GameLogic.CardGame.CardGame(rideToStart, new LimeszUno());
+        var cardGame = new Misc.GameLogic.CardGame.CardGame(rideToStart, new LimeszUno(rideToStart.Settings));
         cardGame.OnChange += () => NotifyRide(rideToStart);
         _cardGames.Add(rideToStart, cardGame);
         _cardGames[rideToStart].Start();
@@ -117,7 +120,7 @@ public class GameService
 
     }
 
-    private Ride? GetRideByUserId(string userId)
+    public Ride? GetRideByUserId(string userId)
     {
         return _rides.FirstOrDefault(r => r.Users.Any(u => u.Id == userId));
     }

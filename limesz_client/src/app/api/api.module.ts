@@ -6,6 +6,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { ActionsApi } from './services/actions-api';
 import { AuthApi } from './services/auth-api';
+import { CardSetApi } from './services/card-set-api';
 import { ImagesApi } from './services/images-api';
 import { LobbyApi } from './services/lobby-api';
 import { ResourceApi } from './services/resource-api';
@@ -23,6 +24,7 @@ import { WeatherForecastApi } from './services/weather-forecast-api';
   providers: [
     ActionsApi,
     AuthApi,
+    CardSetApi,
     ImagesApi,
     LobbyApi,
     ResourceApi,

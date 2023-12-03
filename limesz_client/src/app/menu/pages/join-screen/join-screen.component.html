@@ -1,0 +1,11 @@
+
+<div class='d-flex flex-wrap'>
+  <div class="d-flex flex-column m-2">
+    <input type="text" (keypress)="forceKeyPressUppercase($event)" [(ngModel)]="joinCode" placeholder="Lobby code" class="input-field" style="text-align: center">
+    <app-big-button (click)="joinLobby()">
+      Join lobby
+    </app-big-button>
+  </div>
+
+
+</div>

@@ -15,6 +15,8 @@ import { joinLobby } from '../fn/lobby/join-lobby';
 import { JoinLobby$Params } from '../fn/lobby/join-lobby';
 import { leaveLobby } from '../fn/lobby/leave-lobby';
 import { LeaveLobby$Params } from '../fn/lobby/leave-lobby';
+import { setCardSetInRide } from '../fn/lobby/set-card-set-in-ride';
+import { SetCardSetInRide$Params } from '../fn/lobby/set-card-set-in-ride';
 import { startGame } from '../fn/lobby/start-game';
 import { StartGame$Params } from '../fn/lobby/start-game';
 
@@ -95,6 +97,31 @@ export class LobbyApi extends BaseService {
    */
   createLobby(params: CreateLobby$Params, context?: HttpContext): Observable<void> {
     return this.createLobby$Response(params, context).pipe(
+      map((r: StrictHttpResponse<void>): void => r.body)
+    );
+  }
+
+  /** Path part for operation `setCardSetInRide()` */
+  static readonly SetCardSetInRidePath = '/Lobby/set-card-set/{cardSetId}/{connectionToken}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `setCardSetInRide()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  setCardSetInRide$Response(params: SetCardSetInRide$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return setCardSetInRide(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `setCardSetInRide$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  setCardSetInRide(params: SetCardSetInRide$Params, context?: HttpContext): Observable<void> {
+    return this.setCardSetInRide$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }

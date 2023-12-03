@@ -4,6 +4,7 @@ import { RideService } from './services/ride.service';
 import { UserService } from './services/user.service';
 import { PromptService } from './services/prompt-service';
 import { AlertService, LoadingService, ThemeService } from 'projects/pluto/src/public-api';
+import { CardSetService } from './services/card-set-service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
   public userService: UserService = inject(UserService);
   public promptService = inject(PromptService);
   private alertService = inject(AlertService);
+  private cardSetService = inject(CardSetService);
 
   public shownNotifications: string[] = [];
 
@@ -29,6 +31,9 @@ export class AppComponent {
 
     this.rideService.ride$.subscribe(ride => {
       if (!ride) {
+        return;
+      }
+      if (!ride.game?.inGameNotifications) {
         return;
       }
       let notShownNotifications = ride.game.inGameNotifications.filter(n => !this.shownNotifications.includes(n.id));

@@ -10,9 +10,23 @@ public class CardSetService: PlutoSmartRepo<CardSet>
     public CardSetService(IMongoDatabaseService mongoDatabaseService) : base(mongoDatabaseService, "CardSets1s")
     {
     }
+    
+    public static List<CardSet> GetCardSets()
+    {
+        return new List<CardSet>()
+        {
+            GetUnoCardSet(),
+            PromptDebugCardSet()
+        };
+    }
+    
+    public static CardSet GetDefaultCardSet()
+    {
+        return GetUnoCardSet();
+    }
 
 
-    public static List<Card> GetUnoCardSet()
+    public static CardSet GetUnoCardSet()
     {
         List<string> colors = new List<string>()
         {
@@ -47,12 +61,20 @@ public class CardSetService: PlutoSmartRepo<CardSet>
                 });
             }
         }
+        
+        CardSet cardSet = new CardSet()
+        {
+            Id = "656cb3031d3cdbabd202c6d6",
+            Name = "Uno Classic",
+            Description = "Classic Uno Card Set",
+            Cards = cards
+        };
 
-        return cards;
+        return cardSet;
     }
 
 
-    public static List<Card> PromptDebugCardSet()
+    public static CardSet PromptDebugCardSet()
     {
         
         List<string> colors = new List<string>()
@@ -99,7 +121,15 @@ public class CardSetService: PlutoSmartRepo<CardSet>
             }
         }
 
-        return cards;
+        CardSet cardSet = new CardSet()
+        {
+            Id = "656cb3031d3cdbabd202c6d7",
+            Name = "Debug Card Set",
+            Description = "Debug Card Set for prompt testing",
+            Cards = cards
+        };
+        
+        return cardSet;
     }
 
 }

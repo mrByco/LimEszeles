@@ -1,0 +1,22 @@
+<mat-toolbar class='d-flex' color="primary">
+
+  <ng-container *ngIf='!rideService.ride$.value'>
+    <button mat-button (click)='rideService.createLobby()'>New game</button>
+    <button mat-button routerLink='/join'>Join</button>
+  </ng-container>
+
+  <ng-container *ngIf='rideService.ride$.value'>
+    <button mat-button routerLink='/lobby'>Lobby</button>
+  </ng-container>
+
+  <button mat-icon-button [matMenuTriggerFor]='profileMenu' style='margin-left: auto; scale: 1.3 '>
+    <mat-icon >account_circle</mat-icon>
+  </button>
+  <mat-menu #profileMenu style='overflow: clip'>
+    <div mat-menu-item>
+      <p style='white-space: pre-wrap' class='text-white'>You are logged in as</p>
+    </div>
+    <button mat-menu-item routerLink="/login">Login</button>
+    <button mat-menu-item routerLink="/register">Register</button>
+  </mat-menu>
+</mat-toolbar>

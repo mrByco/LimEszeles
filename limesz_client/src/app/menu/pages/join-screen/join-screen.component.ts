@@ -1,16 +1,15 @@
-import {Component, inject} from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { RideService } from '../../services/ride.service';
+import { Component, inject } from '@angular/core';
+import { LobbyApi } from '../../../api/services/lobby-api';
+import { UserService } from '../../../services/user.service';
+import { RideService } from '../../../services/ride.service';
 import { firstValueFrom } from 'rxjs';
-import { LobbyApi } from '../../api/services';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  selector: 'app-join-screen',
+  templateUrl: './join-screen.component.html',
+  styleUrls: ['./join-screen.component.scss']
 })
-export class MenuComponent {
-
+export class JoinScreenComponent {
   public joinCode: string = '';
   private lobbyApi = inject(LobbyApi);
   private userService = inject(UserService);
@@ -42,10 +41,6 @@ export class MenuComponent {
       e.preventDefault();
     }
   };
-
-  async createLobby() {
-    await firstValueFrom(this.lobbyApi.createLobby({ userName: this.userService.userName, userId: this.userService.userId, connectionToken: this.rideService.connectionToken }))
-  }
 
   async joinLobby() {
     await firstValueFrom(this.lobbyApi.joinLobby({ userName: this.userService.userName, userId: this.userService.userId, connectionToken: this.rideService.connectionToken, lobbyId: this.joinCode }))

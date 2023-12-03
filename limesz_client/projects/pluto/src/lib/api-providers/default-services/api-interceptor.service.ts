@@ -22,7 +22,6 @@ export class ApiInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    //if it is https://somedomain:orevenport/{{MetaApiRequestPath}}, redirect it
     if (req.url.includes(META_API_REQUEST_PATH)) {
       const urlParts = req.url.split(META_API_REQUEST_PATH);
       // remove the first element
@@ -38,13 +37,14 @@ export class ApiInterceptorService implements HttpInterceptor {
       return next.handle(req);
     }
 
-    let context = DataContextProvider.instance.getDataContext();
-    let contextBase64 = btoa(JSON.stringify(context));
+    // TODO Temporary disabled
+    //let context = DataContextProvider.instance.getDataContext();
+    //let contextBase64 = btoa(JSON.stringify(context));
 
     const tokenizedReq = req.clone({
       headers: req.headers
-        .set('Access-Control-Allow-Origin', '* ')
-        .set('Pl-Context', contextBase64)
+        .set('Access-Control-Allow-Origin', '*')
+        //.set('Pl-Context', contextBase64)
     });
     let token = this.authService.Token;
     if (!token && this.authService.Authenticated) {

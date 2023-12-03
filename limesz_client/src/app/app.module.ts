@@ -17,14 +17,10 @@ import { QuillModule } from 'ngx-quill';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
-import { MenuScreenComponent } from './screens/menu-screen/menu-screen.component';
-import { MenuBackgroundComponent } from './menu-background/menu-background.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatRippleModule } from '@angular/material/core';
 import { LoginWrapper } from './components/login-wrapper/login-wrapper.component';
-import { LobbyComponent } from './components/lobby/lobby.component';
-import { LobbyScreenComponent } from './screens/lobby-screen/lobby-screen.component';
+import { LobbyComponent } from './menu/components/lobby/lobby.component';
 import { GameScreenComponent } from './screens/game-screen/game-screen.component';
 import { MyCardsComponent } from './components/my-cards/my-cards.component';
 import { CardComponent } from './components/card/card.component';
@@ -37,6 +33,12 @@ import { PromptService } from './services/prompt-service';
 import { AuthApi } from './api/services/auth-api';
 import { APlutoAuthApi, PlutoModule } from 'projects/pluto/src/public-api';
 import { InjectTestComponent } from './pages/empty/inject-test/inject-test.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MenuModule } from './menu/menu.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { CardSetService } from './services/card-set-service';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -48,12 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     EmptyComponent,
-    MenuScreenComponent,
-    MenuBackgroundComponent,
-    MenuComponent,
     LoginWrapper,
-    LobbyComponent,
-    LobbyScreenComponent,
     GameScreenComponent,
     MyCardsComponent,
     CardComponent,
@@ -62,20 +59,22 @@ export function HttpLoaderFactory(http: HttpClient) {
     InGamePlayerListComponent,
     ColorPickerPromptComponent,
     GameRootComponent,
-    InjectTestComponent
+    InjectTestComponent,
+    NavbarComponent,
   ],
   imports: [
     ImageCropperModule,
-    ApiModule.forRoot({rootUrl: ApiUrl}),
+    ApiModule.forRoot({ rootUrl: ApiUrl }),
     PlutoModule.forRoot({
       ApiUrl: ApiUrl,
       RefreshTokenPath: AuthApi.AuthRefreshTokenPostPath,
       providers: [
-          { provide: APlutoAuthApi, useClass: AuthApi },
-        ]
+        { provide: APlutoAuthApi, useClass: AuthApi },
+      ],
     }),
+    MenuModule,
     RouterModule.forRoot([
-      { path: '', component: GameRootComponent, pathMatch: 'full' },
+      { path: 'ingame', component: GameRootComponent, pathMatch: 'full' },
     ], {
       paramsInheritanceStrategy: 'always',
       initialNavigation: 'enabledBlocking',
@@ -100,12 +99,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     MatRippleModule,
     MatTabsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
   ],
   providers: [
     MatButtonModule,
     UserService,
-    PromptService
+    PromptService,
+    CardSetService
   ],
-  bootstrap: [AppComponent]
+  exports: [
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

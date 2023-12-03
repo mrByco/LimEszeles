@@ -43,7 +43,7 @@ export class RideService {
   }
 
   public get meAsPlayer(): Player {
-    if (!this.ride$.value) {
+    if (!this.ride$.value || !this.ride$.value.game || !this.ride$.value.game.players) {
       return undefined;
     }
     return this.ride$.value.game.players.find(p => p.userId == this.userService.userId);
@@ -94,6 +94,10 @@ export class RideService {
     return new Promise( async (resolve, reject) => {
       resolve({});
     });
+  }
+
+  async createLobby() {
+    await firstValueFrom(this.lobbyApi.createLobby({ userName: this.userService.userName, userId: this.userService.userId, connectionToken: this.connectionToken }))
   }
 
   public setListenerNoRide() {

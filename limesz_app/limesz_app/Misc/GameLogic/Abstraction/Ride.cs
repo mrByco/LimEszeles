@@ -13,6 +13,7 @@ public class Ride
     public Game? Game { get; set; }
     public ScoreScreenData? ScoreScreenData { get; set; }
     private List<string> currentPlayers = new ();
+    public GameSettings Settings { get; set; } = new GameSettings();
 }
 
 
@@ -24,6 +25,12 @@ public class Game
     public List<CustomPromptDefinition> CustomPrompts { get; set; } = new List<CustomPromptDefinition>();
     public List<ActivePrompt> ActivePrompts { get; set; } = new List<ActivePrompt>();
     public List<InGameNotification> InGameNotifications { get; set; } = new List<InGameNotification>();
+    public GameSettings Settings { get; set; } = new GameSettings();
+}
+
+public class GameSettings
+{
+    public string CardSetId { get; set; }
 }
 
 public class InGameNotification

@@ -1,5 +1,6 @@
 export { ActionsApi } from './services/actions-api';
 export { AuthApi } from './services/auth-api';
+export { CardSetApi } from './services/card-set-api';
 export { ImagesApi } from './services/images-api';
 export { LobbyApi } from './services/lobby-api';
 export { ResourceApi } from './services/resource-api';

@@ -1,5 +1,6 @@
 using limesz_app.Misc.GameLogic.Abstraction;
 using limesz_app.Services;
+using margarita_data.Models;
 
 namespace limesz_app.Misc.GameLogic.CardGame
 {
@@ -7,11 +8,17 @@ namespace limesz_app.Misc.GameLogic.CardGame
     {
         private List<string> playersWithUno = new List<string>();
         private CardGame Game { get; set; }
+        private GameSettings GameSettings { get; set; }
+        
+        public LimeszUno(GameSettings settings)
+        {
+            GameSettings = settings;
+        }
 
         public void Init(CardGame game)
         {
             Game = game;
-            Game.CreateDeck("Source", CardSetService.GetUnoCardSet());
+            Game.CreateDeck("Source", CardSetService.GetCardSets().Find(c => c.Id == this.GameSettings.CardSetId)!.Cards);
             Game.CreateDeck("Discard", new List<Card>());
             Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
             Game.GetDeck("Discard").DeckConfig.CanPull = false;
