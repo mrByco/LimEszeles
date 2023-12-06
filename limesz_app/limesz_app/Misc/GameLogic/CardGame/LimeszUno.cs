@@ -18,7 +18,8 @@ namespace limesz_app.Misc.GameLogic.CardGame
         public void Init(CardGame game)
         {
             Game = game;
-            Game.CreateDeck("Source", CardSetService.GetCardSets().Find(c => c.Id == this.GameSettings.CardSetId)!.Cards);
+            var cardSetId = CardSetService.GetCardSets().Find(c => c.Id == this.GameSettings.CardSetId)!.Cards;
+            Game.CreateDeck("Source", cardSetId);
             Game.CreateDeck("Discard", new List<Card>());
             Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
             Game.GetDeck("Discard").DeckConfig.CanPull = false;

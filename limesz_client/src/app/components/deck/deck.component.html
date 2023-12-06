@@ -4,6 +4,8 @@
     <app-card [card]='deck.cards[deck.cards.length - 1]' [flipped]='deck.deckConfig.upsideDown'></app-card>
   </ng-container>
 
-  {{deck.cards.length}} cards.
-  {{deck.name}}
 </div>
+
+<p style='width: 100%; font-weight: 700; color: #b7a5d2; text-align: center'>
+  {{deck.name}} - {{deck.cards.length}}
+</p>

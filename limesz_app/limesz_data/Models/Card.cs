@@ -5,6 +5,7 @@ public class Card
     public string Id { get; set; }
     
     public string Image { get; set; }
+    public string BackImage { get; set; }
     public Dictionary<string, object> Params { get; set; }
 
 }

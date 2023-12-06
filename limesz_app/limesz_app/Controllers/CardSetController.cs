@@ -8,8 +8,6 @@ namespace limesz_app.Controllers;
 [ApiController]
 public class CardSetController: ControllerBase
 {
-    
-    
     [HttpGet("get-card-set-list", Name = nameof(GetCardSetList))]
     public List<CardSet> GetCardSetList()
     {
