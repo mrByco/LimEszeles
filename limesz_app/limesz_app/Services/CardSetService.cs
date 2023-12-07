@@ -189,10 +189,10 @@ public class CardSetService : PlutoSmartRepo<CardSet>
         
         List<string> colors = new List<string>()
         {
-            "Red",
-            "Blue",
-            "Green",
-            "Yellow"
+            "red",
+            "blue",
+            "green",
+            "yellow"
         };
 
         for (int i = 0; i < 4; i++)

@@ -16,6 +16,7 @@ import { PlutoModule } from 'pluto';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { StatsComponent } from './pages/stats/stats.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     WelcomeComponent,
     LobbyComponent,
     MenuRootComponent,
-    NavbarComponent
+    NavbarComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
           { path: '', component: WelcomeComponent, pathMatch: 'full' },
           { path: 'join', component: JoinScreenComponent },
           { path: 'lobby', component: LobbyScreenComponent },
+          { path: 'stats', component: StatsComponent },
         ],
       },
     ]),

@@ -14,6 +14,8 @@ public class Ride
     public ScoreScreenData? ScoreScreenData { get; set; }
     private List<string> currentPlayers = new ();
     public GameSettings Settings { get; set; } = new GameSettings();
+    
+    public GameStats Stats { get; set; } = new GameStats();
 }
 
 
@@ -26,7 +28,18 @@ public class Game
     public List<ActivePrompt> ActivePrompts { get; set; } = new List<ActivePrompt>();
     public List<InGameNotification> InGameNotifications { get; set; } = new List<InGameNotification>();
     public string CurrentColor { get; set; }
-    public GameSettings Settings { get; set; } = new GameSettings();
+}
+
+public class GameStats
+{
+    public List<UserStat> UserStats { get; set; } = new List<UserStat>();
+}
+
+public class UserStat
+{
+    public string UserId { get; set; }
+    public int PlayedCards { get; set; }
+    public int? Won { get; set; }
 }
 
 public class GameSettings

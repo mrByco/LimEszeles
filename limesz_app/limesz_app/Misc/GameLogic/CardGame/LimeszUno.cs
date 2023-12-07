@@ -42,6 +42,8 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 }
                 Game.NotifyClients();
             });
+            
+            
         }
 
         public void Start()
@@ -74,6 +76,7 @@ namespace limesz_app.Misc.GameLogic.CardGame
                     
                     Game.SendNotification($"{player.Name} won!");
                     NextPlayer();
+                    Game.StatPlayerWon(player);
                     Game.RemovePlayer(player.Id);;
                     Game.NotifyClients();
                     return;
@@ -82,10 +85,12 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 var cardValue = card.Params["Value"] as string;
                 if (cardValue == "skip")
                 {
+                    await ChooseNewColor(card, player);
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
                 else if (cardValue == "get-2")
                 {
+                    await ChooseNewColor(card, player);
                     Game.GiveCards(Game.DefaultNextPlayer, 2, "Source");
                     SendPenaltyNotification(Game.CurrentPlayer.Name, 2);
                     //Skip next player
@@ -93,28 +98,23 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 }
                 else if (cardValue == "get-3")
                 {
-                    var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
+                    await ChooseNewColor(card, player);
                     Game.GiveCards(Game.DefaultNextPlayer, 3, "Source");
-                    SendPenaltyNotification(Game.CurrentPlayer.Name, 4);
-                    card.Params["Color"] = pickedColor["color"].ToString();
+                    SendPenaltyNotification(Game.CurrentPlayer.Name, 3);
                     //Skip next player
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
                 else if (cardValue == "get-4")
                 {
-                    var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
+                    await ChooseNewColor(card, player);
                     Game.GiveCards(Game.DefaultNextPlayer, 4, "Source");
                     SendPenaltyNotification(Game.CurrentPlayer.Name, 4);
-                    card.Params["Color"] = pickedColor["color"].ToString();
 
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
                 else if (cardValue == "pull-one" || cardValue == "switch" || cardValue == "any")
                 {
-                    Game.SendNotification("Not implemented card is used: " + cardValue);
-                    var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
-                    Game.SendNotification($"{player.Name} picked {pickedColor["color"]}");
-                    card.Params["Color"] = pickedColor["color"].ToString();
+                    await ChooseNewColor(card, player);
                 }
             }
             else
@@ -122,6 +122,14 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 Game.GiveCards(Game.CurrentPlayer.Id, 2, "Source");
             }
             NextPlayer();
+        }
+
+        private async Task ChooseNewColor(Card card, Player player)
+        {
+            var pickResult = await Game.WaitForPrompt(player.Id, "colorPicker");
+            card.Params["Color"] = pickResult["color"].ToString();
+            Game.SetCurrentColor(pickResult["color"].ToString());
+            Game.SendNotification($"{player.Name} picked {pickResult["color"]}");
         }
 
         public void PullFromDeck(Player getPlayer, Deck getDeck, int count)

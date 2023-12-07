@@ -7,7 +7,6 @@
       {{p.name}} {{p.userId == myId ? '(me)' : ''}}
     </h5>
     <hr>
-    <app-big-button (click)='start()'>Start</app-big-button>
     <app-big-button (click)='leave()'>Leave</app-big-button>
 
   </div>
@@ -32,9 +31,6 @@
 
       <button mat-flat-button color='primary' (click)='start()'>
         Start
-      </button>
-      <button mat-flat-button>
-        Leave
       </button>
     </div>
 

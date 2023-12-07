@@ -33,6 +33,14 @@ public sealed class CardGame
             Cards = new List<Card>()
         }).ToList();
         
+        hostRide.Stats = new GameStats();
+        hostRide.Stats.UserStats = initGameState.Users.Select((u) => new UserStat
+        {
+            UserId = u.Id,
+            PlayedCards = 0,
+            Won = null
+        }).ToList();
+        
         _behaviour = behaviour;
         _behaviour.Init(this);
     }
@@ -206,6 +214,7 @@ public sealed class CardGame
         {
             return;
         }
+        hostRide.Stats.UserStats.Find(s => s.UserId == playerId)!.PlayedCards++;
         _behaviour.PlayCard(card, player);
     }
 
@@ -307,5 +316,11 @@ public sealed class CardGame
     public void SetCurrentColor(string? param)
     {
         this.hostRide.Game.CurrentColor = param;
+    }
+
+    public void StatPlayerWon(Player player)
+    {
+        var currentPosition = hostRide.Stats.UserStats.Max(s => s.Won);
+        hostRide.Stats.UserStats.Find(s => s.UserId == player.Id)!.Won = currentPosition + 1;
     }
 }
