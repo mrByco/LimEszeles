@@ -243,7 +243,7 @@ public class CardSetService : PlutoSmartRepo<CardSet>
             Params = new Dictionary<string, object>()
             {
                 {"Color", "any"},
-                {"Value", "skip"}
+                {"Value", "Skip"}
             }
         }, 3));
 
