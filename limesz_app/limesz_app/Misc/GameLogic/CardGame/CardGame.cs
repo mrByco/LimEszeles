@@ -303,4 +303,9 @@ public sealed class CardGame
         }
         players.Remove(player);
     }
+
+    public void SetCurrentColor(string? param)
+    {
+        this.hostRide.Game.CurrentColor = param;
+    }
 }

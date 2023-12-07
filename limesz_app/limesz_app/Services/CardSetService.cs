@@ -66,12 +66,12 @@ public class CardSetService : PlutoSmartRepo<CardSet>
 
         foreach (var card in cards)
         {
-            card.BackImage = "/assets/uno-cards/uno-back.png";
+            card.BackImage = "/assets/uno-cards/uno.png";
         }
 
         return new CardSet()
         {
-            Id = "656cb3031d3cdbabd202c6d7",
+            Id = "656cb3031d3cdbabd202c6d6",
             Name = "Classic Uno Card Set",
             Description = "Classic Card Set",
             Cards = cards,
@@ -171,7 +171,7 @@ public class CardSetService : PlutoSmartRepo<CardSet>
 
         return cardSet;
     }
-
+    
     public static CardSet GetLimeszCard()
     {
         List<Card> cards = new List<Card>();

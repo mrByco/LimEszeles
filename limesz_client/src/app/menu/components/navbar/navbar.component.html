@@ -2,11 +2,15 @@
 
   <ng-container *ngIf='!rideService.ride$.value'>
     <button mat-button (click)='rideService.createLobby()'>New game</button>
-    <button mat-button routerLink='/join'>Join</button>
+    <button mat-button routerLink='/menu/join'>Join</button>
   </ng-container>
 
   <ng-container *ngIf='rideService.ride$.value'>
-    <button mat-button routerLink='/lobby'>Lobby</button>
+    <button mat-button routerLink='/menu/lobby'>Lobby</button>
+  </ng-container>
+
+  <ng-container *ngIf='rideService.ride$.value && rideService.ride$.value.state == "game"'>
+    <button mat-button routerLink='/game'>Game in progress</button>
   </ng-container>
 
   <button mat-icon-button [matMenuTriggerFor]='profileMenu' style='margin-left: auto; scale: 1.3 '>

@@ -32,12 +32,13 @@ import { ColorPickerPromptComponent } from './components/prompts/color-picker-pr
 import { PromptService } from './services/prompt-service';
 import { AuthApi } from './api/services/auth-api';
 import { APlutoAuthApi, PlutoModule } from 'projects/pluto/src/public-api';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './menu/components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MenuModule } from './menu/menu.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { CardSetService } from './services/card-set-service';
+import { WelcomeComponent } from './menu/pages/welcome/welcome.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -57,8 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DecksComponent,
     InGamePlayerListComponent,
     ColorPickerPromptComponent,
-    GameRootComponent,
-    NavbarComponent,
+    GameRootComponent
   ],
   imports: [
     ImageCropperModule,
@@ -72,7 +72,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     MenuModule,
     RouterModule.forRoot([
-      { path: 'ingame', component: GameRootComponent, pathMatch: 'full' },
+      { path: 'game', component: GameScreenComponent, pathMatch: 'full' },
+      { path: '', redirectTo: "menu", pathMatch: 'full'},
+      { path: '**', redirectTo: "menu", pathMatch: 'full' },
     ], {
       paramsInheritanceStrategy: 'always',
       initialNavigation: 'enabledBlocking',

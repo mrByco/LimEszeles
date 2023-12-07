@@ -15,6 +15,9 @@ export class InGamePlayerListComponent {
 
   constructor() {
     this.rideService.ride$.subscribe(ride => {
+      if (!ride || !ride.game) {
+        return;
+      }
       this.players = ride.game.players;
       this.interactivePlayerIds = ride.game.interactivePlayers.map(player => player.userId);
     });

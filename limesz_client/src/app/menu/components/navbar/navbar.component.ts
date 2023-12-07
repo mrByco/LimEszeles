@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RideService } from 'src/app/services/ride.service';
+import { RideService } from '../../../services/ride.service';
 
 @Component({
   selector: 'app-navbar',

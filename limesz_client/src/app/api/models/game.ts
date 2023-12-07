@@ -14,4 +14,5 @@ export interface Game {
   interactivePlayers?: Array<Player> | null;
   players?: Array<Player> | null;
   settings?: GameSettings;
+  currentColor?: string | null;
 }

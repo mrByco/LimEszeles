@@ -73,7 +73,10 @@ namespace limesz_app.Misc.GameLogic.CardGame
                     // Send notificattion so player x won, and remove from players
                     
                     Game.SendNotification($"{player.Name} won!");
-                    Game.RemovePlayer(player.Id);
+                    NextPlayer();
+                    Game.RemovePlayer(player.Id);;
+                    Game.NotifyClients();
+                    return;
                 }
 
                 var cardValue = card.Params["Value"] as string;
@@ -151,6 +154,8 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 Game.ShuffleDeck("Source");
                 Game.SendNotification("Source is reshuffled, with drop cards.");
             }
+            
+            Game.SetCurrentColor(Game.GetLastCardFromDeck("Discard").Params["Color"] as string);
 
             Game.NotifyClients();
         }

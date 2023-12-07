@@ -28,6 +28,10 @@ export class LobbyComponent {
 
   constructor() {
     this.rideService.ride$.subscribe((ride) => {
+      if (!ride || !ride.settings) {
+        return;
+      }
+
       this.players = Object.values(ride?.users??[]).map((user) => { return {id: user.id, name: user.username} });
       this.lobbyId = ride?.id??'';
 

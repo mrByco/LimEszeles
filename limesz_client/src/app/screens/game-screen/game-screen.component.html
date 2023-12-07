@@ -2,6 +2,9 @@
   <div class='position-absolute' style='right: 25px; top: 25px'>
     <app-icon-button [icon]='faArrowRightFromBracket' color='white' (click)='exit()'></app-icon-button>
   </div>
+  <div class='position-absolute' style='top: 30px; left: 50%; transform: translate(-50%, -50%); color: white'>
+    <p>Current color: {{this.rideService.ride$.value?.game?.currentColor}}:</p>
+  </div>
   <div class='position-absolute' style='top: 15px; left: 15px; '>
     <app-in-game-player-list></app-in-game-player-list>
   </div>
