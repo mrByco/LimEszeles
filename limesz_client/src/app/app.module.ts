@@ -32,7 +32,6 @@ import { ColorPickerPromptComponent } from './components/prompts/color-picker-pr
 import { PromptService } from './services/prompt-service';
 import { AuthApi } from './api/services/auth-api';
 import { APlutoAuthApi, PlutoModule } from 'projects/pluto/src/public-api';
-import { InjectTestComponent } from './pages/empty/inject-test/inject-test.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -59,7 +58,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     InGamePlayerListComponent,
     ColorPickerPromptComponent,
     GameRootComponent,
-    InjectTestComponent,
     NavbarComponent,
   ],
   imports: [

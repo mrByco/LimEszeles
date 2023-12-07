@@ -1,10 +1,8 @@
-using System.Reflection;
 using limesz_app.Hubs;
 using limesz_app.Misc;
 using limesz_app.Services;
 using limesz_app.Services.Game;
 using limesz_app.Services.ImageService;
-using limesz_app.Services.PostalCodeService;
 using pluto.Misc;
 using Pluto.Models;
 using Pluto.Models.AccessControl;
@@ -37,15 +35,10 @@ builder.Services.AddTransient<IAzureStorage, AzureStorage>();
 
 builder.Services.AddScoped<IImageService, ImageService>();
 
-builder.Services.AddSingleton<RestaurantInviteService>();
-builder.Services.AddSingleton<IPostalCodeService, PostalCodeService>();
 builder.Services.AddSingleton<EmailService>();
-builder.Services.AddSingleton<DocumentFileService>();
 builder.Services.AddSingleton<ConnectionService>();
 builder.Services.AddSingleton<GameService>();
 builder.Services.AddSingleton<CardSetService>();
-builder.Services.AddSingleton<NestedTestService>();
-builder.Services.AddSingleton<ManufacturedCarService>();
 
 
 //TODO

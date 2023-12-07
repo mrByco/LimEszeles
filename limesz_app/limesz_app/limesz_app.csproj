@@ -403,6 +403,11 @@
     <Folder Include="Misc\GameLogic\" />
     <Folder Include="TestData\" />
     <Folder Include="Services\ImageService\" />
-    <Folder Include="Models\Metrics\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\qr-code\itallap_resource.png" />
+    <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
   </ItemGroup>
 </Project>

@@ -77,32 +77,38 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 }
 
                 var cardValue = card.Params["Value"] as string;
-                if (cardValue == "Reverse")
-                {
-                    Game.ReverseOrder();
-                }
-                else if (cardValue == "Skip")
+                if (cardValue == "skip")
                 {
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
-                else if (cardValue == "Draw 2")
+                else if (cardValue == "get-2")
                 {
                     Game.GiveCards(Game.DefaultNextPlayer, 2, "Source");
                     SendPenaltyNotification(Game.CurrentPlayer.Name, 2);
                     //Skip next player
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
-                else if (cardValue == "Wild Draw 4")
+                else if (cardValue == "get-3")
                 {
                     var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
-                    Game.GiveCards(Game.DefaultNextPlayer, 4, "Source");
+                    Game.GiveCards(Game.DefaultNextPlayer, 3, "Source");
                     SendPenaltyNotification(Game.CurrentPlayer.Name, 4);
                     card.Params["Color"] = pickedColor["color"].ToString();
                     //Skip next player
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
-                else if (cardValue == "Wild")
+                else if (cardValue == "get-4")
                 {
+                    var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
+                    Game.GiveCards(Game.DefaultNextPlayer, 4, "Source");
+                    SendPenaltyNotification(Game.CurrentPlayer.Name, 4);
+                    card.Params["Color"] = pickedColor["color"].ToString();
+
+                    Game.SetCurrentPlayer(Game.DefaultNextPlayer);
+                }
+                else if (cardValue == "pull-one" || cardValue == "switch" || cardValue == "any")
+                {
+                    Game.SendNotification("Not implemented card is used: " + cardValue);
                     var pickedColor = await Game.WaitForPrompt(player.Id, "colorPicker");
                     Game.SendNotification($"{player.Name} picked {pickedColor["color"]}");
                     card.Params["Color"] = pickedColor["color"].ToString();
@@ -151,12 +157,13 @@ namespace limesz_app.Misc.GameLogic.CardGame
 
         private bool IsCardPlayable(Card card, Card lastCard)
         {
-            if (card.Params["Color"].Equals(lastCard.Params["Color"]) || card.Params["Value"].Equals(lastCard.Params["Value"]))
+            if (card.Params["Color"].Equals(lastCard.Params["Color"]) || card.Params["Value"].Equals(lastCard.Params["Value"]) || card.Params["Value"] == "any")
             {
                 return true;
             }
 
-            if (card.Params["Value"] == "Wild" || card.Params["Value"] == "Wild Draw 4")
+            var value = card.Params["Value"] as string;
+            if (value == "get-3" || value == "get-2" || value == "pull-one" || value == "skip" || value == "switch" )
             {
                 return true;
             }

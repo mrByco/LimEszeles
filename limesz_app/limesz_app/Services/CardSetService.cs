@@ -39,8 +39,7 @@ public class CardSetService : PlutoSmartRepo<CardSet>
 
         List<string> values = new List<string>()
         {
-            "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "Skip",
-            "Skip", "Reverse", "Reverse", "Draw 2", "Draw 2", "Wild", "Wild Draw 4"
+            "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9"
         };
 
         List<Card> cards = new List<Card>();
@@ -63,6 +62,8 @@ public class CardSetService : PlutoSmartRepo<CardSet>
             }
         }
         
+        AddActionCards(cards);
+
         foreach (var card in cards)
         {
             card.BackImage = "/assets/uno-cards/uno-back.png";
@@ -78,56 +79,86 @@ public class CardSetService : PlutoSmartRepo<CardSet>
         };
     }
 
+    private static void AddActionCards(List<Card> cards)
+    {
+        cards.AddRange(Enumerable.Repeat(new Card()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Image = "/assets/limesz-cards/any.png",
+            Params = new Dictionary<string, object>()
+            {
+                {"Color", "any"},
+                {"Value", "any"}
+            }
+        }, 3));
+
+        cards.AddRange(Enumerable.Repeat(new Card()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Image = "/assets/limesz-cards/get_2.png",
+            Params = new Dictionary<string, object>()
+            {
+                {"Color", "any"},
+                {"Value", "get-2"}
+            }
+        }, 3));
+
+        cards.AddRange(Enumerable.Repeat(new Card()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Image = "/assets/limesz-cards/get_3.png",
+            Params = new Dictionary<string, object>()
+            {
+                {"Color", "any"},
+                {"Value", "get-3"}
+            }
+        }, 3));
+
+        cards.AddRange(Enumerable.Repeat(new Card()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Image = "/assets/limesz-cards/pull_one.png",
+            Params = new Dictionary<string, object>()
+            {
+                {"Color", "any"},
+                {"Value", "pull-one"}
+            }
+        }, 3));
+
+        cards.AddRange(Enumerable.Repeat(new Card()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Image = "/assets/limesz-cards/skip.png",
+            Params = new Dictionary<string, object>()
+            {
+                {"Color", "any"},
+                {"Value", "skip"}
+            }
+        }, 3));
+
+        cards.AddRange(Enumerable.Repeat(new Card()
+        {
+            Id = Guid.NewGuid().ToString(),
+            Image = "/assets/limesz-cards/switch_cards.png",
+            Params = new Dictionary<string, object>()
+            {
+                {"Color", "any"},
+                {"Value", "switch"}
+            }
+        }, 3));
+    }
+
 
     public static CardSet PromptDebugCardSet()
     {
-        List<string> colors = new List<string>()
-        {
-            "Blue",
-            "Green",
-            "Red",
-            "Yellow"
-        };
 
-        List<string> values = new List<string>()
-        {
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4",
-            "Wild", "Wild Draw 4"
-        };
-
-        List<Card> cards = new List<Card>();
-
-        foreach (var color in colors)
-        {
-            foreach (var value in values)
-            {
-                var p = new Dictionary<string, object>()
-                {
-                    {"Color", color},
-                    {"Value", value}
-                };
-                cards.Add(new Card()
-                {
-                    Image = ($"/assets/uno-cards/{color}-{value}.png").ToLower().Replace(" ", "-"),
-                    Id = Guid.NewGuid().ToString(),
-                    Params = p
-                });
-            }
-        }
+        var cards = new List<Card>();
+        
+        AddActionCards(cards);
         
         foreach (var card in cards)
         {
-            card.BackImage = "/assets/uno-cards/uno-back.png";
+            card.BackImage = "/assets/uno-cards/uno.png";
         }
 
         CardSet cardSet = new CardSet()
@@ -191,78 +222,12 @@ public class CardSetService : PlutoSmartRepo<CardSet>
             }
         }
         
-        
-        cards.AddRange(Enumerable.Repeat(new Card()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Image = "/assets/limesz-cards/any.png",
-            Params = new Dictionary<string, object>()
-            {
-                {"Color", "any"},
-                {"Value", "any"}
-            }
-        }, 3));
-
-        cards.AddRange(Enumerable.Repeat(new Card()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Image = "/assets/limesz-cards/get_2.png",
-            Params = new Dictionary<string, object>()
-            {
-                {"Color", "any"},
-                {"Value", "get-2"}
-            }
-        }, 3));
-
-        cards.AddRange(Enumerable.Repeat(new Card()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Image = "/assets/limesz-cards/get_3.png",
-            Params = new Dictionary<string, object>()
-            {
-                {"Color", "any"},
-                {"Value", "get-3"}
-            }
-        }, 3));
-
-        cards.AddRange(Enumerable.Repeat(new Card()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Image = "/assets/limesz-cards/pull_one.png",
-            Params = new Dictionary<string, object>()
-            {
-                {"Color", "any"},
-                {"Value", "pull-one"}
-            }
-        }, 3));
-
-        cards.AddRange(Enumerable.Repeat(new Card()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Image = "/assets/limesz-cards/skip.png",
-            Params = new Dictionary<string, object>()
-            {
-                {"Color", "any"},
-                {"Value", "Skip"}
-            }
-        }, 3));
-
-        cards.AddRange(Enumerable.Repeat(new Card()
-        {
-            Id = Guid.NewGuid().ToString(),
-            Image = "/assets/limesz-cards/switch_cards.png",
-            Params = new Dictionary<string, object>()
-            {
-                {"Color", "any"},
-                {"Value", "switch"}
-            }
-        }, 3));
+        AddActionCards(cards);
 
         foreach (var card in cards)
         {
             card.BackImage = "/assets/limesz-cards/teljes_pakli_szerk._nyomda-81.png";
         }
-
 
         return new CardSet()
         {
