@@ -1,0 +1,15 @@
+<div class='d-flex flex-column'>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Length</th>
+      <th>Choose</th>
+    </tr>
+    <tr *ngFor='let player of players'>
+      <td>{{player.name}}</td>
+      <td>{{player.cards.length}}</td>
+      <td><app-generic-button (click)='answer(player)'>Choose</app-generic-button></td>
+    </tr>
+  </table>
+
+</div>

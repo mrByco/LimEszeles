@@ -102,7 +102,8 @@ public sealed class CardGame
     {
         return decks.FirstOrDefault(deck => deck.Name == name)!;
     }
-    private Player? GetPlayer(string id)
+
+    public Player? GetPlayer(string id)
     {
         return players.FirstOrDefault(p => p.Id == id);
     }

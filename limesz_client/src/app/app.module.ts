@@ -39,6 +39,9 @@ import { MenuModule } from './menu/menu.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { CardSetService } from './services/card-set-service';
 import { WelcomeComponent } from './menu/pages/welcome/welcome.component';
+import {
+  ChoosePlayerDeckPromptComponent
+} from './components/prompts/choose-player-deck-prompt/choose-player-deck-prompt.component';
 
 
 export const ApiUrl = environment.backendUrl;
@@ -58,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DecksComponent,
     InGamePlayerListComponent,
     ColorPickerPromptComponent,
+    ChoosePlayerDeckPromptComponent,
     GameRootComponent
   ],
   imports: [

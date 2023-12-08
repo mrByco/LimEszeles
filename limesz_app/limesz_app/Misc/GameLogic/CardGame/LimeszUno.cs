@@ -23,7 +23,11 @@ namespace limesz_app.Misc.GameLogic.CardGame
             Game.CreateDeck("Discard", new List<Card>());
             Game.GetDeck("Discard").DeckConfig.UpsideDown = false;
             Game.GetDeck("Discard").DeckConfig.CanPull = false;
+            
             Game.DefinePrompt("colorPicker", "color-picker", new List<string>{ "red", "green", "blue", "yellow"});
+            Game.DefinePrompt("choosePlayerDeck", "choose-players-deck", new List<string>{ "Source", "Discard"});
+            Game.DefinePrompt("choosePlayerCard", "choose-player-card", new List<string>());
+            
             Game.DefineButton("uno", "someTexture", (string callerId) =>
             {
                 var player = Game.CurrentPlayer;
@@ -42,8 +46,6 @@ namespace limesz_app.Misc.GameLogic.CardGame
                 }
                 Game.NotifyClients();
             });
-            
-            
         }
 
         public void Start()
@@ -68,6 +70,7 @@ namespace limesz_app.Misc.GameLogic.CardGame
 
                 if (player.Cards.Count == 1)
                 {
+                    
                 }
 
                 if (player.Cards.Count == 0)
@@ -112,7 +115,29 @@ namespace limesz_app.Misc.GameLogic.CardGame
 
                     Game.SetCurrentPlayer(Game.DefaultNextPlayer);
                 }
-                else if (cardValue == "pull-one" || cardValue == "switch" || cardValue == "any")
+                else if (cardValue == "switch")
+                {
+                    var result = await Game.WaitForPrompt(player.Id, "choosePlayerDeck");
+                    var playerIdToSwitch = result["playerId"].ToString();
+                    var otherPlayer = Game.GetPlayer(playerIdToSwitch);
+                    
+                    var otherPlayerCards = otherPlayer.Cards;
+                    otherPlayer.Cards = player.Cards;
+                    player.Cards = otherPlayerCards;
+
+                    //TODO fix this, prompt did not show up
+                    card.Params["Color"] = "red";
+                    //await ChooseNewColor(card, player);
+
+                    Game.SetCurrentPlayer(Game.DefaultNextPlayer);
+                }
+                else if (cardValue == "pull-one")
+                {
+                    await ChooseNewColor(card, player);
+                    // not implemented
+                    Game.SendNotification("Not implemented");
+                }
+                else if ( cardValue == "any")
                 {
                     await ChooseNewColor(card, player);
                 }
@@ -136,6 +161,14 @@ namespace limesz_app.Misc.GameLogic.CardGame
         {
             Game.GiveCards(getPlayer.Id, count, getDeck.Name);
             NextPlayer();
+        }
+        
+        public void OnAction(string action, string callerId)
+        {
+            if (action == "uno")
+            {
+                
+            }
         }
 
         private void NextPlayer()
